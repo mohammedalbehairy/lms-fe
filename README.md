@@ -1,4 +1,4 @@
-# Lnndo LMS - Lnddo loan managementsystem - user flow
+# Lnddo LMS - Lnddo loan managementsystem - user flow
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli).
 
