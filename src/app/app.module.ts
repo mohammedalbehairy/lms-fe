@@ -33,97 +33,118 @@ import { SubMenuCustomContextMenuComponent } from './main/extensions/context-men
 
 const appRoutes: Routes = [
   {
+    path: 'auth',
+    loadChildren: () =>
+      import('./modules/auth/auth.module').then((m) => m.AuthModule),
+  },
+  {
     path: 'dashboard',
-    loadChildren: () => import('./main/dashboard/dashboard.module').then(m => m.DashboardModule)
+    loadChildren: () =>
+      import('./main/dashboard/dashboard.module').then(
+        (m) => m.DashboardModule
+      ),
   },
   {
     path: 'apps',
-    loadChildren: () => import('./main/apps/apps.module').then(m => m.AppsModule),
-    canActivate: [AuthGuard]
+    loadChildren: () =>
+      import('./main/apps/apps.module').then((m) => m.AppsModule),
+    canActivate: [AuthGuard],
   },
   {
     path: 'pages',
-    loadChildren: () => import('./main/pages/pages.module').then(m => m.PagesModule)
+    loadChildren: () =>
+      import('./main/pages/pages.module').then((m) => m.PagesModule),
   },
   {
     path: 'ui',
-    loadChildren: () => import('./main/ui/ui.module').then(m => m.UIModule),
-    canActivate: [AuthGuard]
+    loadChildren: () => import('./main/ui/ui.module').then((m) => m.UIModule),
+    canActivate: [AuthGuard],
   },
   {
     path: 'components',
-    loadChildren: () => import('./main/components/components.module').then(m => m.ComponentsModule),
-    canActivate: [AuthGuard]
+    loadChildren: () =>
+      import('./main/components/components.module').then(
+        (m) => m.ComponentsModule
+      ),
+    canActivate: [AuthGuard],
   },
   {
     path: 'extensions',
-    loadChildren: () => import('./main/extensions/extensions.module').then(m => m.ExtensionsModule),
-    canActivate: [AuthGuard]
+    loadChildren: () =>
+      import('./main/extensions/extensions.module').then(
+        (m) => m.ExtensionsModule
+      ),
+    canActivate: [AuthGuard],
   },
   {
     path: 'forms',
-    loadChildren: () => import('./main/forms/forms.module').then(m => m.FormsModule),
-    canActivate: [AuthGuard]
+    loadChildren: () =>
+      import('./main/forms/forms.module').then((m) => m.FormsModule),
+    canActivate: [AuthGuard],
   },
   {
     path: 'tables',
-    loadChildren: () => import('./main/tables/tables.module').then(m => m.TablesModule),
-    canActivate: [AuthGuard]
+    loadChildren: () =>
+      import('./main/tables/tables.module').then((m) => m.TablesModule),
+    canActivate: [AuthGuard],
   },
   {
     path: 'charts-and-maps',
-    loadChildren: () => import('./main/charts-and-maps/charts-and-maps.module').then(m => m.ChartsAndMapsModule),
-    canActivate: [AuthGuard]
+    loadChildren: () =>
+      import('./main/charts-and-maps/charts-and-maps.module').then(
+        (m) => m.ChartsAndMapsModule
+      ),
+    canActivate: [AuthGuard],
   },
   {
     path: '',
     redirectTo: '/dashboard/ecommerce',
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
   {
     path: '**',
-    redirectTo: '/pages/miscellaneous/error' //Error 404 - Page not found
-  }
+    redirectTo: '/pages/miscellaneous/error', //Error 404 - Page not found
+  },
 ];
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        ContextMenuComponent,
-        BasicCustomContextMenuComponent,
-        AnimatedCustomContextMenuComponent,
-        SubMenuCustomContextMenuComponent
-    ],
-    imports: [
-        BrowserModule,
-        BrowserAnimationsModule,
-        HttpClientModule,
-        HttpClientInMemoryWebApiModule.forRoot(FakeDbService, {
-            delay: 0,
-            passThruUnknownUrl: true
-        }),
-        RouterModule.forRoot(appRoutes, {
-            scrollPositionRestoration: 'enabled',
-            relativeLinkResolution: 'legacy'
-        }),
-        NgbModule,
-        ToastrModule.forRoot(),
-        TranslateModule.forRoot(),
-        ContextMenuModule,
-        CoreModule.forRoot(coreConfig),
-        CoreCommonModule,
-        CoreSidebarModule,
-        CoreThemeCustomizerModule,
-        CardSnippetModule,
-        LayoutModule,
-        ContentHeaderModule
-    ],
-    providers: [
-        { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-        { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-        // ! IMPORTANT: Provider used to create fake backend, comment while using real API
-        fakeBackendProvider
-    ],
-    bootstrap: [AppComponent]
+  declarations: [
+    AppComponent,
+    ContextMenuComponent,
+    BasicCustomContextMenuComponent,
+    AnimatedCustomContextMenuComponent,
+    SubMenuCustomContextMenuComponent,
+  ],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(FakeDbService, {
+      delay: 0,
+      passThruUnknownUrl: true,
+    }),
+    RouterModule.forRoot(appRoutes, {
+      scrollPositionRestoration: 'enabled',
+      relativeLinkResolution: 'legacy',
+    }),
+    NgbModule,
+    ToastrModule.forRoot(),
+    TranslateModule.forRoot(),
+    ContextMenuModule,
+    CoreModule.forRoot(coreConfig),
+    CoreCommonModule,
+    CoreSidebarModule,
+    CoreThemeCustomizerModule,
+    CardSnippetModule,
+    LayoutModule,
+    ContentHeaderModule,
+  ],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    // ! IMPORTANT: Provider used to create fake backend, comment while using real API
+    fakeBackendProvider,
+  ],
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

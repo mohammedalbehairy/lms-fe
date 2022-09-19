@@ -1,0 +1,132 @@
+@import '@core/scss/base/bootstrap-extended/include'; // Bootstrap includes
+@import '@core/scss/base/pages/page-auth.scss';
+
+.login-container {
+  background: #ffffff;
+  border: 1px solid rgba(10, 54, 119, 0.05);
+  box-shadow: 0px 30px 39px rgba(0, 0, 0, 0.02);
+  border-radius: 12px;
+  padding: 48px 56px !important;
+}
+
+.login {
+  .sign-title {
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 700 !important;
+    font-size: 20px;
+    line-height: 26px;
+    color: #2d3137;
+    margin-bottom: 8px;
+  }
+
+  .sign-sub-title {
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    color: #2d3137;
+  }
+
+  .btn-uaepass {
+    background: #ffede1 !important;
+    border: 1px solid rgba(235, 216, 203, 0.1);
+    border-radius: 8px;
+
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 21px;
+    color: #0a3677 !important;
+    margin: 29px 0 32px 0;
+  }
+
+  .sign-option {
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 21px;
+
+    color: #2d3137;
+    margin-bottom: 11px;
+  }
+
+  .btn-sign-in {
+    background: #0a3677 !important;
+    border: 1px solid rgba(175, 203, 255, 0.5) !important;
+    border-radius: 8px !important;
+
+    span {
+      font-family: 'DM Sans';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 21px;
+
+      color: #fcfdff;
+    }
+  }
+
+  .cursor-pointer {
+    font-family: 'Font Awesome 5 Free';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+
+    color: #0a3677;
+  }
+
+  .link-option {
+    span {
+      font-family: 'DM Sans';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 21px;
+
+      color: #0a3677;
+    }
+    margin-top: 48px !important;
+  }
+
+  .remember-me {
+    // input {
+    //   font-family: 'Font Awesome 5 Free';
+    //   font-style: normal;
+    //   font-weight: 900;
+    //   font-size: 24px;
+    //   line-height: 28px;
+    //   border-color: red !important;
+    //   background-color: red !important;
+    //   color: #0a3677;
+    // }
+    label {
+      font-family: 'DM Sans';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 18px;
+
+      color: #2d3137;
+    }
+  }
+  .form-group {
+    margin-bottom: 24px;
+    label {
+      margin-bottom: 10px;
+    }
+    input,
+    .input-group-text {
+      border: none;
+      border-radius: 8px;
+    }
+    .input-group {
+      border: 1px solid rgba(10, 54, 119, 0.05);
+      border-radius: 8px;
+    }
+  }
+}
