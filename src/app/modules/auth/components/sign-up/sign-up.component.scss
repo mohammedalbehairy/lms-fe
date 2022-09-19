@@ -1,7 +1,7 @@
 @import '@core/scss/base/bootstrap-extended/include'; // Bootstrap includes
 @import '@core/scss/base/pages/page-auth.scss';
 
-.login-container {
+.register-container {
   background: #ffffff;
   border: 1px solid rgba(10, 54, 119, 0.05);
   box-shadow: 0px 30px 39px rgba(0, 0, 0, 0.02);
@@ -70,7 +70,7 @@
   }
 }
 
-.login {
+.register {
   .sign-title {
     font-family: 'DM Sans';
     font-style: normal;
@@ -154,27 +154,6 @@
     margin-top: 48px !important;
   }
 
-  .remember-me {
-    // input {
-    //   font-family: 'Font Awesome 5 Free';
-    //   font-style: normal;
-    //   font-weight: 900;
-    //   font-size: 24px;
-    //   line-height: 28px;
-    //   border-color: red !important;
-    //   background-color: red !important;
-    //   color: #0a3677;
-    // }
-    label {
-      font-family: 'DM Sans';
-      font-style: normal;
-      font-weight: 700;
-      font-size: 14px;
-      line-height: 18px;
-
-      color: #2d3137;
-    }
-  }
   .form-group {
     margin-bottom: 24px;
     label {
@@ -186,6 +165,18 @@
       border-radius: 8px;
     }
     .input-group {
+      border: 1px solid rgba(10, 54, 119, 0.05);
+      border-radius: 8px;
+    }
+  }
+
+  .default-input {
+    margin-bottom: 24px;
+    label {
+      margin-bottom: 10px;
+    }
+
+    input {
       border: 1px solid rgba(10, 54, 119, 0.05);
       border-radius: 8px;
     }

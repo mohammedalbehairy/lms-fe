@@ -7,9 +7,12 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CoreCommonModule } from '@core/common.module';
 import { NgxMaskModule } from 'ngx-mask';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { UserErrorComponent } from './components/user-error/user-error.component';
 
 @NgModule({
-  declarations: [LoginComponent],
+  declarations: [LoginComponent, SignUpComponent, ForgotPasswordComponent, UserErrorComponent],
   imports: [
     CommonModule,
     AuthRoutingModule,
