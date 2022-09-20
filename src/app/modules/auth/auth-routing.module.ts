@@ -5,6 +5,7 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
 import { LoginComponent } from './components/login/login.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { MobileVerificationComponent } from './components/mobile-verification/mobile-verification.component';
+import { MobileVerifiedComponent } from './components/mobile-verified/mobile-verified.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path: 'mobile-verification',
     component: MobileVerificationComponent,
+  },
+  {
+    path: 'mobile-verified',
+    component: MobileVerifiedComponent,
   },
 ];
 

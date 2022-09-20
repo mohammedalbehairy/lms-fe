@@ -11,9 +11,10 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { UserErrorComponent } from './components/user-error/user-error.component';
 import { MobileVerificationComponent } from './components/mobile-verification/mobile-verification.component';
+import { MobileVerifiedComponent } from './components/mobile-verified/mobile-verified.component';
 
 @NgModule({
-  declarations: [LoginComponent, SignUpComponent, ForgotPasswordComponent, UserErrorComponent, MobileVerificationComponent],
+  declarations: [LoginComponent, SignUpComponent, ForgotPasswordComponent, UserErrorComponent, MobileVerificationComponent, MobileVerifiedComponent],
   imports: [
     CommonModule,
     AuthRoutingModule,
