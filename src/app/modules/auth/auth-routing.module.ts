@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { MobileVerificationComponent } from './components/mobile-verification/mobile-verification.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: 'user-error',
     component: UserErrorComponent,
+  },
+  {
+    path: 'mobile-verification',
+    component: MobileVerificationComponent,
   },
 ];
 

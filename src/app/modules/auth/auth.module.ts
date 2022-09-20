@@ -10,9 +10,10 @@ import { NgxMaskModule } from 'ngx-mask';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { UserErrorComponent } from './components/user-error/user-error.component';
+import { MobileVerificationComponent } from './components/mobile-verification/mobile-verification.component';
 
 @NgModule({
-  declarations: [LoginComponent, SignUpComponent, ForgotPasswordComponent, UserErrorComponent],
+  declarations: [LoginComponent, SignUpComponent, ForgotPasswordComponent, UserErrorComponent, MobileVerificationComponent],
   imports: [
     CommonModule,
     AuthRoutingModule,
