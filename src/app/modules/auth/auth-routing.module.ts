@@ -6,6 +6,8 @@ import { LoginComponent } from './components/login/login.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { MobileVerificationComponent } from './components/mobile-verification/mobile-verification.component';
 import { MobileVerifiedComponent } from './components/mobile-verified/mobile-verified.component';
+import { SignUpUaePassComponent } from './components/sign-up-uae-pass/sign-up-uae-pass.component';
+import { SignInUaePassComponent } from './components/sign-in-uae-pass/sign-in-uae-pass.component';
 
 const routes: Routes = [
   {
@@ -31,6 +33,14 @@ const routes: Routes = [
   {
     path: 'mobile-verified',
     component: MobileVerifiedComponent,
+  },
+  {
+    path: 'sign-in-uae-pass',
+    component: SignInUaePassComponent,
+  },
+  {
+    path: 'sign-up-uae-pass',
+    component: SignUpUaePassComponent,
   },
 ];
 

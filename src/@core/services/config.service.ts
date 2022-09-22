@@ -18,6 +18,8 @@ export class CoreConfigService {
   private readonly _defaultConfig: any;
   private _configSubject: BehaviorSubject<any>;
 
+  signUpData: {};
+  
   /**
    * Constructor
    *

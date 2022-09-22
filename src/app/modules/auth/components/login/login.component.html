@@ -24,84 +24,104 @@
         <!-- /Left Text-->
         <!-- Login-->
         <div class="d-flex col-lg-4 align-items-center auth-bg px-2 p-lg-5" style='padding-right: 164px !important;'>
-            <div class="col-12 col-sm-8 col-md-6 col-lg-12 px-xl-2 mx-auto d-flex flex-column login-container">
-                <h2 class="card-title font-weight-bold mb-1 sign-title">Sign in</h2>
-                <p class="card-text mb-2 sign-sub-title">Welcome to your LNDDO Account</p>
 
-                <button [disabled]="loading" class="btn btn-primary btn-block btn-uaepass" tabindex="4" rippleEffect>
-                    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>Sign in with UAE
-                    PASS</button>
+            <ng-template [ngIf]="!nextStep" [ngIfElse]="verify">
+                <div class="col-12 col-sm-8 col-md-6 col-lg-12 px-xl-2 mx-auto d-flex flex-column login-container">
+                    <h2 class="card-title font-weight-bold mb-1 sign-title">Sign in</h2>
+                    <p class="card-text mb-2 sign-sub-title">Welcome to your LNDDO Account</p>
 
-                <p class='sign-option'>Or Sign in with your LNDDO Account</p>
+                    <button [disabled]="loading" (click)="loginUAE_Pass()" class="btn btn-primary btn-block btn-uaepass"
+                        tabindex="4" rippleEffect>
+                        <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>Sign in with UAE
+                        PASS</button>
 
-                <ngb-alert [type]="'danger'" [dismissible]="false" *ngIf="error">
-                    <div class="alert-body">
-                        <p>{{ error }}</p>
-                    </div>
-                </ngb-alert>
+                    <p class='sign-option'>Or Sign in with your LNDDO Account</p>
 
-                <form class="auth-login-form mt-2" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-                    <div class="form-group">
-                        <label class="form-label" for="login-mobile">Mobile Number</label>
-                        <div class="input-group">
+                    <ngb-alert [type]="'danger'" [dismissible]="false" *ngIf="error">
+                        <div class="alert-body">
+                            <p>{{ error }}</p>
+                        </div>
+                    </ngb-alert>
 
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon1">+971</span>
+                    <form class="auth-login-form mt-2" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                        <!-- <div class="form-group">
+                            <label class="form-label" for="login-mobile">Mobile Number</label>
+                            <div class="input-group">
+
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1">+971</span>
+                                </div>
+                                <input type="text" class="form-control" formControlName="mobile" placeholder="560003293"
+                                    aria-describedby="login-mobile" id="login-mobile" autofocus='' />
                             </div>
+                        </div> -->
 
-                            <input type="text" class="form-control" formControlName="mobile" placeholder="560003293"
-                                mask="000000000" aria-describedby="login-mobile" id="login-mobile" autofocus='' />
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="d-flex justify-content-between">
-                            <label for="login-password">Password</label>
-                        </div>
-                        <div class="input-group input-group-merge form-password-toggle">
-                            <input [type]="passwordTextType ? 'text' : 'password'" formControlName="password"
-                                class="form-control form-control-merge"
-                                [ngClass]="{ 'is-invalid error': submitted && f.password.errors }"
-                                placeholder="***********" id="login-password" aria-describedby="login-password"
-                                tabindex="2" />
-                            <div class="input-group-append">
-                                <span class="input-group-text cursor-pointer"><i class="feather font-small-4" [ngClass]="{
-                        'icon-eye-off': passwordTextType,
-                        'icon-eye': !passwordTextType
-                      }" (click)="togglePasswordTextType()"></i></span>
+                        <div class="form-group default-input">
+                            <label class="form-label" for="login-mobile">Mobile Number *</label>
+                            <input type="text" formControlName="mobile" class="form-control"
+                                [ngClass]="{ 'is-invalid': submitted && f.mobile.errors }" aria-describedby="login-mobile"
+                                autofocus="" tabindex="1" id="login-mobile" />
+                            <div *ngIf="submitted && f.mobile.errors" class="invalid-feedback">
+                                <div *ngIf="f.mobile.errors.required">Mobile is required</div>
                             </div>
                         </div>
-                        <div *ngIf="submitted && f.password.errors" class="invalid-feedback"
-                            [ngClass]="{ 'd-block': submitted && f.password.errors }">
-                            <div *ngIf="f.password.errors.required">Password is required</div>
+
+                        <button [disabled]="loading" class="btn btn-primary btn-block btn-sign-in" tabindex="4"
+                            rippleEffect>
+                            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>Continue
+                        </button>
+                    </form>
+                    <p class="text-center mt-2 link-option">
+                        <span>Don’t have an account? </span><a routerLink="/auth/register"><span class='link-option'
+                                style='font-weight:bold;'>&nbsp;Register</span></a>
+                    </p>
+                </div>
+            </ng-template>
+
+            <ng-template #verify>
+                <div class="col-12 col-sm-8 col-md-6 col-lg-12 verify-container">
+                    <div class="top-section">
+                        <span>Continue</span>
+                        <h2 class="card-title font-weight-bold mb-1">Register with LNDDO</h2>
+                        <p>Please enter your Mobile number</p>
+
+
+                        <p class='note'>We sent you a verification code to verify your cell phone , please enter it
+                            below
+                        </p>
+                        <div class='d-flex justify-content-between q-action'>
+                            <span class='wrong-num'>Wrong number ?</span>
+                            <span class='change'>Change</span>
                         </div>
                     </div>
 
+                    <div class='verification' [formGroup]='verificationForm'>
+                        <p class='verification-title'>Verification Code</p>
 
+                        <div class="code-inputs">
+                            <input formControlName='input1' type="text" pattern="\d*" maxlength="1">
+                            <input formControlName='input2' type="text" pattern="\d*" maxlength="1">
+                            <input formControlName='input3' type="text" pattern="\d*" maxlength="1">
+                            <input formControlName='input4' type="text" pattern="\d*" maxlength="1">
+                            <input formControlName='input5' type="text" pattern="\d*" maxlength="1">
+                            <input formControlName='input6' type="text" pattern="\d*" maxlength="1">
+                        </div>
 
-                    <div class="form-group">
-                        <div class="d-flex justify-content-between remember-me">
-                            <div class="custom-control custom-checkbox custom-control-inline">
-                                <input type="checkbox" class="custom-control-input" id="remember" checked />
-                                <label class="custom-control-label" for="remember">Remember me</label>
+                        <ngb-alert [type]="'danger'" style='margin-top:18px;' [dismissible]="false"
+                            *ngIf="verificationError">
+                            <div class="alert-body">
+                                <p>{{ verificationError }}</p>
                             </div>
-                            <a routerLink="/auth/forgot-password">
-                                <small>Forgot Password?</small>
-                            </a>
+                        </ngb-alert>
+
+                        <div class="actions">
+                            <div (click)="sendOtp()" class='btn btn-new-code'>Request a new code</div>
+                            <div (click)="verifyLogin()" class='btn btn-verify'>Verify</div>
                         </div>
                     </div>
+                </div>
+            </ng-template>
 
-
-
-                    <button [disabled]="loading" class="btn btn-primary btn-block btn-sign-in" tabindex="4"
-                        rippleEffect>
-                        <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>Continue
-                    </button>
-                </form>
-                <p class="text-center mt-2 link-option">
-                    <span>Don’t have an account? </span><a routerLink="/auth/register"><span class='link-option'
-                            style='font-weight:bold;'>&nbsp;Register</span></a>
-                </p>
-            </div>
         </div>
         <!-- /Login-->
     </div>

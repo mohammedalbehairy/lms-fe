@@ -12,9 +12,20 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
 import { UserErrorComponent } from './components/user-error/user-error.component';
 import { MobileVerificationComponent } from './components/mobile-verification/mobile-verification.component';
 import { MobileVerifiedComponent } from './components/mobile-verified/mobile-verified.component';
+import { SignInUaePassComponent } from './components/sign-in-uae-pass/sign-in-uae-pass.component';
+import { SignUpUaePassComponent } from './components/sign-up-uae-pass/sign-up-uae-pass.component';
 
 @NgModule({
-  declarations: [LoginComponent, SignUpComponent, ForgotPasswordComponent, UserErrorComponent, MobileVerificationComponent, MobileVerifiedComponent],
+  declarations: [
+    LoginComponent,
+    SignUpComponent,
+    ForgotPasswordComponent,
+    UserErrorComponent,
+    MobileVerificationComponent,
+    MobileVerifiedComponent,
+    SignInUaePassComponent,
+    SignUpUaePassComponent,
+  ],
   imports: [
     CommonModule,
     AuthRoutingModule,
@@ -22,7 +33,7 @@ import { MobileVerifiedComponent } from './components/mobile-verified/mobile-ver
     FormsModule,
     ReactiveFormsModule,
     CoreCommonModule,
-    NgxMaskModule.forRoot()
+    NgxMaskModule.forRoot(),
   ],
 })
 export class AuthModule {}
