@@ -5,7 +5,10 @@
 export const environment = {
   production: false,
   hmr: false,
-  apiUrl: 'http://localhost:4000'
+  apiUrl: 'https://hermes.lnddo.loan',
+  fineractUrl: 'https://api.lnddo.loan',
+  currentUrl: 'http://localhost:4200'
+  // currentUrl: 'https://hermes.lnddo.loan:8443',
 };
 
 /*

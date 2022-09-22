@@ -14,9 +14,24 @@ import { MobileVerificationComponent } from './components/mobile-verification/mo
 import { MobileVerifiedComponent } from './components/mobile-verified/mobile-verified.component';
 import { ConsentFormComponent } from './components/consent/consent-form.component';
 import { AECBConsentFormComponent } from './components/aecb-consent/aecb-consent-form.component';
+import { SignInUaePassComponent } from './components/sign-in-uae-pass/sign-in-uae-pass.component';
+import { SignUpUaePassComponent } from './components/sign-up-uae-pass/sign-up-uae-pass.component';
+
+
 
 @NgModule({
-  declarations: [LoginComponent, SignUpComponent, ForgotPasswordComponent, UserErrorComponent, MobileVerificationComponent, MobileVerifiedComponent, ConsentFormComponent, AECBConsentFormComponent ],
+  declarations: [
+    LoginComponent,
+    SignUpComponent,
+    ForgotPasswordComponent,
+    UserErrorComponent,
+    MobileVerificationComponent,
+    MobileVerifiedComponent,
+    SignInUaePassComponent,
+    SignUpUaePassComponent,
+    ConsentFormComponent, 
+    AECBConsentFormComponent
+  ],
   imports: [
     CommonModule,
     AuthRoutingModule,
@@ -24,7 +39,7 @@ import { AECBConsentFormComponent } from './components/aecb-consent/aecb-consent
     FormsModule,
     ReactiveFormsModule,
     CoreCommonModule,
-    NgxMaskModule.forRoot()
+    NgxMaskModule.forRoot(),
   ],
 })
 export class AuthModule {}
