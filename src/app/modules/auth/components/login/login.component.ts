@@ -92,7 +92,7 @@ export class LoginComponent implements OnInit {
     }
     this.nextStep = true;
 
-    // this.sendOtp(); //TODO:activate it again
+    this.sendOtp(); //TODO:activate it again
     return;
   }
 

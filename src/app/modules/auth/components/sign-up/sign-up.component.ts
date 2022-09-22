@@ -91,7 +91,7 @@ export class SignUpComponent implements OnInit {
 
     this.nextStep = true;
 
-    // this.sendOtp(); //TODO:activate it again
+    this.sendOtp(); //TODO:activate it again
     return;
   }
 
