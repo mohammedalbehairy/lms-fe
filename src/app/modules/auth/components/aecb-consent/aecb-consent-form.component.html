@@ -1,0 +1,130 @@
+<div class="auth-wrapper auth-v2 register">
+  <div class="auth-inner row m-0">
+    <!-- Brand logo--><a class="brand-logo" href="javascript:void(0);">
+      <img
+        src="{{ coreConfig.app.appLogoImage }}"
+        alt="brand-logo"
+        height="28"
+      />
+      <h2 class="brand-text text-primary ml-1">Lnddo</h2>
+    </a>
+    <!-- /Brand logo-->
+    <!-- Left Text-->
+    <div
+      class="d-none d-lg-flex col-lg-8 align-items-center p-5"
+      style="padding-left: 164px !important"
+    >
+      <div
+        class="w-100 d-lg-flex justify-content-center d-flex flex-column align-items-start px-5 left-view"
+      >
+        <img
+          src="assets/images/lnddo/logo/logo-flat.png"
+          alt="logo"
+          class="logo"
+        />
+        <h2>Small Business Loans in UAE</h2>
+        <h5>Quick and Easy Access to Finance for growing Businesses.</h5>
+
+        <hr />
+
+        <span>Featured In</span>
+        <img
+          src="assets/images/lnddo/logo/arabian-business.png"
+          class="logo-business"
+          alt="logo"
+        />
+        <p>Lörem ipsum semihet ladilig obös etiheten. Jabel semivision.</p>
+      </div>
+    </div>
+    <!-- /Left Text-->
+    <!-- Consent-->
+    <div
+      class="d-flex col-lg-4 align-items-center auth-bg px-2 p-lg-5"
+      style="padding-right: 164px !important"
+    >
+      <div
+        class="col-12 col-sm-8 col-md-6 col-lg-12 px-xl-2 mx-auto consent-container"
+      >
+        <i
+          data-feather="chevron-left"
+          class="font-medium-2 align-items-left"
+        ></i>
+        <p class="conti">Continue</p>
+        <span class="consent-text">Consent</span>
+        <p class="p1">
+          We will need access to your business & personal data to reach a credit
+          decision. Lnddoo doesnt sell your data any 3rd parties.
+        </p>
+
+        <div class="consent-card">
+          <p>
+            Please check the boxes below to confirm you agree to the terms as
+            stated in:
+          </p>
+          <div class="terms-of-service">
+            <span
+              ><a
+                >Terms of sevrvices
+                <i
+                  data-feather="chevron-right"
+                  class="font-medium-2 align-items-center"
+                ></i></a></span
+            ><br /><br />
+            <span
+              ><a
+                >Privacy Policy
+                <i
+                  data-feather="chevron-right"
+                  class="font-medium-2 align-items-center"
+                ></i></a
+            ></span>
+          </div>
+          <br /><br />
+        </div>
+        <div class="validate-consent">
+          <div>
+
+            <div>
+              <div class="form-group">
+                <div
+                  class="d-flex justify-content-between"
+                  style="color: #0a3677"
+                >
+                  <div
+                    class="custom-control custom-checkbox custom-control-inline aecb-checkbox"
+                  >
+                    <input
+                      type="checkbox"
+                      class="custom-control-input aecb-input"
+                      id="agreed"
+                      (change)="checkValue()"
+                      style="color: #0A3677;background-color: #0A3677;"
+                      checked
+                    />
+                    <label class="custom-control-label aecb-lable" for="agreed"
+                      >You successfully agreed to our AECB Consent, Data sharing consent and Authority consent</label
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group-select">
+                <label for="customSelect">This declaration is being given in the capacity of (select as under): *</label>
+                <select class="custom-select form-group-select-button" id="customSelect">
+                  <option selected>Select</option>
+                  <option value="Power of Attorney Holder">Power of Attorney Holder</option>
+                  <option value="Sole Proprietor">Sole Proprietor</option>
+                  <option value="Service Agency Contract Holder">Service Agency Contract Holder</option>
+                  <option value="Managing Director/Manager">Managing Director/Manager</option>
+                  <option value="Authorized Signatory in MOA">Authorized Signatory in MOA</option>
+                </select>                   
+              </div>
+            <br />
+            <button>I agree</button>
+          </div>
+        </div>
+      </div>
+      <!-- /Consent-->
+    </div>
+  </div>
+</div>

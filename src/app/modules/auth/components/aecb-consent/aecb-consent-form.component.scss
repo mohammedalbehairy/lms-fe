@@ -1,0 +1,286 @@
+@import "@core/scss/base/bootstrap-extended/include"; // Bootstrap includes
+@import "@core/scss/base/pages/page-auth.scss";
+
+.left-view {
+  .logo {
+    margin-bottom: 48px;
+  }
+
+  h2 {
+    margin-bottom: 9px;
+    font-family: "DM Sans";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 31px;
+
+    color: #2d3137;
+  }
+
+  h5 {
+    margin: 0;
+    font-family: "DM Sans";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 21px;
+
+    color: #2d3137;
+  }
+
+  span {
+    margin-bottom: 58px;
+    font-family: "DM Sans";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 18px;
+
+    color: #2d3137;
+  }
+
+  hr {
+    width: 100%;
+    border: 1px solid rgba(10, 54, 119, 0.05);
+    margin: 29px 0 32px 0;
+  }
+
+  .logo-business {
+    margin-bottom: 13px;
+    margin-left: 40px;
+  }
+  p {
+    margin-left: 40px;
+
+    font-family: "DM Sans";
+    font-style: italic;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+
+    color: #2d3137;
+  }
+}
+
+.consent-container {
+  background: #ffffff;
+  border: 1px solid rgba(10, 54, 119, 0.05);
+  box-shadow: 0px 30px 39px rgba(0, 0, 0, 0.02);
+  border-radius: 12px;
+  padding: 0 !important;
+  margin-top: 45px;
+  .conti {
+    // position: absolute;
+    width: 60px;
+    height: 18px;
+    // left: 846px;
+    // top: 172px;
+
+    /* Desktop/Body/P2 */
+
+    font-family: "DM Sans";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+
+    color: rgba(45, 49, 55, 0.5);
+  }
+  .consent-text {
+    // position: absolute;
+    width: 473px;
+    height: 26px;
+    // left: 846px;
+    // top: 198px;
+
+    /* Desktop/Headers/Subtitle S1 Bold */
+
+    font-family: "DM Sans";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 26px;
+    /* identical to box height */
+
+    color: #2d3137;
+  }
+  span {
+    font-family: "DM Sans";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+
+    color: #aec3ec;
+  }
+  p {
+    // position: absolute;
+    width: 367px;
+    height: 36px;
+    left: 878px;
+    top: 359px;
+
+    /* Desktop/Body/P2 */
+
+    font-family: "DM Sans";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+
+    color: #2d3137;
+  }
+  .cnsent-card {
+    position: absolute;
+    width: 431px;
+    height: 194px;
+    left: 846px;
+    top: 327px;
+
+    background: #fcfdff;
+    /* Secondary Colors/Input Fields/Stroke */
+
+    border: 1px solid rgba(10, 54, 119, 0.05);
+    border-radius: 12px;
+    span {
+      width: 90px;
+      border: 1px solid rgba(10, 54, 119, 0.05);
+      border-radius: 12px;
+    }
+  }
+  .validate-consent {
+    margin-left: 24px;
+
+    button {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      padding: 12px 82px;
+      gap: 6px;
+
+      // position: absolute;
+      width: 317px;
+      height: 45px;
+      // left: 919px;
+      // top: 748px;
+
+      background: #0a3677;
+      color: #ffffff;
+      border: 1px solid rgba(175, 203, 255, 0.5);
+      border-radius: 8px;
+    }
+    .form-group {
+      margin-bottom: 24px;
+      // width: 431px;
+      height: 88px;
+      // background: rgba(100, 226, 145, 0.25);
+      border-radius: 8px;
+      label {
+        margin-bottom: 3px;
+      }
+      input,
+      .input-group-text {
+        border: none;
+        border-radius: 8px;
+      }
+      .input-group {
+        border: 1px solid rgba(10, 54, 119, 0.05);
+        border-radius: 8px;
+      }
+      .aecb-checkbox {
+        margin-top: 23px;
+        .aecb-input {
+          width: 14px;
+          height: 18px;
+
+          font-family: "Font Awesome 5 Free";
+          font-style: normal;
+          font-weight: 900;
+          font-size: 16px;
+          line-height: 18px;
+          display: flex;
+          align-items: center;
+          text-align: center;
+
+          color: #0a3677;
+          background-color: #0a3677;
+          background: #0a3677;
+
+          /* Inside auto layout */
+
+          flex: none;
+          order: 0;
+          flex-grow: 0;
+        }
+        .aecb-lable {
+          width: 359px;
+          height: 36px;
+          // left: 894px;
+          // top: 577px;
+
+          /* Desktop / Body / P2 Bold */
+
+          font-family: "DM Sans";
+          font-style: normal;
+          font-weight: 700;
+          font-size: 14px;
+          line-height: 18px;
+
+          color: #2d3137;
+        }
+      }
+    }
+    .form-group-select-button {
+      // box-sizing: border-box;
+
+      /* Auto layout */
+
+      // display: flex;
+      // flex-direction: row;
+      // justify-content: space-between;
+      // align-items: center;
+      // padding: 12px 19px;
+      // gap: 246px;
+
+      // width: 431px;
+      height: 52px;
+
+      /* Secondary Colors/Input Fields/Inputs */
+
+      background: #fcfdff;
+      border: 1px solid rgba(175, 203, 255, 0.5);
+      // border-radius: 8px;
+
+      /* Inside auto layout */
+
+      // flex: none;
+      // order: 1;
+      // align-self: stretch;
+      // flex-grow: 0;
+    }
+    .go-back {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      padding: 13px 116px;
+      gap: 8px;
+
+      // position: absolute;
+      width: 317px;
+      height: 44px;
+      // left: 919px;
+      // top: 740px;
+
+      background: #ffffff;
+      color: black;
+      border: 1px solid rgba(45, 49, 55, 0.1);
+      border-radius: 8px;
+    }
+  }
+}

@@ -1,0 +1,168 @@
+<div class="auth-wrapper auth-v2 register">
+  <div class="auth-inner row m-0">
+    <!-- Brand logo--><a class="brand-logo" href="javascript:void(0);">
+      <img
+        src="{{ coreConfig.app.appLogoImage }}"
+        alt="brand-logo"
+        height="28"
+      />
+      <h2 class="brand-text text-primary ml-1">Lnddo</h2>
+    </a>
+    <!-- /Brand logo-->
+    <!-- Left Text-->
+    <div
+      class="d-none d-lg-flex col-lg-8 align-items-center p-5"
+      style="padding-left: 164px !important"
+    >
+      <div
+        class="w-100 d-lg-flex justify-content-center d-flex flex-column align-items-start px-5 left-view"
+      >
+        <img
+          src="assets/images/lnddo/logo/logo-flat.png"
+          alt="logo"
+          class="logo"
+        />
+        <h2>Small Business Loans in UAE</h2>
+        <h5>Quick and Easy Access to Finance for growing Businesses.</h5>
+
+        <hr />
+
+        <span>Featured In</span>
+        <img
+          src="assets/images/lnddo/logo/arabian-business.png"
+          class="logo-business"
+          alt="logo"
+        />
+        <p>Lörem ipsum semihet ladilig obös etiheten. Jabel semivision.</p>
+      </div>
+    </div>
+    <!-- /Left Text-->
+    <!-- Consent-->
+    <div
+      class="d-flex col-lg-4 align-items-center auth-bg px-2 p-lg-5"
+      style="padding-right: 164px !important"
+    >
+      <div
+        class="col-12 col-sm-8 col-md-6 col-lg-12 px-xl-2 mx-auto consent-container"
+      >
+        <i
+          data-feather="chevron-left"
+          class="font-medium-2 align-items-left"
+        ></i>
+        <p class="conti">Continue</p>
+        <span class="consent-text">Consent</span>
+        <p class="p1">
+          We will need access to your business & personal data to reach a credit
+          decision. Lnddoo doesnt sell your data any 3rd parties.
+        </p>
+
+        <div class="consent-card">
+          <p>
+            Please check the boxes below to confirm you agree to the terms as
+            stated in:
+          </p>
+          <div class="terms-of-service">
+            <span
+              ><a
+                >Terms of sevrvices
+                <i
+                  data-feather="chevron-right"
+                  class="font-medium-2 align-items-center"
+                ></i></a></span
+            ><br /><br />
+            <span
+              ><a
+                >Privacy Policy
+                <i
+                  data-feather="chevron-right"
+                  class="font-medium-2 align-items-center"
+                ></i></a
+            ></span>
+          </div>
+          <br /><br />
+        </div>
+        <div class="validate-consent">
+          <div>
+            <div class="radio-button">
+              <div
+                class="custom-control align-items-left custom-radio"
+                style="color: #0a3677"
+              >
+                <input
+                  type="radio"
+                  id="customColorRadio5"
+                  name="customColorRadio5"
+                  class="custom-control-input"
+                  *ngIf="!isCheckedClick"
+                />
+                <label
+                  class="custom-control-label"
+                  for="customColorRadio5"
+                ></label>
+              </div>
+
+              <div class="custom-control align-items-center custom-radio">
+                <input
+                  type="radio"
+                  id="customColorRadio4"
+                  name="customColorRadio4"
+                  class="custom-control-input"
+                  *ngIf="isCheckedClick"
+                />
+                <label
+                  class="custom-control-label"
+                  for="customColorRadio4"
+                ></label>
+              </div>
+
+              <div
+                class="custom-control align-items-right custom-radio"
+                style="color: #0a3677; width: 8px; height: 8px; position: flex"
+              >
+                <input
+                  type="radio"
+                  id="customRadio6"
+                  name="customColorRadio6"
+                  class="custom-control-input"
+                  unchecked
+                />
+                <label class="custom-control-label" for="customRadio6"></label>
+              </div>
+            </div>
+
+            <div>
+              <div class="form-group">
+                <div
+                  class="d-flex justify-content-between"
+                  style="color: #0a3677"
+                >
+                  <div
+                    class="custom-control custom-checkbox custom-control-inline"
+                  >
+                    <input
+                      type="checkbox"
+                      class="custom-control-input"
+                      id="agreed"
+                      (change)="checkValue()"
+                    />
+                    <label class="custom-control-label" for="agreed"
+                      >I agree and consent that LNDDO can access the credit
+                      history of the company and all its individual partners /
+                      shareholders or authorized signatories as available on the
+                      Al Etihad Credit Bureau in UAE for assessing the loan
+                      application.</label
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button class="go-back" *ngIf="isCheckedClick">Go Back</button>
+            <br />
+            <button routerLink="/auth/consent-aecb">I agree and Continue</button>
+          </div>
+        </div>
+      </div>
+      <!-- /Consent-->
+    </div>
+  </div>
+</div>

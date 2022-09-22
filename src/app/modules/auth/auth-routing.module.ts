@@ -6,6 +6,9 @@ import { LoginComponent } from './components/login/login.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { MobileVerificationComponent } from './components/mobile-verification/mobile-verification.component';
 import { MobileVerifiedComponent } from './components/mobile-verified/mobile-verified.component';
+import { ConsentFormComponent } from './components/consent/consent-form.component';
+import { AECBConsentFormComponent } from './components/aecb-consent/aecb-consent-form.component';
+
 
 const routes: Routes = [
   {
@@ -32,6 +35,14 @@ const routes: Routes = [
     path: 'mobile-verified',
     component: MobileVerifiedComponent,
   },
+  {
+    path: 'consent',
+    component: ConsentFormComponent
+  },
+  {
+    path: 'consent-aecb',
+    component: AECBConsentFormComponent
+  }
 ];
 
 @NgModule({

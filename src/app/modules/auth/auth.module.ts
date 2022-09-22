@@ -12,9 +12,11 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
 import { UserErrorComponent } from './components/user-error/user-error.component';
 import { MobileVerificationComponent } from './components/mobile-verification/mobile-verification.component';
 import { MobileVerifiedComponent } from './components/mobile-verified/mobile-verified.component';
+import { ConsentFormComponent } from './components/consent/consent-form.component';
+import { AECBConsentFormComponent } from './components/aecb-consent/aecb-consent-form.component';
 
 @NgModule({
-  declarations: [LoginComponent, SignUpComponent, ForgotPasswordComponent, UserErrorComponent, MobileVerificationComponent, MobileVerifiedComponent],
+  declarations: [LoginComponent, SignUpComponent, ForgotPasswordComponent, UserErrorComponent, MobileVerificationComponent, MobileVerifiedComponent, ConsentFormComponent, AECBConsentFormComponent ],
   imports: [
     CommonModule,
     AuthRoutingModule,
