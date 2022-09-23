@@ -43,6 +43,11 @@ const appRoutes: Routes = [
       import('./modules/loan/loan-pages.module').then((m) => m.LoanPagesModule)
   },
   {
+    path: 'createloan',
+    loadChildren: () =>
+      import('./modules/createloan/createloan-pages.module').then((m) => m.LoanPagesModule)
+  },
+  {
     path: 'dash',
     loadChildren: () =>
       import('./modules/get-started/welcome-pages.module').then(

@@ -3,12 +3,12 @@ import { Router } from "@angular/router";
 
 
 @Component({
-  selector: 'app-loan-action-page',
-  templateUrl: './loan-action-page.component.html',
-  styleUrls: ['./loan-action-page.component.scss'],
+  selector: 'app-loan-details-page',
+  templateUrl: './loan-details-page.component.html',
+  styleUrls: ['./loan-details-page.component.scss'],
 })
 
-export class LoanActionPageComponent implements OnInit {
+export class LoanDetailsPageComponent implements OnInit {
 
   type;
 
@@ -23,6 +23,6 @@ export class LoanActionPageComponent implements OnInit {
     this._router.navigate(['dash/documents']);
   }
   next() {
-    this._router.navigate(['loan/loanapprove']);
+    this._router.navigate(['dash/revenuelogin']);
   }
 }

@@ -1,0 +1,90 @@
+@import '@core/scss/angular/libs/form-wizard.component.scss';
+@import '@core/scss/angular/libs/select.component.scss';
+@import '@core/scss/angular/libs/flatpickr.component.scss';
+
+.custom-header {
+    border-bottom: 1px solid #AFCBFF !important;
+    border: 1px solid #AFCBFF;
+    box-shadow: 0px 30px 39px rgba(0, 0, 0, 0.02);
+    border-radius: 12px;
+    padding: 0px !important;
+
+    .head1 {
+        background: #0A3677;
+        border-radius: 12px 0px 0px 12px;
+        color: white;
+        font-size: 12px;
+        padding: 5px;
+        padding: 5px 30px;
+    }
+
+    .title1 {
+        font-family: 'DM Sans';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 16px;
+        display: flex;
+        align-items: center;
+        color: #FCFDFF;
+    }
+
+    .cus-padding {
+        padding-top: 5px;
+    }
+
+    .next-btn {
+        padding: 5px 8px;
+        background: #FFEDE1;
+        border-radius: 4px;
+        color: #0A3677;
+        // margin-top: 50%;
+    }
+
+    .step {
+        margin: 0px !important;
+        padding: 0px !important;
+    }
+
+    .step-trigger {
+        border: 0px;
+        background-color: transparent;
+        margin: 0px !important;
+        padding: 0px !important;
+    }
+
+    .stepper-left-div {
+        display: inline-block;
+    }
+
+    .hed {
+        font-family: 'DM Sans';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 21px;
+        /* identical to box height */
+        color: #000000;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .mobile-hiden {
+        display: none;
+    }
+
+    .mobile-view {
+        padding: 0px !important;
+    }
+
+    .cus-padding {
+        padding-top: 0px !important;
+        margin-bottom: 5px !important;
+        margin-top: 0px !important;
+    }
+
+    .custom-header {
+        margin-left: 10px !important;
+        margin-right: 10px !important;
+    }
+}

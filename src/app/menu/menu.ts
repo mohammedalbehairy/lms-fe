@@ -31,7 +31,7 @@ export const menu: CoreMenu[] = [
         translate: 'MENU.PAGES.companyprofile',
         type: 'item',
         icon: 'codesandbox',
-        url: 'apps/email4'
+        url: 'createloan/home'
       },
       {
         id: 'uploadeddocuments',

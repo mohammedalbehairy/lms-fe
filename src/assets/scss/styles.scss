@@ -48,11 +48,33 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
 .w-100 {
 	width: 100%;
 }
-
+.Fo-16{
+	font-size: 16px;
+}
+.Fo-14{
+	font-size: 14px;
+}
+.Fo-12{
+	font-size: 12px;
+}
+.FW-700{
+	font-weight: 700;
+}
 .cursor {
 	cursor: pointer;
 }
-
+.primary-color {
+    color: #0A3677;
+}
+.normal-color {
+    color: #2D3137;
+}
+.red-color{
+    color: #FC6DAB;
+}
+.bold-color{
+	color: #000000
+}
 .font-bold {
 	font-family: "DM Sans bold" !important;
 }
@@ -71,7 +93,9 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
 .text-center{
 	text-align: center;
 }
-
+.display-flex{
+	display: flex;
+}
 .input-form {
 	background: #FCFDFF;
 	border: 1px solid rgba(175, 203, 255, 0.5);

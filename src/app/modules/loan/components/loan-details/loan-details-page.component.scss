@@ -1,0 +1,75 @@
+.primary-background-color {
+    background-color: #0A3677;
+}
+
+.request-amount {
+    background: #FFEDE1;
+    border-radius: 4px;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.request-btn {
+    padding: 5px !important;
+    margin-right: 5px;
+}
+
+.loan-account {
+    background: #FFFFFF;
+    border: 1px solid rgba(10, 54, 119, 0.05);
+    box-shadow: 0px 30px 39px rgba(0, 0, 0, 0.02);
+    border-radius: 12px;
+
+}
+
+.approve-amount {
+    background: #FCFDFF;
+    opacity: 0.6;
+    border: 1px solid #AFCBFF;
+    border-radius: 4px;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.reverse-div {
+    text-align: end;
+}
+
+.progress-height {
+    height: 5px;
+
+}
+
+.image-spinner {
+    margin-right: 5px;
+}
+
+.paid {
+    color: #52AE3B;
+}
+
+.overdue {
+    color: #EA6024;
+}
+
+.due {
+    color: #2D3137;
+}
+
+.mobile-view {
+    visibility: hidden;
+    .com-btn {
+        background: #FFEDE1;
+        border: 1px solid rgba(175, 203, 255, 0.5);
+        border-radius: 8px;
+    }
+}
+
+
+
+@media only screen and (max-width: 600px) {
+
+    .mobile-view {
+        visibility: visible !important;
+    }
+}
