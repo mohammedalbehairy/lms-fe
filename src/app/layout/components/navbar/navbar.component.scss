@@ -43,3 +43,16 @@ app-navbar-bookmark {
     }
   }
 }
+
+.navbar-header{
+  margin-bottom: 35px !important;
+  text-align: center;
+}
+
+.item-nav {
+  align-items: flex-start !important;
+  margin-left: 10px;
+}
+.logout{
+  margin-left: auto !important;
+}

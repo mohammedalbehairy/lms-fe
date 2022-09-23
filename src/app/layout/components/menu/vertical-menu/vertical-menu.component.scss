@@ -1,0 +1,20 @@
+@import 'scss/variables/_variables-components';
+
+.brand-logo {
+    img {
+        max-width: 150px !important;
+    }
+}
+
+.getstart {
+    text-align: center;
+    margin-bottom: 25px;
+    .getstart-btn {
+        border: 1px solid #AFCBFF;
+        border-radius: 12px;
+        width: 80%;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 18px;
+    }
+}

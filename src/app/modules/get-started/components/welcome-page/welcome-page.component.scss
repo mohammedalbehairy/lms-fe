@@ -1,0 +1,54 @@
+
+
+.padding-zero {
+    padding: 0px;
+}
+.margin-zero{
+    margin: 0px;
+}
+
+.comeing-soon-div{
+    background: #FCFDFF;
+    border: 1px solid rgba(10, 54, 119, 0.05);
+    border-radius: 12px;
+}
+.block-shadow {
+    border-radius: 4px;
+    align-items: center;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 5px;
+    display: inline-block;
+}
+.comeing-soon{
+    background: rgba(10, 54, 119, 0.05);
+    color: #2D3137;
+}
+.info{
+    background: #FFEDE1;
+    color: #0A3677;
+}
+
+.coming-soon-title{
+    font-family: "DM Sans bold" !important;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 21px;
+    color: #2D3137;
+    padding: 5px;
+}
+
+
+
+
+@media only screen and (max-width: 600px) {
+    .coming-soon{
+        height: auto;
+    }
+    .mobile-view-reverse{
+        flex-direction: row-reverse;
+    }
+    .padding-mobile{
+        padding: 0px;
+    }
+  }

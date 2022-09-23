@@ -38,6 +38,18 @@ const appRoutes: Routes = [
       import('./modules/auth/auth.module').then((m) => m.AuthModule),
   },
   {
+    path: 'loan',
+    loadChildren: () => 
+      import('./modules/loan/loan-pages.module').then((m) => m.LoanPagesModule)
+  },
+  {
+    path: 'dash',
+    loadChildren: () =>
+      import('./modules/get-started/welcome-pages.module').then(
+        (m) => m.WelcomePagesModule
+      )
+  },
+  {
     path: 'dashboard',
     loadChildren: () =>
       import('./main/dashboard/dashboard.module').then(

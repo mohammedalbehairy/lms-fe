@@ -49,7 +49,11 @@ export const locale = {
           RESETPASSWORD2: 'Reset Password V2'
         },
         ACCOUNTSETTINGS: 'Account Settings',
-        PROFILE: 'Profile',
+        PROFILE: 'My Profile',
+        companyprofile: "Company Profile",
+        uploadeddocuments: "Uploaded Documents",
+        uploadadocument: "Upload a Document",
+        home: "Home",
         FAQ: 'FAQ',
         KB: 'Knowledge Base',
         PRICING: 'Pricing',

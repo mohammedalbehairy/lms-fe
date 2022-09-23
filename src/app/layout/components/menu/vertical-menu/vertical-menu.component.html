@@ -7,15 +7,14 @@
         <span class="brand-logo">
           <img src="{{ coreConfig.app.appLogoImage }}" alt="brand-logo" />
         </span>
-        <h2 class="brand-text mb-0">{{ coreConfig.app.appName }}</h2>
+        <!-- <h2 class="brand-text mb-0">{{ coreConfig.app.appName }}</h2> -->
       </a>
     </li>
 
     <!-- Menu Toggler -->
     <li class="nav-item nav-toggle">
       <a class="nav-link modern-nav-toggle d-none d-xl-block pr-0" (click)="toggleSidebarCollapsible()">
-        <i
-          [ngClass]="isCollapsed === true ? 'icon-circle' : 'icon-disc'"
+        <i [ngClass]="isCollapsed === true ? 'icon-circle' : 'icon-disc'"
           class="toggle-icon feather font-medium-4 collapse-toggle-icon text-primary"
         ></i>
       </a>
@@ -30,6 +29,12 @@
 <!-- Navbar shadow -->
 <div class="shadow-bottom" [ngClass]="{ 'd-block': isScrolled }"></div>
 
+<!-- Getting Start -->
+<div class="getstart">
+  <button type="reset" rippleEffect class="btn getstart-btn">Get started</button>
+</div>
+
+<div class="line-border w-80"></div>
 <!-- Main menu -->
 <div class="main-menu-content" [perfectScrollbar] (scroll)="onSidebarScroll()">
   <ul class="navigation navigation-main" layout="vertical" core-menu></ul>

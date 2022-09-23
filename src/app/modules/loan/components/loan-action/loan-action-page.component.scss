@@ -1,0 +1,61 @@
+
+.meetup-header{
+    margin-bottom: 10px;
+}
+.padding-top{
+    padding-top: 10px;
+}
+.com-btn{
+    background-color: #C04CFD !important;
+    border-color: #C04CFD !important;
+    border-radius: 8px;
+}
+.card-title-one{
+    font-size: 14px;
+}
+.home-image {
+    background: #FCFDFF;
+}
+.primary-color{
+    color: #0A3677;
+}
+.primary-background-color {
+    background-color: #0A3677;
+}
+.messages-dev{
+    padding: 20px;
+    background-color: rgba(252, 109, 171, 0.2);
+    .error-color{
+        margin-right: 2px;
+        color: #0A3677;
+    }
+    .div-error{
+        display: inline-flex;
+        .data-info{
+            display: block;
+            text-align: left;
+            p{
+                font-size: 16px;
+                line-height: 15px;
+                color: #2D3137;
+                margin-left: 10px;
+            }
+            span{
+                margin-left: 10px;
+            }
+        }
+    }
+}
+
+// .com-btn{
+//     margin-left: 10px;
+// }
+@media only screen and (max-width: 600px) {
+    .messages-dev{
+        text-align: left !important;
+    }
+    .mobile-view{
+        text-align: center;
+        margin-bottom: 10px;
+    }
+}

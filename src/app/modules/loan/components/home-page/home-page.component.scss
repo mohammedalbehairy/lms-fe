@@ -1,0 +1,35 @@
+.home-image {
+    background: #FCFDFF;
+}
+.primary-color{
+    color: #0A3677;
+}
+.primary-background-color {
+    background-color: #0A3677;
+}
+.messages-dev{
+    display: inline-flex;
+    padding: 20px;
+    .error-color{
+        margin-right: 2px;
+        color: #FC6DAB;
+    }
+}
+.progress-bar{
+    height: 15px;
+}
+.progress-bar-success{
+    background-color : #0A3677;
+}
+// .com-btn{
+//     margin-left: 10px;
+// }
+@media only screen and (max-width: 600px) {
+    .messages-dev{
+        text-align: left !important;
+    }
+    .mobile-view{
+        text-align: center;
+        margin-bottom: 10px;
+    }
+}

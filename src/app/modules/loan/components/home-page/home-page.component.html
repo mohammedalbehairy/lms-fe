@@ -1,0 +1,55 @@
+<div>
+    <div class="card card-developer-meetup">
+        <div class="home-image rounded-top text-center">
+          <img src="assets/images/illustration/email.svg" alt="Meeting Pic" height="170" />
+        </div>
+        <div class="card-body">
+            <div class="meetup-header d-flex align-items-center">
+              <div class="meetup-day">
+                <h6 class="mb-0">THU</h6>
+                <h3 class="mb-0 primary-color">24</h3>
+              </div>
+              <div class="my-auto">
+                <p class="card-title mb-25 primary-color">Congratulations!</p>
+                <p class="card-text mb-0">Your Loan has been Pre- Approved.</p>
+              </div>
+            </div>
+            <div class="media">
+                <div class="avatar primary-background-color rounded mr-1">
+                  <div class="avatar-content">
+                    <i data-feather="briefcase" class="avatar-icon font-medium-3"></i>
+                  </div>
+                </div>
+                <div class="media-body">
+                  <h6 class="mb-0 text-muted">Amount</h6>
+                  <h6 class="font-bold primary-color">$20,000</h6>
+                </div>
+              </div>
+
+
+              <div class="progress-wrapper row mt-3 mb-2">
+                <p class="card-text col-md-12 mb-1">You are at step  2 of 8</p>
+                <h5 class="mb-25 col-2 font-bold">Business Details</h5>
+                <ngb-progressbar type="success" class="col-2 p-0 progress-bar-success" [value]="45"></ngb-progressbar>
+                <span class="font-bold ml-1">25%</span>
+              </div>
+
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-9">
+                <span class="text-center messages-dev">
+                    <div class="error-color">
+                    <em class="icon-error font-medium-4 " data-feather="info"></em> 
+                </div>
+                Your application needs to be completed which could potentially increase chances for pre-approval.
+            </span>
+            </div>
+            <div class="col-md-3 mobile-view">
+                <button type="submit" rippleEffect class="btn btn-primary com-btn w-80 " (click)="next()">Complete your application</button>
+            </div>
+        </div>
+
+    </div>
+</div>
