@@ -38,6 +38,11 @@ const appRoutes: Routes = [
       import('./modules/auth/auth.module').then((m) => m.AuthModule),
   },
   {
+    path: 'auth2',
+    loadChildren: () =>
+      import('./modules/auth-module/auth-module-pages.module').then((m) => m.AuthModulePagesModule),
+  },
+  {
     path: 'loan',
     loadChildren: () => 
       import('./modules/loan/loan-pages.module').then((m) => m.LoanPagesModule)

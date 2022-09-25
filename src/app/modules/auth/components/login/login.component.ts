@@ -50,9 +50,9 @@ export class LoginComponent implements OnInit {
     private _verificationService: VerificationService
   ) {
     // redirect to home if already logged in
-    if (this._authenticationService.currentUserValue) {
-      this._router.navigate(['/']);
-    }
+    // if (this._authenticationService.currentUserValue) {
+    //   this._router.navigate(['/']);
+    // }
 
     this._unsubscribeAll = new Subject();
 

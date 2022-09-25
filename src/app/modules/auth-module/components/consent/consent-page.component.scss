@@ -1,0 +1,64 @@
+@import '@core/scss/base/bootstrap-extended/include'; // Bootstrap includes
+@import '@core/scss/base/pages/page-auth.scss';
+
+
+
+.info {
+    background: #FCFDFF;
+    border: 1px solid rgba(10, 54, 119, 0.05);
+    border-radius: 12px;
+}
+
+.accordion {
+    background: #FCFDFF !important;
+}
+
+.slider-div {
+    background: #FFFFFF;
+    border: 1px solid #AFCBFF;
+    box-shadow: 0px 30px 39px rgba(0, 0, 0, 0.02);
+    border-radius: 12px;
+}
+
+.slider-item {
+    padding: 30px;
+}
+.custom-checkbox{
+    margin-top: 15px;
+}
+.custom-control-label{
+    text-align: left;
+}
+.select-dev{
+    text-align: left;
+}
+
+::ng-deep {
+    .carousel-item {
+        padding-bottom: 0px !important;
+        padding-top: 40px !important;
+    }
+    .carousel-indicators{
+        top: 15px;
+        bottom: auto;
+        left: 10px;
+        right: auto;
+        margin: 0px;
+        li{
+            pointer-events: none;
+            background: rgba(45, 49, 55, 0.1);
+            width: 10px;
+            max-height: 1px;
+            border-radius: 50%;
+            border-top: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+        }
+        .active{
+            background: #0A3677;
+        }
+        
+    }
+    .carousel-caption {
+        padding: 0px;
+    }
+}
