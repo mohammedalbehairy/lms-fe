@@ -1,7 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
+import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import Stepper from "bs-stepper";
 import { FlatpickrOptions } from "ng2-flatpickr";
+import { StepperService } from "../services/stepper.service";
 
 
 @Component({
@@ -16,14 +18,30 @@ export class HomePageComponent implements OnInit {
   public birthDateOptions: FlatpickrOptions = {
     altInput: true
   };
+
+
+  public step = 1;
+
   constructor(
     private _router: Router,
+    private _stepper : StepperService,
+    private modalService: NgbModal,
+
   ) {
 
   }
   ngOnInit(): void {
     this.horizontalWizardStepper = new Stepper(document.querySelector('#stepper1'), {});
+    this._stepper.step.subscribe(
+      data => {
+        console.log(data);
+        this.step = data;
+      }
+    )
+  }
 
+  ngOnDestroy(){
+    // this._stepper.step.unsubscribe();
   }
   back() {
     this._router.navigate(['dash/welcome']);
@@ -42,5 +60,12 @@ export class HomePageComponent implements OnInit {
    */
   horizontalWizardStepperPrevious() {
     this.horizontalWizardStepper.previous();
+  }
+
+  modalOpenDefault(modalDefault) {
+    this.modalService.open(modalDefault, {
+      centered: true,
+      size: 'lg'
+    });
   }
 }

@@ -8,98 +8,317 @@
 
 <div class="stepper">
     <section class="horizontal-wizard">
-    <div id="stepper1" class="bs-stepper horizontal-wizard-example">
-        <div class="bs-stepper-header custom-header row" style="flex-direction:row">
-            
-            <div class="step col-md-1 col-3 m-0 p-0" data-target="#account-details">
-                <button class="step-trigger mobile-view" style="padding: 0px !important">
-                    <div class="head1">
-                        <p class="title1 cus-padding">Step</p>
-                        <p class="title1 cus-padding">1 of 8</p>
-                    </div>
-                </button>
-            </div>
+        <div id="stepper1" [ngClass]="{'background-transperant' : (step == 6) || (step > 9) }"
+            class="bs-stepper horizontal-wizard-example">
+            <div [hidden]="step== 6 || step > 9 " class="bs-stepper-header custom-header row"
+                style="flex-direction:row">
 
-            <div [hidden]="true" class="step col-md-1 col-3 m-0 p-0" data-target="#personal-info">
-                <button class="step-trigger">
-                    <div class="head1">
-                        <p class="title1 cus-padding">Step</p>
-                        <p class="title1 cus-padding">2 of 8</p>
-                    </div>
-                </button>
-            </div>
-
-            <div class=" col-md-4 col-7" style="padding-left: 21px !important;">
-                <p class="hed m-1 cus-padding">Business Details</p>
-                <p class="hed2 ml-1 mb-0 cus-padding">Address</p>
-            </div>
-            <div class=" col-md-7 col-2">
-                <div class="row">
-                    <div class="col-md-6 pt-md-2 mobile-hiden">
-                        <button type="submit" rippleEffect class="btn next-btn btn-reverse"
-                            (click)="next()">NEXT</button>
-                    </div>
-                    <div class="col-md-4 pt-md-2 mobile-hiden">
-                        <p class="btn-reverse">Your Business Address</p>
-                    </div>
-                    <div class="col-md-2 pt-md-2 col-12">
-                        <p class="btn-reverse mb-0"> <em data-feather="list"
-                                class="font-medium-4 text-primary toggle-icon cursor"></em>
-                            Steps</p>
-                    </div>
-
+                <div [hidden]="step != 1" class="step col-md-1 col-3 m-0 p-0" data-target="#business-details-info">
+                    <button class="step-trigger mobile-view" id="zerro-padding">
+                        <div class="head1">
+                            <p class="title1 cus-padding">Step</p>
+                            <p class="title1 cus-padding">1 of 8</p>
+                        </div>
+                    </button>
                 </div>
 
+                <div [hidden]="step != 2" class="step col-md-1 col-3 m-0 p-0" data-target="#business-details-address">
+                    <button class="step-trigger mobile-view" id="zerro-padding">
+                        <div class="head1">
+                            <p class="title1 cus-padding">Step</p>
+                            <p class="title1 cus-padding">2 of 8</p>
+                        </div>
+                    </button>
+                </div>
+                <div [hidden]="step != 3" class="step col-md-1 col-3 m-0 p-0" data-target="#business-financial">
+                    <button class="step-trigger mobile-view" id="zerro-padding">
+                        <div class="head1">
+                            <p class="title1 cus-padding">Step</p>
+                            <p class="title1 cus-padding">3 of 8</p>
+                        </div>
+                    </button>
+                </div>
+                <div [hidden]="step != 4" class="step col-md-1 col-3 m-0 p-0" data-target="#business-other">
+                    <button class="step-trigger mobile-view" id="zerro-padding">
+                        <div class="head1">
+                            <p class="title1 cus-padding">Step</p>
+                            <p class="title1 cus-padding">4 of 8</p>
+                        </div>
+                    </button>
+                </div>
 
-                <!-- <div class="stepper-left-div row">
-                    <button type="submit" rippleEffect class="btn next-btn col-md-4" (click)="next()">NEXT</button>
-                    <p class="col-md-4">Your Business Address</p>
-                </div> -->
+                <div [hidden]="step != 5" class="step col-md-1 col-3 m-0 p-0" data-target="#business-other2">
+                    <button class="step-trigger mobile-view" id="zerro-padding">
+                        <div class="head1">
+                            <p class="title1 cus-padding">Step</p>
+                            <p class="title1 cus-padding">5 of 8</p>
+                        </div>
+                    </button>
+                </div>
+                <div [hidden]="true" class="step col-md-1 col-3 m-0 p-0" data-target="#personal-info-confirm">
+                    <button class="step-trigger mobile-view" id="zerro-padding">
+                    </button>
+                </div>
+                <div [hidden]="step != 7" class="step col-md-1 col-3 m-0 p-0" data-target="#personal-identifcation">
+                    <button class="step-trigger mobile-view" id="zerro-padding">
+                        <div class="head1">
+                            <p class="title1 cus-padding">Step</p>
+                            <p class="title1 cus-padding">6 of 8</p>
+                        </div>
+                    </button>
+                </div>
+                <div [hidden]="step != 8" class="step col-md-1 col-3 m-0 p-0" data-target="#personal-address">
+                    <button class="step-trigger mobile-view" id="zerro-padding">
+                        <div class="head1">
+                            <p class="title1 cus-padding">Step</p>
+                            <p class="title1 cus-padding">7 of 8</p>
+                        </div>
+                    </button>
+                </div>
+
+                <div [hidden]="step != 9" class="step col-md-1 col-3 m-0 p-0" data-target="#personal-home-address">
+                    <button class="step-trigger mobile-view" id="zerro-padding">
+                        <div class="head1">
+                            <p class="title1 cus-padding">Step</p>
+                            <p class="title1 cus-padding">8 of 8</p>
+                        </div>
+                    </button>
+                </div>
+
+                <div [hidden]="true" class="step col-md-1 col-3 m-0 p-0" data-target="#business-document-upload">
+                    <button class="step-trigger">
+                    </button>
+                </div>
+                <div [hidden]="true" class="step col-md-1 col-3 m-0 p-0" data-target="#business-document-passport">
+                    <button class="step-trigger">
+                    </button>
+                </div>
+                <div [hidden]="true" class="step col-md-1 col-3 m-0 p-0" data-target="#shareholder-information">
+                    <button class="step-trigger">
+                    </button>
+                </div>
+                <div [hidden]="true" class="step col-md-1 col-3 m-0 p-0" data-target="#loan-terms">
+                    <button class="step-trigger">
+                    </button>
+                </div>
+                <div [hidden]="true" class="step col-md-1 col-3 m-0 p-0" data-target="#loan-review">
+                    <button class="step-trigger">
+                    </button>
+                </div>
+                <div [hidden]="true" class="step col-md-1 col-3 m-0 p-0" data-target="#review-loan-agreement">
+                    <button class="step-trigger">
+                    </button>
+                </div>
+
+                <div [hidden]="true" class="step col-md-1 col-3 m-0 p-0" data-target="#loan-approve">
+                    <button class="step-trigger">
+                    </button>
+                </div>
+
+                <div class=" col-md-4 col-7" style="padding-left: 21px !important;">
+                    <p class="hed title-header">Business Details</p>
+                    <p class="hed2 ml-1 mb-0 cus-padding" id="zerro-margin-bottom">Address</p>
+                </div>
+                <div class=" col-md-7 col-2 left-title-header">
+                    <p (click)="modalOpenDefault(modalXL)" class="btn-reverse mb-0 merge-cus"> <em data-feather="list"
+                            class="font-medium-4 text-primary toggle-icon cursor"></em>
+                        Steps</p>
+                    <p class="btn-reverse merge-cus font-bold mobile-hiden"> Your Business Address</p>
+                    <button type="submit" rippleEffect class="btn next-btn font-bold btn-reverse merge-cus mobile-hiden"
+                        (click)="next()">NEXT</button>
+                </div>
+
             </div>
+
+
+
+            <!-- // form data -->
+
+            <div class="bs-stepper-content" [ngClass]="{'padding-0' : (step == 6 || step >9) }">
+
+                <form (ngSubmit)="(HWForm.form.valid)" #HWForm="ngForm">
+                    <div id="business-details-info" class="content">
+                        <app-business-details-info-page [stepper]="horizontalWizardStepper">
+                        </app-business-details-info-page>
+                    </div>
+                    <div id="business-details-address" class="content">
+                        <app-business-details-address-page [stepper]="horizontalWizardStepper">
+                        </app-business-details-address-page>
+                    </div>
+                    <div id="business-financial" class="content">
+                        <app-business-details-financial-page [stepper]="horizontalWizardStepper">
+                        </app-business-details-financial-page>
+                    </div>
+                    <div id="business-other" class="content">
+                        <app-business-details-other-page [stepper]="horizontalWizardStepper">
+                        </app-business-details-other-page>
+                    </div>
+                    <div id="business-other2" class="content">
+                        <app-business-details-other2-page [stepper]="horizontalWizardStepper">
+                        </app-business-details-other2-page>
+                    </div>
+                    <div id="personal-info-confirm" class="content">
+                        <app-personal-info-confirm-page [stepper]="horizontalWizardStepper">
+                        </app-personal-info-confirm-page>
+                    </div>
+                    <div id="personal-identifcation" class="content">
+                        <personal-details-identifcation-page [stepper]="horizontalWizardStepper">
+                        </personal-details-identifcation-page>
+                    </div>
+                    <div id="personal-address" class="content">
+                        <app-personal-details-address-page [stepper]="horizontalWizardStepper">
+                        </app-personal-details-address-page>
+                    </div>
+                    <div id="personal-home-address" class="content">
+                        <app-personal-details-home-address-page [stepper]="horizontalWizardStepper">
+                        </app-personal-details-home-address-page>
+                    </div>
+                    <div id="business-document-upload" class="content">
+                        <app-business-document-upload-page [stepper]="horizontalWizardStepper">
+                        </app-business-document-upload-page>
+                    </div>
+                    <div id="business-document-passport" class="content">
+                        <app-business-document-passport-page [stepper]="horizontalWizardStepper">
+                        </app-business-document-passport-page>
+                    </div>
+                    <div id="shareholder-information" class="content">
+                        <app-shareholder-information-page [stepper]="horizontalWizardStepper">
+                        </app-shareholder-information-page>
+                    </div>
+
+                    <div id="loan-terms" class="content">
+                        <app-loan-terms-page [stepper]="horizontalWizardStepper"></app-loan-terms-page>
+                    </div>
+
+                    <div id="loan-review" class="content">
+                        <app-review-loan-details-page [stepper]="horizontalWizardStepper">
+                        </app-review-loan-details-page>
+                    </div>
+
+                    <div id="review-loan-agreement" class="content">
+                        <app-review-loan-agreement-page [stepper]="horizontalWizardStepper">
+                        </app-review-loan-agreement-page>
+                    </div>
+
+                    <div id="loan-approve" class="content">
+                        <app-loan-approve-page [stepper]="horizontalWizardStepper"></app-loan-approve-page>
+                    </div>
+                </form>
+            </div>
+
+
+        </div>
+
+    </section>
+
+</div>
+
+
+
+<ng-template #modalXL let-modal>
+    <div class="modal-header">
+        <h5 class="modal-title" id="myModalLabel160"></h5>
+        <button type="button" class="close" (click)="modal.dismiss('Cross click')" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body" tabindex="0" ngbAutofocus>
+
+        <div class="time-line-div">
+            <h6 class="font-bold mb-1">Business Details</h6>
+            <ul class="timeline">
+                <li class="timeline-item pb-0">
+                    <span class="timeline-point timeline-point-success timeline-point-indicator"></span>
+                    <div class="timeline-event">
+                        <div class="d-flex justify-content-between flex-sm-row flex-column mb-sm-0">
+                            <h6>Information</h6>
+                        </div>
+                    </div>
+                </li>
+                <li class="timeline-item pb-0">
+                    <span class="timeline-point timeline-point-success timeline-point-indicator"></span>
+                    <div class="timeline-event">
+                        <div class="d-flex justify-content-between flex-sm-row flex-column mb-sm-0">
+                            <h6>Address</h6>
+                        </div>
+                    </div>
+                </li>
+                <li class="timeline-item pb-0">
+                    <span class="timeline-point timeline-point-success timeline-point-indicator"></span>
+                    <div class="timeline-event">
+                        <div class="d-flex justify-content-between flex-sm-row flex-column mb-sm-0">
+                            <h6>Financials</h6>
+                        </div>
+                    </div>
+                </li>
+                <li class="timeline-item pb-0">
+                    <span class="timeline-point timeline-point-success timeline-point-indicator"></span>
+                    <div class="timeline-event">
+                        <div class="d-flex justify-content-between flex-sm-row flex-column mb-sm-0">
+                            <h6>Other Information</h6>
+                        </div>
+                    </div>
+                </li>
+                <li class="timeline-item pb-0">
+                    <span class="timeline-point timeline-point-secondary timeline-point-indicator"></span>
+                    <div class="timeline-event">
+                        <div class="d-flex justify-content-between flex-sm-row flex-column mb-sm-0">
+                            <h6 class="primary-color font-bold" >E-commerce Information</h6>
+                        </div>
+                    </div>
+                </li>
+
+            </ul>
+
+        </div>
+
+        <div class="time-line-div">
+            <h6 class="font-bold mb-1">Personal Information</h6>
+            <ul class="timeline">
+                <li class="timeline-item pb-0">
+                    <span class="timeline-point timeline-point-secondary timeline-point-indicator"></span>
+                    <div class="timeline-event">
+                        <div class="d-flex justify-content-between flex-sm-row flex-column mb-sm-0">
+                            <h6>Personal Details</h6>
+                        </div>
+                    </div>
+                </li>
+                <li class="timeline-item pb-0">
+                    <span class="timeline-point timeline-point-secondary timeline-point-indicator"></span>
+                    <div class="timeline-event">
+                        <div class="d-flex justify-content-between flex-sm-row flex-column mb-sm-0">
+                            <h6>Contact Information</h6>
+                        </div>
+                    </div>
+                </li>
+            </ul>
 
         </div>
 
 
+        <div class="time-line-div">
+            <h6 class="font-bold mb-1">Upload Required Documents </h6>
+            <ul class="timeline">
+                <li class="timeline-item pb-0">
+                    <span class="timeline-point timeline-point-secondary timeline-point-indicator"></span>
+                    <div class="timeline-event">
+                        <div class="d-flex justify-content-between flex-sm-row flex-column mb-sm-0">
+                            <h6>Business documents</h6>
+                        </div>
+                    </div>
+                </li>
+                <li class="timeline-item pb-0">
+                    <span class="timeline-point timeline-point-secondary timeline-point-indicator"></span>
+                    <div class="timeline-event">
+                        <div class="d-flex justify-content-between flex-sm-row flex-column mb-sm-0">
+                            <h6>Personal documents</h6>
+                        </div>
+                    </div>
+                </li>
+            </ul>
 
-        <!-- // form data -->
-
-        <div class="bs-stepper-content">
-            <form (ngSubmit)="(HWForm.form.valid)" #HWForm="ngForm">
-                <div id="account-details" class="content">
-                    <app-business-details-info-page [stepper]="horizontalWizardStepper"></app-business-details-info-page>
-                </div>
-                <div id="personal-info" class="content">
-                    <app-business-details-address-page [stepper]="horizontalWizardStepper"></app-business-details-address-page>
-                </div>
-
-                <!-- <div class="d-flex justify-content-between">
-                    <button
-                      (click)="horizontalWizardStepperPrevious()"
-                      class="btn btn-outline-secondary btn-prev"
-                      
-                      rippleEffect
-                    >
-                      <i data-feather="arrow-left" class="align-middle mr-sm-25 mr-0"></i>
-                      <span class="align-middle d-sm-inline-block d-none">Previous</span>
-                    </button>
-                    <button
-                      (click)="horizontalWizardStepperNext()"
-                      type="submit"
-                      class="btn btn-primary btn-next"
-                      rippleEffect
-                    >
-                      <span class="align-middle d-sm-inline-block d-none">Next</span>
-                      <i data-feather="arrow-right" class="align-middle ml-sm-25 ml-0"></i>
-                    </button>
-                  </div> -->
-
-
-            </form>
         </div>
 
 
     </div>
-
-</section>
-
-</div>
+</ng-template>

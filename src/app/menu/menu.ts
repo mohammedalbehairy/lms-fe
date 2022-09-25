@@ -23,7 +23,8 @@ export const menu: CoreMenu[] = [
         translate: 'MENU.PAGES.PROFILE',
         type: 'item',
         icon: 'user',
-        url: 'loan/home'
+        // url: 'loan/home'
+        url: 'user/profile'
       },
       {
         id: 'companyprofile',
@@ -31,7 +32,8 @@ export const menu: CoreMenu[] = [
         translate: 'MENU.PAGES.companyprofile',
         type: 'item',
         icon: 'codesandbox',
-        url: 'createloan/home'
+        // url: 'createloan/home'
+        url: 'company/profile'
       },
       {
         id: 'uploadeddocuments',
@@ -39,7 +41,7 @@ export const menu: CoreMenu[] = [
         translate: 'MENU.PAGES.uploadeddocuments',
         type: 'item',
         icon: 'file-text',
-        url: 'apps/email5'
+        url: 'documents/view'
       },
       {
         id: 'uploadadocument',
@@ -47,7 +49,7 @@ export const menu: CoreMenu[] = [
         translate: 'MENU.PAGES.uploadadocument',
         type: 'item',
         icon: 'upload',
-        url: 'apps/email6'
+        url: 'documents/upload'
       },
 
 

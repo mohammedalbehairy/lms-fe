@@ -5,7 +5,7 @@
       <!-- App Branding -->
       <a class="navbar-brand" [routerLink]="['/']">
         <span class="brand-logo">
-          <img src="{{ coreConfig.app.appLogoImage }}" alt="brand-logo" />
+          <img src="{{ isCollapsed != true ? coreConfig.app.appLogoImage : 'assets/images/logo/smalllogo.png' }}" alt="brand-logo" />
         </span>
         <!-- <h2 class="brand-text mb-0">{{ coreConfig.app.appName }}</h2> -->
       </a>
@@ -31,7 +31,7 @@
 
 <!-- Getting Start -->
 <div class="getstart">
-  <button type="reset" rippleEffect class="btn getstart-btn">Get started</button>
+  <button type="reset" rippleEffect class="btn getstart-btn" (click)="openDocumentsPage()">Get started</button>
 </div>
 
 <div class="line-border w-80"></div>
@@ -39,4 +39,12 @@
 <div class="main-menu-content" [perfectScrollbar] (scroll)="onSidebarScroll()">
   <ul class="navigation navigation-main" layout="vertical" core-menu></ul>
 </div>
+
+<div class="getstart footer-div">
+  <hr class="mb-1" />
+  <h6 class="font-bold">Looking to modify your loan ?</h6>
+  <button type="reset" rippleEffect class="btn loan-btn">Request top-up</button>
+  <button type="reset" rippleEffect class="btn loan-btn">Request new loan</button>
+</div>
+
 <!--/ Main menu -->

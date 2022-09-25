@@ -101,3 +101,13 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
 	border: 1px solid rgba(175, 203, 255, 0.5);
 	border-radius: 8px;
 }
+@media only screen and (max-width: 600px) {
+    .mobile-btn-p-next{
+        padding-left: 15%;
+        padding-right: 15%;
+    }
+    .mobile-btn-p-back{
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+}

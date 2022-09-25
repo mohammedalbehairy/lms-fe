@@ -1,0 +1,50 @@
+@import '@core/scss/angular/libs/select.component.scss';
+@import '@core/scss/angular/libs/flatpickr.component.scss';
+
+
+.contactus {
+    margin-left: 10px;
+    padding: 5px;
+    border: 1px solid rgba(175, 203, 255, 0.5);
+    border-radius: 8px;
+}
+
+.tabs {
+    border-top: 1px solid #AFCBFF;
+    // border-left: 1px solid #AFCBFF;
+    // border-right: 1px solid #AFCBFF;
+    box-shadow: 0px 30px 39px rgba(0, 0, 0, 0.02);
+    // border-radius: 12px;
+}
+.custom-border{
+    border-bottom: 1px solid #AFCBFF;
+    // border-left: 1px solid #AFCBFF;
+    // border-right: 1px solid #AFCBFF;
+    // border-radius: 12px;
+
+}
+.pd-tp-3 {
+    padding-top: 3px;
+}
+
+.nav-tabs {
+    margin-bottom: 0px !important;
+}
+
+.card-body {
+    padding: 0px;
+    padding-left: 10px;
+}
+.info{
+    padding: 10px;
+    background: #FC6DAB;
+border-radius: 4px;
+color: white;
+font-size: 14px;
+
+}
+@media only screen and (max-width: 600px) {
+    .display-flex {
+        display: block;
+    }
+}

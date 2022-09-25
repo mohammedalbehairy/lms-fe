@@ -1,3 +1,10 @@
 @import '@core/scss/angular/libs/select.component.scss';
 @import '@core/scss/angular/libs/flatpickr.component.scss';
-@import '../../../../../node_modules/flatpickr/dist/flatpickr.css';
+
+
+
+@media only screen and (max-width: 600px) {
+    .display-flex{
+        display: block;
+    }
+}

@@ -1,4 +1,5 @@
 <div>
+  <h5 class="font-bold mb-1">Address in UAE</h5>
   <form #accountDetailsForm="ngForm">
     <div class="row">
       <div class="form-group col-md-4">
@@ -22,6 +23,16 @@
       </div>
 
       <div class="form-group col-md-4">
+        <label class="form-label Fo-14" for="username">Address Line 3 *</label>
+        <input [(ngModel)]="TDNameVar" #TDNameRef="ngModel" required type="text" name="username" id="username"
+          class="form-control input-form" [class.error]="!TDNameRef.valid && accountDetailsForm.submitted"
+          placeholder="" />
+        <span *ngIf="accountDetailsForm.submitted && TDNameRef.invalid" class="invalid-form">
+          <small class="form-text text-danger" *ngIf="TDNameRef.errors.required">This field is required!</small>
+        </span>
+      </div>
+
+      <div class="form-group col-md-4">
         <label class="form-label Fo-14" for="email">City *</label>
         <select class="form-control input-form" placeholder="select" id="basicSelect">
           <option>IT</option>
@@ -32,7 +43,7 @@
 
 
       <div class="form-group col-md-4">
-        <label class="form-label Fo-14" for="username">Post Code - optional</label>
+        <label class="form-label Fo-14" for="username">Post Code</label>
         <input [(ngModel)]="TDNameVar" #TDNameRef="ngModel" required type="text" name="username" id="username"
           class="form-control input-form" [class.error]="!TDNameRef.valid && accountDetailsForm.submitted"
           placeholder="12345" />
@@ -49,46 +60,19 @@
           <option>Thor Ragnarok</option>
         </select>
       </div>
-
-
-      <div class="form-group col-md-4">
-        <label class="form-label Fo-14" for="email">Jurisdiction *</label>
-        <div class="display-flex">
-          <div class="custom-control custom-radio mr-md-1 mt-md-0 mt-1">
-            <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input" checked />
-            <label class="custom-control-label" for="customRadio1">Mainland / DED </label>
-          </div>
-          <div class="custom-control custom-radio mr-md-1 mt-md-0 mt-1">
-            <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input" />
-            <label class="custom-control-label" for="customRadio2">Freezone</label>
-          </div>
-        </div>
-      </div>
-
-      <div class="form-group col-md-4">
-        <label class="form-label Fo-14" for="username">LandLine Number *</label>
-        <input [(ngModel)]="TDNameVar" #TDNameRef="ngModel" required type="text" name="username" id="username"
-          class="form-control input-form" [class.error]="!TDNameRef.valid && accountDetailsForm.submitted"
-          placeholder="05xxxxxxx" />
-        <span *ngIf="accountDetailsForm.submitted && TDNameRef.invalid" class="invalid-form">
-          <small class="form-text text-danger" *ngIf="TDNameRef.errors.required">This field is required!</small>
-        </span>
-      </div>
-
-
-
+      
     </div>
 
     <hr class="mb-3 mt-2" />
     <div class="row">
       <div class="justify-content-between col-md-12">
-        <button (click)="horizontalWizardStepperBack()"  class="btn btn-outline-secondary btn-prev" rippleEffect>
+        <button (click)="horizontalWizardStepperBack()"  class="btn btn-outline-secondary btn-prev mobile-btn-p-back" rippleEffect>
         <i data-feather="arrow-left" class="align-middle mr-sm-25 mr-0"></i>
-        <span class="align-middle d-sm-inline-block d-none">Previous</span>
+        <span class="align-middle d-sm-inline-block">Previous</span>
       </button>
 
-        <button (click)="horizontalWizardStepperBack()" type="submit" class="btn btn-primary btn-next btn-reverse pl-md-5 pr-md-5" rippleEffect>
-          <span class="align-middle d-sm-inline-block d-none">Next</span><i data-feather="arrow-right"
+        <button (click)="horizontalWizardStepperNext()" type="submit" class="btn btn-primary btn-next btn-reverse pl-md-5 pr-md-5 mobile-btn-p-next" rippleEffect>
+          <span class="align-middle d-sm-inline-block">Next</span><i data-feather="arrow-right"
             class="align-middle ml-sm-25 ml-0"></i>
         </button>
       </div>

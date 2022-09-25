@@ -15,7 +15,11 @@
         color: white;
         font-size: 12px;
         padding: 5px;
-        padding: 5px 30px;
+        padding: 0px 30px;
+    }
+
+    .left-title-header {
+        margin-top: 15px;
     }
 
     .title1 {
@@ -34,11 +38,11 @@
     }
 
     .next-btn {
-        padding: 5px 8px;
+        padding: 3px 7px;
         background: #FFEDE1;
         border-radius: 4px;
         color: #0A3677;
-        // margin-top: 50%;
+        font-size: 12px;
     }
 
     .step {
@@ -68,6 +72,37 @@
     }
 }
 
+.background-transperant {
+    background-color: #FFFFFF;
+    box-shadow: 0 4px 24px 0 rgb(34 41 47 / 0%);
+}
+
+.padding-0 {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+.title-header {
+    margin-left: 10px;
+    margin-bottom: 0px;
+}
+
+.merge-cus {
+    margin-left: 3px;
+}
+
+.timeline-event {
+    min-height: 40px !important;
+}
+
+.time-line-div {
+    background: #FCFDFF;
+    border: 1px solid rgba(10, 54, 119, 0.05);
+    border-radius: 12px;
+    padding: 15px;
+    margin-top: 10px;
+}
+
 @media only screen and (max-width: 600px) {
     .mobile-hiden {
         display: none;
@@ -86,5 +121,17 @@
     .custom-header {
         margin-left: 10px !important;
         margin-right: 10px !important;
+    }
+
+    .left-title-header {
+        margin-top: 0px !important;
+    }
+
+    #zerro-padding {
+        padding: 0px !important;
+    }
+
+    #zerro-margin-bottom {
+        margin-bottom: 0px !important;
     }
 }

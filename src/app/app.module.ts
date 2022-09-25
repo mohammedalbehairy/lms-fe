@@ -48,6 +48,21 @@ const appRoutes: Routes = [
       import('./modules/createloan/createloan-pages.module').then((m) => m.LoanPagesModule)
   },
   {
+    path: 'user',
+    loadChildren: () =>
+      import('./modules/users/users-pages.module').then((m) => m.UserPagesModule)
+  },
+  {
+    path: 'company',
+    loadChildren: () =>
+      import('./modules/company/company-pages.module').then((m) => m.CompanyPagesModule)
+  },
+  {
+    path: 'documents',
+    loadChildren: () =>
+      import('./modules/documents/documents-pages.module').then((m) => m.DocumentsPagesModule)
+  },
+  {
     path: 'dash',
     loadChildren: () =>
       import('./modules/get-started/welcome-pages.module').then(

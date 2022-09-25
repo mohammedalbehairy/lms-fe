@@ -1,16 +1,18 @@
 import { Component, Input, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
+import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import Stepper from "bs-stepper";
 import { FlatpickrOptions } from "ng2-flatpickr";
+import { StepperService } from "../../services/stepper.service";
 
 
 @Component({
-  selector: 'app-business-details-address-page',
-  templateUrl: './business-details-address-page.component.html',
-  styleUrls: ['./business-details-address-page.component.scss'],
+  selector: 'app-review-loan-details-page',
+  templateUrl: './review-loan-details-page.component.html',
+  styleUrls: ['./review-loan-details-page.component.scss'],
 })
 
-export class BusinessDetailsAddressPageComponent implements OnInit {
+export class ReviewLoanDetailsPageComponent implements OnInit {
 
   @Input() stepper:Stepper;
 
@@ -19,6 +21,7 @@ export class BusinessDetailsAddressPageComponent implements OnInit {
   public selectBasicLoading = false;
   basicDPdata;
   public data: any;
+  check = false;
 
   public selectBasic = [
     { name: 'UK' },
@@ -39,7 +42,8 @@ export class BusinessDetailsAddressPageComponent implements OnInit {
   };
   constructor(
     private _router: Router,
-
+    private modalService: NgbModal,
+    private _stepper: StepperService
   ) {
 
   }
@@ -47,12 +51,21 @@ export class BusinessDetailsAddressPageComponent implements OnInit {
   }
 
   horizontalWizardStepperNext() {
+    this._stepper.passValue("14");
     this.stepper.next();
   }
   horizontalWizardStepperBack() {
+    this._stepper.passValue("13");
     this.stepper.previous();
   }
   openDocumentsPage() {
     this._router.navigate(['dash/documents']);
   }
+
+  modalOpenDefault(modalDefault) {
+    this.modalService.open(modalDefault, {
+      centered: true
+    });
+  }
+
 }
