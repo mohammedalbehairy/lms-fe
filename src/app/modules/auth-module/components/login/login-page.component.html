@@ -1,14 +1,17 @@
-<h2 class="card-title font-weight-bold mb-1">Sign in</h2>
-<p class="card-text mb-2">Welcome to your LNDDO Account</p>
+<div class="p-3">
+<h2 class="card-title font-bold Fo-20 LH-26 mb-1">Sign in</h2>
+<p class="card-text mb-2 Fo-14 LH-18 ">Welcome to your LNDDO Account</p>
 
-<button [disabled]="loading" class="btn btn-block sso-btn" tabindex="4" rippleEffect>
+<button [disabled]="loading" class="btn btn-block sso-btn Fo-16 font-bold LH-21" tabindex="4" rippleEffect>
   <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>Sign in with UAE PASS
 </button>
 
+<p class="card-text mt-2 Fo-16 LH-21 font-bold">Or Sign in with your LNDDO Account</p>
+
 <form class="auth-login-form mt-2" [formGroup]="loginForm">
   <div class="form-group">
-    <label class="form-label" for="login-email">Mobile Number *</label>
-    <input type="text" formControlName="email" class="form-control"
+    <label class="form-label  Fo-16 LH-21" for="login-email">Mobile Number *</label>
+    <input type="text" formControlName="email" class="form-control  Fo-16 LH-21"
       [ngClass]="{ 'is-invalid': submitted && f.email.errors }" placeholder="560003293"
       aria-describedby="login-email" autofocus="" tabindex="1" />
   </div>
@@ -21,10 +24,11 @@
   </ngb-alert>
 
 
-  <button [disabled]="loading" class="btn btn-primary btn-block" tabindex="4" rippleEffect>
+  <button [disabled]="loading" class="btn btn-primary btn-block font-bold Fo-16 LH-21" tabindex="4" rippleEffect>
     <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>Continue
   </button>
 </form>
 <p class="text-center mt-2">
-  <span>Don’t have an account?</span><a routerLink="/pages/authentication/register-v2"><span>&nbsp;Register</span></a>
+  <span class=" Fo-16 LH-21 primary-color">Don’t have an account?</span><a routerLink="/pages/authentication/register-v2"><span class="Fo-16 LH-21 primary-color font-bold">&nbsp;Register</span></a>
 </p>
+</div>

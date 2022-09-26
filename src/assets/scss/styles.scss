@@ -8,7 +8,17 @@ NOTE:
 ------
 PLACE HERE YOUR OWN SCSS CODES AND IF NEEDED, OVERRIDE THE STYLES FROM THE OTHER STYLESHEETS.
 WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BETTER LIKE THIS.  */
-@font-face {
+
+// @font-face {
+// 	font-family: 'DM Sans';
+// 	font-style: normal;
+// 	font-weight: 400;
+// 	src: local(''),
+// 		 url('../fonts/dm-sans/dm-sans.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+// 		 url('../fonts/dm-sans/dm-sans.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+//   }
+
+  @font-face {
 	font-family: "DM Sans";
 	src: local("DM Sans"), url(../fonts/dm-sans/DMSans-Regular.ttf) format("truetype");
 }
@@ -18,10 +28,15 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
 	src: local("DM Sans"), url(../fonts/dm-sans/DMSans-Bold.ttf) format("truetype");
 }
 
+
 * {
 	font-family: 'DM Sans' !important;
+	color: #2D3137;
 }
 
+.font-bold{
+	font-family: 'DM Sans bold' !important;
+}
 // a{
 // 	font-weight: $font-weight-normal;
 // 	color: $primary-color;
@@ -48,35 +63,57 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
 .w-100 {
 	width: 100%;
 }
-.Fo-16{
+
+.Fo-24 {
+	font-size: 24px;
+}
+
+.Fo-20 {
+	font-size: 20px;
+}
+
+.Fo-16 {
 	font-size: 16px;
 }
-.Fo-14{
+
+.Fo-14 {
 	font-size: 14px;
 }
-.Fo-12{
+
+.Fo-12 {
 	font-size: 12px;
 }
-.FW-700{
-	font-weight: 700;
+
+.LH-31{
+	line-height: 31px;
+}
+.LH-26{
+	line-height: 26px;
+}
+.LH-21{
+	line-height: 21px;
+}
+.LH-18{
+	line-height: 18px;
 }
 .cursor {
 	cursor: pointer;
 }
+
 .primary-color {
-    color: #0A3677;
+	color: #0A3677;
 }
+
 .normal-color {
-    color: #2D3137;
+	color: #2D3137;
 }
-.red-color{
-    color: #FC6DAB;
+
+.red-color {
+	color: #FC6DAB;
 }
-.bold-color{
+
+.bold-color {
 	color: #000000
-}
-.font-bold {
-	font-family: "DM Sans bold" !important;
 }
 
 .heddin {
@@ -90,24 +127,29 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
 .lable-form {
 	font-size: 14px;
 }
-.text-center{
+
+.text-center {
 	text-align: center;
 }
-.display-flex{
+
+.display-flex {
 	display: flex;
 }
+
 .input-form {
 	background: #FCFDFF;
 	border: 1px solid rgba(175, 203, 255, 0.5);
 	border-radius: 8px;
 }
+
 @media only screen and (max-width: 600px) {
-    .mobile-btn-p-next{
-        padding-left: 15%;
-        padding-right: 15%;
-    }
-    .mobile-btn-p-back{
-        padding-left: 10%;
-        padding-right: 10%;
-    }
+	.mobile-btn-p-next {
+		padding-left: 15%;
+		padding-right: 15%;
+	}
+
+	.mobile-btn-p-back {
+		padding-left: 10%;
+		padding-right: 10%;
+	}
 }
