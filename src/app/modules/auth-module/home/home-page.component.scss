@@ -24,16 +24,23 @@
   }
 }
 
+
 @media only screen and (max-width: 600px) {
+  .mobile-hiden{
+    display: none;
+  }
   .auth-bg {
     // margin-top: 15px;
     padding-left: 10px !important;
     padding-right: 10px !important;
    
   }
-
+  .logo-div {
+    top: 0%;
+    position: absolute;
+  }
   .operation-div {
-    padding: 5px;
+    // padding: 5px;
     border: 0px !important;
   }
 }

@@ -1,12 +1,15 @@
-<div class="p-3">
-<h2 class="card-title font-bold Fo-20 LH-26 mb-1">Sign in</h2>
-<p class="card-text mb-2 Fo-14 LH-18 ">Welcome to your LNDDO Account</p>
+<div class="p-md-3 p-1">
+<img width="185" height="55" class="web-view" src="../../../../../assets/images/logo/logo.png" alt="logo" />
+<h2 class="card-title font-bold Fo-20 LH-26 mt-md-0 mt-2 mb-0">Sign in</h2>
+<p class="card-text mt-md-2 mt-1 Fo-14 LH-18">Welcome to your LNDDO Account</p>
 
-<button [disabled]="loading" class="btn btn-block sso-btn Fo-16 font-bold LH-21" tabindex="4" rippleEffect>
+<button [disabled]="loading" class="btn btn-block sso-btn Fo-16 font-bold LH-21 mt-2" tabindex="4" rippleEffect>
   <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>Sign in with UAE PASS
 </button>
 
-<p class="card-text mt-2 Fo-16 LH-21 font-bold">Or Sign in with your LNDDO Account</p>
+
+
+<p class="card-text Fo-16 LH-21 font-bold mt-2">Or Sign in with your LNDDO Account</p>
 
 <form class="auth-login-form mt-2" [formGroup]="loginForm">
   <div class="form-group">
@@ -24,11 +27,13 @@
   </ngb-alert>
 
 
-  <button [disabled]="loading" class="btn btn-primary btn-block font-bold Fo-16 LH-21" tabindex="4" rippleEffect>
+  <button [disabled]="loading" class="btn btn-primary btn-block font-bold Fo-16 LH-21 mt-3" tabindex="4" (click)="open()" rippleEffect>
     <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>Continue
   </button>
 </form>
-<p class="text-center mt-2">
-  <span class=" Fo-16 LH-21 primary-color">Don’t have an account?</span><a routerLink="/pages/authentication/register-v2"><span class="Fo-16 LH-21 primary-color font-bold">&nbsp;Register</span></a>
+<hr class="col-10" />
+
+<p class="text-center mt-3">
+  <span class=" Fo-16 LH-21 primary-color">Don’t have an account?</span><a routerLink="/auth2/home/register"><span class="Fo-16 LH-21 primary-color font-bold">&nbsp;Register</span></a>
 </p>
 </div>

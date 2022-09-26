@@ -18,9 +18,18 @@
     border-radius: 8px;
     color: #0A3677;
 }
-
+.web-view{
+    display: none;
+  }
+  
 
 .alert-body {
     background: rgba(252, 109, 171, 0.2);
     border-radius: 4px;
+}
+
+@media only screen and (max-width: 600px) {
+    .web-view{
+        display: block;
+      } 
 }

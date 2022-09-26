@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from "@angular/core";
 import { UntypedFormGroup } from "@angular/forms";
 import { Router } from "@angular/router";
-import { CoreConfigService } from "@core/services/config.service";
 
 
 @Component({
@@ -22,24 +21,9 @@ export class RegisterPageComponent implements OnInit {
 
   constructor(
     private _router: Router,
-    private _coreConfigService: CoreConfigService,
 
   ) {
-    this._coreConfigService.config = {
-      layout: {
-        navbar: {
-          hidden: true,
-        },
-        menu: {
-          hidden: true,
-        },
-        footer: {
-          hidden: true,
-        },
-        customizer: false,
-        enableLocalStorage: false,
-      },
-    };
+
   }
   ngOnInit(): void {
   }
@@ -51,9 +35,5 @@ export class RegisterPageComponent implements OnInit {
 
   openDocumentsPage() {
     this._router.navigate(['dash/documents']);
-  }
-
-  login() {
-    this._router.navigate(['auth2/home/login']);
   }
 }
