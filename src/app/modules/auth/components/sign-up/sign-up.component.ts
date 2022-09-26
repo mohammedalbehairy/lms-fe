@@ -12,6 +12,7 @@ import { first, takeUntil } from 'rxjs/operators';
 import { environment } from 'environments/environment';
 import { AuthService } from '../../service/auth.service';
 import { VerificationService } from '../../service/verification.service';
+import { SharedDataService } from '@core/services/shared-data.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -45,6 +46,7 @@ export class SignUpComponent implements OnInit {
     private _router: Router,
     private _authenticationService: AuthenticationService,
     private _authService: AuthService,
+    private _sharedDataService: SharedDataService,
     private _verificationService: VerificationService
   ) {
     // redirect to home if already logged in
@@ -91,7 +93,8 @@ export class SignUpComponent implements OnInit {
 
     this.nextStep = true;
 
-    this.sendOtp(); //TODO:activate it again
+    // this.sendOtp(); //TODO:activate it again
+    this._sharedDataService.registerData = this.registerForm.value;
     return;
   }
 

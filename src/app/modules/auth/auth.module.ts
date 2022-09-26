@@ -14,9 +14,11 @@ import { MobileVerificationComponent } from './components/mobile-verification/mo
 import { MobileVerifiedComponent } from './components/mobile-verified/mobile-verified.component';
 import { SignInUaePassComponent } from './components/sign-in-uae-pass/sign-in-uae-pass.component';
 import { SignUpUaePassComponent } from './components/sign-up-uae-pass/sign-up-uae-pass.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
+    HomeComponent,
     LoginComponent,
     SignUpComponent,
     ForgotPasswordComponent,
@@ -25,6 +27,7 @@ import { SignUpUaePassComponent } from './components/sign-up-uae-pass/sign-up-ua
     MobileVerifiedComponent,
     SignInUaePassComponent,
     SignUpUaePassComponent,
+    HomeComponent,
   ],
   imports: [
     CommonModule,

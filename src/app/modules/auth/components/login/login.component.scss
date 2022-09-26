@@ -1,362 +1,43 @@
 @import '@core/scss/base/bootstrap-extended/include'; // Bootstrap includes
 @import '@core/scss/base/pages/page-auth.scss';
 
-.login-container {
-  background: #ffffff;
-  border: 1px solid rgba(10, 54, 119, 0.05);
-  box-shadow: 0px 30px 39px rgba(0, 0, 0, 0.02);
-  border-radius: 12px;
-  padding: 48px 56px !important;
+.auth-help-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }
 
-.left-view {
-  .logo {
-    margin-bottom: 48px;
-  }
-
-  h2 {
-    margin-bottom: 9px;
-    font-family: 'DM Sans';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 31px;
-
-    color: #2d3137;
-  }
-
-  h5 {
-    margin: 0;
-    font-family: 'DM Sans';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 21px;
-
-    color: #2d3137;
-  }
-
-  span {
-    margin-bottom: 58px;
-    font-family: 'DM Sans';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 18px;
-
-    color: #2d3137;
-  }
-
-  hr {
-    width: 100%;
-    border: 1px solid rgba(10, 54, 119, 0.05);
-    margin: 29px 0 32px 0;
-  }
-
-  .logo-business {
-    margin-bottom: 13px;
-    margin-left: 40px;
-  }
-  p {
-    margin-left: 40px;
-
-    font-family: 'DM Sans';
-    font-style: italic;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 18px;
-
-    color: #2d3137;
-  }
+.logo-div {
+  top: 15%;
+  position: absolute;
 }
 
-.login {
-  .sign-title {
-    font-family: 'DM Sans';
-    font-style: normal;
-    font-weight: 700 !important;
-    font-size: 20px;
-    line-height: 26px;
-    color: #2d3137;
-    margin-bottom: 8px;
-  }
-
-  .sign-sub-title {
-    font-family: 'DM Sans';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 18px;
-    color: #2d3137;
-  }
-
-  .btn-uaepass {
-    background: #ffede1 !important;
-    border: 1px solid rgba(235, 216, 203, 0.1);
-    border-radius: 8px;
-
-    font-family: 'DM Sans';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 21px;
-    color: #0a3677 !important;
-    margin: 29px 0 32px 0;
-  }
-
-  .sign-option {
-    font-family: 'DM Sans';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 21px;
-
-    color: #2d3137;
-    margin-bottom: 11px;
-  }
-
-  .btn-sign-in {
-    background: #0a3677 !important;
-    border: 1px solid rgba(175, 203, 255, 0.5) !important;
-    border-radius: 8px !important;
-
-    span {
-      font-family: 'DM Sans';
-      font-style: normal;
-      font-weight: 700;
-      font-size: 16px;
-      line-height: 21px;
-
-      color: #fcfdff;
-    }
-  }
-
-  .cursor-pointer {
-    font-family: 'Font Awesome 5 Free';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 18px;
-
-    color: #0a3677;
-  }
-
-  .link-option {
-    span {
-      font-family: 'DM Sans';
-      font-style: normal;
-      font-weight: 400;
-      font-size: 16px;
-      line-height: 21px;
-
-      color: #0a3677;
-    }
-    margin-top: 48px !important;
-  }
-
-  .remember-me {
-    // input {
-    //   font-family: 'Font Awesome 5 Free';
-    //   font-style: normal;
-    //   font-weight: 900;
-    //   font-size: 24px;
-    //   line-height: 28px;
-    //   border-color: red !important;
-    //   background-color: red !important;
-    //   color: #0a3677;
-    // }
-    label {
-      font-family: 'DM Sans';
-      font-style: normal;
-      font-weight: 700;
-      font-size: 14px;
-      line-height: 18px;
-
-      color: #2d3137;
-    }
-  }
-  .form-group {
-    margin-bottom: 24px;
-    label {
-      margin-bottom: 10px;
-    }
-    input,
-    .input-group-text {
-      border: none;
-      border-radius: 8px;
-    }
-    .input-group {
-      border: 1px solid rgba(10, 54, 119, 0.05);
-      border-radius: 8px;
-    }
-  }
+.sso-btn {
+  background: #ffede1;
+  border: 1px solid rgba(235, 216, 203, 0.1);
+  border-radius: 8px;
+  color: #0a3677;
 }
 
-.top-section {
-  padding: 56px 48px 0 48px !important;
-
-  .card-title {
-    margin-top: 8px;
-    margin-bottom: 8px;
-
-    font-family: 'DM Sans';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 20px;
-    line-height: 26px;
-    color: #2d3137;
-  }
-  span {
-    font-family: 'DM Sans';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 18px;
-
-    color: rgba(45, 49, 55, 0.5);
-  }
-  h2 {
-    font-family: 'DM Sans';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 20px;
-    line-height: 26px;
-
-    color: #2d3137;
-  }
-  .note {
-    font-family: 'DM Sans';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 21px;
-
-    color: #2d3137;
-
-    opacity: 0.8;
-  }
-
-  .q-action {
-    padding-top: 36px;
-    padding-bottom: 39px;
-
-    .wrong-num {
-      font-family: 'DM Sans';
-      font-style: normal;
-      font-weight: 700;
-      font-size: 14px;
-      line-height: 18px;
-      display: flex;
-      align-items: center;
-
-      color: #000000;
-
-      opacity: 0.6;
-    }
-
-    .change {
-      font-family: 'Roboto';
-      font-style: normal;
-      font-weight: 800;
-      font-size: 16px;
-      line-height: 19px;
-
-      color: #000000;
-
-      opacity: 0.7;
-    }
-  }
-}
-.default-input {
-  margin-bottom: 24px;
-  label {
-    margin-bottom: 10px;
-  }
-
-  input {
-    border: 1px solid rgba(10, 54, 119, 0.05) !important;
-    border-radius: 8px;
-  }
-}
-.verify-container {
-  background: #ffffff;
-  border: 1px solid rgba(10, 54, 119, 0.05);
-  box-shadow: 0px 30px 39px rgba(0, 0, 0, 0.02);
-  border-radius: 12px;
-  padding: 0 !important;
+.web-view {
+  display: none;
 }
 
-.verification {
-  border: 1px solid #afcbff;
-  box-shadow: 0px 30px 39px rgba(0, 0, 0, 0.02);
-  border-radius: 12px;
+.width-div {
+  width: 430px;
+}
 
-  padding: 56px 40px !important;
+.alert-body {
+  background: rgba(252, 109, 171, 0.2);
+  border-radius: 4px;
+}
 
-  .verification-title {
-    margin-bottom: 10px;
+@media only screen and (max-width: 600px) {
+  .web-view {
+    display: block;
   }
 
-  .code-inputs {
-    display: flex;
-    justify-content: space-between;
-    input {
-      width: 45px;
-      height: 45px;
-      background: #fcfdff;
-      border: 1px solid rgba(10, 54, 119, 0.05);
-      border-radius: 8px;
-      text-align: center;
-
-      font-family: 'DM Sans';
-      font-style: normal;
-      font-weight: 400;
-      font-size: 16px;
-      line-height: 21px;
-      color: #000000;
-
-      &:focus-visible {
-        color: #719ece;
-      }
-
-      &:focus {
-        outline: none !important;
-        border-color: #719ece;
-        box-shadow: 0 0 10px #719ece;
-      }
-    }
-  }
-
-  .actions {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
-
-    .btn {
-      border: 1px solid rgba(45, 49, 55, 0.1);
-      border-radius: 8px;
-      padding-top: 13px;
-      padding-bottom: 13px;
-      margin-top: 24px;
-      font-family: 'DM Sans';
-      font-style: normal;
-      font-weight: 700;
-    }
-    .btn-new-code {
-      font-size: 14px;
-      line-height: 18px;
-
-      color: #000000;
-    }
-
-    .btn-verify {
-      font-size: 16px;
-      line-height: 21px;
-      background: #ededed;
-      opacity: 0.4;
-
-      color: #2d3137;
-    }
+  .width-div {
+    width: auto;
   }
 }

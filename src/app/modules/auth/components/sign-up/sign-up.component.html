@@ -1,132 +1,67 @@
-<div class="auth-wrapper auth-v2 register">
-    <div class="auth-inner row m-0">
-        <!-- Brand logo--><a class="brand-logo" href="javascript:void(0);">
-            <img src="{{ coreConfig.app.appLogoImage }}" alt="brand-logo" height="28" />
-            <h2 class="brand-text text-primary ml-1">Lnddo</h2>
-        </a>
-        <!-- /Brand logo-->
-        <!-- Left Text-->
-        <div class="d-none d-lg-flex col-lg-8 align-items-center p-5" style='padding-left: 164px !important;'>
-            <div class="w-100 d-lg-flex justify-content-center d-flex flex-column align-items-start px-5 left-view">
+<div class="pl56 pt48 pr57 pt-m-24 pl-m-24 pr-m-24">
+    <div class="web-view m7">
+        <em data-feather="chevron-left" class="font-medium-4 text-primary toggle-icon cursor"></em>
+    </div>
+    <img width="185" height="55" class="web-view m-m23" src="../../../../../assets/images/logo/logo.png" alt="logo" />
 
-                <img src="assets/images/lnddo/logo/logo-flat.png" alt="logo" class='logo'>
-                <h2>Small Business Loans in UAE</h2>
-                <h5>Quick and Easy Access to Finance for growing Businesses.</h5>
+    <h2 class="card-title font-bold Fo-20 LH-26 m-m32">Let’s get started</h2>
 
-                <hr>
+    <button [disabled]="loading" (click)="signUpUAE_Pass()"
+        class="btn btn-block sso-btn Fo-16 font-bold LH-21 m19 m-m16" tabindex="4" rippleEffect>
+        <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>Register with UAE PASS
+    </button>
+    <div class="m14 sun-title">
+        <span class="Fo-12 LH-16">
+            UAE Pass provide single trusted digital identity solution for service providers.
+        </span>
+    </div>
+    <hr class="web-view m22 col-11" />
+    <div class="row m24">
+        <p class="col-11 col-md-7 Fo-16 font-bold LH-21">Or Register on LNDDO</p>
+        <hr class="mobile-hiden col-3 " />
+    </div>
 
-                <span>Featured In</span>
-                <img src="assets/images/lnddo/logo/arabian-business.png" class='logo-business' alt="logo">
-                <p>Lörem ipsum semihet ladilig obös etiheten. Jabel semivision.</p>
-
+    <form class="auth-login-form m32 m-m24" [formGroup]="registerForm">
+        <div class="form-group">
+            <label class="form-label" for="register-name">First and last Name *</label>
+            <input type="text" formControlName="name" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f.name.errors }" aria-describedby="register-name" autofocus=""
+                tabindex="1" id="register-name" />
+            <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                <small class="form-text text-danger" *ngIf="f.name.errors.required">Name is required!</small>
             </div>
         </div>
-        <!-- /Left Text-->
-        <!-- Register-->
-        <div class="d-flex col-lg-4 align-items-center auth-bg px-2 p-lg-5" style='padding-right: 164px !important;'>
 
-            <ng-template [ngIf]="!nextStep" [ngIfElse]="verify">
-                <div class="col-12 col-sm-8 col-md-6 col-lg-12 px-xl-2 mx-auto register-container">
-                    <h2 class="card-title font-weight-bold mb-1 sign-title">Let’s get started</h2>
-
-                    <button [disabled]="loading" (click)="signUpUAE_Pass()"
-                        class="btn btn-primary btn-block btn-uaepass" tabindex="4" rippleEffect>
-                        <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>Register with UAE
-                        PASS</button>
-
-                    <p class='sign-option'>Or Register on LNDDO</p>
-
-                    <ngb-alert [type]="'danger'" [dismissible]="false" *ngIf="error">
-                        <div class="alert-body">
-                            <p>{{ error }}</p>
-                        </div>
-                    </ngb-alert>
-
-                    <form class="auth-login-form mt-2" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-
-                        <div class="form-group default-input">
-                            <label class="form-label" for="register-name">First and last Name *</label>
-                            <input type="text" formControlName="name" class="form-control"
-                                [ngClass]="{ 'is-invalid': submitted && f.name.errors }"
-                                aria-describedby="register-name" autofocus="" tabindex="1" id="register-name" />
-                            <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
-                                <div *ngIf="f.name.errors.required">Name is required</div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="form-label" for="register-mobile">Mobile Number</label>
-                            <div class="input-group">
-
-                                <div class="input-group-prepend">
-                                    <!-- <span class="input-group-text" id="basic-addon1">+971</span> -->
-                                </div>
-
-                                <input type="text" class="form-control" formControlName="mobile" placeholder="560003293"
-                                    aria-describedby="register-mobile" id="register-mobile" autofocus=''
-                                    [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
-                                <div *ngIf="submitted && f.mobile.errors" class="invalid-feedback">
-                                    <div *ngIf="f.mobile.errors.required">Mobile is required</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <button [disabled]="loading" class="btn btn-primary btn-block btn-sign-in" tabindex="4"
-                            rippleEffect>
-                            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>Continue
-                        </button>
-                    </form>
-                    <p class="text-center mt-2 link-option">
-                        <span>Have an account? </span><a routerLink="/auth/login"><span class='link-option'
-                                style='font-weight:bold;'>&nbsp;Sign in</span></a>
-                    </p>
-                </div>
-            </ng-template>
-
-            <ng-template #verify>
-                <div class="col-12 col-sm-8 col-md-6 col-lg-12 verify-container">
-                    <div class="top-section">
-                        <span>Continue</span>
-                        <h2 class="card-title font-weight-bold mb-1">Register with LNDDO</h2>
-                        <p>Please enter your Mobile number</p>
-
-
-                        <p class='note'>We sent you a verification code to verify your cell phone , please enter it
-                            below
-                        </p>
-                        <div class='d-flex justify-content-between q-action'>
-                            <span class='wrong-num'>Wrong number ?</span>
-                            <span class='change' (click)="changePhone()">Change</span>
-                        </div>
-                    </div>
-
-                    <div class='verification' [formGroup]='verificationForm'>
-                        <p class='verification-title'>Verification Code</p>
-
-                        <div class="code-inputs">
-                            <input formControlName='input1' type="text" pattern="\d*" maxlength="1">
-                            <input formControlName='input2' type="text" pattern="\d*" maxlength="1">
-                            <input formControlName='input3' type="text" pattern="\d*" maxlength="1">
-                            <input formControlName='input4' type="text" pattern="\d*" maxlength="1">
-                            <input formControlName='input5' type="text" pattern="\d*" maxlength="1">
-                            <input formControlName='input6' type="text" pattern="\d*" maxlength="1">
-                        </div>
-
-                        <ngb-alert [type]="'danger'" style='margin-top:18px;' [dismissible]="false"
-                            *ngIf="verificationError">
-                            <div class="alert-body">
-                                <p>{{ verificationError }}</p>
-                            </div>
-                        </ngb-alert>
-
-                        <div class="actions">
-                            <div (click)="sendOtp()" class='btn btn-new-code'>Request a new code</div>
-                            <div (click)="verifyRegister()" class='btn btn-verify'>Verify</div>
-                        </div>
-                    </div>
-                </div>
-            </ng-template>
+        <div class="form-group">
+            <label class="form-label Fo-16 LH-21 m16" for="register-mobile">Mobile Number *</label>
+            <input type="text" class="form-control" formControlName="mobile" placeholder="560003293"
+                aria-describedby="register-mobile" id="register-mobile" autofocus=''
+                [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
+            <div *ngIf="submitted && f.mobile.errors" class="invalid-feedback">
+                <small class="form-text text-danger" *ngIf="f.mobile.errors.required">Mobile is required!</small>
+            </div>
         </div>
-        <!-- /Register-->
-    </div>
+
+        <!-- <ngb-alert [dismissible]="false" [hidden]="false" [type]="'danger'" class="m16 m-m8">
+            <div class="alert-body">
+                <img width="16" height="18" class="info-icon" src="../../../../../assets/images/payments/info.svg"
+                    alt="info" />
+                <span class="bold-color Fo-12 LH-12 ">Email address seems to be in invalid!</span>
+            </div>
+        </ngb-alert> -->
+
+
+
+
+        <button [disabled]="loading" class="btn btn-primary btn-block Fo-16 LH-21 m32" tabindex="4" rippleEffect
+            (click)="onSubmit()">
+            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>Continue
+        </button>
+    </form>
+    <hr class="col-10 m24" />
+
+    <p class="text-center m24 mb48 mb-m45">
+        <span class=" Fo-16 LH-21 primary-color">Have an account?</span><a routerLink="/auth/home/login"><span
+                class="Fo-16 LH-21 primary-color font-bold">&nbsp;Sign in</span></a>
+    </p>
 </div>

@@ -1,0 +1,62 @@
+<div class="auth-wrapper auth-v2">
+  <div class="auth-inner row m-0">
+    <!-- /Brand logo-->
+    <!-- Left Text-->
+    <div class="col-md-1 mobile-hiden"></div>
+    <div class="d-none d-lg-flex col-md-4 align-items-center">
+      <div class="w-100 d-lg-flex align-items-center top-div justify-content-center pl-2"
+        [ngClass]="{'m177': currentPage=='Login', 'm119': currentPage=='Register', 'm172': currentPage=='Verify'}">
+        <div class="row ">
+          <div class="col-md-12 m5">
+            <img [src]="'assets/images/logo/logo.svg'" alt="Login V2" />
+          </div>
+          <div class="col-md-12 m48">
+            <h4 class="Fo-20 font-bold LH-31">Small Business Loans in UAE</h4>
+            <p class="Fo-16 font-bold LH-21 normal-color m9">Quick and Easy Access to Finance for growing Businesses.
+            </p>
+          </div>
+          <div class="col-md-6 m29">
+            <hr />
+          </div>
+          <div class="col-md-12 m32">
+            <p class="Fo-14 font-bold LH-18 mb-0">Featured In</p>
+          </div>
+
+          <div class="col-md-12 m16">
+            <img class="pt42 pl40" src="../../../../assets/images/payments/buss-logo.png" alt="bussiness" />
+          </div>
+          <div class="col-md-12 m13 ">
+            <span class="Fo-14 LH-18 pl40">Lörem ipsum semihet ladilig obös etiheten. Jabel semivision. </span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <!-- /Left Text-->
+    <div class=" col-md-1 mobile-hiden"></div>
+    <div class=" col-md-1 mobile-hiden"></div>
+
+    <!-- Login-->
+    <div class="d-flex col-md-4 align-items-center  pr-5 pr-m-0 pl-m-0">
+      <div class="mobile-hiden" [ngClass]="{'back-btn123' : currentPage == 'Verify'}">
+        <a *ngIf="(currentPage !='Login' && currentPage != 'Register')">
+          <em data-feather="chevron-left" class="font-medium-4 text-primary toggle-icon mb-1 mt-md-0 mt-1 cursor"></em>
+        </a>
+      </div>
+      <div class="col-12 col-sm-8 col-md-6 col-lg-10 mr-5 mx-auto operation-div  m-m0"
+        [ngClass]="{'m177': currentPage=='Login', 'm119': currentPage=='Register', 'm172': currentPage=='Verify'}">
+
+
+
+        <router-outlet></router-outlet>
+        <!-- <app-login-page></app-login-page> -->
+        <!-- <app-register-page></app-register-page> -->
+        <!-- <app-consent-page></app-consent-page> -->
+      </div>
+    </div>
+    <!-- /Login-->
+    <div class="col-md-1 mobile-hiden"></div>
+
+
+  </div>
+</div>
