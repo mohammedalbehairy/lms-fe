@@ -18,7 +18,7 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
 // 		 url('../fonts/dm-sans/dm-sans.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 //   }
 
-  @font-face {
+@font-face {
 	font-family: "DM Sans";
 	src: local("DM Sans"), url(../fonts/dm-sans/DMSans-Regular.ttf) format("truetype");
 }
@@ -34,9 +34,10 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
 	color: #2D3137;
 }
 
-.font-bold{
+.font-bold {
 	font-family: 'DM Sans bold' !important;
 }
+
 // a{
 // 	font-weight: $font-weight-normal;
 // 	color: $primary-color;
@@ -84,21 +85,26 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
 	font-size: 12px;
 }
 
-.LH-31{
+.LH-31 {
 	line-height: 31px;
 }
-.LH-26{
+
+.LH-26 {
 	line-height: 26px;
 }
-.LH-21{
+
+.LH-21 {
 	line-height: 21px;
 }
-.LH-18{
+
+.LH-18 {
 	line-height: 18px;
 }
-.LH-16{
+
+.LH-16 {
 	line-height: 16px;
 }
+
 .cursor {
 	cursor: pointer;
 }
@@ -154,5 +160,8 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
 	.mobile-btn-p-back {
 		padding-left: 10%;
 		padding-right: 10%;
+	}
+	* {
+		background-color: #ffffff;
 	}
 }

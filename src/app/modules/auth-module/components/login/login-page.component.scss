@@ -18,10 +18,14 @@
     border-radius: 8px;
     color: #0A3677;
 }
-.web-view{
+
+.web-view {
     display: none;
-  }
-  
+}
+
+.width-div {
+    width: 430px;
+}
 
 .alert-body {
     background: rgba(252, 109, 171, 0.2);
@@ -29,7 +33,11 @@
 }
 
 @media only screen and (max-width: 600px) {
-    .web-view{
+    .web-view {
         display: block;
-      } 
+    }
+
+    .width-div {
+        width: auto;
+    }
 }
