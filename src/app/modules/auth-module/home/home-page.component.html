@@ -4,7 +4,7 @@
     <!-- Left Text-->
     <div class="col-md-1 mobile-hiden"></div>
     <div class="d-none d-lg-flex col-md-4 align-items-center" >
-      <div class="w-100 d-lg-flex align-items-center top-div justify-content-center pl-2" [ngClass]="{'m177': currentPage=='Login', 'm119': currentPage=='Register'}" >
+      <div class="w-100 d-lg-flex align-items-center top-div justify-content-center pl-2" [ngClass]="{'m177': currentPage=='Login', 'm119': currentPage=='Register', 'm172': currentPage=='Verify'}" >
         <div class="row ">
           <div class="col-md-12 m5">
             <img [src]="'assets/images/logo/logo.svg'" alt="Login V2" />
@@ -36,12 +36,12 @@
 
     <!-- Login-->
     <div class="d-flex col-md-4 align-items-center  pr-5 pr-m-0 pl-m-0">
-      <div class="mobile-hiden back-btn" >
+      <div class="mobile-hiden" [ngClass]="{'back-btn123' : currentPage == 'Verify'}" >
         <a *ngIf="(currentPage !='Login' && currentPage != 'Register')">
           <em data-feather="chevron-left" class="font-medium-4 text-primary toggle-icon mb-1 mt-md-0 mt-1 cursor"></em>
         </a>
         </div>
-      <div class="col-12 col-sm-8 col-md-6 col-lg-10 mr-5 mx-auto operation-div  m-m0" [ngClass]="{'m177': currentPage=='Login', 'm119': currentPage=='Register'}">
+      <div class="col-12 col-sm-8 col-md-6 col-lg-10 mr-5 mx-auto operation-div  m-m0" [ngClass]="{'m177': currentPage=='Login', 'm119': currentPage=='Register', 'm172': currentPage=='Verify'}">
 
         
         

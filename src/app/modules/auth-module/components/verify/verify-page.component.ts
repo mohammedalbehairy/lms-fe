@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from "@angular/core";
 import { UntypedFormGroup } from "@angular/forms";
 import { Router } from "@angular/router";
 import { CoreConfigService } from "@core/services/config.service";
+import { AuthRouteService } from "../../services/auth.route.service";
 
 
 @Component({
@@ -23,6 +24,7 @@ export class VerifyPageComponent implements OnInit {
   constructor(
     private _router: Router,
     private _coreConfigService: CoreConfigService,
+    private _authrouteService : AuthRouteService,
 
   ) {
     this._coreConfigService.config = {
@@ -42,6 +44,7 @@ export class VerifyPageComponent implements OnInit {
     };
   }
   ngOnInit(): void {
+    this._authrouteService.passValue("Verify");
   }
 
 

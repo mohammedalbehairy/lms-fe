@@ -23,13 +23,25 @@
 .alert-body {
     background: rgba(252, 109, 171, 0.2);
     border-radius: 4px;
+    padding: 9px 12px;
+    display: flex;
+    div{
+      background-color: transparent;
+      margin-right: 8px;
+    }
+}
+.info-icon{
+  // margin-left: 12px;
 }
 .verification {
     border: 1px solid #afcbff;
     box-shadow: 0px 30px 39px rgba(0, 0, 0, 0.02);
     border-radius: 12px;
     padding: 20px !important;
-
+    padding-left: 70px !important;
+    padding-right: 70px !important;
+    margin-left: -14px;
+    margin-right: -14px;
     .code-inputs {
       display: inline-flex;
       justify-content: space-between;
@@ -75,6 +87,21 @@
         } 
         .mobile-hiden{
           display: none;
+        }
+        .verification{
+          padding-left: 38px !important;
+          padding-right: 38px !important;
+          border-radius: 0px;
+          border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        .alert-body {
+          img,span{
+          background: transparent;
+          }
+        }
+        .mobile-cus-btn{
+          border: 0px solid !important;
+          color: #0A3677;
         }
   }
   
