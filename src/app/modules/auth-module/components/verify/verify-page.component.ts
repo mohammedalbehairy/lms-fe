@@ -5,12 +5,12 @@ import { CoreConfigService } from "@core/services/config.service";
 
 
 @Component({
-  selector: 'app-register-page',
-  templateUrl: './register-page.component.html',
-  styleUrls: ['./register-page.component.scss'],
+  selector: 'app-verify-page',
+  templateUrl: './verify-page.component.html',
+  styleUrls: ['./verify-page.component.scss'],
 })
 
-export class RegisterPageComponent implements OnInit {
+export class VerifyPageComponent implements OnInit {
 
 
   public loginForm: UntypedFormGroup;
@@ -49,11 +49,7 @@ export class RegisterPageComponent implements OnInit {
     return this.loginForm.controls;
   }
 
-  verify() {
-    this._router.navigate(['auth2/home/verify']);
-  }
-
-  login() {
-    this._router.navigate(['auth2/home/login']);
+  openDocumentsPage() {
+    this._router.navigate(['dash/documents']);
   }
 }

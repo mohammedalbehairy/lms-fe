@@ -8,6 +8,7 @@ import { AuthModulePagesRoutingModule } from "./auth-module-pages-routing.module
 import { ConsentPageComponent } from "./components/consent/consent-page.component";
 import { LoginPageComponent } from "./components/login/login-page.component";
 import { RegisterPageComponent } from "./components/register/register-page.component";
+import { VerifyPageComponent } from "./components/verify/verify-page.component";
 import { HomePageComponent } from "./home/home-page.component";
 
 @NgModule({
@@ -15,7 +16,8 @@ import { HomePageComponent } from "./home/home-page.component";
         HomePageComponent,
         LoginPageComponent,
         RegisterPageComponent,
-        ConsentPageComponent
+        ConsentPageComponent,
+        VerifyPageComponent
     ],
     imports: [
         CommonModule,

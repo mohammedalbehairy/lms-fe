@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RegisterPageComponent } from './register-page.component';
+import { VerifyPageComponent } from './verify-page.component';
 
 describe('UserErrorComponent', () => {
-  let component: RegisterPageComponent;
-  let fixture: ComponentFixture<RegisterPageComponent>;
+  let component: VerifyPageComponent;
+  let fixture: ComponentFixture<VerifyPageComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RegisterPageComponent ]
+      declarations: [ VerifyPageComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(RegisterPageComponent);
+    fixture = TestBed.createComponent(VerifyPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

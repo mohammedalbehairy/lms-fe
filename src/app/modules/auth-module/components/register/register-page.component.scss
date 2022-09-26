@@ -62,7 +62,10 @@ top: 167px;
       }
     }
   }
-
+  .web-view{
+    display: none;
+  }
+  
   @media only screen and (max-width: 600px) {
     .code-inputs{
         input{
@@ -70,5 +73,9 @@ top: 167px;
             height: 40px !important;
         }
     }
+
+    .web-view{
+      display: block;
+    } 
 
   }
