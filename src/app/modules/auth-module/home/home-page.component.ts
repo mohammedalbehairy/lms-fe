@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from "@angular/core";
 import { UntypedFormGroup } from "@angular/forms";
 import { Router } from "@angular/router";
 import { CoreConfigService } from "@core/services/config.service";
+import { AuthRouteService } from "../services/auth.route.service";
 
 
 @Component({
@@ -35,16 +36,23 @@ export class HomePageComponent implements OnInit {
   public passwordTextType: boolean;
   public loading = false;
 
-
+  currentPage = 'Login';
 
   constructor(
     private _router: Router,
     private _coreConfigService: CoreConfigService,
-
+    private _authrouteService : AuthRouteService
   ) {
-
+    
   }
   ngOnInit(): void {
+    this._authrouteService.currentPage.subscribe(
+      data => {
+        console.log(data);
+        this.currentPage = data;
+      }
+    );
+
     this._coreConfigService.config = {
       layout: {
         navbar: {

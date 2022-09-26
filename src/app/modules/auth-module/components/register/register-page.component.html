@@ -1,59 +1,59 @@
-
-<div class="pt-md-1 mobile-hiden">
-<a>
-  <em data-feather="chevron-left" class="font-medium-4 text-primary toggle-icon mb-1 mt-md-0 mt-1 cursor"></em>
-</a>
-</div>
-<div class="p-md-3 p-1">
-  <img width="185" height="55" class="web-view" src="../../../../../assets/images/logo/logo.png" alt="logo" />
-
-<h2 class="card-title font-bold Fo-20 LH-26 b-1 mt-md-0 mt-2">Let’s get started</h2>
-
-<button [disabled]="loading" class="btn btn-block sso-btn Fo-16 font-bold LH-21" tabindex="4" rippleEffect>
-  <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>Sign in with UAE PASS
-</button>
-<div class="mt-2">
-<span class="Fo-12 LH-16">
-  UAE Pass provide single trusted digital identity solution for service providers.
-</span>
-</div>
-<div class="row mt-2">
-  <p class="col-7 Fo-16 font-bold LH-21" >Or Register on LNDDO</p>
-  <hr class="col-3 " />
-</div>
-
-<form class="auth-login-form mt-2" [formGroup]="loginForm">
-  <div class="form-group">
-    <label class="form-label Fo-16 LH-21" for="login-email">First and last Name *</label>
-    <input type="text" formControlName="email" class="form-control Fo-16 LH-21"
-      [ngClass]="{ 'is-invalid': submitted && f.email.errors }" placeholder="John Smith " aria-describedby="login-email"
-      autofocus="" tabindex="1" />
+<div class="pl56 pt48 pr57 pt-m-24 pl-m-24 pr-m-24 width-div">
+  <div class="web-view m7">
+    <em data-feather="chevron-left" class="font-medium-4 text-primary toggle-icon cursor"></em>
   </div>
+  <img width="185" height="55" class="web-view m-m23" src="../../../../../assets/images/logo/logo.png" alt="logo" />
 
-  <div class="form-group">
-    <label class="form-label Fo-16 LH-21" for="login-email">Mobile Number *</label>
-    <input type="text" formControlName="email" class="form-control Fo-16 LH-21"
-      [ngClass]="{ 'is-invalid': submitted && f.email.errors }" placeholder="560003293" aria-describedby="login-email"
-      autofocus="" tabindex="1" />
-  </div>
+  <h2 class="card-title font-bold Fo-20 LH-26 m-m32">Let’s get started</h2>
 
-  <ngb-alert [dismissible]="false" [hidden]="false" [type]="'danger'" class="mt-2">
-    <div class="alert-body">
-      <img width="16" height="18" class="info-icon" src="../../../../../assets/images/payments/info.svg" alt="info" />
-      <span class="bold-color Fo-12 LH-12 ">Email address seems to be in invalid!</span>
-    </div>
-  </ngb-alert>
-
-
-
-
-  <button [disabled]="loading" class="btn btn-primary btn-block Fo-16 LH-21 mt-3" tabindex="4" rippleEffect (click)="verify()">
-    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>Continue
+  <button [disabled]="loading" class="btn btn-block sso-btn Fo-16 font-bold LH-21 m19 m-m16" tabindex="4" rippleEffect>
+    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>Sign in with UAE PASS
   </button>
-</form>
-<hr class="col-10" />
+  <div class="m14 sun-title">
+    <span class="Fo-12 LH-16">
+      UAE Pass provide single trusted digital identity solution for service providers.
+    </span>
+  </div>
+  <hr class="web-view m22 col-11" />
+  <div class="row m24">
+    <p class="col-11 col-md-7 Fo-16 font-bold LH-21">Or Register on LNDDO</p>
+    <hr class="mobile-hiden col-3 " />
+  </div>
 
-<p class="text-center mt-3 ">
-  <span class=" Fo-16 LH-21 primary-color">Have an account?</span><a routerLink="/auth2/home/login"><span class="Fo-16 LH-21 primary-color font-bold">&nbsp;Sign in</span></a>
-</p>
+  <form class="auth-login-form m32 m-m24" [formGroup]="loginForm">
+    <div class="form-group">
+      <label class="form-label Fo-16 LH-21" for="login-email">First and last Name *</label>
+      <input type="text" formControlName="email" class="form-control Fo-16 LH-21 m12"
+        [ngClass]="{ 'is-invalid': submitted && f.email.errors }" placeholder="John Smith "
+        aria-describedby="login-email" autofocus="" tabindex="1" />
+    </div>
+
+    <div class="form-group">
+      <label class="form-label Fo-16 LH-21 m16" for="login-email">Mobile Number *</label>
+      <input type="text" formControlName="email" class="form-control Fo-16 LH-21 m12"
+        [ngClass]="{ 'is-invalid': submitted && f.email.errors }" placeholder="560003293" aria-describedby="login-email"
+        autofocus="" tabindex="1" />
+    </div>
+
+    <ngb-alert [dismissible]="false" [hidden]="false" [type]="'danger'" class="m16 m-m8">
+      <div class="alert-body">
+        <img width="16" height="18" class="info-icon" src="../../../../../assets/images/payments/info.svg" alt="info" />
+        <span class="bold-color Fo-12 LH-12 ">Email address seems to be in invalid!</span>
+      </div>
+    </ngb-alert>
+
+
+
+
+    <button [disabled]="loading" class="btn btn-primary btn-block Fo-16 LH-21 m32" tabindex="4" rippleEffect
+      (click)="verify()">
+      <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>Continue
+    </button>
+  </form>
+  <hr class="col-10 m24" />
+
+  <p class="text-center m24 mb48 mb-m45">
+    <span class=" Fo-16 LH-21 primary-color">Have an account?</span><a routerLink="/auth2/home/login"><span
+        class="Fo-16 LH-21 primary-color font-bold">&nbsp;Sign in</span></a>
+  </p>
 </div>

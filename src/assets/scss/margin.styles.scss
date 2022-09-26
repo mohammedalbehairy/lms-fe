@@ -125,14 +125,20 @@
 .m48{
     margin-top: 48px;
 }
-
-.m117{
-    margin-top: 117px;
+.m119{
+    margin-top: 119px;
+}
+.m177{
+    margin-top: 177px;
 }
 
 
-
-
+.mb48{
+    margin-bottom: 48px;
+}
+.mb45{
+    margin-bottom: 45px;
+}
 
 @media only screen and (max-width: 600px) {
     .m-m0{
@@ -268,5 +274,15 @@
     
     .m-m117{
         margin-top: 117px;
+    }
+
+
+
+
+    .mb-m48{
+        margin-bottom: 48px;
+    }
+    .mb-m45{
+        margin-bottom: 45px;
     }
 }

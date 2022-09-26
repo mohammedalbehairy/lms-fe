@@ -10,6 +10,7 @@ import { LoginPageComponent } from "./components/login/login-page.component";
 import { RegisterPageComponent } from "./components/register/register-page.component";
 import { VerifyPageComponent } from "./components/verify/verify-page.component";
 import { HomePageComponent } from "./home/home-page.component";
+import { AuthRouteService } from "./services/auth.route.service";
 
 @NgModule({
     declarations: [
@@ -28,5 +29,8 @@ import { HomePageComponent } from "./home/home-page.component";
         CoreCommonModule,
         NgxMaskModule.forRoot()
     ],
+    providers: [
+        AuthRouteService
+    ]
 })
 export class AuthModulePagesModule {}
