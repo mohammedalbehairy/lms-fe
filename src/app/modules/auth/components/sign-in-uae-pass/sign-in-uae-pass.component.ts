@@ -7,6 +7,7 @@ import { Subject } from 'rxjs';
 import { UaePassToken } from '../../interfaces/uae-pass-token';
 import { AuthUaePassService } from '../../service/auth-uae-pass.service';
 import { AuthenticationService } from 'app/auth/service';
+import { environment } from 'environments/environment';
 
 @Component({
   selector: 'app-sign-in-uae-pass',
@@ -39,6 +40,7 @@ export class SignInUaePassComponent implements OnInit {
   constructor(
     private _coreConfigService: CoreConfigService,
     private _route: ActivatedRoute,
+    private _http: HttpClient,
     private _router: Router,
     private _authenticationService: AuthenticationService,
     private _authUaePassService: AuthUaePassService
@@ -81,18 +83,28 @@ export class SignInUaePassComponent implements OnInit {
   }
 
   getToken() {
-    const body = new HttpParams();
+    console.log('=--=-=getToken-=-=-=-=');
+    // return this._authUaePassService.getTokenUAE_Pass(this.code).subscribe(
+    return this._http
+      .post(
+        'https://hermes.lnddo.loan/api/unsecured/v1/registration/uae-pass',
+        {
+          code: this.code,
+          redirectUri: `${environment.currentUrl}/auth/sign-in-uae-pass`,
+        }
+      )
+      .subscribe(
+        (res: any) => {
+          console.log('=--=-=-=-=-=-=');
 
-    return this._authUaePassService.getTokenUAE_Pass(this.code).subscribe(
-      (res: any) => {
-        this.uaePassToken = res;
+          this.uaePassToken = res;
 
-        this.loginUAE_Pass();
-      },
-      (err) => {
-        console.log('-------', err);
-      }
-    );
+          this.loginUAE_Pass();
+        },
+        (err) => {
+          console.log('-------', err);
+        }
+      );
   }
 
   loginUAE_Pass() {

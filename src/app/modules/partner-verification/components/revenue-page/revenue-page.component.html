@@ -1,0 +1,49 @@
+<div>
+    <a (click)="back()">
+        <em data-feather="chevron-left" class="font-medium-4 text-primary toggle-icon mb-1 cursor"></em>
+    </a>
+    <h6 class="text-muted">Welcome</h6>
+    <h4 class="font-bold">Now let’s connect your revenue channel </h4>
+    <p>Please Connect with your recurring revenue channel for us to assess your business</p>
+</div>
+
+<h6 class="mt-2 font-bold">Connect payment channel</h6>
+
+<div class="row mt-1">
+    <div class="col-md-3 col-xl-3 col-6">
+        <div class="card mb-1 div-payment" [ngClass]="{'div-payment-active': type=='Telr'}" (click)="type = 'Telr'">
+            <img class="image-payment m-md-3 m-1" src="assets/images/payments/Telr.svg" alt="Card image cap" />
+            <div class="card-body">
+                <h6 class="card-title">Telr</h6>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 col-xl-3 col-6">
+        <div class="card mb-1 div-payment" [ngClass]="{'div-payment-active': type=='Magnati'}" (click)="type = 'Magnati'">
+            <img class="image-payment m-md-3 m-1" src="assets/images/payments/magnati.svg" alt="Card image cap" />
+            <div class="card-body">
+                <h6 class="card-title">Magnati</h6>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h6 class="font-bold">Or</h6>
+<h6 class="mt-1 font-bold">Connect e-commerce channel</h6>
+
+<div class="row">
+    <div class="col-md-3 col-xl-3 col-6">
+        <div class="card mb-3 div-payment" [ngClass]="{'div-payment-active': type=='Amazon'}" (click)="type = 'Amazon'">
+            <img class="image-payment m-md-3 m-1" src="assets/images/payments/Amazon.svg" alt="Card image cap" />
+            <div class="card-body">
+                <h6 class="card-title">Amazon</h6>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row w-100 footer-btn">
+    <div class="col-md-12 mobile-dev">
+        <button type="submit" rippleEffect class="btn btn-primary pr-5 pl-5 btn-reverse" (click)="next()">Continue</button>
+    </div>
+</div>

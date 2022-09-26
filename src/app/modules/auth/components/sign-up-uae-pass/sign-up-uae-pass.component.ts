@@ -94,19 +94,18 @@ export class SignUpUaePassComponent implements OnInit {
       .set('client_secret', 'sandbox_stage');
 
     return this._http
-      .post('https://stg-id.uaepass.ae/idshub/token', body.toString(), {
-        headers: new HttpHeaders().set(
-          'Content-Type',
-          'application/x-www-form-urlencoded'
-        ),
-      })
+      .post(
+        'https://hermes.lnddo.loan/api/unsecured/v1/registration/uae-pass',
+        {
+          code: this.code,
+          redirectUri: `${environment.currentUrl}/auth/sign-up-uae-pass`,
+        }
+      )
       .subscribe(
         (res: any) => {
-          console.log('=======', res);
-          this.uaePassToken = res;
+          console.log('================', res);
 
-          this._coreConfigService.signUpData = { email: 'test' };
-          console.log('-----------------------');
+          this.uaePassToken = res;
           this.signUpHerms();
           // this.router.navigate(['/auth/sign-up-uae-pass']);
         },

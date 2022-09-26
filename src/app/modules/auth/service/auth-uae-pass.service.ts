@@ -17,13 +17,10 @@ export class AuthUaePassService {
       .set('client_secret', 'sandbox_stage');
 
     return this._http.post(
-      'https://stg-id.uaepass.ae/idshub/token',
-      reqBody.toString(),
+      'https://hermes.lnddo.loan/api/unsecured/v1/registration/uae-pass',
       {
-        headers: new HttpHeaders().set(
-          'Content-Type',
-          'application/x-www-form-urlencoded'
-        ),
+        code,
+        redirectUri: `${environment.currentUrl}/auth/sign-in-uae-pass`,
       }
     );
   }

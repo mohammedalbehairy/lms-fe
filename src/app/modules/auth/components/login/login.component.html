@@ -59,8 +59,8 @@
                         <div class="form-group default-input">
                             <label class="form-label" for="login-mobile">Mobile Number *</label>
                             <input type="text" formControlName="mobile" class="form-control"
-                                [ngClass]="{ 'is-invalid': submitted && f.mobile.errors }" aria-describedby="login-mobile"
-                                autofocus="" tabindex="1" id="login-mobile" />
+                                [ngClass]="{ 'is-invalid': submitted && f.mobile.errors }"
+                                aria-describedby="login-mobile" autofocus="" tabindex="1" id="login-mobile" />
                             <div *ngIf="submitted && f.mobile.errors" class="invalid-feedback">
                                 <div *ngIf="f.mobile.errors.required">Mobile is required</div>
                             </div>
