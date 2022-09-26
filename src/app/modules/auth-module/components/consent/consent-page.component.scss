@@ -62,3 +62,14 @@
         padding: 0px;
     }
 }
+.web-view{
+    display: none;
+  }
+@media only screen and (max-width: 600px) {
+      .web-view{
+          display: block;
+        } 
+        .mobile-hiden{
+          display: none;
+        }
+  }

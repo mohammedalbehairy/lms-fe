@@ -1,5 +1,6 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
+import { ConsentPageComponent } from "./components/consent/consent-page.component";
 import { LoginPageComponent } from "./components/login/login-page.component";
 import { RegisterPageComponent } from "./components/register/register-page.component";
 import { VerifyPageComponent } from "./components/verify/verify-page.component";
@@ -23,6 +24,10 @@ const routes: Routes = [
             {
                 path: "verify",
                 component: VerifyPageComponent
+            },
+            {
+                path: "consent",
+                component : ConsentPageComponent
             }
         ]  
     },
