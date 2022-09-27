@@ -1,7 +1,7 @@
 import { Component, Input, OnInit, ViewChild } from "@angular/core";
 import { Router } from "@angular/router";
 import { NgbCarousel } from "@ng-bootstrap/ng-bootstrap";
-import { AuthRouteService } from "../../services/auth.route.service";
+import { AuthRouteService } from '../../service/auth.route.service';
 
 
 @Component({

@@ -15,6 +15,7 @@ import { SignInUaePassComponent } from './components/sign-in-uae-pass/sign-in-ua
 import { SignUpUaePassComponent } from './components/sign-up-uae-pass/sign-up-uae-pass.component';
 import { HomeComponent } from './home/home.component';
 import { ToastrModule } from 'ngx-toastr';
+import { ConsentPageComponent } from './components/consent/consent-page.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { ToastrModule } from 'ngx-toastr';
     SignInUaePassComponent,
     SignUpUaePassComponent,
     HomeComponent,
+    ConsentPageComponent,
   ],
   imports: [
     CommonModule,

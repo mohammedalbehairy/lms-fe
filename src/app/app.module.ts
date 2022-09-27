@@ -38,13 +38,6 @@ const appRoutes: Routes = [
       import('./modules/auth/auth.module').then((m) => m.AuthModule),
   },
   {
-    path: 'auth2',
-    loadChildren: () =>
-      import('./modules/auth-module/auth-module-pages.module').then(
-        (m) => m.AuthModulePagesModule
-      ),
-  },
-  {
     path: 'partners',
     loadChildren: () =>
       import('./modules/partner-verification/partner-verification.module').then(
@@ -64,8 +57,11 @@ const appRoutes: Routes = [
   {
     path: 'loanbooking',
     loadChildren: () =>
-      import('./modules/loan_booking/loan_booking.module').then((m) => m.LoanBookingModule),
+      import('./modules/loan_booking/loan_booking.module').then(
+        (m) => m.LoanBookingModule
+      ),
   },
+  //TODO:remove other modules
   {
     path: 'loan',
     loadChildren: () =>
@@ -207,7 +203,6 @@ const appRoutes: Routes = [
     CardSnippetModule,
     LayoutModule,
     ContentHeaderModule,
-    
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

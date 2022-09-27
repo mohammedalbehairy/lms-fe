@@ -8,6 +8,7 @@ import { MobileVerificationComponent } from './components/mobile-verification/mo
 import { SignUpUaePassComponent } from './components/sign-up-uae-pass/sign-up-uae-pass.component';
 import { SignInUaePassComponent } from './components/sign-in-uae-pass/sign-in-uae-pass.component';
 import { HomeComponent } from './home/home.component';
+import { ConsentPageComponent } from './components/consent/consent-page.component';
 
 const routes: Routes = [
   {
@@ -26,10 +27,10 @@ const routes: Routes = [
         path: 'verify',
         component: MobileVerificationComponent,
       },
-      // {
-      //     path: "consent",
-      //     component : ConsentPageComponent
-      // }
+      {
+        path: 'consent',
+        component: ConsentPageComponent,
+      },
       {
         path: 'sign-in-uae-pass',
         component: SignInUaePassComponent,
