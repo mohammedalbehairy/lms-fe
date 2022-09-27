@@ -40,39 +40,61 @@ const appRoutes: Routes = [
   {
     path: 'auth2',
     loadChildren: () =>
-      import('./modules/auth-module/auth-module-pages.module').then((m) => m.AuthModulePagesModule),
+      import('./modules/auth-module/auth-module-pages.module').then(
+        (m) => m.AuthModulePagesModule
+      ),
+  },
+  {
+    path: 'partners',
+    loadChildren: () =>
+      import('./modules/partner-verification/partner-verification.module').then(
+        (m) => m.PartnerVerificationModule
+      ),
+  },
+  {
+    path: 'kyb',
+    loadChildren: () =>
+      import('./modules/kyp/kyp.module').then((m) => m.KypModule),
   },
   {
     path: 'loan',
-    loadChildren: () => 
-      import('./modules/loan/loan-pages.module').then((m) => m.LoanPagesModule)
+    loadChildren: () =>
+      import('./modules/loan/loan-pages.module').then((m) => m.LoanPagesModule),
   },
   {
     path: 'createloan',
     loadChildren: () =>
-      import('./modules/createloan/createloan-pages.module').then((m) => m.LoanPagesModule)
+      import('./modules/createloan/createloan-pages.module').then(
+        (m) => m.LoanPagesModule
+      ),
   },
   {
     path: 'user',
     loadChildren: () =>
-      import('./modules/users/users-pages.module').then((m) => m.UserPagesModule)
+      import('./modules/users/users-pages.module').then(
+        (m) => m.UserPagesModule
+      ),
   },
   {
     path: 'company',
     loadChildren: () =>
-      import('./modules/company/company-pages.module').then((m) => m.CompanyPagesModule)
+      import('./modules/company/company-pages.module').then(
+        (m) => m.CompanyPagesModule
+      ),
   },
   {
     path: 'documents',
     loadChildren: () =>
-      import('./modules/documents/documents-pages.module').then((m) => m.DocumentsPagesModule)
+      import('./modules/documents/documents-pages.module').then(
+        (m) => m.DocumentsPagesModule
+      ),
   },
   {
     path: 'dash',
     loadChildren: () =>
       import('./modules/get-started/welcome-pages.module').then(
         (m) => m.WelcomePagesModule
-      )
+      ),
   },
   {
     path: 'dashboard',
