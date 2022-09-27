@@ -1,158 +1,65 @@
 @import '@core/scss/base/bootstrap-extended/include'; // Bootstrap includes
 @import '@core/scss/base/pages/page-auth.scss';
+@import '@core/scss/angular/libs/toastr.component.scss';
 
-.left-view {
-  .logo {
-    margin-bottom: 48px;
-  }
-
-  h2 {
-    margin-bottom: 9px;
-    font-family: 'DM Sans';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 31px;
-
-    color: #2d3137;
-  }
-
-  h5 {
-    margin: 0;
-    font-family: 'DM Sans';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 21px;
-
-    color: #2d3137;
-  }
-
-  span {
-    margin-bottom: 58px;
-    font-family: 'DM Sans';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 18px;
-
-    color: #2d3137;
-  }
-
-  hr {
-    width: 100%;
-    border: 1px solid rgba(10, 54, 119, 0.05);
-    margin: 29px 0 32px 0;
-  }
-
-  .logo-business {
-    margin-bottom: 13px;
-    margin-left: 40px;
-  }
-  p {
-    margin-left: 40px;
-
-    font-family: 'DM Sans';
-    font-style: italic;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 18px;
-
-    color: #2d3137;
-  }
+.auth-help-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }
 
-.verify-container {
-  background: #ffffff;
-  border: 1px solid rgba(10, 54, 119, 0.05);
-  box-shadow: 0px 30px 39px rgba(0, 0, 0, 0.02);
-  border-radius: 12px;
-  padding: 0 !important;
+.logo-div {
+  top: 15%;
+  position: absolute;
 }
 
-.top-section {
-  padding: 56px 48px 0 48px !important;
-
-  .card-title {
-    margin-top: 8px;
-    margin-bottom: 8px;
-
-    font-family: 'DM Sans';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 20px;
-    line-height: 26px;
-    color: #2d3137;
-  }
-  span {
-    font-family: 'DM Sans';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 18px;
-
-    color: rgba(45, 49, 55, 0.5);
-  }
-  h2 {
-    font-family: 'DM Sans';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 20px;
-    line-height: 26px;
-
-    color: #2d3137;
-  }
-  .note {
-    font-family: 'DM Sans';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 21px;
-
-    color: #2d3137;
-
-    opacity: 0.8;
-  }
-
-  .q-action {
-    padding-top: 36px;
-    padding-bottom: 39px;
-  }
+.sso-btn {
+  background: #ffede1;
+  border: 1px solid rgba(235, 216, 203, 0.1);
+  border-radius: 8px;
+  color: #0a3677;
 }
 
+.alert-body {
+  background: rgba(252, 109, 171, 0.2);
+  border-radius: 4px;
+  padding: 9px 12px;
+  display: flex;
+  div {
+    background-color: transparent;
+    margin-right: 8px;
+  }
+}
+.info-icon {
+  // margin-left: 12px;
+}
 .verification {
   border: 1px solid #afcbff;
   box-shadow: 0px 30px 39px rgba(0, 0, 0, 0.02);
   border-radius: 12px;
-
-  padding: 56px 40px !important;
-
-  .verification-title {
-    margin-bottom: 10px;
-  }
-
+  padding: 20px !important;
+  padding-left: 70px !important;
+  padding-right: 70px !important;
+  margin-left: -14px;
+  margin-right: -14px;
   .code-inputs {
-    display: flex;
+    display: inline-flex;
     justify-content: space-between;
+    width: 100%;
     input {
-      width: 71px;
-      height: 45px;
+      width: 45px;
+      height: 40px;
       background: #fcfdff;
       border: 1px solid rgba(10, 54, 119, 0.05);
       border-radius: 8px;
       text-align: center;
-
-      font-family: 'DM Sans';
-      font-style: normal;
-      font-weight: 400;
       font-size: 16px;
       line-height: 21px;
-      color: #000000;
-
+      margin-right: 5px;
+      color: #000000b0;
       &:focus-visible {
         color: #719ece;
       }
-
       &:focus {
         outline: none !important;
         border-color: #719ece;
@@ -160,37 +67,41 @@
       }
     }
   }
+}
+.web-view {
+  display: none;
+}
+.color-w {
+  color: rgba(45, 49, 55, 0.5);
+}
 
-  .actions {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
-
-    .btn {
-      border: 1px solid rgba(45, 49, 55, 0.1);
-      border-radius: 8px;
-      padding-top: 13px;
-      padding-bottom: 13px;
-      margin-top: 24px;
-      font-family: 'DM Sans';
-      font-style: normal;
-      font-weight: 700;
+@media only screen and (max-width: 600px) {
+  .code-inputs {
+    input {
+      width: 45px !important;
+      height: 40px !important;
     }
-    .btn-new-code {
-      font-size: 14px;
-      line-height: 18px;
-
-      color: #000000;
+  }
+  .web-view {
+    display: block;
+  }
+  .mobile-hiden {
+    display: none;
+  }
+  .verification {
+    padding-left: 38px !important;
+    padding-right: 38px !important;
+    border-radius: 0px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  .alert-body {
+    img,
+    span {
+      background: transparent;
     }
-
-    .btn-verify {
-      font-size: 16px;
-      line-height: 21px;
-      background: #ededed;
-      opacity: 0.4;
-
-      color: #2d3137;
-    }
+  }
+  .mobile-cus-btn {
+    border: 0px solid !important;
+    color: #0a3677;
   }
 }

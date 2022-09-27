@@ -16,8 +16,7 @@ import { BusinessDetailsOther2PageComponent } from './components/business-detail
 import { BusinessDocumentUploadPageComponent } from './components/business-document-upload/business-document-upload-page.component';
 import { BusinessDetailsInfoPageComponent } from './components/business-details-info/business-details-info-page.component';
 
-
-import { KypRoutingModule } from './kyp-routing.module';
+import { KybRoutingModule } from './kyb-routing.module';
 import { stepperModule } from '../shared/stepper/stepper.module';
 
 @NgModule({
@@ -28,11 +27,10 @@ import { stepperModule } from '../shared/stepper/stepper.module';
     BusinessDetailsOtherPageComponent,
     BusinessDetailsOther2PageComponent,
     BusinessDocumentUploadPageComponent,
-    
   ],
   imports: [
     CommonModule,
-    KypRoutingModule,
+    KybRoutingModule,
     NgbModule,
     FormsModule,
     ReactiveFormsModule,
@@ -42,8 +40,8 @@ import { stepperModule } from '../shared/stepper/stepper.module';
     Ng2FlatpickrModule,
     NouisliderModule,
     CardSnippetModule,
-    stepperModule
+    stepperModule,
   ],
   providers: [],
 })
-export class KypModule {}
+export class KybModule {}

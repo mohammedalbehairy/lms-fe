@@ -92,7 +92,9 @@ export class LoginComponent implements OnInit {
     }
     this.nextStep = true;
 
-    this.sendOtp(); //TODO:activate it again
+    // this.sendOtp(); //TODO:activate it again
+
+    // TODO: redirect to verification page
     return;
   }
 
@@ -135,7 +137,7 @@ export class LoginComponent implements OnInit {
    */
   loginUAE_Pass() {
     this.loadingUaePass = true;
-    window.location.href = `https://stg-id.uaepass.ae/idshub/authorize?redirect_uri=${environment.currentUrl}/auth/sign-in-uae-pass&client_id=sandbox_stage&response_type=code&state=ShNP22hyl1jUU2RGjTRkpg==&scope=urn:uae:digitalid:profile:general&acr_values=urn:safelayer:tws:policies:authentication:level:low&ui_locales=en`;
+    window.location.href = `https://stg-id.uaepass.ae/idshub/authorize?redirect_uri=${environment.currentUrl}/auth/home/sign-in-uae-pass&client_id=sandbox_stage&response_type=code&state=ShNP22hyl1jUU2RGjTRkpg==&scope=urn:uae:digitalid:profile:general&acr_values=urn:safelayer:tws:policies:authentication:level:low&ui_locales=en`;
   }
 
   sendOtp() {

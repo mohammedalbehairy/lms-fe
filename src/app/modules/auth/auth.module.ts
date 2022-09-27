@@ -11,10 +11,10 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { UserErrorComponent } from './components/user-error/user-error.component';
 import { MobileVerificationComponent } from './components/mobile-verification/mobile-verification.component';
-import { MobileVerifiedComponent } from './components/mobile-verified/mobile-verified.component';
 import { SignInUaePassComponent } from './components/sign-in-uae-pass/sign-in-uae-pass.component';
 import { SignUpUaePassComponent } from './components/sign-up-uae-pass/sign-up-uae-pass.component';
 import { HomeComponent } from './home/home.component';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -24,7 +24,6 @@ import { HomeComponent } from './home/home.component';
     ForgotPasswordComponent,
     UserErrorComponent,
     MobileVerificationComponent,
-    MobileVerifiedComponent,
     SignInUaePassComponent,
     SignUpUaePassComponent,
     HomeComponent,
@@ -37,6 +36,7 @@ import { HomeComponent } from './home/home.component';
     ReactiveFormsModule,
     CoreCommonModule,
     NgxMaskModule.forRoot(),
+    ToastrModule.forRoot(),
   ],
 })
 export class AuthModule {}

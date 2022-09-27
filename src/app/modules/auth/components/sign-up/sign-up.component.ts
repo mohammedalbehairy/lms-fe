@@ -74,30 +74,6 @@ export class SignUpComponent implements OnInit {
     };
   }
 
-  // convenience getter for easy access to form fields
-  get f() {
-    return this.registerForm.controls;
-  }
-
-  get v() {
-    return this.verificationForm.controls;
-  }
-
-  onSubmit() {
-    this.submitted = true;
-
-    // stop here if form is invalid
-    if (this.registerForm.invalid) {
-      return;
-    }
-
-    this.nextStep = true;
-
-    // this.sendOtp(); //TODO:activate it again
-    this._sharedDataService.registerData = this.registerForm.value;
-    return;
-  }
-
   // Lifecycle Hooks
   // -----------------------------------------------------------------------------------------------------
 
@@ -134,11 +110,36 @@ export class SignUpComponent implements OnInit {
     });
   }
 
+  // convenience getter for easy access to form fields
+  get f() {
+    return this.registerForm.controls;
+  }
+
+  get v() {
+    return this.verificationForm.controls;
+  }
+
+  onSubmit() {
+    this.submitted = true;
+
+    // stop here if form is invalid
+    if (this.registerForm.invalid) {
+      return;
+    }
+
+    this.nextStep = true;
+
+    // this.sendOtp(); //TODO:activate it again
+    this._sharedDataService.registerData = this.registerForm.value;
+    this._router.navigate(['/auth/home/verify']);
+    return;
+  }
+
   /**
    * Login With UAE Pass
    */
   signUpUAE_Pass() {
-    window.location.href = `https://stg-id.uaepass.ae/idshub/authorize?redirect_uri=${environment.currentUrl}/auth/sign-up-uae-pass&client_id=sandbox_stage&response_type=code&state=ShNP22hyl1jUU2RGjTRkpg==&scope=urn:uae:digitalid:profile:general&acr_values=urn:safelayer:tws:policies:authentication:level:low&ui_locales=en`;
+    window.location.href = `https://stg-id.uaepass.ae/idshub/authorize?redirect_uri=${environment.currentUrl}/auth/home/sign-up-uae-pass&client_id=sandbox_stage&response_type=code&state=ShNP22hyl1jUU2RGjTRkpg==&scope=urn:uae:digitalid:profile:general&acr_values=urn:safelayer:tws:policies:authentication:level:low&ui_locales=en`;
   }
 
   sendOtp() {

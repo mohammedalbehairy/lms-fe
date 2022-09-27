@@ -54,7 +54,7 @@ const appRoutes: Routes = [
   {
     path: 'kyb',
     loadChildren: () =>
-      import('./modules/kyp/kyp.module').then((m) => m.KypModule),
+      import('./modules/kyb/kyb.module').then((m) => m.KybModule),
   },
   {
     path: 'kyc',

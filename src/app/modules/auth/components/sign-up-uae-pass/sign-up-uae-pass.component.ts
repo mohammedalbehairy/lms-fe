@@ -89,7 +89,7 @@ export class SignUpUaePassComponent implements OnInit {
     const body = new HttpParams()
       .set('grant_type', 'authorization_code')
       .set('code', this.code)
-      .set('redirect_uri', `${environment.currentUrl}/auth/sign-up-uae-pass`)
+      .set('redirect_uri', `${environment.currentUrl}/auth/home/sign-up-uae-pass`)
       .set('client_id', 'sandbox_stage')
       .set('client_secret', 'sandbox_stage');
 
@@ -98,7 +98,7 @@ export class SignUpUaePassComponent implements OnInit {
         'https://hermes.lnddo.loan/api/unsecured/v1/registration/uae-pass',
         {
           code: this.code,
-          redirectUri: `${environment.currentUrl}/auth/sign-up-uae-pass`,
+          redirectUri: `${environment.currentUrl}/auth/home/sign-up-uae-pass`,
         }
       )
       .subscribe(
@@ -107,7 +107,7 @@ export class SignUpUaePassComponent implements OnInit {
 
           this.uaePassToken = res;
           this.signUpHerms();
-          // this.router.navigate(['/auth/sign-up-uae-pass']);
+          // this.router.navigate(['/auth/home/sign-up-uae-pass']);
         },
         (err) => {
           console.log('-------', err);

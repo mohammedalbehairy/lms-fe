@@ -14,7 +14,7 @@ export const CORE_CUSTOM_CONFIG = new InjectionToken('coreCustomConfig');
 })
 export class SharedDataService {
   // Private
-  public registerData: any = undefined;
+  public registerData: any = {};
 
   private _configSubject: BehaviorSubject<any>;
 }

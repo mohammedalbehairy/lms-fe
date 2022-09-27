@@ -38,7 +38,7 @@
 
     <!-- Login-->
     <div class="d-flex col-md-4 align-items-center  pr-5 pr-m-0 pl-m-0">
-      <div class="mobile-hiden" [ngClass]="{'back-btn123' : currentPage == 'Verify'}">
+      <div class="mobile-hiden" [ngClass]="{'back-btn123' : currentPage == 'Verify'}" (click)="navigateTo()">
         <a *ngIf="(currentPage !='Login' && currentPage != 'Register')">
           <em data-feather="chevron-left" class="font-medium-4 text-primary toggle-icon mb-1 mt-md-0 mt-1 cursor"></em>
         </a>

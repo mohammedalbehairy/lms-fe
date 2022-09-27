@@ -1,61 +1,61 @@
-<div class="auth-wrapper auth-v2 register">
-    <div class="auth-inner row m-0">
-        <!-- Brand logo--><a class="brand-logo" href="javascript:void(0);">
-            <img src="{{ coreConfig.app.appLogoImage }}" alt="brand-logo" height="28" />
-            <h2 class="brand-text text-primary ml-1">Lnddo</h2>
-        </a>
-        <!-- /Brand logo-->
-        <!-- Left Text-->
-        <div class="d-none d-lg-flex col-lg-8 align-items-center p-5" style='padding-left: 164px !important;'>
-            <div class="w-100 d-lg-flex justify-content-center d-flex flex-column align-items-start px-5 left-view">
-
-                <img src="assets/images/lnddo/logo/logo-flat.png" alt="logo" class='logo'>
-                <h2>Small Business Loans in UAE</h2>
-                <h5>Quick and Easy Access to Finance for growing Businesses.</h5>
-
-                <hr>
-
-                <span>Featured In</span>
-                <img src="assets/images/lnddo/logo/arabian-business.png" class='logo-business' alt="logo">
-                <p>Lörem ipsum semihet ladilig obös etiheten. Jabel semivision.</p>
-
-            </div>
-        </div>
-        <!-- /Left Text-->
-        <!-- Register-->
-        <div class="d-flex col-lg-4 align-items-center auth-bg px-2 p-lg-5" style='padding-right: 164px !important;'>
-            <div class="col-12 col-sm-8 col-md-6 col-lg-12 verify-container">
-
-                <div class="top-section">
-                    <span>Continue</span>
-                    <h2 class="card-title font-weight-bold mb-1">Register with LNDDO</h2>
-                    <p>Please enter your Mobile number</p>
-
-
-                    <p class='note'>We sent you a verification code to verify your cell phone , please enter it below
-                    </p>
-                    <div class='d-flex justify-content-between q-action'>
-                        <span>Wrong number ?</span>
-                        <span>Change</span>
-                    </div>
-                </div>
-
-                <div class='verification'>
-                    <p class='verification-title'>Verification Code</p>
-
-                    <div class="code-inputs">
-                        <input type="text" pattern="\d*" maxlength="1">
-                        <input type="number" maxlength="1">
-                        <input type="number" maxlength="1">
-                        <input type="number" maxlength="1">
-                    </div>
-                    <div class="actions">
-                        <div class='btn btn-new-code'>Request a new code</div>
-                        <div class='btn btn-verify'>Verify</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- /Register-->
+<div class="pl56 pt48 pr57 pt-m-24 pl-m-24 pr-m-24">
+    <div class="web-view m7">
+        <em data-feather="chevron-left" class="font-medium-4 text-primary toggle-icon cursor"></em>
     </div>
+    <p class="Fo-14 LH-18 color-w m24 mb-0">Continue</p>
+
+    <h2 class="font-bold Fo-20 LH-26 m8 mb-0">Register with LNDDO</h2>
+    <p class="Fo-16 LH-21 m8 mb-0">Please enter your Mobile number</p>
+
+
+    <form class="auth-login-form m32 m-m24" [formGroup]="mobileForm">
+        <div class="form-group mb-0">
+            <label class="form-label Fo-16 LH-21 mb-0" for="verify-mobile">Mobile Number *</label>
+            <input type="text" formControlName="mobile" class="form-control Fo-16 LH-21 m12"
+                [ngClass]="{ 'is-invalid': submitted && m.mobile.errors }" placeholder="+201020253907"
+                aria-describedby="verify-mobile" autofocus="" tabindex="1" />
+        </div>
+
+        <div class="row">
+            <span class="col-md-12 Fo-16 LH-21 m24 m-m16 mb-0">We sent you a verification code to verify your cell phone
+                , please enter it
+                below</span>
+            <span class="col-md-6 col-6 m36 m-m16"> Wrong number ? </span>
+            <span class="col-md-6 col-6 m36 font-bold text-right  m-m16"> Change </span>
+        </div>
+
+    </form>
+</div>
+
+<div class='verification m39'>
+    <p class='Fo-16 LH-21 m20 mb-0 m-m0'>Enter Verification Code *</p>
+
+    <div class="code-inputs m10" [formGroup]="verificationForm">
+        <input formControlName='input1' type="text" pattern="\d*" maxlength="1">
+        <input formControlName='input2' type="text" pattern="\d*" maxlength="1">
+        <input formControlName='input3' type="text" pattern="\d*" maxlength="1">
+        <input formControlName='input4' type="text" pattern="\d*" maxlength="1">
+        <input formControlName='input5' type="text" pattern="\d*" maxlength="1">
+        <input formControlName='input6' type="text" pattern="\d*" maxlength="1">
+    </div>
+
+    <ngb-alert [dismissible]="false" *ngIf="verificationError" [hidden]="false" [type]="'danger'" class="m18 m-m8 mb-0">
+        <div class="alert-body">
+            <div>
+                <img width="16" height="18" class="info-icon" src="../../../../../assets/images/payments/info.svg"
+                    alt="info" />
+            </div>
+            <span class="bold-color Fo-12 LH-16 ">{{ verificationError }}.</span>
+        </div>
+    </ngb-alert>
+
+    <button [disabled]="loading" class="btn btn-outline-dark btn-block bold-color Fo-16 LH-18 m24 m-m32 mobile-cus-btn"
+        tabindex="4" rippleEffect>
+        <span *ngIf="loading" (click)="sendOtp()" class="spinner-border spinner-border-sm mr-1"></span>Request a new
+        code
+    </button>
+
+    <button [disabled]="false" class="btn btn-primary btn-block Fo-16 LH-18 m24 m-m32 mb18" tabindex="4" rippleEffect>
+        <span (click)="verify()" *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>Verify
+    </button>
 </div>

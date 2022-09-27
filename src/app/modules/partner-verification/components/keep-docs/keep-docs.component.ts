@@ -13,6 +13,6 @@ export class KeepDocsComponent implements OnInit {
     this._router.navigate(['dash/welcome']);
   }
   next() {
-    this._router.navigate(['dash/revenue']);
+    this._router.navigate(['kyb/businessdetails']);
   }
 }
