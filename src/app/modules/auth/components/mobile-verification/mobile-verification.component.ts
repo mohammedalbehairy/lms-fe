@@ -13,6 +13,7 @@ import { Subject } from 'rxjs';
 import { first, takeUntil } from 'rxjs/operators';
 import { AuthRouteService } from '../../service/auth.route.service';
 import { AuthService } from '../../service/auth.service';
+import { RedirectionService } from '../../service/redirection.service';
 import { VerificationService } from '../../service/verification.service';
 
 @Component({
@@ -27,10 +28,14 @@ export class MobileVerificationComponent implements OnInit {
   public verificationForm: UntypedFormGroup;
   public mobileForm: UntypedFormGroup;
   public loading = false;
+  public loadingCode = false;
+
   public submitted = false;
   public returnUrl: string;
+  public currentPage: 'login';
   public error = '';
   public verificationError = '';
+  public inputsError = false;
   public savedData = undefined;
   public passwordTextType: boolean;
 
@@ -52,6 +57,7 @@ export class MobileVerificationComponent implements OnInit {
     private _sharedDataService: SharedDataService,
     private _verificationService: VerificationService,
     private _toastrService: ToastrService,
+    private _redirectionService: RedirectionService,
     private _authrouteService: AuthRouteService
   ) {
     // redirect to home if already logged in
@@ -103,7 +109,11 @@ export class MobileVerificationComponent implements OnInit {
   }
 
   register() {
+    console.log('=============register=================');
+
     this.loading = true;
+    this.verificationError = '';
+
     this._authService
       .register(
         this.savedData.name,
@@ -120,9 +130,10 @@ export class MobileVerificationComponent implements OnInit {
           };
           this._authenticationService.login_temp(res);
           this.loading = false;
-          this._router.navigate(['/apps/email/inbox']); //TODO:chnage it to the home page
+          this._router.navigate(['/auth/home/consent']);
         },
         (error) => {
+          this.resetVerificationForm();
           if (error == 'Token supplied is invalid ') {
             this.verificationError =
               'We can’t verify your verififcation code, please try again.';
@@ -135,15 +146,55 @@ export class MobileVerificationComponent implements OnInit {
       );
   }
 
+  login() {
+    console.log('=============login=================');
+    this.loading = true;
+
+    this._authService
+      .login(this.m.mobile.value, 'MOBILE', this.inputsValues)
+      .subscribe(
+        (response: any) => {
+          this.loading = false;
+          this._authenticationService.login_temp(response);
+
+          this._router.navigate(['/auth/home/consent']);
+
+          // this.controlRedirection();
+        },
+        (error) => {
+          this.resetVerificationForm();
+          if (error == 'invalid OTP ') {
+            this.verificationError =
+              'We can’t verify your verififcation code, please try again.';
+            // TODO: redirect to login
+          } else {
+            this.verificationError = error;
+          }
+          this.loading = false;
+        }
+      );
+  }
+
+  resetVerificationForm() {
+    this.verificationForm.reset();
+    this.inputsError = false;
+  }
+
   verify() {
     if (this.mobileForm.invalid) {
+      console.log('---------mobileForm---------', this.mobileForm);
+
       return;
     }
 
     if (this.verificationForm.invalid) {
+      console.log('---------verificationForm---------', this.verificationForm);
+      this.inputsError = true;
       return;
     }
-    this.register();
+    console.log('-----------currentPage---------', this.currentPage);
+
+    this.currentPage == 'login' ? this.login() : this.register();
   }
 
   initForms() {
@@ -188,6 +239,7 @@ export class MobileVerificationComponent implements OnInit {
 
   getSavedData() {
     this.savedData = this._sharedDataService.registerData;
+    this.currentPage = this._sharedDataService.registerData.prevPage;
   }
 
   verifyForms() {
@@ -197,18 +249,22 @@ export class MobileVerificationComponent implements OnInit {
   }
 
   sendOtp() {
+    this.verificationError = '';
+    this.loadingCode = true;
+
     if (this.savedData.mobile)
       this._verificationService.sendOtp(this.m.mobile.value).subscribe(
         (res) => {
-          this.sendSuccessToaster(
-            '👋 Hi, ' + this.savedData.name + '!',
-            'OTP Sent successfully'
-          );
+          this.sendSuccessToaster('👋 Hi, !', 'OTP Sent successfully');
           console.log(res);
+          this.loadingCode = false;
+          this.resetVerificationForm();
         },
         (err) => {
+          this.loadingCode = false;
+          this.resetVerificationForm();
           this.sendErrorToaster(
-            '👋 Sorry, ' + this.savedData.name + '!',
+            '👋 Sorry, !',
             "We got an error, OTP wasn't sent successfully"
           );
           console.log(err);
@@ -238,5 +294,62 @@ export class MobileVerificationComponent implements OnInit {
     // Unsubscribe from all subscriptions
     this._unsubscribeAll.next();
     this._unsubscribeAll.complete();
+  }
+
+  controlRedirection() {
+    this._redirectionService.getStepsStatus().subscribe(
+      (res: any[]) => {
+        console.log('---controlRedirection---res------');
+        //TODO: review again and complete
+
+        if (this.checkSkip(res, 39)) {
+          this._router.navigate(['/auth/home/consent']);
+        } else if (this.gotoPartners(res)) {
+          this._router.navigate(['/partners/revenue']);
+        } else if (this.checkSkip(res, 18)) {
+          this._router.navigate(['/kyb/businessdetails']);
+        } else if (this.checkSkip(res, 19)) {
+          this._router.navigate(['/kyb/businessaddress']);
+        } else if (this.checkSkip(res, 36)) {
+          this._router.navigate(['/kyb/financialinfo']);
+        } else if (this.checkSkip(res, 21)) {
+          this._router.navigate(['/kyb/otherinfo']);
+        } else if (this.checkSkip(res, 35)) {
+          this._router.navigate(['/kyb/otherinfo2']);
+        } else if (this.checkSkip(res, 24)) {
+          this._router.navigate(['/kyb/uploaddocs']);
+        } else if (this.checkSkip(res, 24)) {
+          this._router.navigate(['/kyb/uploaddocs']);
+        }
+      },
+      (err) => {
+        console.log('---controlRedirection---err------');
+      }
+    );
+  }
+
+  checkSkip(arr: any[], code: number) {
+    let ele = arr.some(
+      (e) => e.clientRegistrationStepper_cd_stepper_code == code
+    );
+    if (!ele) {
+      return false;
+    }
+    ele = arr.some(
+      (e) =>
+        e.clientRegistrationStepper_cd_stepper_code == code &&
+        e.completed == false
+    );
+    if (ele) {
+      return false;
+    }
+  }
+
+  gotoPartners(arr: any[]) {
+    return arr.some(
+      (e) =>
+        e.clientRegistrationStepper_cd_stepper_code == 18 &&
+        e.completed == false
+    );
   }
 }

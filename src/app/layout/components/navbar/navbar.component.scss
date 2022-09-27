@@ -44,7 +44,7 @@ app-navbar-bookmark {
   }
 }
 
-.navbar-header{
+.navbar-header {
   margin-bottom: 35px !important;
   text-align: center;
 }
@@ -53,6 +53,9 @@ app-navbar-bookmark {
   align-items: flex-start !important;
   margin-left: 10px;
 }
-.logout{
+.logout {
   margin-left: auto !important;
+  &:hover {
+    cursor: pointer;
+  }
 }

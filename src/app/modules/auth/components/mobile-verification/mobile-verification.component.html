@@ -4,14 +4,15 @@
     </div>
     <p class="Fo-14 LH-18 color-w m24 mb-0">Continue</p>
 
-    <h2 class="font-bold Fo-20 LH-26 m8 mb-0">Register with LNDDO</h2>
+    <h2 class="font-bold Fo-20 LH-26 m8 mb-0" *ngIf="currentPage == 'login'">Login with LNDDO</h2>
+    <h2 class="font-bold Fo-20 LH-26 m8 mb-0" *ngIf="currentPage !== 'login'">Register with LNDDO</h2>
     <p class="Fo-16 LH-21 m8 mb-0">Please enter your Mobile number</p>
 
 
     <form class="auth-login-form m32 m-m24" [formGroup]="mobileForm">
         <div class="form-group mb-0">
             <label class="form-label Fo-16 LH-21 mb-0" for="verify-mobile">Mobile Number *</label>
-            <input type="text" formControlName="mobile" class="form-control Fo-16 LH-21 m12"
+            <input type="text" disabled formControlName="mobile" class="form-control Fo-16 LH-21 m12"
                 [ngClass]="{ 'is-invalid': submitted && m.mobile.errors }" placeholder="+201020253907"
                 aria-describedby="verify-mobile" autofocus="" tabindex="1" />
         </div>
@@ -39,6 +40,16 @@
         <input formControlName='input6' type="text" pattern="\d*" maxlength="1">
     </div>
 
+    <ngb-alert [dismissible]="false" *ngIf="inputsError" [hidden]="false" [type]="'danger'" class="m18 m-m8 mb-0">
+        <div class="alert-body">
+            <div>
+                <img width="16" height="18" class="info-icon" src="../../../../../assets/images/payments/info.svg"
+                    alt="info" />
+            </div>
+            <span class="bold-color Fo-12 LH-16 ">{{ 'Please check your verification inputs' }}.</span>
+        </div>
+    </ngb-alert>
+
     <ngb-alert [dismissible]="false" *ngIf="verificationError" [hidden]="false" [type]="'danger'" class="m18 m-m8 mb-0">
         <div class="alert-body">
             <div>
@@ -49,13 +60,15 @@
         </div>
     </ngb-alert>
 
-    <button [disabled]="loading" class="btn btn-outline-dark btn-block bold-color Fo-16 LH-18 m24 m-m32 mobile-cus-btn"
-        tabindex="4" rippleEffect>
-        <span *ngIf="loading" (click)="sendOtp()" class="spinner-border spinner-border-sm mr-1"></span>Request a new
+    <button [disabled]="loadingCode" (click)="sendOtp()"
+        class="btn btn-outline-dark btn-block bold-color Fo-16 LH-18 m24 m-m32 mobile-cus-btn" tabindex="4"
+        rippleEffect>
+        <span *ngIf="loadingCode" class="spinner-border spinner-border-sm mr-1"></span>Request a new
         code
     </button>
 
-    <button [disabled]="false" class="btn btn-primary btn-block Fo-16 LH-18 m24 m-m32 mb18" tabindex="4" rippleEffect>
-        <span (click)="verify()" *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>Verify
+    <button [disabled]="loading" (click)="verify()" class="btn btn-primary btn-block Fo-16 LH-18 m24 m-m32 mb18"
+        tabindex="4" rippleEffect>
+        <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>Verify
     </button>
 </div>

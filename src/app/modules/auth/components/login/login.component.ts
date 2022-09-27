@@ -8,10 +8,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CoreConfigService } from '@core/services/config.service';
 import { AuthenticationService } from 'app/auth/service';
 import { Subject } from 'rxjs';
-import { first, takeUntil } from 'rxjs/operators';
+import { takeUntil } from 'rxjs/operators';
 import { environment } from 'environments/environment';
 import { AuthService } from '../../service/auth.service';
 import { VerificationService } from '../../service/verification.service';
+import { SharedDataService } from '@core/services/shared-data.service';
 
 @Component({
   selector: 'app-login',
@@ -22,7 +23,6 @@ export class LoginComponent implements OnInit {
   //  Public
   public coreConfig: any;
   public loginForm: UntypedFormGroup;
-  public verificationForm: UntypedFormGroup;
   public loading = false;
   public submitted = false;
   public returnUrl: string;
@@ -31,7 +31,6 @@ export class LoginComponent implements OnInit {
 
   public loadingUaePass = false;
 
-  public nextStep = false;
   // Private
   private _unsubscribeAll: Subject<any>;
 
@@ -45,8 +44,7 @@ export class LoginComponent implements OnInit {
     private _formBuilder: UntypedFormBuilder,
     private _route: ActivatedRoute,
     private _router: Router,
-    private _authenticationService: AuthenticationService,
-    private _authService: AuthService,
+    private _sharedDataService: SharedDataService,
     private _verificationService: VerificationService
   ) {
     // redirect to home if already logged in
@@ -79,10 +77,6 @@ export class LoginComponent implements OnInit {
     return this.loginForm.controls;
   }
 
-  get v() {
-    return this.verificationForm.controls;
-  }
-
   onSubmit() {
     this.submitted = true;
 
@@ -90,11 +84,11 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.invalid) {
       return;
     }
-    this.nextStep = true;
 
-    // this.sendOtp(); //TODO:activate it again
-
-    // TODO: redirect to verification page
+    this._sharedDataService.registerData.prevPage = 'login';
+    this._sharedDataService.registerData.mobile = this.f.mobile.value;
+    // this.sendOtp(this.f.mobile.value);
+    this._router.navigate(['/auth/home/verify']);
     return;
   }
 
@@ -122,16 +116,8 @@ export class LoginComponent implements OnInit {
     this.loginForm = this._formBuilder.group({
       mobile: ['', [Validators.required]],
     });
-
-    this.verificationForm = this._formBuilder.group({
-      input1: ['', [Validators.required]],
-      input2: ['', [Validators.required]],
-      input3: ['', [Validators.required]],
-      input4: ['', [Validators.required]],
-      input5: ['', [Validators.required]],
-      input6: ['', [Validators.required]],
-    });
   }
+
   /**
    * Login With UAE Pass
    */
@@ -140,8 +126,8 @@ export class LoginComponent implements OnInit {
     window.location.href = `https://stg-id.uaepass.ae/idshub/authorize?redirect_uri=${environment.currentUrl}/auth/home/sign-in-uae-pass&client_id=sandbox_stage&response_type=code&state=ShNP22hyl1jUU2RGjTRkpg==&scope=urn:uae:digitalid:profile:general&acr_values=urn:safelayer:tws:policies:authentication:level:low&ui_locales=en`;
   }
 
-  sendOtp() {
-    this._verificationService.sendOtp(this.f.mobile.value).subscribe(
+  sendOtp(mobileNumber: string) {
+    this._verificationService.sendOtp(mobileNumber).subscribe(
       (res) => {
         console.log(res);
       },
@@ -151,37 +137,6 @@ export class LoginComponent implements OnInit {
     );
   }
 
-  login() {
-    this._authService
-      .login(this.f.mobile.value, 'MOBILE', this.inputsValues)
-      .subscribe(
-        (response: any) => {
-          this._authenticationService.login_temp(response);
-          this._router.navigate(['/apps/email/inbox']); //TODO:chnage it to the home page
-        },
-        (error) => {
-          if (error == 'invalid OTP ') {
-            this.verificationError =
-              'We can’t verify your verififcation code, please try again.';
-            // TODO: redirect to login
-          } else {
-            this.verificationError = error;
-          }
-        }
-      );
-  }
-
-  verifyLogin() {
-    if (this.verificationForm.invalid) {
-      return;
-    }
-
-    this.login();
-  }
-
-  get inputsValues() {
-    return `${this.v.input1.value}${this.v.input2.value}${this.v.input3.value}${this.v.input4.value}${this.v.input5.value}${this.v.input6.value}`;
-  }
   /**
    * On destroy
    */

@@ -90,7 +90,7 @@ export class SignInUaePassComponent implements OnInit {
         'https://hermes.lnddo.loan/api/unsecured/v1/registration/uae-pass',
         {
           code: this.code,
-          redirectUri: `${environment.currentUrl}/auth/sign-in-uae-pass`,
+          redirectUri: `${environment.currentUrl}/auth/home/sign-in-uae-pass`,
         }
       )
       .subscribe(
