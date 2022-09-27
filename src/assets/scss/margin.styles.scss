@@ -177,11 +177,21 @@
 .ml8 {
     margin-left: 8px;
 }
+.ml10 {
+    margin-left: 10px;
+}
 
 
+
+.mr10{
+    margin-right: 10px;
+}
 
 .mb18 {
     margin-bottom: 18px;
+}
+.mb-30{
+    margin-bottom: 30px;
 }
 
 .mb48 {
@@ -348,7 +358,12 @@
 
 
 
-
+    .ml-m-18{
+        margin-left: 18px;
+    }
+    .mb-m24{
+        margin-bottom: 24px;
+    }
     .mb-m48 {
         margin-bottom: 48px;
     }

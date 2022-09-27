@@ -1,0 +1,31 @@
+<div>
+    <a (click)="back()">
+        <em data-feather="chevron-left" class="font-medium-4 text-primary toggle-icon cursor"></em>
+    </a>
+    <h6 class="header1 mb-0 m23">Continue Application</h6>
+    <h4 class="font-bold Fo-20 LH-26 primary-color m8 mb-0">Now let’s fill in your business Information</h4>
+</div>
+
+<div class="row stepper m32 m-m16 mb-30 mb-m24" [hidden]="isHidden">
+    <div class="col-md-6 col-9 pl-0 step-title pr-0">
+        <div class="steps">
+            <p class="m16 mb-0 ml10 mr10 ml-m-18 font-bold Fo-12 LH-16 ">Step</p>
+            <p class="mb-0 m5 ml10 mr10 ml-m-18 font-bold Fo-12 LH-16"> <span>{{index}}</span> of 8</p>
+        </div>
+        <div class="titles-div">
+            <p class="titles">{{title}}</p>
+            <p class="sub-title">{{subTitle}}</p>
+        </div>
+
+    </div>
+    <div class="col-md-6 col-3 pr-0 pl-0 border-mobile">
+        <div class="next-steps">
+            <div class="btn-reverse next-icon">
+                <em data-feather="list" class="font-medium-4 text-primary toggle-icon cursor"></em>
+                Steps
+            </div>
+            <p class="btn-reverse next-title mobile-hiden">{{nextTitle}}</p>
+            <button type="submit" rippleEffect class="btn next-button btn-reverse mobile-hiden" (click)="next()">NEXT</button>
+        </div>
+    </div>
+</div>

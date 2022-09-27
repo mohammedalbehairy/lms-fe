@@ -33,6 +33,11 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
 	font-family: 'DM Sans' !important;
 	color: #2D3137;
 }
+button{
+	span{
+		color: inherit;;
+	}
+}
 
 .font-bold {
 	font-family: 'DM Sans bold' !important;
@@ -155,6 +160,10 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
 	border: 1px solid rgba(175, 203, 255, 0.5);
 	border-radius: 8px;
 }
+.stepper-pages{
+	margin-right: 22px;
+    margin-left: 0px;
+}
 
 @media only screen and (max-width: 600px) {
 	.mobile-btn-p-next {
@@ -168,5 +177,9 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
 	}
 	* {
 		background-color: #ffffff;
+	}
+	.stepper-pages{
+		margin-right: 0px;
+		margin-left: 0px;
 	}
 }

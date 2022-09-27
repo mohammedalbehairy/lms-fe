@@ -1,4 +1,6 @@
-<div>
+<app-stepper [index]="2" [title]="'Business Details'" [subTitle]="'Address'" [nextTitle]="'Financial Information'"></app-stepper>
+
+<div class="stepper-pages">
   <form #accountDetailsForm="ngForm">
     <div class="row">
       <div class="form-group col-md-4">
@@ -82,12 +84,12 @@
     <hr class="mb-3 mt-2" />
     <div class="row">
       <div class="justify-content-between col-md-12">
-        <button (click)="horizontalWizardStepperBack()"  class="btn btn-outline-secondary mobile-btn-p-back btn-prev" rippleEffect>
+        <button  class="btn btn-outline-secondary mobile-btn-p-back btn-prev" rippleEffect>
         <i data-feather="arrow-left" class="align-middle mr-sm-25 mr-0"></i>
         <span class="align-middle d-sm-inline-block">Previous</span>
       </button>
 
-        <button (click)="horizontalWizardStepperNext()" type="submit" class="btn btn-primary mobile-btn-p-next btn-next btn-reverse pl-md-5 pr-md-5" rippleEffect>
+        <button (click)="next()" type="submit" class="btn btn-primary mobile-btn-p-next btn-next btn-reverse pl-md-5 pr-md-5" rippleEffect>
           <span class="align-middle d-sm-inline-block">Next</span><i data-feather="arrow-right"
             class="align-middle ml-sm-25 ml-0"></i>
         </button>

@@ -52,7 +52,7 @@ export class BusinessDetailsInfoPageComponent implements OnInit {
     this._stepper.passValue("2");
     this.stepper.next();
   }
-  openDocumentsPage() {
-    this._router.navigate(['dash/documents']);
+  next() {
+    this._router.navigate(['kyb/businessaddress']);
   }
 }

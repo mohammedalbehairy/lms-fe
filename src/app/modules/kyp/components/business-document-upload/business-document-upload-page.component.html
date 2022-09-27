@@ -1,4 +1,6 @@
-<div>
+<app-stepper [isHidden]="true"></app-stepper>
+
+<div class="stepper-pages">
   <hr class="mb-md-3 mt-md-1" />
 
   <form #accountDetailsForm="ngForm">
@@ -78,12 +80,13 @@
     <hr class="mb-3 mt-2" />
     <div class="row">
       <div class="justify-content-between col-md-12">
-        <button (click)="horizontalWizardStepperBack()" class="btn btn-outline-secondary btn-prev mobile-btn-p-back" ppleEffect>
+        <button (click)="horizontalWizardStepperBack()" class="btn btn-outline-secondary btn-prev mobile-btn-p-back"
+          ppleEffect>
           <i data-feather="arrow-left" class="align-middle mr-sm-25 mr-0"></i>
           <span class="align-middle d-sm-inline-block">Previous</span>
         </button>
 
-        <button (click)="horizontalWizardStepperNext()" type="submit"
+        <button (click)="modalOpenDefault(modalXL)" type="submit"
           class="btn btn-primary btn-next btn-reverse pl-md-5 pr-md-5 mobile-btn-p-next " rippleEffect>
           <span class="align-middle d-sm-inline-block">Next</span><i data-feather="arrow-right"
             class="align-middle ml-sm-25 ml-0"></i>
@@ -92,3 +95,114 @@
     </div>
   </form>
 </div>
+
+
+
+
+<ng-template #modalXL let-modal>
+  <div class="modal-header">
+      <h5 class="modal-title" id="myModalLabel160"></h5>
+      <button type="button" class="close" (click)="modal.dismiss('Cross click')" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+      </button>
+  </div>
+  <div class="modal-body" tabindex="0" ngbAutofocus>
+
+      <div class="time-line-div">
+          <h6 class="font-bold mb-1">Business Details</h6>
+          <ul class="timeline">
+              <li class="timeline-item pb-0">
+                  <span class="timeline-point timeline-point-success timeline-point-indicator"></span>
+                  <div class="timeline-event">
+                      <div class="d-flex justify-content-between flex-sm-row flex-column mb-sm-0">
+                          <h6>Information</h6>
+                      </div>
+                  </div>
+              </li>
+              <li class="timeline-item pb-0">
+                  <span class="timeline-point timeline-point-success timeline-point-indicator"></span>
+                  <div class="timeline-event">
+                      <div class="d-flex justify-content-between flex-sm-row flex-column mb-sm-0">
+                          <h6>Address</h6>
+                      </div>
+                  </div>
+              </li>
+              <li class="timeline-item pb-0">
+                  <span class="timeline-point timeline-point-success timeline-point-indicator"></span>
+                  <div class="timeline-event">
+                      <div class="d-flex justify-content-between flex-sm-row flex-column mb-sm-0">
+                          <h6>Financials</h6>
+                      </div>
+                  </div>
+              </li>
+              <li class="timeline-item pb-0">
+                  <span class="timeline-point timeline-point-success timeline-point-indicator"></span>
+                  <div class="timeline-event">
+                      <div class="d-flex justify-content-between flex-sm-row flex-column mb-sm-0">
+                          <h6>Other Information</h6>
+                      </div>
+                  </div>
+              </li>
+              <li class="timeline-item pb-0">
+                  <span class="timeline-point timeline-point-secondary timeline-point-indicator"></span>
+                  <div class="timeline-event">
+                      <div class="d-flex justify-content-between flex-sm-row flex-column mb-sm-0">
+                          <h6 class="primary-color font-bold" >E-commerce Information</h6>
+                      </div>
+                  </div>
+              </li>
+
+          </ul>
+
+      </div>
+
+      <div class="time-line-div">
+          <h6 class="font-bold mb-1">Personal Information</h6>
+          <ul class="timeline">
+              <li class="timeline-item pb-0">
+                  <span class="timeline-point timeline-point-secondary timeline-point-indicator"></span>
+                  <div class="timeline-event">
+                      <div class="d-flex justify-content-between flex-sm-row flex-column mb-sm-0">
+                          <h6>Personal Details</h6>
+                      </div>
+                  </div>
+              </li>
+              <li class="timeline-item pb-0">
+                  <span class="timeline-point timeline-point-secondary timeline-point-indicator"></span>
+                  <div class="timeline-event">
+                      <div class="d-flex justify-content-between flex-sm-row flex-column mb-sm-0">
+                          <h6>Contact Information</h6>
+                      </div>
+                  </div>
+              </li>
+          </ul>
+
+      </div>
+
+
+      <div class="time-line-div">
+          <h6 class="font-bold mb-1">Upload Required Documents </h6>
+          <ul class="timeline">
+              <li class="timeline-item pb-0">
+                  <span class="timeline-point timeline-point-secondary timeline-point-indicator"></span>
+                  <div class="timeline-event">
+                      <div class="d-flex justify-content-between flex-sm-row flex-column mb-sm-0">
+                          <h6>Business documents</h6>
+                      </div>
+                  </div>
+              </li>
+              <li class="timeline-item pb-0">
+                  <span class="timeline-point timeline-point-secondary timeline-point-indicator"></span>
+                  <div class="timeline-event">
+                      <div class="d-flex justify-content-between flex-sm-row flex-column mb-sm-0">
+                          <h6>Personal documents</h6>
+                      </div>
+                  </div>
+              </li>
+          </ul>
+
+      </div>
+
+
+  </div>
+</ng-template>

@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
+import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import Stepper from "bs-stepper";
 import { FlatpickrOptions } from "ng2-flatpickr";
 import { StepperService } from "../../services/stepper.service";
@@ -40,7 +41,8 @@ export class BusinessDocumentUploadPageComponent implements OnInit {
   };
   constructor(
     private _router: Router,
-    private _stepper: StepperService
+    private _stepper: StepperService,
+    private modalService: NgbModal,
 
   ) {
 
@@ -58,5 +60,12 @@ export class BusinessDocumentUploadPageComponent implements OnInit {
   }
   openDocumentsPage() {
     this._router.navigate(['dash/documents']);
+  }
+
+  modalOpenDefault(modalDefault) {
+    this.modalService.open(modalDefault, {
+      centered: true,
+      size: 'lg'
+    });
   }
 }

@@ -55,7 +55,7 @@ export class BusinessDetailsFinancialPageComponent implements OnInit {
     this._stepper.passValue("2");
     this.stepper.previous();
   }
-  openDocumentsPage() {
-    this._router.navigate(['dash/documents']);
+  next() {
+    this._router.navigate(['kyb/otherinfo']);
   }
 }

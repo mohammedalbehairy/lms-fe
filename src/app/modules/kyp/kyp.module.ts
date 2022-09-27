@@ -30,6 +30,7 @@ import { StepperService } from './services/stepper.service';
 
 import { KypRoutingModule } from './kyp-routing.module';
 import { HomePageComponent } from './home/home-page.component';
+import { StepperPageComponent } from '../shared/stepper/stepper-page.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { HomePageComponent } from './home/home-page.component';
     ReviewLoanDetailsPageComponent,
     ReviewLoanAgreementPageComponent,
     LoanApprovePageComponent,
+    StepperPageComponent
   ],
   imports: [
     CommonModule,
