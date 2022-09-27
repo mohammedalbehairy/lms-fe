@@ -41,38 +41,6 @@ const routes: Routes = [
       },
     ],
   },
-  // {
-  //   path: 'login',
-  //   component: LoginComponent,
-  // },
-  // {
-  //   path: 'register',
-  //   component: SignUpComponent,
-  // },
-  // {
-  //   path: 'forgot-password',
-  //   component: ForgotPasswordComponent,
-  // },
-  // {
-  //   path: 'user-error',
-  //   component: UserErrorComponent,
-  // },
-  // {
-  //   path: 'mobile-verification',
-  //   component: MobileVerificationComponent,
-  // },
-  // {
-  //   path: 'mobile-verified',
-  //   component: MobileVerifiedComponent,
-  // },
-  // {
-  //   path: 'sign-in-uae-pass',
-  //   component: SignInUaePassComponent,
-  // },
-  // {
-  //   path: 'sign-up-uae-pass',
-  //   component: SignUpUaePassComponent,
-  // },
 ];
 
 @NgModule({
