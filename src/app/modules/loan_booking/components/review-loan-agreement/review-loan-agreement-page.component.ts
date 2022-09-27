@@ -1,16 +1,18 @@
 import { Component, Input, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
+import Stepper from "bs-stepper";
 import { FlatpickrOptions } from "ng2-flatpickr";
 
 
 @Component({
-  selector: 'app-business-details-financial-page',
-  templateUrl: './business-details-financial-page.component.html',
-  styleUrls: ['./business-details-financial-page.component.scss'],
+  selector: 'app-review-loan-agreement-page',
+  templateUrl: './review-loan-agreement-page.component.html',
+  styleUrls: ['./review-loan-agreement-page.component.scss'],
 })
 
-export class BusinessDetailsFinancialPageComponent implements OnInit {
+export class ReviewLoanAgreementPageComponent implements OnInit {
 
+  @Input() stepper:Stepper;
 
   public TDNameVar;
   public TDEmailVar;
@@ -37,6 +39,7 @@ export class BusinessDetailsFinancialPageComponent implements OnInit {
   };
   constructor(
     private _router: Router,
+
   ) {
 
   }
@@ -44,9 +47,10 @@ export class BusinessDetailsFinancialPageComponent implements OnInit {
   }
 
   back() {
-    this._router.navigate(['kyb/businessaddress']);
+    this._router.navigate(['loanbooking/reviewloan']);
   }
+
   next() {
-    this._router.navigate(['kyb/otherinfo']);
+    this._router.navigate(['loanbooking/loanapprove']);
   }
 }

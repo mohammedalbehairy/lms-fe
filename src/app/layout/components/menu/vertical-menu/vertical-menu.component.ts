@@ -143,6 +143,6 @@ export class VerticalMenuComponent implements OnInit, OnDestroy {
   }
 
   openDocumentsPage() {
-    this._router.navigate(['createloan/home']);
+    this._router.navigate(['kyb/businessdetails']);
   }
 }

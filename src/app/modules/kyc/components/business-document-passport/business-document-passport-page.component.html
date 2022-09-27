@@ -1,0 +1,86 @@
+<app-stepper [isHidden]="true"></app-stepper>
+
+<div class="stepper-pages">
+  <hr class="mb-md-3 mt-md-1" />
+
+  <form #accountDetailsForm="ngForm">
+    <div class="row">
+      <div class="form-group col-md-4">
+        <fieldset>
+          <label for="file-upload-single" class="Fo-14">Passport *</label>
+          <div class="custom-file">
+            <input type="file" class="custom-file-input input-form" type="file" ng2FileSelect id="file-upload-single" />
+            <label class="custom-file-label input-form">Please choose file</label>
+          </div>
+        </fieldset>
+      </div>
+
+      <div class="form-group col-md-4">
+        <label class="form-label Fo-14" for="username">Passport Expiry date * </label>
+        <input [(ngModel)]="TDNameVar" #TDNameRef="ngModel" required type="text" name="username" id="username"
+          class="form-control input-form" [class.error]="!TDNameRef.valid && accountDetailsForm.submitted"
+          placeholder="DD/MM/YYYY" />
+        <span *ngIf="accountDetailsForm.submitted && TDNameRef.invalid" class="invalid-form">
+          <small class="form-text text-danger" *ngIf="TDNameRef.errors.required">This field is required!</small>
+        </span>
+      </div>
+
+      <div class="form-group col-md-4">
+        <fieldset>
+          <label for="file-upload-single" class="Fo-14">Emirates ID *</label>
+          <div class="custom-file">
+            <input type="file" class="custom-file-input input-form" type="file" ng2FileSelect id="file-upload-single" />
+            <label class="custom-file-label input-form">Please choose file</label>
+          </div>
+        </fieldset>
+      </div>
+
+      <div class="form-group col-md-4">
+        <label class="form-label Fo-14" for="username">Emirates ID Expiry date * </label>
+        <input [(ngModel)]="TDNameVar" #TDNameRef="ngModel" required type="text" name="username" id="username"
+          class="form-control input-form" [class.error]="!TDNameRef.valid && accountDetailsForm.submitted"
+          placeholder="DD/MM/YYYY" />
+        <span *ngIf="accountDetailsForm.submitted && TDNameRef.invalid" class="invalid-form">
+          <small class="form-text text-danger" *ngIf="TDNameRef.errors.required">This field is required!</small>
+        </span>
+      </div>
+
+      <div class="form-group col-md-4">
+        <fieldset>
+          <label for="file-upload-single" class="Fo-14">Residence Visa *</label>
+          <div class="custom-file">
+            <input type="file" class="custom-file-input input-form" type="file" ng2FileSelect id="file-upload-single" />
+            <label class="custom-file-label input-form">Please choose file</label>
+          </div>
+        </fieldset>
+      </div>
+
+      <div class="form-group col-md-4">
+        <label class="form-label Fo-14" for="username">Residence Visa Expiry date * </label>
+        <input [(ngModel)]="TDNameVar" #TDNameRef="ngModel" required type="text" name="username" id="username"
+          class="form-control input-form" [class.error]="!TDNameRef.valid && accountDetailsForm.submitted"
+          placeholder="DD/MM/YYYY" />
+        <span *ngIf="accountDetailsForm.submitted && TDNameRef.invalid" class="invalid-form">
+          <small class="form-text text-danger" *ngIf="TDNameRef.errors.required">This field is required!</small>
+        </span>
+      </div>
+
+    </div>
+
+    <hr class="mb-3 mt-2" />
+    <div class="row">
+      <div class="justify-content-between col-md-12">
+        <button (click)="back()" class="btn btn-outline-secondary btn-prev mobile-btn-p-back" rippleEffect>
+          <i data-feather="arrow-left" class="align-middle mr-sm-25 mr-0"></i>
+          <span class="align-middle d-sm-inline-block">Previous</span>
+        </button>
+
+        <button (click)="next()" type="submit"
+          class="btn btn-primary btn-next btn-reverse pl-md-5 pr-md-5 mobile-btn-p-next" rippleEffect>
+          <span class="align-middle d-sm-inline-block">Next</span><i data-feather="arrow-right"
+            class="align-middle ml-sm-25 ml-0"></i>
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

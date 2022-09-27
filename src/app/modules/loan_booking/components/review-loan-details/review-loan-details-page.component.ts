@@ -1,15 +1,16 @@
 import { Component, Input, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
+import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { FlatpickrOptions } from "ng2-flatpickr";
 
 
 @Component({
-  selector: 'app-business-details-financial-page',
-  templateUrl: './business-details-financial-page.component.html',
-  styleUrls: ['./business-details-financial-page.component.scss'],
+  selector: 'app-review-loan-details-page',
+  templateUrl: './review-loan-details-page.component.html',
+  styleUrls: ['./review-loan-details-page.component.scss'],
 })
 
-export class BusinessDetailsFinancialPageComponent implements OnInit {
+export class ReviewLoanDetailsPageComponent implements OnInit {
 
 
   public TDNameVar;
@@ -17,6 +18,7 @@ export class BusinessDetailsFinancialPageComponent implements OnInit {
   public selectBasicLoading = false;
   basicDPdata;
   public data: any;
+  check = false;
 
   public selectBasic = [
     { name: 'UK' },
@@ -37,6 +39,7 @@ export class BusinessDetailsFinancialPageComponent implements OnInit {
   };
   constructor(
     private _router: Router,
+    private modalService: NgbModal,
   ) {
 
   }
@@ -44,9 +47,17 @@ export class BusinessDetailsFinancialPageComponent implements OnInit {
   }
 
   back() {
-    this._router.navigate(['kyb/businessaddress']);
+    this._router.navigate(['loanbooking/loanterms']);
   }
+
   next() {
-    this._router.navigate(['kyb/otherinfo']);
+    this._router.navigate(['loanbooking/loanagreement']);
   }
+
+  modalOpenDefault(modalDefault) {
+    this.modalService.open(modalDefault, {
+      centered: true
+    });
+  }
+
 }

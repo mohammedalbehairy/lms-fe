@@ -4,12 +4,12 @@ import { FlatpickrOptions } from "ng2-flatpickr";
 
 
 @Component({
-  selector: 'app-business-details-financial-page',
-  templateUrl: './business-details-financial-page.component.html',
-  styleUrls: ['./business-details-financial-page.component.scss'],
+  selector: 'app-loan-terms-page',
+  templateUrl: './loan-terms-page.component.html',
+  styleUrls: ['./loan-terms-page.component.scss'],
 })
 
-export class BusinessDetailsFinancialPageComponent implements OnInit {
+export class LoanTermsPageComponent implements OnInit {
 
 
   public TDNameVar;
@@ -17,6 +17,9 @@ export class BusinessDetailsFinancialPageComponent implements OnInit {
   public selectBasicLoading = false;
   basicDPdata;
   public data: any;
+
+
+  public sliderPriceValue = [1, 100];
 
   public selectBasic = [
     { name: 'UK' },
@@ -26,6 +29,9 @@ export class BusinessDetailsFinancialPageComponent implements OnInit {
     { name: 'Italy' },
     { name: 'Australia' }
   ];
+
+  public sliderSingleHandelValue: number[] = [20, 60];
+  public sliderStepsValue: number[] = [10, 80];
 
 
   public basicDateOptions: FlatpickrOptions = {
@@ -37,16 +43,19 @@ export class BusinessDetailsFinancialPageComponent implements OnInit {
   };
   constructor(
     private _router: Router,
+
   ) {
 
   }
   ngOnInit(): void {
   }
 
+ 
   back() {
-    this._router.navigate(['kyb/businessaddress']);
+    this._router.navigate(['kyc/addshareholder']);
   }
+
   next() {
-    this._router.navigate(['kyb/otherinfo']);
+    this._router.navigate(['loanbooking/reviewloan']);
   }
 }

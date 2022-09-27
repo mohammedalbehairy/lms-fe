@@ -1,8 +1,6 @@
 import { Component, Input, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
-import Stepper from "bs-stepper";
 import { FlatpickrOptions } from "ng2-flatpickr";
-import { StepperService } from "../../services/stepper.service";
 
 
 @Component({
@@ -13,7 +11,6 @@ import { StepperService } from "../../services/stepper.service";
 
 export class BusinessDetailsAddressPageComponent implements OnInit {
 
-  @Input() stepper:Stepper;
 
   public TDNameVar;
   public TDEmailVar;
@@ -40,7 +37,6 @@ export class BusinessDetailsAddressPageComponent implements OnInit {
   };
   constructor(
     private _router: Router,
-    private _stepper: StepperService
 
   ) {
 
@@ -48,14 +44,10 @@ export class BusinessDetailsAddressPageComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  horizontalWizardStepperNext() {
-    this._stepper.passValue("3");
-    this.stepper.next();
+  back() {
+    this._router.navigate(['kyb/businessdetails']);
   }
-  horizontalWizardStepperBack() {
-    this._stepper.passValue("1");
-    this.stepper.previous();
-  }
+
   next() {
     this._router.navigate(['kyb/financialinfo']);
   }

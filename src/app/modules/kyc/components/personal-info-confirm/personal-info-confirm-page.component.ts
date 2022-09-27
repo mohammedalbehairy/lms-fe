@@ -4,12 +4,12 @@ import { FlatpickrOptions } from "ng2-flatpickr";
 
 
 @Component({
-  selector: 'app-business-details-financial-page',
-  templateUrl: './business-details-financial-page.component.html',
-  styleUrls: ['./business-details-financial-page.component.scss'],
+  selector: 'app-personal-info-confirm-page',
+  templateUrl: './personal-info-confirm-page.component.html',
+  styleUrls: ['./personal-info-confirm-page.component.scss'],
 })
 
-export class BusinessDetailsFinancialPageComponent implements OnInit {
+export class PersonalInfoConfirmPageComponent implements OnInit {
 
 
   public TDNameVar;
@@ -44,9 +44,9 @@ export class BusinessDetailsFinancialPageComponent implements OnInit {
   }
 
   back() {
-    this._router.navigate(['kyb/businessaddress']);
+    this._router.navigate(['kyb/uploaddocs']);
   }
   next() {
-    this._router.navigate(['kyb/otherinfo']);
+    this._router.navigate(['kyc/Identifcation']);
   }
 }

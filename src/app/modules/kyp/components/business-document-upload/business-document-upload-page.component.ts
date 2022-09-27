@@ -1,9 +1,7 @@
 import { Component, Input, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
-import Stepper from "bs-stepper";
 import { FlatpickrOptions } from "ng2-flatpickr";
-import { StepperService } from "../../services/stepper.service";
 
 
 @Component({
@@ -13,8 +11,6 @@ import { StepperService } from "../../services/stepper.service";
 })
 
 export class BusinessDocumentUploadPageComponent implements OnInit {
-
-  @Input() stepper:Stepper;
 
   public TDNameVar;
   public TDEmailVar;
@@ -41,7 +37,6 @@ export class BusinessDocumentUploadPageComponent implements OnInit {
   };
   constructor(
     private _router: Router,
-    private _stepper: StepperService,
     private modalService: NgbModal,
 
   ) {
@@ -50,16 +45,12 @@ export class BusinessDocumentUploadPageComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  horizontalWizardStepperNext() {
-    this._stepper.passValue("11");
-    this.stepper.next();
+
+  back() {
+    this._router.navigate(['kyb/otherinfo2']);
   }
-  horizontalWizardStepperBack() {
-    this._stepper.passValue("9");
-    this.stepper.previous();
-  }
-  openDocumentsPage() {
-    this._router.navigate(['dash/documents']);
+  next() {
+    this._router.navigate(['kyc/personalinfo']);
   }
 
   modalOpenDefault(modalDefault) {

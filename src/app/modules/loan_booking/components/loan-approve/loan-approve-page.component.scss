@@ -1,0 +1,40 @@
+.form-details {
+    // text-align: center;
+    margin: auto;
+    width: 35%;
+
+    .text-muted {
+        text-align: left;
+        font-size: 12px;
+    }
+
+    .approve-icon{
+        color: #64E291 !important;
+    }
+    h6,h3{
+        color:#FFFFFF;
+    }
+
+    .margin-auto{
+        margin: auto;
+    }
+    button{
+        background-color: #FFFFFF;
+    }
+    background: #0A3677;
+    border: 1px solid rgba(10, 54, 119, 0.05);
+    border-radius: 12px;
+    color:#FFFFFF;
+    
+}
+
+.text-align-center {
+    text-align: center;
+}
+
+@media only screen and (max-width: 600px) {
+
+    .form-details {
+        width: 100%;
+    }
+}

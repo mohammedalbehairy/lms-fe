@@ -57,6 +57,16 @@ const appRoutes: Routes = [
       import('./modules/kyp/kyp.module').then((m) => m.KypModule),
   },
   {
+    path: 'kyc',
+    loadChildren: () =>
+      import('./modules/kyc/kyc.module').then((m) => m.KycModule),
+  },
+  {
+    path: 'loanbooking',
+    loadChildren: () =>
+      import('./modules/loan_booking/loan_booking.module').then((m) => m.LoanBookingModule),
+  },
+  {
     path: 'loan',
     loadChildren: () =>
       import('./modules/loan/loan-pages.module').then((m) => m.LoanPagesModule),
@@ -197,6 +207,7 @@ const appRoutes: Routes = [
     CardSnippetModule,
     LayoutModule,
     ContentHeaderModule,
+    
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

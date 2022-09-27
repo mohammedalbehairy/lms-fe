@@ -1,9 +1,6 @@
 import { Component, Input, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
-import Stepper from "bs-stepper";
-import { FlatpickrOptions } from "ng2-flatpickr";
-
 
 @Component({
   selector: 'app-stepper',
