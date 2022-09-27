@@ -20,7 +20,7 @@
     </div>
     <div class="col-md-6 col-3 pr-0 pl-0 border-mobile">
         <div class="next-steps">
-            <div class="btn-reverse next-icon cursor">
+            <div class="btn-reverse next-icon cursor" (click)="modalOpenDefault(modalXL)">
                 <img src="../../../../assets/images/payments/list.svg" alt="steps" />
                 Steps
             </div>
@@ -29,3 +29,113 @@
         </div>
     </div>
 </div>
+
+
+
+<ng-template #modalXL let-modal>
+    <div class="modal-header">
+        <h5 class="modal-title" id="myModalLabel160"></h5>
+        <button type="button" class="close" (click)="modal.dismiss('Cross click')" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body" tabindex="0" ngbAutofocus>
+  
+        <div class="time-line-div">
+            <h6 class="font-bold mb-1">Business Details</h6>
+            <ul class="timeline">
+                <li class="timeline-item pb-0">
+                    <span class="timeline-point timeline-point-success timeline-point-indicator"></span>
+                    <div class="timeline-event">
+                        <div class="d-flex justify-content-between flex-sm-row flex-column mb-sm-0">
+                            <h6>Information</h6>
+                        </div>
+                    </div>
+                </li>
+                <li class="timeline-item pb-0">
+                    <span class="timeline-point timeline-point-success timeline-point-indicator"></span>
+                    <div class="timeline-event">
+                        <div class="d-flex justify-content-between flex-sm-row flex-column mb-sm-0">
+                            <h6>Address</h6>
+                        </div>
+                    </div>
+                </li>
+                <li class="timeline-item pb-0">
+                    <span class="timeline-point timeline-point-success timeline-point-indicator"></span>
+                    <div class="timeline-event">
+                        <div class="d-flex justify-content-between flex-sm-row flex-column mb-sm-0">
+                            <h6>Financials</h6>
+                        </div>
+                    </div>
+                </li>
+                <li class="timeline-item pb-0">
+                    <span class="timeline-point timeline-point-success timeline-point-indicator"></span>
+                    <div class="timeline-event">
+                        <div class="d-flex justify-content-between flex-sm-row flex-column mb-sm-0">
+                            <h6>Other Information</h6>
+                        </div>
+                    </div>
+                </li>
+                <li class="timeline-item pb-0">
+                    <span class="timeline-point timeline-point-secondary timeline-point-indicator"></span>
+                    <div class="timeline-event">
+                        <div class="d-flex justify-content-between flex-sm-row flex-column mb-sm-0">
+                            <h6 class="primary-color font-bold" >E-commerce Information</h6>
+                        </div>
+                    </div>
+                </li>
+  
+            </ul>
+  
+        </div>
+  
+        <div class="time-line-div">
+            <h6 class="font-bold mb-1">Personal Information</h6>
+            <ul class="timeline">
+                <li class="timeline-item pb-0">
+                    <span class="timeline-point timeline-point-secondary timeline-point-indicator"></span>
+                    <div class="timeline-event">
+                        <div class="d-flex justify-content-between flex-sm-row flex-column mb-sm-0">
+                            <h6>Personal Details</h6>
+                        </div>
+                    </div>
+                </li>
+                <li class="timeline-item pb-0">
+                    <span class="timeline-point timeline-point-secondary timeline-point-indicator"></span>
+                    <div class="timeline-event">
+                        <div class="d-flex justify-content-between flex-sm-row flex-column mb-sm-0">
+                            <h6>Contact Information</h6>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+  
+        </div>
+  
+  
+        <div class="time-line-div">
+            <h6 class="font-bold mb-1">Upload Required Documents </h6>
+            <ul class="timeline">
+                <li class="timeline-item pb-0">
+                    <span class="timeline-point timeline-point-secondary timeline-point-indicator"></span>
+                    <div class="timeline-event">
+                        <div class="d-flex justify-content-between flex-sm-row flex-column mb-sm-0">
+                            <h6>Business documents</h6>
+                        </div>
+                    </div>
+                </li>
+                <li class="timeline-item pb-0">
+                    <span class="timeline-point timeline-point-secondary timeline-point-indicator"></span>
+                    <div class="timeline-event">
+                        <div class="d-flex justify-content-between flex-sm-row flex-column mb-sm-0">
+                            <h6>Personal documents</h6>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+  
+        </div>
+  
+  
+    </div>
+  </ng-template>
