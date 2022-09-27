@@ -8,6 +8,9 @@
     border: 1px solid rgba(10, 54, 119, 0.05);
     border-radius: 12px;
 }
+.info-tit{
+    padding: 32px;
+}
 
 .accordion {
     background: #FCFDFF !important;
@@ -18,6 +21,7 @@
     border: 1px solid #AFCBFF;
     box-shadow: 0px 30px 39px rgba(0, 0, 0, 0.02);
     border-radius: 12px;
+    padding-left: 20px;
 }
 
 .slider-item {
@@ -32,12 +36,25 @@
 .select-dev{
     text-align: left;
 }
-
+.back-butn {
+    background: #FFFFFF;
+border: 1px solid rgba(45, 49, 55, 0.1) !important;
+border-radius: 8px;
+}
+.alert-body-message{
+    padding: 24px 24px 28px 24px;
+    background: rgba(100, 226, 145, 0.25) !important;
+    border-radius: 8px;
+}
+.transperant-color {
+    background: transparent;
+}
 ::ng-deep {
     .carousel-item {
         padding-bottom: 0px !important;
         padding-top: 40px !important;
     }
+
     .carousel-indicators{
         top: 15px;
         bottom: auto;
@@ -72,4 +89,25 @@
         .mobile-hiden{
           display: none;
         }
+        .alert-body {
+            img,span{
+            background: transparent;
+            }
+          }
+        .info-tit{
+            padding: 24px;
+        }
+        .carousel-view{
+            margin-left: -35px;
+            margin-right: -35px;
+            
+        }
+        .width60{
+            width: 60%;
+            margin-left: 12px;
+        }
+        .width35{
+            width: 35%;
+        }
+        
   }

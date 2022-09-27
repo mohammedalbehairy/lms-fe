@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, ViewChild } from "@angular/core";
 import { Router } from "@angular/router";
 import { NgbCarousel } from "@ng-bootstrap/ng-bootstrap";
+import { AuthRouteService } from "../../services/auth.route.service";
 
 
 @Component({
@@ -12,15 +13,17 @@ import { NgbCarousel } from "@ng-bootstrap/ng-bootstrap";
 export class ConsentPageComponent implements OnInit {
 
   @ViewChild(NgbCarousel) carousel: NgbCarousel;
-
+  flag = true;
 
   constructor(
     private _router: Router,
+    private _authrouteService : AuthRouteService,
 
   ) {
 
   }
   ngOnInit(): void {    
+    this._authrouteService.passValue("Consent");
   }
   next(){
     this.carousel.next();

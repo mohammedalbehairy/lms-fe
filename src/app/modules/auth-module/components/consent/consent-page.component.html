@@ -1,24 +1,19 @@
-<div class="pt-md-1 mobile-hiden">
-  <a>
-    <em data-feather="chevron-left" class="font-medium-4 text-primary toggle-icon mb-1 mt-md-0 mt-1 cursor"></em>
-  </a>
-</div>
-<div class="p-md-2 p-1">
-  <img width="185" height="55" class="web-view" src="../../../../../assets/images/logo/logo.png" alt="logo" />
+<div class="pl40 pt-m-24 pl-m-24 pr-m-24">
+  <div class="web-view m7">
+    <em data-feather="chevron-left" class="font-medium-4 text-primary toggle-icon cursor"></em>
+  </div>
+  <p class="Fo-14 LH-18 color-w m53 m-m23 mb-0">Continue</p>
 
-  <p class="card-text mb-1 Fo-14 LH-18 color-w mt-md-0 mt-2">Continue</p>
+  <h2 class="font-bold Fo-20 LH-26 m8 mb-0">Consent</h2>
+  <p class="Fo-16 LH-21 m8 mb-0">We will need access to your business & personal data to reach a credit decision. Lnddoo
+    doesnt sell your data any 3rd parties.</p>
 
-  <h2 class="card-title font-bold Fo-20 LH-26 b-1 mt-md-0 mt-md-2 mt-1">Consent</h2>
-  <p class="card-text mb-2 Fo-16 LH-21">We will need access to your business & personal data to reach a credit decision. Lnddoo
-    doesnt
-    sell your data any 3rd parties.</p>
-
-  <div class="info">
-    <p class="card-text mb-0 p-1 Fo-14 LH-18 ">
+  <div class="info m32 m-m24">
+    <p class="info-tit Fo-14 LH-18 mb-0">
       Please check the boxes below to confirm you agree to the terms as stated in:
     </p>
 
-    <ngb-accordion [closeOthers]="'true'" class="p-1">
+    <ngb-accordion [closeOthers]="'true'" class="">
       <ngb-panel class="accordion" id="accordion-1">
         <ng-template ngbPanelTitle>
           <span class="lead collapse-title font-bold Fo-14 LH-18"> Terms of sevrvices </span>
@@ -38,20 +33,20 @@
     </ngb-accordion>
   </div>
 
-  <div class="slider-div mt-2">
-
-    <ngb-carousel class="text-center" [activeId]="'one'" [interval]="0" [showNavigationArrows]="false">
+  <div class="slider-div carousel-view m32 mb45" [hidden]="!flag">
+    <ngb-carousel class="text-center"  [activeId]="'one'" [interval]="0" [showNavigationArrows]="false">
       <ng-template ngbSlide [id]="'one'" class="slider-item">
         <div class="carousel-img-wrapper p-1">
           <div class="custom-control custom-checkbox">
             <input type="checkbox" class="custom-control-input" id="customCheck4" />
-            <label class="custom-control-label Fo-14 LH-18 " for="customCheck4">
+            <label class="custom-control-label Fo-14 LH-18 ml8" for="customCheck4">
               I/We agree to the above mentioned details and fully understand that the loan is subject to the submission
               of
               necessary documentation and signing of the loan agreement as required by LNDDO Digital Lending Limited
             </label>
           </div>
-          <button [disabled]="loading" class="btn btn-primary mt-2 w-80  Fo-16 LH-21" tabindex="4" rippleEffect (click)="next()">
+          <button [disabled]="loading" class="btn btn-primary m44 mb-m45 m-m33 w-80  Fo-16 LH-21" tabindex="4" rippleEffect
+            (click)="next()">
             <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>I agree and Continue
           </button>
         </div>
@@ -61,22 +56,24 @@
         <div class="carousel-img-wrapper p-1">
           <div class="custom-control custom-checkbox">
             <input type="checkbox" class="custom-control-input" id="customCheck4" />
-            <label class="custom-control-label Fo-14 LH-18" for="customCheck4">
+            <label class="custom-control-label Fo-14 LH-18 ml8" for="customCheck4">
               I/We agree to the above mentioned details and fully understand that the loan is subject to the submission
               of
               necessary documentation and signing of the loan agreement as required by LNDDO Digital Lending Limited
             </label>
           </div>
-          <button [disabled]="loading" class="btn btn-outline-dark mt-2 w-80  Fo-16 LH-21" tabindex="4" rippleEffect>
+          <button [disabled]="loading" class="btn btn-outline-dark back-butn m16 w-80 width35 Fo-16 LH-21" tabindex="4"
+            rippleEffect>
             <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span> Go Back
           </button>
-          <button [disabled]="loading" class="btn btn-primary mt-1 w-80  Fo-16 LH-21" tabindex="4" rippleEffect (click)="next()">
+          <button [disabled]="loading" class="btn btn-primary m16 w-80 width60 Fo-16 LH-21" tabindex="4" rippleEffect (click)="flag = false"
+            (click)="next()">
             <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>I agree and Continue
           </button>
         </div>
         <div class="carousel-caption"></div>
       </ng-template>
-      <ng-template ngbSlide [id]="'three'">
+      <!-- <ng-template ngbSlide [id]="'three'">
         <div class="carousel-img-wrapper p-1">
 
           <ngb-alert [dismissible]="false" [hidden]="false" [type]="'success'" class="text-center mt-2">
@@ -106,8 +103,36 @@
           </button>
         </div>
         <div class="carousel-caption"></div>
-      </ng-template>
+      </ng-template> -->
     </ngb-carousel>
-
   </div>
+  <div [hidden]="flag">
+    <ngb-alert [dismissible]="false" [hidden]="false" [type]="'success'" class="text-center alert-body m32 mb-0">
+      <div class="alert-body-message">
+        <div class="custom-control transperant-color">
+          <input type="checkbox" class="custom-control-input" id="customCheck11" />
+          <label class="custom-control-label primary-color Fo-14 LH-18 transperant-color" for="customCheck11">
+            You successfully agreed to our AECB Consent, Data sharing consent and Authority consent
+          </label>
+        </div>
+      </div>
+    </ngb-alert>
+
+    <div class="form-group col-md-12 select-dev m24 pl-0 mb-0">
+      <label class="form-label Fo-16 LH-21" for="email">This declaration is being given in the capacity of (select as
+        under): *</label>
+      <select class="form-control input-form Fo-16 LH-21 m8" placeholder="select" id="basicSelect">
+        <option>Power of Attorney Holder</option>
+        <option>Sole Proprietor</option>
+        <option>Service Agency Contract Holder</option>
+        <option>Managing Director/Manager</option>
+        <option>Authorized Signatory in MOA</option>
+      </select>
+    </div>
+    <button  class="btn btn-primary w-100 m40 mb45 Fo-16 LH-21" tabindex="4" rippleEffect
+      (click)="next()">Start Application
+    </button>
+  </div>
+
+
 </div>
