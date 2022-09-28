@@ -1,0 +1,73 @@
+@import '@core/scss/base/bootstrap-extended/include'; // Bootstrap includes
+@import '@core/scss/base/pages/page-auth.scss';
+@import '@core/scss/angular/libs/toastr.component.scss';
+
+.form-details {
+  // text-align: center;
+  margin: auto;
+  width: 40%;
+  .text-muted {
+    text-align: left;
+    font-size: 12px;
+  }
+}
+.text-align-center {
+  text-align: center;
+}
+.image-payment {
+  width: 70px;
+  height: 30px;
+}
+.payment-selection {
+  width: 80%;
+  margin: auto;
+  border-radius: 12px;
+}
+.card-title {
+  text-align: left;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 26px;
+  margin-bottom: 0;
+
+  color: #2d3137;
+}
+.div-payment {
+  background: #ffffff;
+  border: 1px solid #afcbff;
+  box-shadow: 0px 30px 39px rgba(0, 0, 0, 0.02);
+  border-radius: 12px;
+}
+
+.margin-auto {
+  margin: auto;
+}
+
+.icon-error {
+  width: 20px;
+  height: 20px;
+}
+.error-color {
+  color: #fc6dab;
+  display: inline;
+}
+
+.alert-body {
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+
+  color: #000000;
+}
+@media only screen and (max-width: 600px) {
+  .form-details,
+  .payment-selection {
+    width: 100%;
+  }
+  .footer-btn {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    bottom: 0;
+  }
+}

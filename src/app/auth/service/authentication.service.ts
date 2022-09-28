@@ -100,11 +100,13 @@ export class AuthenticationService {
    * @returns user
    */
   login_temp(user) {
+    console.log('===============login_temp=================', user);
+
     //TODO: replace it with login from the other service
     localStorage.setItem(
       'currentUser',
       JSON.stringify({
-        id: user.clientId,
+        id: user.user.customerId,
         fullName: user.user.fullName,
         firstName: user.user.firstName,
         lastName: user.user.lastName,

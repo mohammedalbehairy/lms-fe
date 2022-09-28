@@ -34,7 +34,7 @@
   </div>
 
   <div class="slider-div carousel-view m32 mb45" [hidden]="!flag">
-    <ngb-carousel class="text-center"  [activeId]="'one'" [interval]="0" [showNavigationArrows]="false">
+    <ngb-carousel class="text-center" [activeId]="'one'" [interval]="0" [showNavigationArrows]="false">
       <ng-template ngbSlide [id]="'one'" class="slider-item">
         <div class="carousel-img-wrapper p-1">
           <div class="custom-control custom-checkbox">
@@ -45,8 +45,8 @@
               necessary documentation and signing of the loan agreement as required by LNDDO Digital Lending Limited
             </label>
           </div>
-          <button [disabled]="loading" class="btn btn-primary m44 mb-m45 m-m33 w-80  Fo-16 LH-21" tabindex="4" rippleEffect
-            (click)="next()">
+          <button [disabled]="loading" class="btn btn-primary m44 mb-m45 m-m33 w-80  Fo-16 LH-21" tabindex="4"
+            rippleEffect (click)="next()">
             <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>I agree and Continue
           </button>
         </div>
@@ -62,18 +62,18 @@
               necessary documentation and signing of the loan agreement as required by LNDDO Digital Lending Limited
             </label>
           </div>
-          <button [disabled]="loading" class="btn btn-outline-dark back-butn m16 w-80 width35 Fo-16 LH-21" tabindex="4"
-            rippleEffect>
+          <button [disabled]="loading" (click)="back()"
+            class="btn btn-outline-dark back-butn m16 w-80 width35 Fo-16 LH-21" tabindex="4" rippleEffect>
             <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span> Go Back
           </button>
-          <button [disabled]="loading" class="btn btn-primary m16 w-80 width60 Fo-16 LH-21" tabindex="4" rippleEffect (click)="flag = false"
-            (click)="next()">
+          <button [disabled]="loading" (click)="nextFinal()" class="btn btn-primary m16 w-80 width60 Fo-16 LH-21"
+            tabindex="4" rippleEffect (click)="flag = false">
             <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>I agree and Continue
           </button>
         </div>
         <div class="carousel-caption"></div>
       </ng-template>
-    
+
     </ngb-carousel>
   </div>
   <div [hidden]="flag">
@@ -99,8 +99,8 @@
         <option>Authorized Signatory in MOA</option>
       </select>
     </div>
-    <button  class="btn btn-primary w-100 m40 mb45 Fo-16 LH-21" tabindex="4" rippleEffect
-      (click)="next()">Start Application
+    <button class="btn btn-primary w-100 m40 mb45 Fo-16 LH-21" tabindex="4" rippleEffect (click)="next()">Start
+      Application
     </button>
   </div>
 

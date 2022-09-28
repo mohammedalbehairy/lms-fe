@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { DataProviderRedirectionComponent } from './components/data-provider-redirection/data-provider-redirection.component';
 import { InitialApproveComponent } from './components/initial-approve/initial-approve.component';
 import { KeepDocsComponent } from './components/keep-docs/keep-docs.component';
-import { RevenueLoginPageComponent } from './components/revenue-login/revenue-login-page.component';
 import { RevenuePageComponent } from './components/revenue-page/revenue-page.component';
+import { TelrLoginComponent } from './components/telr-login/telr-login.component';
 
 const routes: Routes = [
   {
@@ -11,8 +12,8 @@ const routes: Routes = [
     component: RevenuePageComponent,
   },
   {
-    path: 'revenuelogin',
-    component: RevenueLoginPageComponent,
+    path: 'telr-login',
+    component: TelrLoginComponent,
   },
   {
     path: 'initial-approve',
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: 'documents',
     component: KeepDocsComponent,
+  },
+  {
+    path: 'data-provider-redirection',
+    component: DataProviderRedirectionComponent,
   },
 ];
 

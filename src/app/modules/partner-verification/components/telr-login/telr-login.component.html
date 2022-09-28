@@ -1,0 +1,92 @@
+<div>
+    <a (click)="back()">
+        <em data-feather="chevron-left" class="font-medium-4 text-primary toggle-icon mb-1 cursor"></em>
+    </a>
+</div>
+<div class="form-details">
+    <p class="text-align-center">Connect your revenue channel </p>
+    <h4 class="font-bold text-align-center">Let’s connect Telr</h4>
+
+    <div class="row payment-selection">
+        <div class="col-12">
+            <div class="card mb-1 div-payment" [ngClass]="{'div-payment-active': type=='Telr'}" (click)="type = 'Telr'">
+                <img class="image-payment m-1" src="assets/images/partners/Telr.svg" alt="Card image cap" />
+                <div class="card-body">
+                    <h6 class="card-title">Telr</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row payment-selection">
+        <div class="col-md-12 col-lg-12">
+            <div class="card mb-3">
+                <div class="card-body line-border-shadow">
+                    <h6 class="text-muted"><i data-feather="lock"></i> We securely connect to your account.</h6>
+
+                    <h5 class='mt-1'>Your Telr registered email address</h5>
+
+                    <form class="auth-login-form mt-2" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                        <div class="form-group">
+                            <label class="form-label" for="login-email">Your Telr registered email address</label>
+                            <input type="text" formControlName="email" class="form-control"
+                                [ngClass]="{ 'is-invalid': submitted && f.email.errors }" placeholder="admin@demo.com"
+                                aria-describedby="login-email" autofocus="" tabindex="1" />
+                            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                <div *ngIf="f.email.errors.required">Email is required</div>
+                                <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="d-flex justify-content-between">
+                                <label for="login-password">Telr account Password</label>
+                            </div>
+                            <div class="input-group input-group-merge form-password-toggle">
+                                <input [type]="passwordTextType ? 'text' : 'password'" formControlName="password"
+                                    class="form-control form-control-merge"
+                                    [ngClass]="{ 'is-invalid error': submitted && f.password.errors }"
+                                    placeholder="············" aria-describedby="login-password" tabindex="2" />
+                                <div class="input-group-append">
+                                    <span class="input-group-text cursor-pointer"><i class="feather font-small-4"
+                                            [ngClass]="{
+                                    'icon-eye-off': passwordTextType,
+                                    'icon-eye': !passwordTextType
+                                  }" (click)="togglePasswordTextType()"></i></span>
+                                </div>
+                            </div>
+                            <div *ngIf="submitted && f.password.errors" class="invalid-feedback"
+                                [ngClass]="{ 'd-block': submitted && f.password.errors }">
+                                <div *ngIf="f.password.errors.required">Password is required</div>
+                            </div>
+                        </div>
+                        <ngb-alert [type]="'danger'" [dismissible]="false" *ngIf="error">
+                            <div class="alert-body">
+                                <div class="error-color">
+                                    <em class="icon-error font-medium-4 " data-feather="info"></em>
+                                </div>
+                                Invalid or incorrect Partner account credential
+                            </div>
+                        </ngb-alert>
+
+                    </form>
+
+
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="row w-100 margin-auto footer-btn">
+            <div class="col-md-5 col-lg-5 col-6 p-1">
+                <button type="submit" rippleEffect class="btn btn-outline-secondary w-100"
+                    (click)="back()">Cancel</button>
+            </div>
+            <div class=" col-md-7 col-lg-7 col-6 p-1">
+                <button type="submit" [disabled]="loading" rippleEffect class="btn btn-primary w-100"
+                    (click)="onSubmit()"><span *ngIf="loading"
+                        class="spinner-border spinner-border-sm mr-1"></span>Continue</button>
+            </div>
+        </div>
+    </div>
+</div>

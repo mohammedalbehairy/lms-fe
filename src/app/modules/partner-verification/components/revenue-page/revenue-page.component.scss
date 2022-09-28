@@ -1,37 +1,37 @@
-.image-payment{
-    width: 100px;
-    height: 40px;
+.image-partner {
+  width: 100px;
+  height: 40px;
 }
-.div-payment{
-    background: #FCFDFF;
-    border: 1px solid rgba(10, 54, 119, 0.05);
-    border-radius: 12px;
-    box-shadow: none;
-    cursor: pointer;
+.div-partner {
+  background: #fcfdff;
+  border: 1px solid rgba(10, 54, 119, 0.05);
+  border-radius: 12px;
+  box-shadow: none;
+  cursor: pointer;
 }
-.div-payment-active{
-    background: #FFFFFF;
-    border: 1px solid #AFCBFF;
-    box-shadow: 0px 30px 39px rgba(0, 0, 0, 0.02);
-    border-radius: 12px;
+.div-partner-active {
+  background: #e7e7e7;
+  border: 1px solid #afcbff;
+  box-shadow: 0px 30px 39px rgba(0, 0, 0, 0.02);
+  border-radius: 12px;
 }
-.card-body{
-    padding: 1rem;
+.card-body {
+  padding: 1rem;
 }
 
 @media only screen and (max-width: 600px) {
-    .footer-btn{
-        position: absolute;
-        bottom: 5px;
-        top: 100%;
-        .mobile-dev{
-            display: flex;
-            padding-right: 0px;
-            padding-left: 0px;
-            .btn-reverse{
-                width: 80%;
-                margin: auto;
-            }
-        }
+  .footer-btn {
+    position: absolute;
+    bottom: 5px;
+    top: 100%;
+    .mobile-dev {
+      display: flex;
+      padding-right: 0px;
+      padding-left: 0px;
+      .btn-reverse {
+        width: 80%;
+        margin: auto;
+      }
     }
   }
+}

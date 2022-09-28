@@ -13,6 +13,7 @@ import { AuthRouteService } from '../../service/auth.route.service';
 export class ConsentPageComponent implements OnInit {
   @ViewChild(NgbCarousel) carousel: NgbCarousel;
   flag = true;
+  public loading = false;
 
   // Private
   private _unsubscribeAll: Subject<any>;
@@ -41,14 +42,25 @@ export class ConsentPageComponent implements OnInit {
       },
     };
   }
+
   ngOnInit(): void {
     this._authrouteService.passValue('Consent');
   }
+
   next() {
     this.carousel.next();
   }
 
+  back() {
+    this.carousel.prev();
+  }
+
   openDocumentsPage() {
     this._router.navigate(['dash/documents']);
+  }
+
+  nextFinal() {
+    //TODO:add approve login final screen
+    this._router.navigate(['/partners/revenue']);
   }
 }
