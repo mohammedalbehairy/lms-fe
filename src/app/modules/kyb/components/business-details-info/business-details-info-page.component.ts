@@ -16,11 +16,10 @@ import { KybService } from '../../services/kyb.service';
   encapsulation: ViewEncapsulation.None,
 })
 export class BusinessDetailsInfoPageComponent implements OnInit {
-  public incorporationDateOptions: FlatpickrOptions = {
+  public incorporationDateOptions: any = {
     altInput: true,
-    // altFormat: 'j/m/Y',
-    // dateFormat: 'Y-m-d',
-    // defaultDate: '2019-05-01',
+    defaultDate: ['2010-05-23'],
+    altFormat: 'j/m/Y',
   };
 
   public businessInfoForm: UntypedFormGroup;
@@ -35,7 +34,7 @@ export class BusinessDetailsInfoPageComponent implements OnInit {
   ngOnInit(): void {
     this.initForm();
 
-    this.loadData();
+    this.loadTelrData();
   }
 
   initForm() {
@@ -51,7 +50,35 @@ export class BusinessDetailsInfoPageComponent implements OnInit {
     });
   }
 
-  loadData() {}
+  loadMagnatiData() {
+    this._kybService.loadMagnatiBD().subscribe(
+      (res: any) => {
+        console.log(res);
+        this.patchFormValues(res);
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+  }
+
+  loadTelrData() {
+    this._kybService.loadTelrBD().subscribe(
+      (res: any) => {
+        console.log(res);
+        this.patchFormValues(res);
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+  }
+
+  patchFormValues(data) {
+    this.f.businessName.setValue(data['b-name']);
+    this.f.incorporationType.setValue(29);
+    this.f.tradeLicenseNumber.setValue(data['trade-ln']);
+  }
 
   onSubmit() {
     console.log('=-=-=-=-=-=-=--', this.businessInfoForm);

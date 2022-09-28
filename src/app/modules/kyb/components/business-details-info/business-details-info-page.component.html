@@ -21,8 +21,9 @@
         <select id="incorporationType" formControlName="incorporationType" class="form-control"
           [ngClass]="{ 'is-invalid': submitted && f.incorporationType.errors }" placeholder='Select'>
           <option value="" [selected]="true" [disabled]="true">Select Type</option>
-          <option value="28">ClientType One</option>
-          <option value="29">ClientType Two</option>
+          <option value="28">C Corporation</option>
+          <option value="29">S Corporation</option>
+          <option value="30">Non-Profit Corporation</option>
         </select>
         <div *ngIf="submitted && f.incorporationType.errors" class="invalid-feedback">
           <div *ngIf="f.incorporationType.errors.required">Incorporation Type is required</div>
@@ -58,9 +59,9 @@
         <select id="tradingType" formControlName="tradingType" class="form-control"
           [ngClass]="{ 'is-invalid': submitted && f.tradingType.errors }" placeholder='Select'>
           <option value="" [selected]="true" [disabled]="true">Select Type</option>
-          <option value="15">Lnddo</option>
-          <option value="16">fnb</option>
-          <option value="17">uba</option>
+          <option value="15">Retail</option>
+          <option value="16">Wholesale</option>
+          <option value="17">Manufacturing</option>
         </select>
         <div *ngIf="submitted && f.tradingType.errors" class="invalid-feedback">
           <div *ngIf="f.tradingType.errors.required">Incorporation Type is required</div>

@@ -113,7 +113,7 @@ export class SignInUaePassComponent implements OnInit {
       .subscribe(
         (response: any) => {
           this._authenticationService.login_temp(response);
-          this._router.navigate(['/apps/email/inbox']); //TODO:chnage it to the home page
+          this._router.navigate(['/auth/home/consent']); //TODO:chnage it to the home page
         },
         (error) => {
           if (
