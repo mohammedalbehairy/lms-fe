@@ -54,11 +54,12 @@ export class BusinessDetailsAddressPageComponent implements OnInit {
     console.log('=-=-=-=-=-=-=--', this.businessAddressForm);
 
     this.submitted = true;
-    this.loading = true;
+
     // stop here if form is invalid
     if (this.businessAddressForm.invalid) {
       return;
     }
+    this.loading = true;
     let data = this.getCleanValue();
 
     this._kybService.setData(data).subscribe(

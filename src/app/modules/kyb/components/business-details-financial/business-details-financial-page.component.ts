@@ -48,11 +48,12 @@ export class BusinessDetailsFinancialPageComponent implements OnInit {
     console.log('=-=-=-=-=-=-=--', this.businessFinancialForm);
 
     this.submitted = true;
-    this.loading = true;
+    
     // stop here if form is invalid
     if (this.businessFinancialForm.invalid) {
       return;
     }
+    this.loading = true;
     let data = this.getCleanValue();
 
     this._kybService.setData(data).subscribe(
