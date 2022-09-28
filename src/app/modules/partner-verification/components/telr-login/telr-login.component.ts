@@ -86,7 +86,7 @@ export class TelrLoginComponent implements OnInit {
 
           if (res.code == 500 || res.code == 400) {
             this.error = res.status;
-
+          } else {
             this.sendSuccessToaster(
               '👋 Hi, !',
               'You successfully logged to you provider account'
