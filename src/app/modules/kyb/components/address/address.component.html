@@ -7,7 +7,8 @@
             <div class="form-group col-md-4">
                 <label class="form-label Fo-14" for="addressLine1">Address Line 1 *</label>
                 <input formControlName='addressLine1' [ngClass]="{ 'is-invalid': submitted && f.addressLine1.errors }"
-                    type="text" name="addressLine1" id="addressLine1" class="form-control input-form" placeholder="" />
+                    type="text" name="addressLine1" id="addressLine1" class="form-control input-form"
+                    placeholder="Your first address" />
                 <span *ngIf="submitted && f.addressLine1.errors" class="invalid-form">
                     <small class="form-text text-danger" *ngIf="f.addressLine1.errors.required">Address Line 1 is
                         required!</small>
@@ -17,7 +18,8 @@
             <div class="form-group col-md-4">
                 <label class="form-label Fo-14" for="addressLine2">Address Line 2 *</label>
                 <input formControlName='addressLine2' [ngClass]="{ 'is-invalid': submitted && f.addressLine2.errors }"
-                    type="text" name="addressLine2" id="addressLine2" class="form-control input-form" placeholder="" />
+                    type="text" name="addressLine2" id="addressLine2" class="form-control input-form"
+                    placeholder="Your second address" />
                 <span *ngIf="submitted && f.addressLine2.errors" class="invalid-form">
                     <small class="form-text text-danger" *ngIf="f.addressLine2.errors.required">Address Line 2 is
                         required!</small>
@@ -42,7 +44,7 @@
             <div class="form-group col-md-4">
                 <label class="form-label Fo-14" for="postCode">Post Code</label>
                 <input formControlName='postCode' type="text" name="postCode" id="postCode"
-                    class="form-control input-form" placeholder="" />
+                    class="form-control input-form" placeholder="12345" />
             </div>
 
             <div class="form-group col-md-4">
@@ -77,7 +79,7 @@
             <div class="form-group col-md-4">
                 <label class="form-label Fo-14" for="landLineNumber">LandLine Number *</label>
                 <input formControlName="landLineNumber" type="text" name="landLineNumber" id="landLineNumber"
-                    class="form-control input-form" placeholder="05xxxxxxx"
+                    class="form-control input-form" placeholder="Phone or landline  05xxxxxxx"
                     [ngClass]="{ 'is-invalid': submitted && f.landLineNumber.errors }" type="text" name="landLineNumber"
                     id="landLineNumber" class="form-control input-form" />
                 <span *ngIf="submitted && f.landLineNumber.errors" class="invalid-form">

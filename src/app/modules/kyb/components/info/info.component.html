@@ -9,7 +9,7 @@
         <label class="form-label Fo-14" for="businessName">Business Name *</label>
         <input type="text" name="businessName" id="businessName" class="form-control input-form"
           formControlName='businessName' [ngClass]="{ 'is-invalid': submitted && f.businessName.errors }"
-          placeholder="John Smith" />
+          placeholder="Business Name" />
 
         <div *ngIf="submitted && f.businessName.errors" class="invalid-feedback">
           <div *ngIf="f.businessName.errors.required">Business Name is required</div>
@@ -33,7 +33,7 @@
       <div class="form-group col-md-4">
         <label for="birth">Incorporation Date *</label>
         <ng2-flatpickr formControlName='incorporationDate' [config]="incorporationDateOptions" id="incorporationDate"
-          name="incorporationDate" placeholder="June 18, 2021"
+          name="incorporationDate" placeholder="MM/DD/YYYY"
           [ngClass]="{ 'is-invalid': submitted && f.incorporationDate.errors }">
         </ng2-flatpickr>
         <div *ngIf="submitted && f.incorporationDate.errors" class="invalid-feedback">
@@ -72,7 +72,7 @@
         <label class="form-label Fo-14" for="retailOutletsCount">Count of Retail outlets, if applicable</label>
         <input type="number" name="retailOutletsCount" id="retailOutletsCount" class="form-control input-form"
           formControlName='retailOutletsCount' [ngClass]="{ 'is-invalid': submitted && f.retailOutletsCount.errors }"
-          placeholder="John Smith" />
+          placeholder="Number of outlets" />
 
         <div *ngIf="submitted && f.retailOutletsCount.errors" class="invalid-feedback">
           <div *ngIf="f.retailOutletsCount.errors.required">Retail Outlets Count is required</div>
@@ -83,7 +83,7 @@
         <label class="form-label Fo-14" for="tradeLicenseNumber">Trade License Number *</label>
         <input type="text" name="tradeLicenseNumber" id="tradeLicenseNumber" class="form-control input-form"
           formControlName='tradeLicenseNumber' [ngClass]="{ 'is-invalid': submitted && f.tradeLicenseNumber.errors }"
-          placeholder="John Smith" />
+          placeholder="Licence number" />
 
         <div *ngIf="submitted && f.tradeLicenseNumber.errors" class="invalid-feedback">
           <div *ngIf="f.tradeLicenseNumber.errors.required">Trade License Number is required</div>

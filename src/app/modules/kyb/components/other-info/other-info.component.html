@@ -10,7 +10,7 @@
           industry?</label>
         <input type="number" name="experienceCount" id="experienceCount" class="form-control input-form"
           formControlName='experienceCount' [ngClass]="{ 'is-invalid': submitted && f.experienceCount.errors }"
-          placeholder="John Smith" />
+          placeholder="Years of expereince" />
 
         <div *ngIf="submitted && f.experienceCount.errors" class="invalid-feedback">
           <div *ngIf="f.experienceCount.errors.required">This field is required</div>
@@ -22,7 +22,7 @@
           *</label>
         <input type="number" name="employeesCount" id="employeesCount" class="form-control input-form"
           formControlName='employeesCount' [ngClass]="{ 'is-invalid': submitted && f.employeesCount.errors }"
-          placeholder="John Smith" />
+          placeholder="Number of employees" />
 
         <div *ngIf="submitted && f.employeesCount.errors" class="invalid-feedback">
           <div *ngIf="f.employeesCount.errors.required">This field is required</div>
@@ -33,7 +33,7 @@
         <label class="form-label Fo-14" for="websiteURL">Do you have a website?</label>
         <input type="text" name="websiteURL" id="websiteURL" class="form-control input-form"
           formControlName='websiteURL' [ngClass]="{ 'is-invalid': submitted && f.websiteURL.errors }"
-          placeholder="John Smith" />
+          placeholder="www" />
 
         <div *ngIf="submitted && f.websiteURL.errors" class="invalid-feedback">
           <div *ngIf="f.websiteURL.errors.required">This field is required</div>
