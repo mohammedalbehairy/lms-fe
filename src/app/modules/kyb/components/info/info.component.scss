@@ -2,13 +2,12 @@
 @import '@core/scss/angular/libs/flatpickr.component.scss';
 
 @media only screen and (max-width: 600px) {
-.fooder-div-btn{
+  .fooder-div-btn {
     display: flex;
-    button{
-        margin: auto;
-        padding-left: 30%;
-        padding-right: 30%;
-
+    button {
+      margin: auto;
+      padding-left: 30%;
+      padding-right: 30%;
     }
-}
+  }
 }

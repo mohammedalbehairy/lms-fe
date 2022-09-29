@@ -18,6 +18,12 @@ import { BusinessDetailsInfoPageComponent } from './components/business-details-
 
 import { KybRoutingModule } from './kyb-routing.module';
 import { stepperModule } from '../shared/stepper/stepper.module';
+import { AddressComponent } from './components/address/address.component';
+import { FinancialComponent } from './components/financial/financial.component';
+import { InfoComponent } from './components/info/info.component';
+import { DocumentUploadComponent } from './components/document-upload/document-upload.component';
+import { ECommerceComponent } from './components/e-commerce/e-commerce.component';
+import { OtherInfoComponent } from './components/other-info/other-info.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +33,12 @@ import { stepperModule } from '../shared/stepper/stepper.module';
     BusinessDetailsOtherPageComponent,
     BusinessDetailsOther2PageComponent,
     BusinessDocumentUploadPageComponent,
+    AddressComponent,
+    FinancialComponent,
+    InfoComponent,
+    DocumentUploadComponent,
+    ECommerceComponent,
+    OtherInfoComponent,
   ],
   imports: [
     CommonModule,

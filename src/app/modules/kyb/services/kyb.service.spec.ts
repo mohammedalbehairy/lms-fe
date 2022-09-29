@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 
 import { KybService } from './kyb.service';
 
-describe('KypService', () => {
+describe('KybService', () => {
   let service: KybService;
 
   beforeEach(() => {

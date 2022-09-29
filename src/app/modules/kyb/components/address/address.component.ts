@@ -10,12 +10,12 @@ import { FlatpickrOptions } from 'ng2-flatpickr';
 import { KybService } from '../../services/kyb.service';
 
 @Component({
-  selector: 'app-business-details-address-page',
-  templateUrl: './business-details-address-page.component.html',
-  styleUrls: ['./business-details-address-page.component.scss'],
+  selector: 'app-address',
+  templateUrl: './address.component.html',
+  styleUrls: ['./address.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class BusinessDetailsAddressPageComponent implements OnInit {
+export class AddressComponent implements OnInit {
   public incorporationDateOptions: FlatpickrOptions = {
     altInput: true,
   };

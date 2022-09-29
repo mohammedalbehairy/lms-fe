@@ -2,15 +2,14 @@ import { Component, Input, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { FlatpickrOptions } from "ng2-flatpickr";
 
-
 @Component({
-  selector: 'app-business-details-other-page',
-  templateUrl: './business-details-other-page.component.html',
-  styleUrls: ['./business-details-other-page.component.scss'],
+  selector: 'app-e-commerce',
+  templateUrl: './e-commerce.component.html',
+  styleUrls: ['./e-commerce.component.scss']
 })
+export class ECommerceComponent implements OnInit {
 
-export class BusinessDetailsOtherPageComponent implements OnInit {
-
+ 
 
   public TDNameVar;
   public TDEmailVar;
@@ -44,9 +43,9 @@ export class BusinessDetailsOtherPageComponent implements OnInit {
   }
 
   back() {
-    this._router.navigate(['kyb/financialinfo']);
+    this._router.navigate(['kyb/otherinfo']);
   }
   next() {
-    this._router.navigate(['kyb/otherinfo2']);
+    this._router.navigate(['kyb/uploaddocs']);
   }
 }

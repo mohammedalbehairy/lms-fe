@@ -8,12 +8,12 @@ import { Router } from '@angular/router';
 import { KybService } from '../../services/kyb.service';
 
 @Component({
-  selector: 'app-business-details-financial-page',
-  templateUrl: './business-details-financial-page.component.html',
-  styleUrls: ['./business-details-financial-page.component.scss'],
+  selector: 'app-financial',
+  templateUrl: './financial.component.html',
+  styleUrls: ['./financial.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class BusinessDetailsFinancialPageComponent implements OnInit {
+export class FinancialComponent implements OnInit {
   public businessFinancialForm: UntypedFormGroup;
   public submitted = false;
   public loading = false;
@@ -48,7 +48,7 @@ export class BusinessDetailsFinancialPageComponent implements OnInit {
     console.log('=-=-=-=-=-=-=--', this.businessFinancialForm);
 
     this.submitted = true;
-    
+
     // stop here if form is invalid
     if (this.businessFinancialForm.invalid) {
       return;

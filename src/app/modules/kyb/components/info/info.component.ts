@@ -10,12 +10,12 @@ import { FlatpickrOptions } from 'ng2-flatpickr';
 import { KybService } from '../../services/kyb.service';
 
 @Component({
-  selector: 'app-business-details-info-page',
-  templateUrl: './business-details-info-page.component.html',
-  styleUrls: ['./business-details-info-page.component.scss'],
+  selector: 'app-info',
+  templateUrl: './info.component.html',
+  styleUrls: ['./info.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class BusinessDetailsInfoPageComponent implements OnInit {
+export class InfoComponent implements OnInit {
   public incorporationDateOptions: any = {
     altInput: true,
     defaultDate: ['2010-05-23'],
@@ -84,7 +84,7 @@ export class BusinessDetailsInfoPageComponent implements OnInit {
     console.log('=-=-=-=-=-=-=--', this.businessInfoForm);
 
     this.submitted = true;
-    
+
     // stop here if form is invalid
     if (this.businessInfoForm.invalid) {
       return;

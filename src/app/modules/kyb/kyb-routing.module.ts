@@ -1,37 +1,37 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { BusinessDetailsAddressPageComponent } from './components/business-details-address/business-details-address-page.component';
-import { BusinessDetailsFinancialPageComponent } from './components/business-details-financial/business-details-financial-page.component';
-import { BusinessDetailsInfoPageComponent } from './components/business-details-info/business-details-info-page.component';
-import { BusinessDetailsOtherPageComponent } from './components/business-details-other/business-details-other-page.component';
-import { BusinessDetailsOther2PageComponent } from './components/business-details-other2/business-details-other2-page.component';
-import { BusinessDocumentUploadPageComponent } from './components/business-document-upload/business-document-upload-page.component';
+import { AddressComponent } from './components/address/address.component';
+import { DocumentUploadComponent } from './components/document-upload/document-upload.component';
+import { ECommerceComponent } from './components/e-commerce/e-commerce.component';
+import { FinancialComponent } from './components/financial/financial.component';
+import { InfoComponent } from './components/info/info.component';
+import { OtherInfoComponent } from './components/other-info/other-info.component';
 
 const routes: Routes = [
   {
     path: 'businessdetails',
-    component: BusinessDetailsInfoPageComponent,
+    component: InfoComponent,
   },
   {
     path: 'businessaddress',
-    component: BusinessDetailsAddressPageComponent
+    component: AddressComponent,
   },
   {
     path: 'financialinfo',
-    component: BusinessDetailsFinancialPageComponent
+    component: FinancialComponent,
   },
   {
     path: 'otherinfo',
-    component: BusinessDetailsOtherPageComponent
+    component: OtherInfoComponent,
   },
   {
-    path: 'otherinfo2',
-    component: BusinessDetailsOther2PageComponent
+    path: 'ecommerce',
+    component: ECommerceComponent,
   },
   {
     path: 'uploaddocs',
-    component: BusinessDocumentUploadPageComponent
-  }
+    component: DocumentUploadComponent,
+  },
 ];
 
 @NgModule({

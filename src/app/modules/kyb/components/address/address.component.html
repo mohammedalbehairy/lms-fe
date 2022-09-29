@@ -1,0 +1,108 @@
+<app-stepper [index]="2" [title]="'Business Details'" [subTitle]="'Address'" [nextTitle]="'Financial Information'">
+</app-stepper>
+
+<div class="stepper-pages">
+    <form [formGroup]="businessAddressForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <div class="form-group col-md-4">
+                <label class="form-label Fo-14" for="addressLine1">Address Line 1 *</label>
+                <input formControlName='addressLine1' [ngClass]="{ 'is-invalid': submitted && f.addressLine1.errors }"
+                    type="text" name="addressLine1" id="addressLine1" class="form-control input-form" placeholder="" />
+                <span *ngIf="submitted && f.addressLine1.errors" class="invalid-form">
+                    <small class="form-text text-danger" *ngIf="f.addressLine1.errors.required">Address Line 1 is
+                        required!</small>
+                </span>
+            </div>
+
+            <div class="form-group col-md-4">
+                <label class="form-label Fo-14" for="addressLine2">Address Line 2 *</label>
+                <input formControlName='addressLine2' [ngClass]="{ 'is-invalid': submitted && f.addressLine2.errors }"
+                    type="text" name="addressLine2" id="addressLine2" class="form-control input-form" placeholder="" />
+                <span *ngIf="submitted && f.addressLine2.errors" class="invalid-form">
+                    <small class="form-text text-danger" *ngIf="f.addressLine2.errors.required">Address Line 2 is
+                        required!</small>
+                </span>
+            </div>
+
+            <div class="form-group col-md-4">
+                <label class="form-label Fo-14" for="city">City *</label>
+                <select id="city" formControlName="city" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.city.errors }" placeholder='Select'>
+                    <option value="" [selected]="true" [disabled]="true">Select City</option>
+                    <option value="1">City One</option>
+                    <option value="2">City Two</option>
+                </select>
+                <div *ngIf="submitted && f.city.errors" class="invalid-feedback">
+                    <div *ngIf="f.city.errors.required">City is required</div>
+                </div>
+            </div>
+
+
+
+            <div class="form-group col-md-4">
+                <label class="form-label Fo-14" for="postCode">Post Code</label>
+                <input formControlName='postCode' type="text" name="postCode" id="postCode"
+                    class="form-control input-form" placeholder="" />
+            </div>
+
+            <div class="form-group col-md-4">
+                <label class="form-label Fo-14" for="country">Country *</label>
+                <select id="country" formControlName="country" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.country.errors }" placeholder='Select'>
+                    <option value="" [selected]="true" [disabled]="true">Select Country</option>
+                    <option value="1">Country One</option>
+                    <option value="2">Country Two</option>
+                </select>
+                <div *ngIf="submitted && f.country.errors" class="invalid-feedback">
+                    <div *ngIf="f.country.errors.required">Country is required</div>
+                </div>
+            </div>
+
+            <div class="form-group col-md-4">
+                <label class="form-label Fo-14" for="email">Jurisdiction *</label>
+                <div class="display-flex">
+                    <div class="custom-control custom-radio mr-md-1 mt-md-0 mt-1">
+                        <input formControlName="jurisdiction" value="mainland-ded" type="radio" id="mainland-ded"
+                            name="jurisdiction" class="custom-control-input" />
+                        <label class="custom-control-label" for="mainland-ded">Mainland / DED </label>
+                    </div>
+                    <div class="custom-control custom-radio mr-md-1 mt-md-0 mt-1">
+                        <input formControlName="jurisdiction" value="freezone" type="radio" id="freezone"
+                            name="jurisdiction" class="custom-control-input" />
+                        <label class="custom-control-label" for="freezone">Freezone</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group col-md-4">
+                <label class="form-label Fo-14" for="landLineNumber">LandLine Number *</label>
+                <input formControlName="landLineNumber" type="text" name="landLineNumber" id="landLineNumber"
+                    class="form-control input-form" placeholder="05xxxxxxx"
+                    [ngClass]="{ 'is-invalid': submitted && f.landLineNumber.errors }" type="text" name="landLineNumber"
+                    id="landLineNumber" class="form-control input-form" />
+                <span *ngIf="submitted && f.landLineNumber.errors" class="invalid-form">
+                    <small class="form-text text-danger" *ngIf="f.landLineNumber.errors.required">LandLine Number is
+                        required!</small>
+                </span>
+            </div>
+
+        </div>
+
+        <hr class="mb-3 mt-2" />
+        <div class="row">
+            <div class="justify-content-between col-md-12">
+                <button (click)="back()" class="btn btn-outline-secondary mobile-btn-p-back btn-prev" rippleEffect>
+                    <i data-feather="arrow-left" class="align-middle mr-sm-25 mr-0"></i>
+                    <span class="align-middle d-sm-inline-block">Previous</span>
+                </button>
+
+                <button type="submit" [disabled]="loading" class="btn btn-primary btn-next btn-reverse pl-md-5 pr-md-5"
+                    rippleEffect>
+                    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                    <span class="align-middle d-sm-inline-block ">Next</span><i data-feather="arrow-right"
+                        class="align-middle ml-sm-25 ml-0"></i>
+                </button>
+            </div>
+        </div>
+    </form>
+</div>

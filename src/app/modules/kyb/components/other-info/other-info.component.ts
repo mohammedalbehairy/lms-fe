@@ -1,16 +1,13 @@
 import { Component, Input, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
-import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { FlatpickrOptions } from "ng2-flatpickr";
 
-
 @Component({
-  selector: 'app-business-document-upload-page',
-  templateUrl: './business-document-upload-page.component.html',
-  styleUrls: ['./business-document-upload-page.component.scss'],
+  selector: 'app-other-info',
+  templateUrl: './other-info.component.html',
+  styleUrls: ['./other-info.component.scss']
 })
-
-export class BusinessDocumentUploadPageComponent implements OnInit {
+export class OtherInfoComponent implements OnInit {
 
   public TDNameVar;
   public TDEmailVar;
@@ -37,26 +34,16 @@ export class BusinessDocumentUploadPageComponent implements OnInit {
   };
   constructor(
     private _router: Router,
-    private modalService: NgbModal,
-
   ) {
 
   }
   ngOnInit(): void {
   }
 
-
   back() {
-    this._router.navigate(['kyb/otherinfo2']);
+    this._router.navigate(['kyb/financialinfo']);
   }
   next() {
-    this._router.navigate(['kyc/personalinfo']);
-  }
-
-  modalOpenDefault(modalDefault) {
-    this.modalService.open(modalDefault, {
-      centered: true,
-      size: 'lg'
-    });
+    this._router.navigate(['kyb/otherinfo2']);
   }
 }
