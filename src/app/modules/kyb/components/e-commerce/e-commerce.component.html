@@ -1,39 +1,49 @@
-<app-stepper [index]="5" [title]="'Business Details'" [subTitle]="'Other Information'" [nextTitle]="'Personal Information'"></app-stepper>
+<app-stepper [index]="5" [title]="'Business Details'" [subTitle]="'Other Information'"
+  [nextTitle]="'Personal Information'"></app-stepper>
 
 <div class="stepper-pages">
-  <form #accountDetailsForm="ngForm">
+  <form [formGroup]="ecommerceForm" (ngSubmit)="onSubmit()">
     <div class="row">
-      <div class="form-group col-md-6">
-        <label class="form-label Fo-14" for="username">Average monthly value of inventory held*</label>
-        <input [(ngModel)]="TDNameVar" #TDNameRef="ngModel" required type="text" name="username" id="username"
-          class="form-control input-form" [class.error]="!TDNameRef.valid && accountDetailsForm.submitted"
-          placeholder="Average monhtly Value" />
-        <span *ngIf="accountDetailsForm.submitted && TDNameRef.invalid" class="invalid-form">
-          <small class="form-text text-danger" *ngIf="TDNameRef.errors.required">This field is required!</small>
-        </span>
-      </div >
 
       <div class="form-group col-md-6">
-        <label class="form-label Fo-14" for="username">Current rating with the market place </label>
-        <input [(ngModel)]="TDNameVar" #TDNameRef="ngModel" required type="text" name="username" id="username"
-          class="form-control input-form" [class.error]="!TDNameRef.valid && accountDetailsForm.submitted"
-          placeholder="0" />
-        <span *ngIf="accountDetailsForm.submitted && TDNameRef.invalid" class="invalid-form">
-          <small class="form-text text-danger" *ngIf="TDNameRef.errors.required">This field is required!</small>
-        </span>
+        <label class="form-label Fo-14" for="averageMonthlyValueOfInventoryHeld">Average monthly value of inventory
+          held*</label>
+        <input type="number" name="averageMonthlyValueOfInventoryHeld" id="averageMonthlyValueOfInventoryHeld"
+          class="form-control input-form" formControlName='averageMonthlyValueOfInventoryHeld'
+          [ngClass]="{ 'is-invalid': submitted && f.averageMonthlyValueOfInventoryHeld.errors }"
+          placeholder="Average monhtly Value" />
+
+        <div *ngIf="submitted && f.averageMonthlyValueOfInventoryHeld.errors" class="invalid-feedback">
+          <div *ngIf="f.averageMonthlyValueOfInventoryHeld.errors.required">This field is required</div>
+        </div>
       </div>
-</div>
+
+      <div class="form-group col-md-6">
+        <label class="form-label Fo-14" for="currentRating">Current rating with the market place</label>
+        <input type="number" name="currentRating" id="currentRating" class="form-control input-form"
+          formControlName='currentRating' [ngClass]="{ 'is-invalid': submitted && f.currentRating.errors }"
+          placeholder="0" />
+
+        <div *ngIf="submitted && f.currentRating.errors" class="invalid-feedback">
+          <div *ngIf="f.currentRating.errors.required">This field is required</div>
+        </div>
+      </div>
+
+
+    </div>
 
     <hr class="mb-3 mt-2" />
     <div class="row">
       <div class="justify-content-between col-md-12">
         <button (click)="back()" class="btn btn-outline-secondary btn-prev mobile-btn-p-back" rippleEffect>
-        <i data-feather="arrow-left" class="align-middle mr-sm-25 mr-0"></i>
-        <span class="align-middle d-sm-inline-block">Previous</span>
-      </button>
+          <i data-feather="arrow-left" class="align-middle mr-sm-25 mr-0"></i>
+          <span class="align-middle d-sm-inline-block">Previous</span>
+        </button>
 
-        <button (click)="next()" type="submit" class="btn btn-primary btn-next btn-reverse pl-md-5 pr-md-5 mobile-btn-p-next" rippleEffect>
-          <span class="align-middle d-sm-inline-block">Next</span><i data-feather="arrow-right"
+        <button type="submit" [disabled]="loading" class="btn btn-primary btn-next btn-reverse pl-md-5 pr-md-5"
+          rippleEffect>
+          <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+          <span class="align-middle d-sm-inline-block ">Next</span><i data-feather="arrow-right"
             class="align-middle ml-sm-25 ml-0"></i>
         </button>
       </div>
