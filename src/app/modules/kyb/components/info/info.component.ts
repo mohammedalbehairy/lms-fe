@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import {
   UntypedFormBuilder,
   UntypedFormGroup,
@@ -6,7 +6,6 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import moment from 'moment';
-import { FlatpickrOptions } from 'ng2-flatpickr';
 import { KybService } from '../../services/kyb.service';
 
 @Component({
