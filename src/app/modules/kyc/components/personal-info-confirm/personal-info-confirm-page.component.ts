@@ -33,17 +33,37 @@ export class PersonalInfoConfirmPageComponent implements OnInit {
     // Reactive form initialization
     this.personalInfoForm = this.formBuilder.group({
       authorizedConsent: ['true'],
-      fullName: [null, Validators.required],
-      mobileNumber: [null, Validators.required],
-      email: [null, [Validators.required, Validators.email]],
     });
+  }
+
+  addControls() {
+    this.personalInfoForm.addControl(
+      'fullName',
+      this.formBuilder.control('', Validators.required)
+    );
+    this.personalInfoForm.addControl(
+      'mobileNumber',
+      this.formBuilder.control('', Validators.required)
+    );
+    this.personalInfoForm.addControl(
+      'email',
+      this.formBuilder.control('', [Validators.required, Validators.email])
+    );
+  }
+
+  removeControls() {
+    this.personalInfoForm.removeControl('fullName');
+    this.personalInfoForm.removeControl('mobileNumber');
+    this.personalInfoForm.removeControl('email');
+  }
+
+  changeAuth(value) {
+    value ? this.removeControls() : this.addControls();
   }
 
   loadData() {}
 
   onSubmit() {
-    console.log('=-=-=-=-=-=-=--', this.personalInfoForm);
-
     this.submitted = true;
 
     // stop here if form is invalid
@@ -55,8 +75,6 @@ export class PersonalInfoConfirmPageComponent implements OnInit {
 
     this._kycService.setConsent(data).subscribe(
       (res) => {
-        console.log(res);
-
         this._router.navigate(['/kyc/identifcation']);
       },
       (err) => {

@@ -13,53 +13,57 @@
           declarations to LNDDO. </label>
         <div class="display-flex">
           <div class="custom-control custom-radio mr-md-1 mt-md-0 mt-1">
-            <input type="radio" formControlName='authorizedConsent' value="true" id="true" name="authorizedConsent"
-              class="custom-control-input" checked />
+            <input type="radio" formControlName='authorizedConsent' (change)="changeAuth(true)" value="true" id="true"
+              name="authorizedConsent" class="custom-control-input" checked />
             <label class="custom-control-label" for="true">Yes </label>
           </div>
           <div class="custom-control custom-radio mr-md-1 mt-md-0 mt-1">
-            <input type="radio" formControlName='authorizedConsent' value="false" id="false" name="authorizedConsent"
-              class="custom-control-input" />
+            <input type="radio" formControlName='authorizedConsent' (change)="changeAuth(false)" value="false"
+              id="false" name="authorizedConsent" class="custom-control-input" />
             <label class="custom-control-label" for="false">No</label>
           </div>
         </div>
       </div>
 
-      <hr class="col-12 mb-2 mt-2" />
 
-      <label class="form-label col-md-12 mb-md-1 mt-md-1 Fo-14">Please Provide details of the authorized signatory at
-        the company to complete the next steps. </label>
+      <ng-container *ngIf="f.authorizedConsent.value !== 'true'">
 
-      <div class="form-group col-md-4">
-        <label class="form-label Fo-14" for="fullName">Full Name *</label>
-        <input formControlName='fullName' [ngClass]="{ 'is-invalid': submitted && f.fullName.errors }" type="text"
-          name="fullName" id="fullName" class="form-control input-form" placeholder="John Smith " />
-        <span *ngIf="submitted && f.fullName.errors" class="invalid-form">
-          <small class="form-text text-danger" *ngIf="f.fullName.errors.required">This field is required</small>
-        </span>
-      </div>
+        <hr class="col-12 mb-2 mt-2" />
+        <label class="form-label col-md-12 mb-md-1 mt-md-1 Fo-14">Please Provide details of the authorized signatory at
+          the company to complete the next steps. </label>
 
-      <div class="form-group col-md-4">
-        <label class="form-label Fo-14" for="mobileNumber">Phone Number *</label>
-        <input type="text" name="mobileNumber" id="mobileNumber" class="form-control input-form"
-          formControlName='mobileNumber' [ngClass]="{ 'is-invalid': submitted && f.mobileNumber.errors }"
-          placeholder="+971  05xxxxxxx" />
-
-        <div *ngIf="submitted && f.mobileNumber.errors" class="invalid-feedback">
-          <div *ngIf="f.mobileNumber.errors.required">This field is required</div>
+        <div class="form-group col-md-4">
+          <label class="form-label Fo-14" for="fullName">Full Name *</label>
+          <input formControlName='fullName' [ngClass]="{ 'is-invalid': submitted && f.fullName.errors }" type="text"
+            name="fullName" id="fullName" class="form-control input-form" placeholder="John Smith " />
+          <span *ngIf="submitted && f.fullName.errors" class="invalid-form">
+            <small class="form-text text-danger" *ngIf="f.fullName.errors.required">This field is required</small>
+          </span>
         </div>
-      </div>
 
-      <div class="form-group col-md-4">
-        <label class="form-label Fo-14" for="email">Email ID *</label>
-        <input type="text" name="email" id="email" class="form-control input-form" formControlName='email'
-          [ngClass]="{ 'is-invalid': submitted && f.email.errors }" placeholder="Your email address" />
+        <div class="form-group col-md-4">
+          <label class="form-label Fo-14" for="mobileNumber">Phone Number *</label>
+          <input type="text" name="mobileNumber" id="mobileNumber" class="form-control input-form"
+            formControlName='mobileNumber' [ngClass]="{ 'is-invalid': submitted && f.mobileNumber.errors }"
+            placeholder="+971  05xxxxxxx" />
 
-        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-          <div *ngIf="f.email.errors.required">This field is required</div>
-          <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+          <div *ngIf="submitted && f.mobileNumber.errors" class="invalid-feedback">
+            <div *ngIf="f.mobileNumber.errors.required">This field is required</div>
+          </div>
         </div>
-      </div>
+
+        <div class="form-group col-md-4">
+          <label class="form-label Fo-14" for="email">Email ID *</label>
+          <input type="text" name="email" id="email" class="form-control input-form" formControlName='email'
+            [ngClass]="{ 'is-invalid': submitted && f.email.errors }" placeholder="Your email address" />
+
+          <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+            <div *ngIf="f.email.errors.required">This field is required</div>
+            <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+          </div>
+        </div>
+
+      </ng-container>
 
     </div>
 
