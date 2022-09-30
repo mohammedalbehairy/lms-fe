@@ -13,7 +13,7 @@ const routes: Routes = [
     component: PersonalInfoConfirmPageComponent,
   },
   {
-    path: 'Identifcation',
+    path: 'identifcation',
     component: PersonalDetailsIdentifcationPageComponent
   },
   {

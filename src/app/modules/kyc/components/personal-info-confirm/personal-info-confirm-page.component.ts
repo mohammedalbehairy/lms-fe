@@ -1,52 +1,83 @@
-import { Component, Input, OnInit } from "@angular/core";
-import { Router } from "@angular/router";
-import { FlatpickrOptions } from "ng2-flatpickr";
-
+import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import {
+  UntypedFormBuilder,
+  UntypedFormGroup,
+  Validators,
+} from '@angular/forms';
+import { Router } from '@angular/router';
+import { KycService } from '../../services/kyc.service';
 
 @Component({
   selector: 'app-personal-info-confirm-page',
   templateUrl: './personal-info-confirm-page.component.html',
   styleUrls: ['./personal-info-confirm-page.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
-
 export class PersonalInfoConfirmPageComponent implements OnInit {
+  public personalInfoForm: UntypedFormGroup;
+  public submitted = false;
+  public loading = false;
 
-
-  public TDNameVar;
-  public TDEmailVar;
-  public selectBasicLoading = false;
-  basicDPdata;
-  public data: any;
-
-  public selectBasic = [
-    { name: 'UK' },
-    { name: 'USA' },
-    { name: 'Spain' },
-    { name: 'France' },
-    { name: 'Italy' },
-    { name: 'Australia' }
-  ];
-
-
-  public basicDateOptions: FlatpickrOptions = {
-    altInput: true
-  };
-
-  public birthDateOptions: FlatpickrOptions = {
-    altInput: true
-  };
   constructor(
     private _router: Router,
-  ) {
-
-  }
+    private formBuilder: UntypedFormBuilder,
+    private _kycService: KycService
+  ) {}
   ngOnInit(): void {
+    this.initForm();
+
+    this.loadData();
+  }
+
+  initForm() {
+    // Reactive form initialization
+    this.personalInfoForm = this.formBuilder.group({
+      authorizedConsent: ['true'],
+      fullName: [null, Validators.required],
+      mobileNumber: [null, Validators.required],
+      email: [null, [Validators.required, Validators.email]],
+    });
+  }
+
+  loadData() {}
+
+  onSubmit() {
+    console.log('=-=-=-=-=-=-=--', this.personalInfoForm);
+
+    this.submitted = true;
+
+    // stop here if form is invalid
+    if (this.personalInfoForm.invalid) {
+      return;
+    }
+    this.loading = true;
+    let data = this.getCleanValue();
+
+    this._kycService.setConsent(data).subscribe(
+      (res) => {
+        console.log(res);
+
+        this._router.navigate(['/kyc/identifcation']);
+      },
+      (err) => {
+        this.loading = false;
+        console.log(err);
+      }
+    );
+  }
+
+  getCleanValue() {
+    return {
+      ...this.personalInfoForm.value,
+      authorizedConsent: false,
+    };
+  }
+
+  get f() {
+    return this.personalInfoForm.controls;
   }
 
   back() {
-    this._router.navigate(['kyb/uploaddocs']);
-  }
-  next() {
-    this._router.navigate(['kyc/Identifcation']);
+    this._router.navigate(['/kyb/uploaddocs']);
   }
 }
