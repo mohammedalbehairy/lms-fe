@@ -1,21 +1,8 @@
 @import '@core/scss/angular/libs/select.component.scss';
 @import '@core/scss/angular/libs/flatpickr.component.scss';
 
-
-.timeline-event {
-    min-height: 40px !important;
-}
-
-.time-line-div {
-    background: #FCFDFF;
-    border: 1px solid rgba(10, 54, 119, 0.05);
-    border-radius: 12px;
-    padding: 15px;
-    margin-top: 10px;
-}
-
 @media only screen and (max-width: 600px) {
-    .display-flex{
-        display: block;
-    }
+  .display-flex {
+    display: block;
+  }
 }

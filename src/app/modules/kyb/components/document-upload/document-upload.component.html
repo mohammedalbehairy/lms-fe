@@ -3,92 +3,118 @@
 <div class="stepper-pages">
   <hr class="mb-md-3 mt-md-1" />
 
-  <form #accountDetailsForm="ngForm">
+  <form [formGroup]="docsForm" (ngSubmit)="onSubmit()">
     <div class="row">
+
       <div class="form-group col-md-4">
         <fieldset>
-          <label for="file-upload-single" class="Fo-14">Trade License File *</label>
+          <label for="tradeLicenseFile" class="Fo-14">Trade License File *</label>
           <div class="custom-file">
-            <input type="file" class="custom-file-input input-form" type="file" ng2FileSelect id="file-upload-single" />
+            <input type="file" [ngClass]="{ 'is-invalid': submitted && f.tradeLicenseFile.errors }"
+              class="custom-file-input input-form" id="tradeLicenseFile" (change)="uploadFile($event)" />
             <label class="custom-file-label input-form">Please choose file</label>
           </div>
         </fieldset>
-      </div>
-
-      <div class="form-group col-md-4">
-        <label class="form-label Fo-14" for="username">Trade License Expiry date * </label>
-        <input [(ngModel)]="TDNameVar" #TDNameRef="ngModel" required type="text" name="username" id="username"
-          class="form-control input-form" [class.error]="!TDNameRef.valid && accountDetailsForm.submitted"
-          placeholder="DD/MM/YYYY" />
-        <span *ngIf="accountDetailsForm.submitted && TDNameRef.invalid" class="invalid-form">
-          <small class="form-text text-danger" *ngIf="TDNameRef.errors.required">This field is required!</small>
+        <span *ngIf="submitted && f.tradeLicenseFile.errors" class="invalid-form">
+          <small class="form-text text-danger" *ngIf="f.tradeLicenseFile.errors.required">This field is required</small>
         </span>
       </div>
 
       <div class="form-group col-md-4">
-        <label class="form-label Fo-14" for="username">MOA *</label>
-        <input [(ngModel)]="TDNameVar" #TDNameRef="ngModel" required type="text" name="username" id="username"
-          class="form-control input-form" [class.error]="!TDNameRef.valid && accountDetailsForm.submitted"
-          placeholder="" />
-        <span *ngIf="accountDetailsForm.submitted && TDNameRef.invalid" class="invalid-form">
-          <small class="form-text text-danger" *ngIf="TDNameRef.errors.required">This field is required!</small>
-        </span>
+        <label for="birth">Trade License Expiry date * </label>
+        <ng2-flatpickr formControlName='tradeLicenseExpiryDate' [config]="tradeLicenseExpiryDateOptions"
+          id="tradeLicenseExpiryDate" name="tradeLicenseExpiryDate" placeholder="MM/DD/YYYY"
+          [ngClass]="{ 'is-invalid': submitted && f.tradeLicenseExpiryDate.errors }">
+        </ng2-flatpickr>
+        <div *ngIf="submitted && f.tradeLicenseExpiryDate.errors" class="invalid-feedback">
+          <div *ngIf="f.tradeLicenseExpiryDate.errors.required">This field is required</div>
+        </div>
       </div>
 
       <div class="form-group col-md-4">
         <fieldset>
-          <label for="file-upload-single" class="Fo-14">Bank Statement from Month xx to Month xx *</label>
+          <label for="moa" class="Fo-14">MOA *</label>
           <div class="custom-file">
-            <input type="file" class="custom-file-input input-form" type="file" ng2FileSelect id="file-upload-single" />
+            <input type="file" [ngClass]="{ 'is-invalid': submitted && f.moa.errors }"
+              class="custom-file-input input-form" id="moa" (change)="uploadFile($event)" />
             <label class="custom-file-label input-form">Please choose file</label>
           </div>
         </fieldset>
-      </div>
-
-      <div class="form-group col-md-4">
-        <fieldset>
-          <label for="file-upload-single" class="Fo-14">Ejari or lease agreement *</label>
-          <div class="custom-file">
-            <input type="file" class="custom-file-input input-form" type="file" ng2FileSelect id="file-upload-single" />
-            <label class="custom-file-label input-form">Please choose file</label>
-          </div>
-        </fieldset>
-      </div>
-
-      <div class="form-group col-md-4">
-        <label class="form-label Fo-14" for="username">Expiry date *</label>
-        <input [(ngModel)]="TDNameVar" #TDNameRef="ngModel" required type="text" name="username" id="username"
-          class="form-control input-form" [class.error]="!TDNameRef.valid && accountDetailsForm.submitted"
-          placeholder="" />
-        <span *ngIf="accountDetailsForm.submitted && TDNameRef.invalid" class="invalid-form">
-          <small class="form-text text-danger" *ngIf="TDNameRef.errors.required">This field is required!</small>
+        <span *ngIf="submitted && f.moa.errors" class="invalid-form">
+          <small class="form-text text-danger" *ngIf="f.moa.errors.required">This field is required</small>
         </span>
       </div>
 
       <div class="form-group col-md-4">
         <fieldset>
-          <label for="file-upload-single" class="Fo-14">VAT Form</label>
+          <label for="bankStatementFromTo" class="Fo-14">Bank Statement from Month xx to Month xx *</label>
           <div class="custom-file">
-            <input type="file" class="custom-file-input input-form" type="file" ng2FileSelect id="file-upload-single" />
+            <input type="file" [ngClass]="{ 'is-invalid': submitted && f.bankStatementFromTo.errors }"
+              class="custom-file-input input-form" id="bankStatementFromTo" (change)="uploadFile($event)" />
             <label class="custom-file-label input-form">Please choose file</label>
           </div>
         </fieldset>
+        <span *ngIf="submitted && f.bankStatementFromTo.errors" class="invalid-form">
+          <small class="form-text text-danger" *ngIf="f.bankStatementFromTo.errors.required">This field is
+            required</small>
+        </span>
       </div>
 
+      <div class="form-group col-md-4">
+        <fieldset>
+          <label for="ejariOrLeaseAgreement" class="Fo-14">Ejari or lease agreement *</label>
+          <div class="custom-file">
+            <input type="file" [ngClass]="{ 'is-invalid': submitted && f.ejariOrLeaseAgreement.errors }"
+              class="custom-file-input input-form" id="ejariOrLeaseAgreement" (change)="uploadFile($event)" />
+            <label class="custom-file-label input-form">Please choose file</label>
+          </div>
+        </fieldset>
+        <span *ngIf="submitted && f.ejariOrLeaseAgreement.errors" class="invalid-form">
+          <small class="form-text text-danger" *ngIf="f.ejariOrLeaseAgreement.errors.required">This field is
+            required</small>
+        </span>
+      </div>
+
+
+      <div class="form-group col-md-4">
+        <label for="birth">Expiry date *</label>
+        <ng2-flatpickr formControlName='expiryDate' [config]="expiryDate" id="expiryDate" name="expiryDate"
+          placeholder="MM/DD/YYYY" [ngClass]="{ 'is-invalid': submitted && f.expiryDate.errors }">
+        </ng2-flatpickr>
+        <div *ngIf="submitted && f.expiryDate.errors" class="invalid-feedback">
+          <div *ngIf="f.expiryDate.errors.required">This field is required</div>
+        </div>
+      </div>
+
+      <div class="form-group col-md-4">
+        <fieldset>
+          <label for="vatForm" class="Fo-14">VAT Form</label>
+          <div class="custom-file">
+            <input type="file" [ngClass]="{ 'is-invalid': submitted && f.vatForm.errors }"
+              class="custom-file-input input-form" id="vatForm" (change)="uploadFile($event)" />
+            <label class="custom-file-label input-form">Please choose file</label>
+          </div>
+        </fieldset>
+
+        <span *ngIf="submitted && f.vatForm.errors" class="invalid-form">
+          <small class="form-text text-danger" *ngIf="f.vatForm.errors.required">This field is required</small>
+        </span>
+
+      </div>
     </div>
 
     <hr class="mb-3 mt-2" />
     <div class="row">
       <div class="justify-content-between col-md-12">
-        <button (click)="back()" class="btn btn-outline-secondary btn-prev mobile-btn-p-back"
-          ppleEffect>
+        <button (click)="back()" class="btn btn-outline-secondary btn-prev mobile-btn-p-back" ppleEffect>
           <i data-feather="arrow-left" class="align-middle mr-sm-25 mr-0"></i>
           <span class="align-middle d-sm-inline-block">Previous</span>
         </button>
 
-        <button (click)="next()" type="submit"
-          class="btn btn-primary btn-next btn-reverse pl-md-5 pr-md-5 mobile-btn-p-next " rippleEffect>
-          <span class="align-middle d-sm-inline-block">Next</span><i data-feather="arrow-right"
+        <button type="submit" [disabled]="loading" class="btn btn-primary btn-next btn-reverse pl-md-5 pr-md-5"
+          rippleEffect>
+          <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+          <span class="align-middle d-sm-inline-block ">Next</span><i data-feather="arrow-right"
             class="align-middle ml-sm-25 ml-0"></i>
         </button>
       </div>
