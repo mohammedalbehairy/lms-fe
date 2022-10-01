@@ -1,0 +1,176 @@
+<app-stepper [hidden]="true"></app-stepper>
+
+<div class="stepper-pages">
+    <form [formGroup]="shuftiproForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+
+
+            <div class="form-group col-md-4">
+                <label class="form-label Fo-14" for="first_name">first_name *</label>
+                <input type="text" name="first_name" id="first_name" class="form-control input-form"
+                    formControlName='first_name' [ngClass]="{ 'is-invalid': submitted && f.first_name.errors }"
+                    placeholder="...................................." />
+
+                <div *ngIf="submitted && f.first_name.errors" class="invalid-feedback">
+                    <div *ngIf="f.first_name.errors.required">This field is required</div>
+                </div>
+            </div>
+
+            <div class="form-group col-md-4">
+                <label class="form-label Fo-14" for="middle_name">middle_name *</label>
+                <input type="text" name="middle_name" id="middle_name" class="form-control input-form"
+                    formControlName='middle_name' [ngClass]="{ 'is-invalid': submitted && f.middle_name.errors }"
+                    placeholder="...................................." />
+
+                <div *ngIf="submitted && f.middle_name.errors" class="invalid-feedback">
+                    <div *ngIf="f.middle_name.errors.required">This field is required</div>
+                </div>
+            </div>
+
+            <div class="form-group col-md-4">
+                <label class="form-label Fo-14" for="last_name">last_name *</label>
+                <input type="text" name="last_name" id="last_name" class="form-control input-form"
+                    formControlName='last_name' [ngClass]="{ 'is-invalid': submitted && f.last_name.errors }"
+                    placeholder="...................................." />
+
+                <div *ngIf="submitted && f.last_name.errors" class="invalid-feedback">
+                    <div *ngIf="f.last_name.errors.required">This field is required</div>
+                </div>
+            </div>
+
+            <div class="form-group col-md-4">
+                <label class="form-label Fo-14" for="dob">dob *</label>
+                <input type="text" name="dob" id="dob" class="form-control input-form" formControlName='dob'
+                    [ngClass]="{ 'is-invalid': submitted && f.dob.errors }"
+                    placeholder="...................................." />
+
+                <div *ngIf="submitted && f.dob.errors" class="invalid-feedback">
+                    <div *ngIf="f.dob.errors.required">This field is required</div>
+                </div>
+            </div>
+
+            <div class="form-group col-md-4">
+                <label class="form-label Fo-14" for="expiry_date">expiry_date *</label>
+                <input type="text" name="expiry_date" id="expiry_date" class="form-control input-form"
+                    formControlName='expiry_date' [ngClass]="{ 'is-invalid': submitted && f.expiry_date.errors }"
+                    placeholder="...................................." />
+
+                <div *ngIf="submitted && f.expiry_date.errors" class="invalid-feedback">
+                    <div *ngIf="f.expiry_date.errors.required">This field is required</div>
+                </div>
+            </div>
+
+            <div class="form-group col-md-4">
+                <label class="form-label Fo-14" for="issue_date">issue_date *</label>
+                <input type="text" name="issue_date" id="issue_date" class="form-control input-form"
+                    formControlName='issue_date' [ngClass]="{ 'is-invalid': submitted && f.issue_date.errors }"
+                    placeholder="...................................." />
+
+                <div *ngIf="submitted && f.issue_date.errors" class="invalid-feedback">
+                    <div *ngIf="f.issue_date.errors.required">This field is required</div>
+                </div>
+            </div>
+
+
+            <div class="form-group col-md-4">
+                <label class="form-label Fo-14" for="gender">gender *</label>
+                <input type="text" name="gender" id="gender" class="form-control input-form" formControlName='gender'
+                    [ngClass]="{ 'is-invalid': submitted && f.gender.errors }"
+                    placeholder="...................................." />
+
+                <div *ngIf="submitted && f.gender.errors" class="invalid-feedback">
+                    <div *ngIf="f.gender.errors.required">This field is required</div>
+                </div>
+            </div>
+
+            <div class="form-group col-md-4">
+                <label class="form-label Fo-14" for="address">address *</label>
+                <input type="text" name="address" id="address" class="form-control input-form" formControlName='address'
+                    [ngClass]="{ 'is-invalid': submitted && f.address.errors }"
+                    placeholder="...................................." />
+
+                <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
+                    <div *ngIf="f.address.errors.required">This field is required</div>
+                </div>
+            </div>
+
+            <div class="form-group col-md-4">
+                <label class="form-label Fo-14" for="country">country *</label>
+                <input type="text" name="country" id="country" class="form-control input-form" formControlName='country'
+                    [ngClass]="{ 'is-invalid': submitted && f.country.errors }"
+                    placeholder="...................................." />
+
+                <div *ngIf="submitted && f.country.errors" class="invalid-feedback">
+                    <div *ngIf="f.country.errors.required">This field is required</div>
+                </div>
+            </div>
+
+            <div class="form-group col-md-4">
+                <label class="form-label Fo-14" for="document_type">document_type *</label>
+                <input type="text" name="document_type" id="document_type" class="form-control input-form"
+                    formControlName='document_type' [ngClass]="{ 'is-invalid': submitted && f.document_type.errors }"
+                    placeholder="...................................." />
+
+                <div *ngIf="submitted && f.document_type.errors" class="invalid-feedback">
+                    <div *ngIf="f.document_type.errors.required">This field is required</div>
+                </div>
+            </div>
+
+            <div class="form-group col-md-4">
+                <label class="form-label Fo-14" for="document_country">document_country *</label>
+                <input type="text" name="document_country" id="document_country" class="form-control input-form"
+                    formControlName='document_country'
+                    [ngClass]="{ 'is-invalid': submitted && f.document_country.errors }"
+                    placeholder="...................................." />
+
+                <div *ngIf="submitted && f.document_country.errors" class="invalid-feedback">
+                    <div *ngIf="f.document_country.errors.required">This field is required</div>
+                </div>
+            </div>
+
+            <div class="form-group col-md-4">
+                <label class="form-label Fo-14" for="document_number_native">document_number_native
+                    *</label>
+                <input type="text" name="document_number_native" id="document_number_native"
+                    class="form-control input-form" formControlName='document_number_native'
+                    [ngClass]="{ 'is-invalid': submitted && f.document_number_native.errors }"
+                    placeholder="...................................." />
+
+                <div *ngIf="submitted && f.document_number_native.errors" class="invalid-feedback">
+                    <div *ngIf="f.document_number_native.errors.required">This field is required</div>
+                </div>
+            </div>
+
+            <div class="form-group col-md-4">
+                <label class="form-label Fo-14" for="document_official_name">document_official_name
+                    *</label>
+                <input type="text" name="document_official_name" id="document_official_name"
+                    class="form-control input-form" formControlName='document_official_name'
+                    [ngClass]="{ 'is-invalid': submitted && f.document_official_name.errors }"
+                    placeholder="...................................." />
+
+                <div *ngIf="submitted && f.document_official_name.errors" class="invalid-feedback">
+                    <div *ngIf="f.document_official_name.errors.required">This field is required</div>
+                </div>
+            </div>
+
+        </div>
+
+        <hr class="mb-3 mt-2" />
+        <div class="row">
+            <div class="justify-content-between col-md-12">
+                <button (click)="back()" class="btn btn-outline-secondary btn-prev mobile-btn-p-back" rippleEffect>
+                    <i data-feather="arrow-left" class="align-middle mr-sm-25 mr-0"></i>
+                    <span class="align-middle d-sm-inline-block">Previous</span>
+                </button>
+
+                <button type="submit" [disabled]="loading" class="btn btn-primary btn-next btn-reverse pl-md-5 pr-md-5"
+                    rippleEffect>
+                    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                    <span class="align-middle d-sm-inline-block ">Next</span><i data-feather="arrow-right"
+                        class="align-middle ml-sm-25 ml-0"></i>
+                </button>
+            </div>
+        </div>
+    </form>
+</div>

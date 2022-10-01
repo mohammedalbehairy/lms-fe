@@ -17,5 +17,7 @@ export class SharedDataService {
   public registerData: any = {};
   public partner: string = '';
 
+  shuftiProData: any = {};
+
   private _configSubject: BehaviorSubject<any>;
 }

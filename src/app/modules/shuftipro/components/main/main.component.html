@@ -1,0 +1,122 @@
+<!-- <div>
+    <button (click)="checkPermissions()">Check the webcam permissions</button>
+    <p *ngIf="status">Status here: {{status}}</p>
+</div>
+<div *ngIf="stream">
+    <webcam [trigger]="$trigger" (imageCapture)="snapshot($event)" [imageQuality]="1"></webcam>
+    <button (click)="captureImage()">{{btnLabel}}</button>
+</div>
+
+<div *ngIf="previewImage">
+    <img [src]="previewImage" height="250" width="250">
+    <button (click)="proceed()">Take face Pic</button>
+    <button (click)="proceed()">Card ID 1</button>
+    <button (click)="proceed()">Card ID 1</button>
+</div> -->
+
+
+
+
+<app-stepper [isHidden]="true"></app-stepper>
+
+<div class="stepper-pages">
+    <hr class="mb-2" />
+
+    <h5 class="font-bold mb-1">Shufti Pro</h5>
+
+    <div>
+        <div class='row'>
+            <div class="col-md-6">
+                <webcam [trigger]="$trigger" (imageCapture)="snapshot($event)" [imageQuality]="1"></webcam>
+            </div>
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row" style='height:155px;'>
+                            <div class="col-md-4">
+                                <button type="button" class="btn mr-1 btn-primary mb-1 mb-sm-0"
+                                    (click)="captureImage('img1')" rippleEffect>
+                                    <span data-feather="camera" class="mr-25"></span> {{!img1 ? 'Capture':'Re Capture'}}
+                                </button>
+                            </div>
+                            <div class="col-md-4">
+                                <button type="button" class="btn mr-1 btn-primary mb-1 mb-sm-0" rippleEffect>
+                                    <span data-feather="upload" class="mr-25"></span> Upload
+                                </button>
+                            </div>
+                            <div class="col-md-4" *ngIf="img1">
+                                <img [src]="img1" height="150" width="150">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="row" style='height:155px;'>
+                            <div class="col-md-4">
+                                <button type="button" class="btn mr-1 btn-primary mb-1 mb-sm-0"
+                                    (click)="captureImage('img2')" rippleEffect>
+                                    <span data-feather="camera" class="mr-25"></span> {{!img2 ? 'Capture':'Re Capture'}}
+                                </button>
+                            </div>
+                            <div class="col-md-4">
+                                <button type="button" class="btn mr-1 btn-primary mb-1 mb-sm-0" rippleEffect>
+                                    <span data-feather="upload" class="mr-25"></span> Upload
+                                </button>
+                            </div>
+                            <div class="col-md-4">
+                                <img [src]="img2" height="150" width="150" *ngIf="img2">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="row" style='height:155px;'>
+                            <div class="col-md-4">
+                                <button type="button" class="btn mr-1 btn-primary mb-1 mb-sm-0"
+                                    (click)="captureImage('img3')" rippleEffect>
+                                    <span data-feather="camera" class="mr-25"></span> {{!img3 ? 'Capture':'Re Capture'}}
+                                </button>
+                            </div>
+                            <div class="col-md-4">
+                                <button type="button" class="btn mr-1 btn-primary mb-1 mb-sm-0" rippleEffect>
+                                    <span data-feather="upload" class="mr-25"></span> Upload
+                                </button>
+                            </div>
+                            <div class="col-md-4">
+                                <img [src]="img3" height="150" width="150" *ngIf="img3">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- <div class="row">
+            <button (click)="proceed()">Proceed</button>
+        </div> -->
+    </div>
+
+    <ngb-alert [dismissible]="false" [hidden]="!error" [type]="'danger'" class="m-m8">
+        <div class="alert-body">
+            <span [data-feather]="'info'" [class]="'mr-25 align-middle'"></span>
+            <span class="normal-color"> {{error}}</span>
+        </div>
+    </ngb-alert>
+
+    <hr class="mb-3 mt-2" />
+    <div class="row">
+        <div class="justify-content-between col-md-12">
+            <button (click)="back()" class="btn btn-outline-secondary mobile-btn-p-back btn-prev" rippleEffect>
+                <i data-feather="arrow-left" class="align-middle mr-sm-25 mr-0"></i>
+                <span class="align-middle d-sm-inline-block">Previous</span>
+            </button>
+
+            <button type="submit" (click)="proceed()" [disabled]="loading || btnNotValid"
+                class="btn btn-primary btn-next btn-reverse pl-md-5 pr-md-5" rippleEffect>
+                <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                <span class="align-middle d-sm-inline-block ">Next</span><i data-feather="arrow-right"
+                    class="align-middle ml-sm-25 ml-0"></i>
+            </button>
+        </div>
+    </div>
+</div>

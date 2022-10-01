@@ -31,6 +31,8 @@ import { AnimatedCustomContextMenuComponent } from './main/extensions/context-me
 import { BasicCustomContextMenuComponent } from './main/extensions/context-menu/custom-context-menu/basic-custom-context-menu/basic-custom-context-menu.component';
 import { SubMenuCustomContextMenuComponent } from './main/extensions/context-menu/custom-context-menu/sub-menu-custom-context-menu/sub-menu-custom-context-menu.component';
 
+import { WebcamModule } from 'ngx-webcam';
+
 const appRoutes: Routes = [
   {
     path: 'auth',
@@ -53,6 +55,13 @@ const appRoutes: Routes = [
     path: 'kyc',
     loadChildren: () =>
       import('./modules/kyc/kyc.module').then((m) => m.KycModule),
+  },
+  {
+    path: 'shuftipro',
+    loadChildren: () =>
+      import('./modules/shuftipro/shuftipro.module').then(
+        (m) => m.ShuftiproModule
+      ),
   },
   {
     path: 'loanbooking',
@@ -203,6 +212,7 @@ const appRoutes: Routes = [
     CardSnippetModule,
     LayoutModule,
     ContentHeaderModule,
+    WebcamModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
