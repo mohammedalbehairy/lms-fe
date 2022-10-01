@@ -5,6 +5,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
+import moment from 'moment';
 import { KycService } from '../../services/kyc.service';
 
 @Component({
@@ -14,6 +15,23 @@ import { KycService } from '../../services/kyc.service';
   encapsulation: ViewEncapsulation.None,
 })
 export class PersonalDetailsIdentifcationPageComponent implements OnInit {
+  public emiratesIDExpiryDateOptions: any = {
+    altInput: true,
+    defaultDate: ['2010-05-23'],
+    altFormat: 'j/m/Y',
+  };
+  public dateOfBirthOptions: any = {
+    altInput: true,
+    defaultDate: ['2010-05-23'],
+    altFormat: 'j/m/Y',
+  };
+
+  public yearsInUAEOptions: any = {
+    altInput: true,
+    defaultDate: ['2010-05-23'],
+    altFormat: 'j/m/Y',
+  };
+
   public infoForm: UntypedFormGroup;
   public submitted = false;
   public loading = false;
@@ -32,10 +50,16 @@ export class PersonalDetailsIdentifcationPageComponent implements OnInit {
   initForm() {
     // Reactive form initialization
     this.infoForm = this.formBuilder.group({
-      experienceCount: [null, Validators.required],
-      employeesCount: [null, Validators.required],
-      websiteURL: ['', Validators.required],
-      officeType: ['owned', Validators.required],
+      emiratesID: [null, Validators.required],
+      emiratesIDExpiryDate: [null, Validators.required],
+      fullName: [null, Validators.required],
+      nationality: [null, Validators.required],
+      passportNumber: [null, Validators.required],
+      dateOfBirth: [null, Validators.required],
+      yearsInUAE: [null, Validators.required],
+      residencyStatus: ['resident', Validators.required],
+      gender: ['male', Validators.required],
+      usCitizin: ['no', Validators.required],
     });
   }
 
@@ -53,23 +77,28 @@ export class PersonalDetailsIdentifcationPageComponent implements OnInit {
     this.loading = true;
     let data = this.getCleanValue();
 
-    // this._kycService.setData(data).subscribe(
-    //   (res) => {
-    //     console.log(res);
+    this._kycService.setData(data).subscribe(
+      (res) => {
+        console.log(res);
 
-    //     this._router.navigate(['kyc/contactdetails']);
-    //   },
-    //   (err) => {
-    //     this.loading = false;
-    //     console.log(err);
-    //   }
-    // );
+        this._router.navigate(['kyc/contactdetails']);
+      },
+      (err) => {
+        this.loading = false;
+        console.log(err);
+      }
+    );
   }
 
   getCleanValue() {
     return {
-      financialInformation: {
+      personDetails: {
         ...this.infoForm.value,
+        emiratesIDExpiryDate: moment(
+          this.f.emiratesIDExpiryDate.value[0]
+        ).format('DD MMMM YYYY'),
+        dateOfBirth: moment(this.f.dateOfBirth.value[0]).format('DD MMMM YYYY'),
+        yearsInUAE: moment(this.f.yearsInUAE.value[0]).format('DD MMMM YYYY'),
       },
     };
   }
