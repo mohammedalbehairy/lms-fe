@@ -1,80 +1,88 @@
-<app-stepper [index]="5" [title]="'Personal Details'" [subTitle]="'Contact Details'" [nextTitle]="'Business Documentation'"></app-stepper>
+<app-stepper [index]="5" [title]="'Personal Details'" [subTitle]="'Contact Details'"
+  [nextTitle]="'Business Documentation'"></app-stepper>
 
 <div class="stepper-pages">
-  <h5 class="font-bold mb-1">Home Country Address </h5>
-  <form #accountDetailsForm="ngForm">
+  <h5 class="font-bold mb-1">Home Country Address</h5>
+
+  <form [formGroup]="infoForm" (ngSubmit)="onSubmit()">
     <div class="row">
+
       <div class="form-group col-md-4">
-        <label class="form-label Fo-14" for="username">Address Line 1 *</label>
-        <input [(ngModel)]="TDNameVar" #TDNameRef="ngModel" required type="text" name="username" id="username"
-          class="form-control input-form" [class.error]="!TDNameRef.valid && accountDetailsForm.submitted"
-          placeholder="" />
-        <span *ngIf="accountDetailsForm.submitted && TDNameRef.invalid" class="invalid-form">
-          <small class="form-text text-danger" *ngIf="TDNameRef.errors.required">This field is required!</small>
+        <label class="form-label Fo-14" for="addressLine1">Address Line 1 *</label>
+        <input formControlName='addressLine1' [ngClass]="{ 'is-invalid': submitted && f.addressLine1.errors }"
+          type="text" name="addressLine1" id="addressLine1" class="form-control input-form"
+          placeholder="Your Address in UAE" />
+        <span *ngIf="submitted && f.addressLine1.errors" class="invalid-form">
+          <small class="form-text text-danger" *ngIf="f.addressLine1.errors.required">This field is required</small>
         </span>
       </div>
 
       <div class="form-group col-md-4">
-        <label class="form-label Fo-14" for="username">Address Line 2 *</label>
-        <input [(ngModel)]="TDNameVar" #TDNameRef="ngModel" required type="text" name="username" id="username"
-          class="form-control input-form" [class.error]="!TDNameRef.valid && accountDetailsForm.submitted"
-          placeholder="" />
-        <span *ngIf="accountDetailsForm.submitted && TDNameRef.invalid" class="invalid-form">
-          <small class="form-text text-danger" *ngIf="TDNameRef.errors.required">This field is required!</small>
+        <label class="form-label Fo-14" for="addressLine2">Address Line 2 *</label>
+        <input formControlName='addressLine2' [ngClass]="{ 'is-invalid': submitted && f.addressLine2.errors }"
+          type="text" name="addressLine2" id="addressLine2" class="form-control input-form"
+          placeholder="Your Address in UAE" />
+        <span *ngIf="submitted && f.addressLine2.errors" class="invalid-form">
+          <small class="form-text text-danger" *ngIf="f.addressLine2.errors.required">This field is required</small>
         </span>
       </div>
 
       <div class="form-group col-md-4">
-        <label class="form-label Fo-14" for="email">City *</label>
-        <select class="form-control input-form" placeholder="select" id="basicSelect">
-          <option>IT</option>
-          <option>Blade Runner</option>
-          <option>Thor Ragnarok</option>
+        <label class="form-label Fo-14" for="city">City *</label>
+        <select id="city" formControlName="city" class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f.city.errors }" placeholder='Select'>
+          <option value="" [selected]="true" [disabled]="true">Select City</option>
+          <option value="1">City One</option>
+          <option value="2">City Two</option>
         </select>
-      </div>
-
-
-      <div class="form-group col-md-4">
-        <label class="form-label Fo-14" for="username">Post Code</label>
-        <input [(ngModel)]="TDNameVar" #TDNameRef="ngModel" required type="text" name="username" id="username"
-          class="form-control input-form" [class.error]="!TDNameRef.valid && accountDetailsForm.submitted"
-          placeholder="12345" />
-        <span *ngIf="accountDetailsForm.submitted && TDNameRef.invalid" class="invalid-form">
-          <small class="form-text text-danger" *ngIf="TDNameRef.errors.required">This field is required!</small>
-        </span>
+        <div *ngIf="submitted && f.city.errors" class="invalid-feedback">
+          <div *ngIf="f.city.errors.required">City is required</div>
+        </div>
       </div>
 
       <div class="form-group col-md-4">
-        <label class="form-label Fo-14" for="email">Country *</label>
-        <select class="form-control input-form" placeholder="select" id="basicSelect">
-          <option> United Arab Emirates</option>
-          <option>Blade Runner</option>
-          <option>Thor Ragnarok</option>
+        <label class="form-label Fo-14" for="postCode">Potal Code</label>
+        <input formControlName='postCode' [ngClass]="{ 'is-invalid': submitted && f.postCode.errors }" type="text"
+          name="postCode" id="postCode" class="form-control input-form" placeholder="00000" />
+      </div>
+
+      <div class="form-group col-md-4">
+        <label class="form-label Fo-14" for="country">Country *</label>
+        <select id="country" formControlName="country" class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f.country.errors }" placeholder='Select'>
+          <option value="" [selected]="true" [disabled]="true">Select Country</option>
+          <option value="1">Country One</option>
+          <option value="2">Country Two</option>
         </select>
+        <div *ngIf="submitted && f.country.errors" class="invalid-feedback">
+          <div *ngIf="f.country.errors.required">Country is required</div>
+        </div>
       </div>
 
       <div class="form-group col-md-4">
-        <label class="form-label Fo-14" for="username">Home country contact number *</label>
-        <input [(ngModel)]="TDNameVar" #TDNameRef="ngModel" required type="text" name="username" id="username"
-          class="form-control input-form" [class.error]="!TDNameRef.valid && accountDetailsForm.submitted"
+        <label class="form-label Fo-14" for="landLineNumber">Home country contact number *</label>
+        <input formControlName='landLineNumber' [ngClass]="{ 'is-invalid': submitted && f.landLineNumber.errors }"
+          type="text" name="landLineNumber" id="landLineNumber" class="form-control input-form"
           placeholder="Country Code + your contact number" />
-        <span *ngIf="accountDetailsForm.submitted && TDNameRef.invalid" class="invalid-form">
-          <small class="form-text text-danger" *ngIf="TDNameRef.errors.required">This field is required!</small>
+        <span *ngIf="submitted && f.landLineNumber.errors" class="invalid-form">
+          <small class="form-text text-danger" *ngIf="f.landLineNumber.errors.required">This field is required</small>
         </span>
       </div>
-      
+
     </div>
 
     <hr class="mb-3 mt-2" />
     <div class="row">
       <div class="justify-content-between col-md-12">
-        <button (click)="back()"  class="btn btn-outline-secondary btn-prev mobile-btn-p-back" rippleEffect>
-        <i data-feather="arrow-left" class="align-middle mr-sm-25 mr-0"></i>
-        <span class="align-middle d-sm-inline-block">Previous</span>
-      </button>
+        <button (click)="back()" class="btn btn-outline-secondary btn-prev mobile-btn-p-back" rippleEffect>
+          <i data-feather="arrow-left" class="align-middle mr-sm-25 mr-0"></i>
+          <span class="align-middle d-sm-inline-block">Previous</span>
+        </button>
 
-        <button (click)="next()" type="submit" class="btn btn-primary btn-next btn-reverse pl-md-5 pr-md-5 mobile-btn-p-next" rippleEffect>
-          <span class="align-middle d-sm-inline-block">Next</span><i data-feather="arrow-right"
+        <button type="submit" [disabled]="loading" class="btn btn-primary btn-next btn-reverse pl-md-5 pr-md-5"
+          rippleEffect>
+          <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+          <span class="align-middle d-sm-inline-block ">Next</span><i data-feather="arrow-right"
             class="align-middle ml-sm-25 ml-0"></i>
         </button>
       </div>
