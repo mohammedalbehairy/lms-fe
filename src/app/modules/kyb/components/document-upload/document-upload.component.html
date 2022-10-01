@@ -21,7 +21,7 @@
       </div>
 
       <div class="form-group col-md-4">
-        <label for="birth">Trade License Expiry date * </label>
+        <label for="tradeLicenseExpiryDate">Trade License Expiry date * </label>
         <ng2-flatpickr formControlName='tradeLicenseExpiryDate' [config]="tradeLicenseExpiryDateOptions"
           id="tradeLicenseExpiryDate" name="tradeLicenseExpiryDate" placeholder="MM/DD/YYYY"
           [ngClass]="{ 'is-invalid': submitted && f.tradeLicenseExpiryDate.errors }">
@@ -77,7 +77,7 @@
 
 
       <div class="form-group col-md-4">
-        <label for="birth">Expiry date *</label>
+        <label for="expiryDate">Expiry date *</label>
         <ng2-flatpickr formControlName='expiryDate' [config]="expiryDate" id="expiryDate" name="expiryDate"
           placeholder="MM/DD/YYYY" [ngClass]="{ 'is-invalid': submitted && f.expiryDate.errors }">
         </ng2-flatpickr>

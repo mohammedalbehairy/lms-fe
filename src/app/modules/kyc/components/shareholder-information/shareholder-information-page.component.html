@@ -2,126 +2,123 @@
 <div class="stepper-pages">
   <hr class="mb-md-3 mt-md-1" />
 
-  <form #accountDetailsForm="ngForm">
+  <form [formGroup]="shareHolderForm" (ngSubmit)="onSubmit()">
     <div class="row">
 
 
       <div class="form-group col-md-12">
         <div class="custom-control custom-checkbox">
-          <input type="checkbox" class="custom-control-input" id="customCheck1" checked />
-          <label class="custom-control-label" for="customCheck1">I am a partner/Shareholder</label>
+          <input formControlName="partnerShareholder" type="checkbox" class="custom-control-input"
+            id="partnerShareholder" checked />
+          <label class="custom-control-label" for="partnerShareholder">I am a partner/Shareholder</label>
         </div>
       </div>
 
       <div class="form-group col-md-4">
-        <label class="form-label Fo-14" for="email">Type *</label>
+        <label class="form-label Fo-14 pb-md-1" for="email">Type *</label>
         <div class="display-flex">
           <div class="custom-control custom-radio mr-md-1 mt-md-0 mt-1">
-            <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input" checked />
-            <label class="custom-control-label" for="customRadio1">Individual</label>
+            <input formControlName="type" value="individual" type="radio" id="individual" name="type"
+              class="custom-control-input" />
+            <label class="custom-control-label" for="individual">Individual</label>
           </div>
           <div class="custom-control custom-radio mr-md-1 mt-md-0 mt-1">
-            <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input" />
-            <label class="custom-control-label" for="customRadio2">Company</label>
+            <input formControlName="type" value="company" type="radio" id="company" name="type"
+              class="custom-control-input" />
+            <label class="custom-control-label" for="company">Company</label>
           </div>
         </div>
       </div>
 
       <div class="form-group col-md-4">
-        <label class="form-label Fo-14" for="username">Percentage holdings (%) *</label>
-        <input [(ngModel)]="TDNameVar" #TDNameRef="ngModel" required type="text" name="username" id="username"
-          class="form-control input-form" [class.error]="!TDNameRef.valid && accountDetailsForm.submitted"
-          placeholder="Cannot be greater than 100%" />
-        <span *ngIf="accountDetailsForm.submitted && TDNameRef.invalid" class="invalid-form">
-          <small class="form-text text-danger" *ngIf="TDNameRef.errors.required">This field is required!</small>
-        </span>
-      </div>
+        <label class="form-label Fo-14" for="percentageHoldings">Percentage holdings (%) *</label>
+        <input type="number" name="percentageHoldings" id="percentageHoldings" class="form-control input-form"
+          formControlName='percentageHoldings' [ngClass]="{ 'is-invalid': submitted && f.percentageHoldings.errors }"
+          placeholder="Amount of total capital investment" />
 
-
-      <div class="form-group col-md-4">
-        <label class="form-label Fo-14" for="username">Partner Name *</label>
-        <input [(ngModel)]="TDNameVar" #TDNameRef="ngModel" required type="text" name="username" id="username"
-          class="form-control input-form" [class.error]="!TDNameRef.valid && accountDetailsForm.submitted"
-          placeholder="John Smith" />
-        <span *ngIf="accountDetailsForm.submitted && TDNameRef.invalid" class="invalid-form">
-          <small class="form-text text-danger" *ngIf="TDNameRef.errors.required">This field is required!</small>
-        </span>
+        <div *ngIf="submitted && f.percentageHoldings.errors" class="invalid-feedback">
+          <div *ngIf="f.percentageHoldings.errors.required">This field is required</div>
+        </div>
       </div>
 
       <div class="form-group col-md-4">
-        <label class="form-label Fo-14" for="username">Passport Number *</label>
-        <input [(ngModel)]="TDNameVar" #TDNameRef="ngModel" required type="text" name="username" id="username"
-          class="form-control input-form" [class.error]="!TDNameRef.valid && accountDetailsForm.submitted"
-          placeholder="Your Passport Number" />
-        <span *ngIf="accountDetailsForm.submitted && TDNameRef.invalid" class="invalid-form">
-          <small class="form-text text-danger" *ngIf="TDNameRef.errors.required">This field is required!</small>
-        </span>
-      </div>
-      <div class="form-group col-md-4">
-        <label class="form-label Fo-14" for="username">Phone Number *</label>
-        <input [(ngModel)]="TDNameVar" #TDNameRef="ngModel" required type="text" name="username" id="username"
-          class="form-control input-form" [class.error]="!TDNameRef.valid && accountDetailsForm.submitted"
-          placeholder="05xxxxxxx" />
-        <span *ngIf="accountDetailsForm.submitted && TDNameRef.invalid" class="invalid-form">
-          <small class="form-text text-danger" *ngIf="TDNameRef.errors.required">This field is required!</small>
+        <label class="form-label Fo-14" for="partnerName">Partner Name *</label>
+        <input formControlName='partnerName' [ngClass]="{ 'is-invalid': submitted && f.partnerName.errors }" type="text"
+          name="partnerName" id="partnerName" class="form-control input-form" placeholder="000-000-000-000-0000" />
+        <span *ngIf="submitted && f.partnerName.errors" class="invalid-form">
+          <small class="form-text text-danger" *ngIf="f.partnerName.errors.required">This field is required</small>
         </span>
       </div>
 
       <div class="form-group col-md-4">
-        <label class="form-label Fo-14" for="email">Gender *</label>
+        <label class="form-label Fo-14" for="passportNumber">Passport Number *</label>
+        <input formControlName='passportNumber' [ngClass]="{ 'is-invalid': submitted && f.passportNumber.errors }"
+          type="text" name="passportNumber" id="passportNumber" class="form-control input-form"
+          placeholder="Your passport number" />
+        <span *ngIf="submitted && f.passportNumber.errors" class="invalid-form">
+          <small class="form-text text-danger" *ngIf="f.passportNumber.errors.required">This field is required</small>
+        </span>
+      </div>
+      <div class="form-group col-md-4">
+        <label class="form-label Fo-14" for="phoneNumber">Phone Number *</label>
+        <input type="text" name="phoneNumber" id="phoneNumber" class="form-control input-form"
+          formControlName='phoneNumber' [ngClass]="{ 'is-invalid': submitted && f.phoneNumber.errors }"
+          placeholder="+971  05xxxxxxx" />
+
+        <div *ngIf="submitted && f.phoneNumber.errors" class="invalid-feedback">
+          <div *ngIf="f.phoneNumber.errors.required">This field is required</div>
+        </div>
+      </div>
+
+      <div class="form-group col-md-4">
+        <label class="form-label Fo-14 pb-md-1" for="email">Gender *</label>
         <div class="display-flex">
           <div class="custom-control custom-radio mr-md-1 mt-md-0 mt-1">
-            <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input" checked />
-            <label class="custom-control-label" for="customRadio1">Male</label>
+            <input formControlName="gender" value="male" type="radio" id="male" name="gender"
+              class="custom-control-input" checked />
+            <label class="custom-control-label" for="male">Male </label>
           </div>
           <div class="custom-control custom-radio mr-md-1 mt-md-0 mt-1">
-            <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input" />
-            <label class="custom-control-label" for="customRadio2">Feamle</label>
+            <input formControlName="gender" value="female" type="radio" id="female" name="gender"
+              class="custom-control-input" />
+            <label class="custom-control-label" for="female">Female</label>
           </div>
         </div>
       </div>
 
       <div class="form-group col-md-4">
-        <label class="form-label Fo-14" for="username">Nationality *</label>
-        <input [(ngModel)]="TDNameVar" #TDNameRef="ngModel" required type="text" name="username" id="username"
-          class="form-control input-form" [class.error]="!TDNameRef.valid && accountDetailsForm.submitted"
-          placeholder="Your Nationality" />
-        <span *ngIf="accountDetailsForm.submitted && TDNameRef.invalid" class="invalid-form">
-          <small class="form-text text-danger" *ngIf="TDNameRef.errors.required">This field is required!</small>
+        <label class="form-label Fo-14" for="nationality">Nationality *</label>
+        <input formControlName='nationality' [ngClass]="{ 'is-invalid': submitted && f.nationality.errors }" type="text"
+          name="nationality" id="nationality" class="form-control input-form" placeholder="Your Nationality" />
+        <span *ngIf="submitted && f.nationality.errors" class="invalid-form">
+          <small class="form-text text-danger" *ngIf="f.nationality.errors.required">This field is required</small>
         </span>
       </div>
+
       <div class="form-group col-md-4">
-        <label class="form-label Fo-14" for="username">Date of Birth *</label>
-        <input [(ngModel)]="TDNameVar" #TDNameRef="ngModel" required type="text" name="username" id="username"
-          class="form-control input-form" [class.error]="!TDNameRef.valid && accountDetailsForm.submitted"
-          placeholder="MM/DD/YYYY" />
-        <span *ngIf="accountDetailsForm.submitted && TDNameRef.invalid" class="invalid-form">
-          <small class="form-text text-danger" *ngIf="TDNameRef.errors.required">This field is required!</small>
-        </span>
+        <label for="dateOfBirth">Date of Birth *</label>
+        <ng2-flatpickr formControlName='dateOfBirth' [config]="dateOfBirthOptions" id="dateOfBirth" name="dateOfBirth"
+          placeholder="MM/DD/YYYY" [ngClass]="{ 'is-invalid': submitted && f.dateOfBirth.errors }">
+        </ng2-flatpickr>
+        <div *ngIf="submitted && f.dateOfBirth.errors" class="invalid-feedback">
+          <div *ngIf="f.dateOfBirth.errors.required">This field is required</div>
+        </div>
       </div>
-
-
-
-
-
-
-
-
-
-
 
     </div>
 
     <hr class="mb-3 mt-2" />
     <div class="row">
       <div class="justify-content-between col-md-12">
-        <button (click)="back()"  class="btn btn-outline-secondary btn-prev mobile-btn-p-back" rippleEffect>
-        <i data-feather="arrow-left" class="align-middle mr-sm-25 mr-0"></i>
-        <span class="align-middle d-sm-inline-block">Previous</span>
-      </button>
+        <button (click)="back()" class="btn btn-outline-secondary btn-prev mobile-btn-p-back" rippleEffect>
+          <i data-feather="arrow-left" class="align-middle mr-sm-25 mr-0"></i>
+          <span class="align-middle d-sm-inline-block">Previous</span>
+        </button>
 
-        <button (click)="next()" type="submit" class="btn btn-primary btn-next btn-reverse pl-md-5 pr-md-5 mobile-btn-p-next" rippleEffect>
-          <span class="align-middle d-sm-inline-block">Next</span><i data-feather="arrow-right"
+        <button type="submit" [disabled]="loading" class="btn btn-primary btn-next btn-reverse pl-md-5 pr-md-5"
+          rippleEffect>
+          <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+          <span class="align-middle d-sm-inline-block ">Next</span><i data-feather="arrow-right"
             class="align-middle ml-sm-25 ml-0"></i>
         </button>
       </div>
