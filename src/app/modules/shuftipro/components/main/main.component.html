@@ -32,18 +32,14 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="row" style='height:155px;'>
-                            <div class="col-md-4">
-                                <button type="button" class="btn mr-1 btn-primary mb-1 mb-sm-0"
+                            <div class="col-md-6">
+                                <button type="button" class="btn mr-1 btn-primary mb-1 mb-sm-0" style='width:100%;'
                                     (click)="captureImage('img1')" rippleEffect>
-                                    <span data-feather="camera" class="mr-25"></span> {{!img1 ? 'Capture':'Re Capture'}}
+                                    <span data-feather="camera" class="mr-25"></span> Capture your face
                                 </button>
                             </div>
-                            <div class="col-md-4">
-                                <button type="button" class="btn mr-1 btn-primary mb-1 mb-sm-0" rippleEffect>
-                                    <span data-feather="upload" class="mr-25"></span> Upload
-                                </button>
-                            </div>
-                            <div class="col-md-4" *ngIf="img1">
+
+                            <div class="col-md-6" style='text-align:center;' *ngIf="img1">
                                 <img [src]="img1" height="150" width="150">
                             </div>
                         </div>
@@ -51,38 +47,52 @@
 
                     <div class="col-md-12">
                         <div class="row" style='height:155px;'>
-                            <div class="col-md-4">
-                                <button type="button" class="btn mr-1 btn-primary mb-1 mb-sm-0"
-                                    (click)="captureImage('img2')" rippleEffect>
-                                    <span data-feather="camera" class="mr-25"></span> {{!img2 ? 'Capture':'Re Capture'}}
+                            <div class="col-md-6">
+                                <button style='margin-bottom:10px !important;width:100%;' type="button"
+                                    class="btn mr-1 btn-primary mb-1 mb-sm-0" (click)="captureImage('img2')"
+                                    rippleEffect>
+                                    <span data-feather="camera" class="mr-25"></span>{{'Capture your ID ( Front Side)'}}
                                 </button>
+
+                                <div class="form-group">
+                                    <fieldset>
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input input-form" id="img2"
+                                                (change)="uploadFile($event)" />
+                                            <label class="custom-file-label input-form">Please choose file</label>
+                                        </div>
+                                    </fieldset>
+                                </div>
                             </div>
-                            <div class="col-md-4">
-                                <button type="button" class="btn mr-1 btn-primary mb-1 mb-sm-0" rippleEffect>
-                                    <span data-feather="upload" class="mr-25"></span> Upload
-                                </button>
-                            </div>
-                            <div class="col-md-4">
-                                <img [src]="img2" height="150" width="150" *ngIf="img2">
+
+                            <div class="col-md-6" style='text-align:center;'>
+                                <img [src]="img2" height="150" width="150" style='text-align:center;' *ngIf="img2">
                             </div>
                         </div>
                     </div>
 
                     <div class="col-md-12">
                         <div class="row" style='height:155px;'>
-                            <div class="col-md-4">
-                                <button type="button" class="btn mr-1 btn-primary mb-1 mb-sm-0"
-                                    (click)="captureImage('img3')" rippleEffect>
-                                    <span data-feather="camera" class="mr-25"></span> {{!img3 ? 'Capture':'Re Capture'}}
+                            <div class="col-md-6">
+                                <button style='margin-bottom:10px !important;width:100%;' type="button"
+                                    class="btn mr-1 btn-primary mb-1 mb-sm-0" (click)="captureImage('img3')"
+                                    rippleEffect>
+                                    <span data-feather="camera" class="mr-25"></span> {{'Capture your ID ( Back Side)'}}
                                 </button>
+
+                                <div class="form-group">
+                                    <fieldset>
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input input-form" id="img3"
+                                                (change)="uploadFile($event)" />
+                                            <label class="custom-file-label input-form">Please choose file</label>
+                                        </div>
+                                    </fieldset>
+                                </div>
                             </div>
-                            <div class="col-md-4">
-                                <button type="button" class="btn mr-1 btn-primary mb-1 mb-sm-0" rippleEffect>
-                                    <span data-feather="upload" class="mr-25"></span> Upload
-                                </button>
-                            </div>
-                            <div class="col-md-4">
-                                <img [src]="img3" height="150" width="150" *ngIf="img3">
+
+                            <div class="col-md-6" style='text-align:center;'>
+                                <img [src]="img3" height="150" width="150" style='text-align:center;' *ngIf="img3">
                             </div>
                         </div>
                     </div>

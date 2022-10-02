@@ -115,4 +115,23 @@ export class MainComponent implements OnInit {
   get btnNotValid() {
     return !this.img1 || !this.img2 || !this.img3;
   }
+
+  /**
+   * Upload Image
+   *
+   * @param event
+   */
+  uploadFile(event: any) {
+    let inputId = event.target.id;
+    let data = null;
+    if (event.target.files && event.target.files[0]) {
+      let reader = new FileReader();
+
+      reader.onload = (event: any) => {
+        data = event.target.result;
+        this[inputId] = data;
+      };
+      reader.readAsDataURL(event.target.files[0]);
+    }
+  }
 }
