@@ -1,113 +1,140 @@
 @import '@core/scss/base/bootstrap-extended/include'; // Bootstrap includes
 @import '@core/scss/base/pages/page-auth.scss';
 
+// TODO:replace kotb design & continue editing checkbox
 
+.final-step {
+  .cust-alert {
+    background: rgba(100, 226, 145, 0.25);
+    border-radius: 8px;
+    margin-top: 32px;
+    padding: 24px 24px 28px 24px;
+
+    .cust-alert-body {
+      display: flex;
+      align-items: baseline;
+
+      label {
+        font-weight: 700 !important;
+        font-size: 14px;
+        line-height: 18px;
+
+        color: #2d3137;
+      }
+
+      input {
+        margin-right: 10px;
+        display: block;
+      }
+    }
+  }
+}
+
+// -------------------------------------------------------
 
 .info {
-    background: #FCFDFF;
-    border: 1px solid rgba(10, 54, 119, 0.05);
-    border-radius: 12px;
+  background: #fcfdff;
+  border: 1px solid rgba(10, 54, 119, 0.05);
+  border-radius: 12px;
 }
-.info-tit{
-    padding: 32px;
+.info-tit {
+  padding: 32px;
 }
 
 .accordion {
-    background: #FCFDFF !important;
+  background: #fcfdff !important;
 }
 
 .slider-div {
-    background: #FFFFFF;
-    border: 1px solid #AFCBFF;
-    box-shadow: 0px 30px 39px rgba(0, 0, 0, 0.02);
-    border-radius: 12px;
-    padding-left: 20px;
+  background: #ffffff;
+  border: 1px solid #afcbff;
+  box-shadow: 0px 30px 39px rgba(0, 0, 0, 0.02);
+  border-radius: 12px;
+  padding-left: 20px;
 }
 
 .slider-item {
-    padding: 30px;
+  padding: 30px;
 }
-.custom-checkbox{
-    margin-top: 15px;
+.custom-checkbox {
+  margin-top: 15px;
 }
-.custom-control-label{
-    text-align: left;
+.custom-control-label {
+  text-align: left;
 }
-.select-dev{
-    text-align: left;
+.select-dev {
+  text-align: left;
 }
 .back-butn {
-    background: #FFFFFF;
-border: 1px solid rgba(45, 49, 55, 0.1) !important;
-border-radius: 8px;
+  background: #ffffff;
+  border: 1px solid rgba(45, 49, 55, 0.1) !important;
+  border-radius: 8px;
 }
-.alert-body-message{
-    padding: 24px 24px 28px 24px;
-    background: rgba(100, 226, 145, 0.25) !important;
-    border-radius: 8px;
+.alert-body-message {
+  padding: 24px 24px 28px 24px;
+  background: rgba(100, 226, 145, 0.25) !important;
+  border-radius: 8px;
 }
 .transperant-color {
-    background: transparent;
+  background: transparent;
 }
 ::ng-deep {
-    .carousel-item {
-        padding-bottom: 0px !important;
-        padding-top: 40px !important;
-    }
+  .carousel-item {
+    padding-bottom: 0px !important;
+    padding-top: 40px !important;
+  }
 
-    .carousel-indicators{
-        top: 15px;
-        bottom: auto;
-        left: 10px;
-        right: auto;
-        margin: 0px;
-        li{
-            pointer-events: none;
-            background: rgba(45, 49, 55, 0.1);
-            width: 10px;
-            max-height: 1px;
-            border-radius: 50%;
-            border-top: 5px solid transparent;
-            border-bottom: 5px solid transparent;
-        }
-        .active{
-            background: #0A3677;
-        }
-        
+  .carousel-indicators {
+    top: 15px;
+    bottom: auto;
+    left: 10px;
+    right: auto;
+    margin: 0px;
+    li {
+      pointer-events: none;
+      background: rgba(45, 49, 55, 0.1);
+      width: 10px;
+      max-height: 1px;
+      border-radius: 50%;
+      border-top: 5px solid transparent;
+      border-bottom: 5px solid transparent;
     }
-    .carousel-caption {
-        padding: 0px;
+    .active {
+      background: #0a3677;
     }
+  }
+  .carousel-caption {
+    padding: 0px;
+  }
 }
-.web-view{
+.web-view {
+  display: none;
+}
+@media only screen and (max-width: 600px) {
+  .web-view {
+    display: block;
+  }
+  .mobile-hiden {
     display: none;
   }
-@media only screen and (max-width: 600px) {
-      .web-view{
-          display: block;
-        } 
-        .mobile-hiden{
-          display: none;
-        }
-        .alert-body {
-            img,span{
-            background: transparent;
-            }
-          }
-        .info-tit{
-            padding: 24px;
-        }
-        .carousel-view{
-            margin-left: -35px;
-            margin-right: -35px;
-            
-        }
-        .width60{
-            width: 60%;
-            margin-left: 12px;
-        }
-        .width35{
-            width: 35%;
-        }
-        
+  .alert-body {
+    img,
+    span {
+      background: transparent;
+    }
   }
+  .info-tit {
+    padding: 24px;
+  }
+  .carousel-view {
+    margin-left: -35px;
+    margin-right: -35px;
+  }
+  .width60 {
+    width: 60%;
+    margin-left: 12px;
+  }
+  .width35 {
+    width: 35%;
+  }
+}

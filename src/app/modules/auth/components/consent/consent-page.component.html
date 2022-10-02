@@ -19,7 +19,10 @@
           <span class="lead collapse-title font-bold Fo-14 LH-18"> Terms of sevrvices </span>
         </ng-template>
         <ng-template ngbPanelContent>
-          Pie dragée muffin.
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veniam a mollitia commodi ratione consequuntur natus
+          vel rem facilis architecto iure iste aut, iusto nam quae beatae debitis accusantium reprehenderit! Minus iste
+          dolores, sequi quae ratione corporis ab, hic laborum pariatur eaque molestias dignissimos, modi tempora nihil
+          assumenda ipsa aliquam? Quaerat.
         </ng-template>
       </ngb-panel>
       <ngb-panel class="accordion" id="accordion-2">
@@ -27,26 +30,30 @@
           <span class="lead collapse-title font-bold Fo-14 LH-18"> Privacy policy </span>
         </ng-template>
         <ng-template ngbPanelContent>
-          Pie dragée muffin.
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odio, possimus. Sed, dolorum! Esse, hic quisquam
+          dignissimos beatae nam tempora. Dolorem voluptas, in reprehenderit ad quisquam nihil quis magnam eveniet
+          voluptate libero vel dolor culpa omnis. Cupiditate porro temporibus velit esse.
         </ng-template>
       </ngb-panel>
     </ngb-accordion>
   </div>
 
-  <div class="slider-div carousel-view m32 mb45" [hidden]="!flag">
+  <div class="slider-div carousel-view m32 mb45" [hidden]="toggleView">
     <ngb-carousel class="text-center" [activeId]="'one'" [interval]="0" [showNavigationArrows]="false">
       <ng-template ngbSlide [id]="'one'" class="slider-item">
         <div class="carousel-img-wrapper p-1">
           <div class="custom-control custom-checkbox">
-            <input type="checkbox" class="custom-control-input" id="customCheck4" />
-            <label class="custom-control-label Fo-14 LH-18 ml8" for="customCheck4">
+
+            <input type="checkbox" class="custom-control-input" id="step1Approve" [(ngModel)]='step1Approve' />
+
+            <label class="custom-control-label Fo-14 LH-18 ml8" for="step1Approve">
               I/We agree to the above mentioned details and fully understand that the loan is subject to the submission
               of
               necessary documentation and signing of the loan agreement as required by LNDDO Digital Lending Limited
             </label>
           </div>
           <button [disabled]="loading" class="btn btn-primary m44 mb-m45 m-m33 w-80  Fo-16 LH-21" tabindex="4"
-            rippleEffect (click)="next()">
+            rippleEffect (click)="next()" [disabled]="!step1Approve">
             <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>I agree and Continue
           </button>
         </div>
@@ -55,8 +62,8 @@
       <ng-template ngbSlide [id]="'two'">
         <div class="carousel-img-wrapper p-1">
           <div class="custom-control custom-checkbox">
-            <input type="checkbox" class="custom-control-input" id="customCheck4" />
-            <label class="custom-control-label Fo-14 LH-18 ml8" for="customCheck4">
+            <input type="checkbox" class="custom-control-input" id="step2Approve" [(ngModel)]='step2Approve' />
+            <label class="custom-control-label Fo-14 LH-18 ml8" for="step2Approve">
               I/We agree to the above mentioned details and fully understand that the loan is subject to the submission
               of
               necessary documentation and signing of the loan agreement as required by LNDDO Digital Lending Limited
@@ -66,8 +73,8 @@
             class="btn btn-outline-dark back-butn m16 w-80 width35 Fo-16 LH-21" tabindex="4" rippleEffect>
             <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span> Go Back
           </button>
-          <button [disabled]="loading" (click)="nextFinal()" class="btn btn-primary m16 w-80 width60 Fo-16 LH-21"
-            tabindex="4" rippleEffect (click)="flag = false">
+          <button [disabled]="loading" (click)="toggleView = true" [disabled]="!step2Approve"
+            class="btn btn-primary m16 w-80 width60 Fo-16 LH-21" tabindex="4" rippleEffect>
             <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>I agree and Continue
           </button>
         </div>
@@ -76,30 +83,37 @@
 
     </ngb-carousel>
   </div>
-  <div [hidden]="flag">
-    <ngb-alert [dismissible]="false" [hidden]="false" [type]="'success'" class="text-center alert-body m32 mb-0">
-      <div class="alert-body-message">
-        <div class="custom-control transperant-color">
-          <input type="checkbox" class="custom-control-input" id="customCheck11" />
-          <label class="custom-control-label primary-color Fo-14 LH-18 transperant-color" for="customCheck11">
-            You successfully agreed to our AECB Consent, Data sharing consent and Authority consent
-          </label>
+  <div [hidden]="!toggleView" class='final-step'>
+
+    <div class="cust-alert">
+      <div class="cust-alert-body">
+        <!-- <input type="checkbox" id="customCheck3" />
+        <label for="customCheck3">You successfully agreed to our AECB Consent, Data
+          sharing consent and Authority consent</label> -->
+        <div class="custom-control custom-checkbox">
+          <input type="checkbox" class="custom-control-input" id="customCheck1" [(ngModel)]='aecbApprove' />
+          <label class="custom-control-label" for="customCheck1">You successfully agreed to our AECB Consent, Data
+            sharing consent and Authority consent</label>
         </div>
       </div>
-    </ngb-alert>
+    </div>
 
     <div class="form-group col-md-12 select-dev m24 pl-0 mb-0">
-      <label class="form-label Fo-16 LH-21" for="email">This declaration is being given in the capacity of (select as
+      <label class="form-label Fo-16 LH-21" for="types">This declaration is being given in the capacity of (select as
         under): *</label>
-      <select class="form-control input-form Fo-16 LH-21 m8" placeholder="select" id="basicSelect">
-        <option>Power of Attorney Holder</option>
-        <option>Sole Proprietor</option>
-        <option>Service Agency Contract Holder</option>
-        <option>Managing Director/Manager</option>
-        <option>Authorized Signatory in MOA</option>
+      <select class="form-control input-form Fo-16 LH-21 m8" placeholder="select" id="types"
+        [(ngModel)]='typeSelection'>
+        <option value=''>Select</option>
+        <option value='powerOfAttorneyHolder'>Power of Attorney Holder</option>
+        <option value='soleProprietor'>Sole Proprietor</option>
+        <option value='serviceAgencyContractHolder'>Service Agency Contract Holder</option>
+        <option value='managingDirectorManager'>Managing Director/Manager</option>
+        <option value='authorizedSignatoryInMOA'>Authorized Signatory in MOA</option>
       </select>
     </div>
-    <button class="btn btn-primary w-100 m40 mb45 Fo-16 LH-21" tabindex="4" rippleEffect (click)="next()">Start
+    <button class="btn btn-primary w-100 m40 mb45 Fo-16 LH-21" [disabled]="!typeSelection || !aecbApprove||  loading"
+      tabindex="4" rippleEffect (click)="startApp()"><span *ngIf="loading"
+        class="spinner-border spinner-border-sm mr-1"></span>Start
       Application
     </button>
   </div>

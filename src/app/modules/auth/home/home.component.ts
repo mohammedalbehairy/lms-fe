@@ -10,24 +10,6 @@ import { AuthRouteService } from '../service/auth.route.service';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  public TDNameVar;
-  public TDEmailVar;
-  public selectBasicLoading = false;
-  basicDPdata;
-  public data: any;
-
-  public selectBasic = [
-    { name: 'UK' },
-    { name: 'USA' },
-    { name: 'Spain' },
-    { name: 'France' },
-    { name: 'Italy' },
-    { name: 'Australia' },
-  ];
-
-  public loginForm: UntypedFormGroup;
-  public submitted = false;
-  public passwordTextType: boolean;
   public loading = false;
 
   currentPage = 'Login';
@@ -60,19 +42,9 @@ export class HomeComponent implements OnInit {
     };
   }
 
-  get f() {
-    return this.loginForm.controls;
-  }
-  /**
-   * Toggle password
-   */
-  togglePasswordTextType() {
-    this.passwordTextType = !this.passwordTextType;
-  }
-
-  openDocumentsPage() {
-    this._router.navigate(['dash/documents']);
-  }
+  // openDocumentsPage() {
+  //   this._router.navigate(['dash/documents']);
+  // }
 
   navigateTo() {
     switch (this.currentPage) {
