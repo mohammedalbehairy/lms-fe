@@ -18,7 +18,7 @@ export class MainComponent implements OnInit {
     private _sharedDataService: SharedDataService
   ) {}
   public loading = false;
-       
+
   error = '';
 
   stream: any = null;
@@ -38,7 +38,6 @@ export class MainComponent implements OnInit {
   ngOnInit(): void {}
 
   snapshot(event: WebcamImage) {
-    console.log(event);
     this.previewImage = event.imageAsDataUrl;
     this.btnLabel = 'Re capture image';
   }
@@ -52,7 +51,6 @@ export class MainComponent implements OnInit {
         },
       })
       .then((res) => {
-        console.log('response', res);
         this.stream = res;
         this.status = 'My camera is accessing';
         this.btnLabel = 'Capture image';
@@ -79,8 +77,6 @@ export class MainComponent implements OnInit {
     this.error = '';
 
     if (this.btnNotValid) {
-      console.log('-------------------not valid');
-
       return;
     }
 
@@ -98,7 +94,6 @@ export class MainComponent implements OnInit {
       .subscribe(
         (res: any) => {
           this.loading = false;
-          console.log('-----proceed----res----', res);
           if (res.event == 'verification.accepted') {
             this._sharedDataService.shuftiProData = res;
             this._router.navigate(['/shuftipro/data-approve']);

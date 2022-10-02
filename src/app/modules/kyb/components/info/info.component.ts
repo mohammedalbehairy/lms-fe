@@ -52,7 +52,6 @@ export class InfoComponent implements OnInit {
   loadMagnatiData() {
     this._kybService.loadMagnatiBD().subscribe(
       (res: any) => {
-        console.log(res);
         this.patchFormValues(res);
       },
       (err) => {
@@ -64,7 +63,6 @@ export class InfoComponent implements OnInit {
   loadTelrData() {
     this._kybService.loadTelrBD().subscribe(
       (res: any) => {
-        console.log(res);
         this.patchFormValues(res);
       },
       (err) => {
@@ -80,8 +78,6 @@ export class InfoComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log('=-=-=-=-=-=-=--', this.businessInfoForm);
-
     this.submitted = true;
 
     // stop here if form is invalid
@@ -93,8 +89,6 @@ export class InfoComponent implements OnInit {
 
     this._kybService.setData(data).subscribe(
       (res) => {
-        console.log(res);
-
         this._router.navigate(['/kyb/businessaddress']);
       },
       (err) => {

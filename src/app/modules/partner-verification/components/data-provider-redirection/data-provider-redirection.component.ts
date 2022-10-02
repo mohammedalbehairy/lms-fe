@@ -33,7 +33,6 @@ export class DataProviderRedirectionComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log('Called Constructor');
     this.route.queryParams.subscribe((params) => {
       this.merchantId = params['merchantId'];
       this.Token = params['Token'];
@@ -52,7 +51,6 @@ export class DataProviderRedirectionComponent implements OnInit {
         this._router.navigate(['/partners/initial-approve']);
       },
       (err) => {
-        console.log('-==--=-=-=-=', err);
         this.toastrCustomDanger(err);
         this.blockUI.stop(); // Stop blocking
         this._router.navigate(['/partners/revenue']);

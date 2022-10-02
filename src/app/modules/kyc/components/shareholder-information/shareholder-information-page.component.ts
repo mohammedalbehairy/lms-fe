@@ -21,7 +21,6 @@ export class ShareholderInformationPageComponent implements OnInit {
     altFormat: 'j/m/Y',
   };
 
-
   public shareHolderForm: UntypedFormGroup;
   public submitted = false;
   public loading = false;
@@ -55,8 +54,6 @@ export class ShareholderInformationPageComponent implements OnInit {
   loadData() {}
 
   onSubmit() {
-    console.log('=-=-=-=-=-=-=--', this.shareHolderForm);
-
     this.submitted = true;
 
     // stop here if form is invalid
@@ -68,8 +65,6 @@ export class ShareholderInformationPageComponent implements OnInit {
 
     this._kycService.setData(data).subscribe(
       (res) => {
-        console.log(res);
-
         this._router.navigate(['/shuftipro/main']);
       },
       (err) => {

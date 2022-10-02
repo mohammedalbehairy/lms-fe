@@ -42,8 +42,6 @@ export class OtherInfoComponent implements OnInit {
   loadData() {}
 
   onSubmit() {
-    console.log('=-=-=-=-=-=-=--', this.infoForm);
-
     this.submitted = true;
 
     // stop here if form is invalid
@@ -55,8 +53,6 @@ export class OtherInfoComponent implements OnInit {
 
     this._kybService.setData(data).subscribe(
       (res) => {
-        console.log(res);
-
         this._router.navigate(['kyb/ecommerce']);
       },
       (err) => {

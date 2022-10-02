@@ -63,8 +63,6 @@ export class DocumentUploadComponent implements OnInit {
   loadData() {}
 
   onSubmit() {
-    console.log('=-=-=-=-=-=-=--', this.docsForm);
-
     this.submitted = true;
 
     // stop here if form is invalid
@@ -76,8 +74,6 @@ export class DocumentUploadComponent implements OnInit {
 
     this._kybService.setData(data).subscribe(
       (res) => {
-        console.log(res);
-
         this._router.navigate(['kyc/personalinfo']);
       },
       (err) => {
@@ -107,17 +103,10 @@ export class DocumentUploadComponent implements OnInit {
   uploadFile(event: any) {
     let inputId = event.target.id;
     let data = null;
-    console.log('=====uploadFile=========inputId==============', inputId);
-
     if (event.target.files && event.target.files[0]) {
       let reader = new FileReader();
 
       reader.onload = (event: any) => {
-        console.log(
-          '=====uploadFile===onload======inputId========event======',
-          event
-        );
-
         data = event.target.result;
         this.f[inputId].setValue(data);
       };

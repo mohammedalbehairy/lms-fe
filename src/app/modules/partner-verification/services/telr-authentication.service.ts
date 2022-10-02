@@ -14,8 +14,6 @@ export class TelrAuthenticationService {
   constructor(private _httpClient: HttpClient) {}
 
   authTelr(username: string, password: string) {
-    console.log('=====authTelr=====');
-    
     return this._httpClient.post(
       `${environment.apiUrl}/api/v1/cba/telr/processor`,
       {

@@ -40,8 +40,6 @@ export class ECommerceComponent implements OnInit {
   loadData() {}
 
   onSubmit() {
-    console.log('=-=-=-=-=-=-=--', this.ecommerceForm);
-
     this.submitted = true;
 
     // stop here if form is invalid
@@ -53,8 +51,6 @@ export class ECommerceComponent implements OnInit {
 
     this._kybService.setData(data).subscribe(
       (res) => {
-        console.log(res);
-
         this._router.navigate(['kyb/uploaddocs']);
       },
       (err) => {

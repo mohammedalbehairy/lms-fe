@@ -51,20 +51,14 @@ export class RevenuePageComponent implements OnInit {
   }
 
   setSelectedPartner() {
-    console.log('=====setSelectedPartner=====');
-
     this._sharedDataService.partner = this.selectedPartner;
   }
 
   navigateTelr() {
-    console.log('=====navigateTelr=====');
-
     this._router.navigate(['/partners/telr-login']);
   }
 
   navigateMagnati() {
-    console.log('=====navigateMagnati=====');
-
     window.location.href = `https://safexpayuat.bankfab.com/agmerchant/lnndoFabIndex.jsp?apiKey=123123&lnddocustomerid=${this.lnddocustomerid}&redirectUrl=${environment.currentUrl}/partners/data-provider-redirection`;
   }
 }

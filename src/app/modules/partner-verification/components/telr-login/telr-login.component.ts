@@ -50,8 +50,6 @@ export class TelrLoginComponent implements OnInit {
 
   getSelectedData() {
     this.selectedData = this._sharedDataService.partner;
-    console.log('----selectedData-----', this.selectedData);
-
     if (!this.selectedData) this._router.navigate(['/partners/revenue']);
   }
 
@@ -66,7 +64,6 @@ export class TelrLoginComponent implements OnInit {
     this.submitted = true;
     this.error = '';
     // stop here if form is invalid
-    console.log(this.loginForm);
 
     if (this.loginForm.invalid) {
       return;

@@ -68,8 +68,6 @@ export class SignUpUaePassComponent implements OnInit {
   ngOnInit(): void {
     this._route.queryParamMap.subscribe((qs) => {
       this.code = qs.get('code');
-      console.log(this.code);
-
       this.getToken();
     });
 
@@ -77,19 +75,18 @@ export class SignUpUaePassComponent implements OnInit {
     this._coreConfigService.config
       .pipe(takeUntil(this._unsubscribeAll))
       .subscribe((config) => {
-        console.log('=====================', config);
-
         this.coreConfig = config;
       });
   }
 
   getToken() {
-    console.log('=========getToken=========');
-
     const body = new HttpParams()
       .set('grant_type', 'authorization_code')
       .set('code', this.code)
-      .set('redirect_uri', `${environment.currentUrl}/auth/home/sign-up-uae-pass`)
+      .set(
+        'redirect_uri',
+        `${environment.currentUrl}/auth/home/sign-up-uae-pass`
+      )
       .set('client_id', 'sandbox_stage')
       .set('client_secret', 'sandbox_stage');
 
@@ -103,14 +100,12 @@ export class SignUpUaePassComponent implements OnInit {
       )
       .subscribe(
         (res: any) => {
-          console.log('================', res);
-
           this.uaePassToken = res;
           this.signUpHerms();
           // this.router.navigate(['/auth/home/sign-up-uae-pass']);
         },
         (err) => {
-          console.log('-------', err);
+          console.log(err);
         }
       );
   }

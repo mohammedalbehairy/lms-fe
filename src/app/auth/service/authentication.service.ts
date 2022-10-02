@@ -100,8 +100,6 @@ export class AuthenticationService {
    * @returns user
    */
   login_temp(user) {
-    console.log('===============login_temp=================', user);
-
     //TODO: replace it with login from the other service
     localStorage.setItem(
       'currentUser',

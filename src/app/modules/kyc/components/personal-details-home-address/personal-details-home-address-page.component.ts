@@ -44,8 +44,6 @@ export class PersonalDetailsHomeAddressPageComponent implements OnInit {
   loadData() {}
 
   onSubmit() {
-    console.log('=-=-=-=-=-=-=--', this.infoForm);
-
     this.submitted = true;
 
     // stop here if form is invalid
@@ -57,8 +55,6 @@ export class PersonalDetailsHomeAddressPageComponent implements OnInit {
 
     this._kycService.setData(data).subscribe(
       (res) => {
-        console.log(res);
-
         this._router.navigate(['kyc/uploaddocuments']);
       },
       (err) => {

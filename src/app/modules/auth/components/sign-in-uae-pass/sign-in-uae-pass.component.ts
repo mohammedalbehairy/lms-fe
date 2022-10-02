@@ -83,11 +83,10 @@ export class SignInUaePassComponent implements OnInit {
   }
 
   getToken() {
-    console.log('=--=-=getToken-=-=-=-=');
     // return this._authUaePassService.getTokenUAE_Pass(this.code).subscribe(
     return this._http
       .post(
-        'https://hermes.lnddo.loan/api/unsecured/v1/registration/uae-pass',
+        `${environment.currentUrl}/api/unsecured/v1/registration/uae-pass`,
         {
           code: this.code,
           redirectUri: `${environment.currentUrl}/auth/home/sign-in-uae-pass`,
@@ -95,14 +94,12 @@ export class SignInUaePassComponent implements OnInit {
       )
       .subscribe(
         (res: any) => {
-          console.log('=--=-=-=-=-=-=');
-
           this.uaePassToken = res;
 
           this.loginUAE_Pass();
         },
         (err) => {
-          console.log('-------', err);
+          console.log(err);
         }
       );
   }

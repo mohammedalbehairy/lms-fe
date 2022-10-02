@@ -45,8 +45,6 @@ export class FinancialComponent implements OnInit {
   loadData() {}
 
   onSubmit() {
-    console.log('=-=-=-=-=-=-=--', this.businessFinancialForm);
-
     this.submitted = true;
 
     // stop here if form is invalid
@@ -58,8 +56,6 @@ export class FinancialComponent implements OnInit {
 
     this._kybService.setData(data).subscribe(
       (res) => {
-        console.log(res);
-
         this._router.navigate(['kyb/otherinfo']);
       },
       (err) => {
