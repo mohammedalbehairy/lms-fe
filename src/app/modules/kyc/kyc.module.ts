@@ -18,7 +18,7 @@ import { ShareholderInformationPageComponent } from './components/shareholder-in
 
 
 import { KycRoutingModule } from './kyc-routing.module';
-import { stepperModule } from '../shared/stepper/stepper.module';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -41,7 +41,7 @@ import { stepperModule } from '../shared/stepper/stepper.module';
     Ng2FlatpickrModule,
     NouisliderModule,
     CardSnippetModule,
-    stepperModule
+    SharedModule
   ],
   providers: [],
 })

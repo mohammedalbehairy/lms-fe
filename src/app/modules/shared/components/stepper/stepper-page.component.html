@@ -1,16 +1,21 @@
-<div>
+<div class='header'>
     <a (click)="back()" class="cursor">
         <img src="../../../../assets/images/partners/back.svg" alt="steps" />
     </a>
-    <h6 class="header1 mb-0 m23">Continue Application</h6>
-    <h4 class="font-bold Fo-20 LH-26 primary-color m8 mb-0">Now let’s fill in your business Information</h4>
+    <h6 class="headerSubTitle mb-0 m23">{{headerSubTitle || 'Continue Application'}}</h6>
+    <h4 class="font-bold Fo-20 LH-26 primary-color m8 mb-0 headerTitle">{{headerTitle || 'Now let’s fill in your
+        business
+        Information'}}</h4>
 </div>
 
 <div class="row stepper m32 m-m16 mb-30 mb-m24" [hidden]="isHidden">
     <div class="col-md-6 col-9 pl-0 step-title pr-0">
-        <div class="steps">
-            <p class="m16 mb-0 ml10 mr10 ml-m-18 font-bold Fo-12 LH-16 ">Step</p>
-            <p class="mb-0 m5 ml10 mr10 ml-m-18 font-bold Fo-12 LH-16"> <span>{{index}}</span> of 8</p>
+        <div class="steps text-center">
+            <!-- <p class="m16 mb-0 ml10  ml-m-18 font-bold Fo-12 LH-16 ">Step</p>
+            <p class="mb-0 m5 ml10  ml-m-18 font-bold Fo-12 LH-16"> <span>{{index}}</span> of 8</p> -->
+
+            <p class='mb-0'>Step</p>
+            <p class='mb-0'>{{index}}<span> of </span>8</p>
         </div>
         <div class="titles-div">
             <p class="titles">{{title}}</p>
@@ -25,7 +30,8 @@
                 Steps
             </div>
             <p class="btn-reverse next-title mobile-hiden">{{nextTitle}}</p>
-            <button type="submit" rippleEffect class="btn next-button btn-reverse mobile-hiden" (click)="next()">NEXT</button>
+            <button type="submit" rippleEffect class="btn next-button btn-reverse mobile-hiden"
+                (click)="next()">NEXT</button>
         </div>
     </div>
 </div>
@@ -40,7 +46,7 @@
         </button>
     </div>
     <div class="modal-body" tabindex="0" ngbAutofocus>
-  
+
         <div class="time-line-div">
             <h6 class="font-bold mb-1">Business Details</h6>
             <ul class="timeline">
@@ -80,15 +86,15 @@
                     <span class="timeline-point timeline-point-secondary timeline-point-indicator"></span>
                     <div class="timeline-event">
                         <div class="d-flex justify-content-between flex-sm-row flex-column mb-sm-0">
-                            <h6 class="primary-color font-bold" >E-commerce Information</h6>
+                            <h6 class="primary-color font-bold">E-commerce Information</h6>
                         </div>
                     </div>
                 </li>
-  
+
             </ul>
-  
+
         </div>
-  
+
         <div class="time-line-div">
             <h6 class="font-bold mb-1">Personal Information</h6>
             <ul class="timeline">
@@ -109,10 +115,10 @@
                     </div>
                 </li>
             </ul>
-  
+
         </div>
-  
-  
+
+
         <div class="time-line-div">
             <h6 class="font-bold mb-1">Upload Required Documents </h6>
             <ul class="timeline">
@@ -133,9 +139,9 @@
                     </div>
                 </li>
             </ul>
-  
+
         </div>
-  
-  
+
+
     </div>
-  </ng-template>
+</ng-template>

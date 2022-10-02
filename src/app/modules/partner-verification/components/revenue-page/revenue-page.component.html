@@ -1,12 +1,18 @@
-<div>
+<!-- <div>
     <a (click)="back()">
         <em data-feather="chevron-left" class="font-medium-4 text-primary toggle-icon mb-1 cursor"></em>
     </a>
     <h6 class="text-muted">Welcome</h6>
     <h4 class="font-bold">Now let’s connect your revenue channel </h4>
     <p>Please Connect with your recurring revenue channel for us to assess your business</p>
-</div>
+</div> -->
 
+<app-stepper [headerSubTitle]="'Welcome'" [headerTitle]="'Now let’s connect your revenue channel'" [index]="1"
+    [title]="'Business Details'" [subTitle]="'Information'" [nextTitle]="'Your Business Address'" [isHidden]="true"
+    [prevPageURL]="'auth/home/consent'">
+</app-stepper>
+
+<p>Please Connect with your recurring revenue channel for us to assess your business</p>
 <h6 class="mt-2 font-bold">Connect partner channel</h6>
 
 <div class="row mt-1">

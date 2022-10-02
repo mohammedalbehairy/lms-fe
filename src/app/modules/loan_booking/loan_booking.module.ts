@@ -11,11 +11,11 @@ import { CardSnippetModule } from '@core/components/card-snippet/card-snippet.mo
 
 
 import { KycRoutingModule } from './loan_booking-routing.module';
-import { stepperModule } from '../shared/stepper/stepper.module';
 import { LoanTermsPageComponent } from './components/loan-terms/loan-terms-page.component';
 import { ReviewLoanDetailsPageComponent } from './components/review-loan-details/review-loan-details-page.component';
 import { ReviewLoanAgreementPageComponent } from './components/review-loan-agreement/review-loan-agreement-page.component';
 import { LoanApprovePageComponent } from './components/loan-approve/loan-approve-page.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -36,7 +36,7 @@ import { LoanApprovePageComponent } from './components/loan-approve/loan-approve
     Ng2FlatpickrModule,
     NouisliderModule,
     CardSnippetModule,
-    stepperModule
+    SharedModule
   ],
   providers: [],
 })

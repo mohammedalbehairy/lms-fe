@@ -1,5 +1,6 @@
-<app-stepper [index]="3" [title]="'Business Details'" [subTitle]="'Financial Information'"
-    [nextTitle]="'Other Information'"></app-stepper>
+<app-stepper [headerTitle]="'Now let’s fill in your business Information'" [index]="3" [title]="'Business Details'"
+    [subTitle]="'Financial Information'" [nextTitle]="'Other Information'" [prevPageURL]="'kyb/businessaddress'">
+</app-stepper>
 
 <div class="stepper-pages">
     <form [formGroup]="businessFinancialForm" (ngSubmit)="onSubmit()">
@@ -83,7 +84,8 @@
             </div>
 
             <div class="form-group col-md-4">
-                <label class="form-label Fo-14" for="outstandingLoans">Do your business have any outstanding loans? (Exclude credit
+                <label class="form-label Fo-14" for="outstandingLoans">Do your business have any outstanding loans?
+                    (Exclude credit
                     card
                     debt) *</label>
                 <div class="display-flex">

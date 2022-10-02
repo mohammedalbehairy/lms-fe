@@ -5,7 +5,6 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
-import moment from 'moment';
 import { FlatpickrOptions } from 'ng2-flatpickr';
 import { KybService } from '../../services/kyb.service';
 
@@ -51,8 +50,6 @@ export class AddressComponent implements OnInit {
   loadData() {}
 
   onSubmit() {
-    console.log('=-=-=-=-=-=-=--', this.businessAddressForm);
-
     this.submitted = true;
 
     // stop here if form is invalid
@@ -64,8 +61,6 @@ export class AddressComponent implements OnInit {
 
     this._kybService.setData(data).subscribe(
       (res) => {
-        console.log(res);
-
         this._router.navigate(['/kyb/financialinfo']);
       },
       (err) => {

@@ -1,5 +1,6 @@
-<app-stepper [index]="4" [title]="'Business Details'" [subTitle]="'Other Information'"
-  [nextTitle]="'E-commerce Information'"></app-stepper>
+<app-stepper [headerTitle]="'Now let’s fill in your business Information'" [index]="4" [title]="'Business Details'"
+  [subTitle]="'Other Information'" [nextTitle]="'E-commerce Information'" [prevPageURL]="'kyb/financialinfo'">
+</app-stepper>
 
 <div class="stepper-pages">
   <form [formGroup]="infoForm" (ngSubmit)="onSubmit()">

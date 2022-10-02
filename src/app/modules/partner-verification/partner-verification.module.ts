@@ -13,6 +13,7 @@ import { TelrLoginComponent } from './components/telr-login/telr-login.component
 import { DataProviderRedirectionComponent } from './components/data-provider-redirection/data-provider-redirection.component';
 import { BlockUIModule } from 'ng-block-ui';
 import { CoreBlockUiComponent } from '@core/components/core-card/core-block-ui/core-block-ui.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { CoreBlockUiComponent } from '@core/components/core-card/core-block-ui/c
     FormsModule,
     ReactiveFormsModule,
     CoreCommonModule,
+    SharedModule,
     NgxMaskModule.forRoot(),
     BlockUIModule.forRoot({ template: CoreBlockUiComponent }),
   ],

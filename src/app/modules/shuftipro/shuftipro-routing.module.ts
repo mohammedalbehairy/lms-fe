@@ -4,6 +4,7 @@ import { DataApproveComponent } from './components/data-approve/data-approve.com
 import { MainComponent } from './components/main/main.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: 'main', pathMatch: 'full' },
   {
     path: 'main',
     component: MainComponent,
