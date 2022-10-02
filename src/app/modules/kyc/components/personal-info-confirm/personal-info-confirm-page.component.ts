@@ -89,7 +89,6 @@ export class PersonalInfoConfirmPageComponent implements OnInit {
   getCleanValue() {
     return {
       ...this.personalInfoForm.value,
-      authorizedConsent: false,
     };
   }
 
