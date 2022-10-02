@@ -45,7 +45,7 @@
       <div class="form-group col-md-4">
         <label class="form-label Fo-14" for="partnerName">Partner Name *</label>
         <input formControlName='partnerName' [ngClass]="{ 'is-invalid': submitted && f.partnerName.errors }" type="text"
-          name="partnerName" id="partnerName" class="form-control input-form" placeholder="000-000-000-000-0000" />
+          name="partnerName" id="partnerName" class="form-control input-form" placeholder="John Smith" />
         <span *ngIf="submitted && f.partnerName.errors" class="invalid-form">
           <small class="form-text text-danger" *ngIf="f.partnerName.errors.required">This field is required</small>
         </span>
