@@ -1,0 +1,45 @@
+<div class="content-wrapper container-xxl p-0">
+    <div class="content-body">
+        <section class="invoice-list-wrapper">
+            <div class="card">
+                <div class="row">
+                    <div class="col-md-6 col-12">
+                        <div class="d-flex justify-content-between align-items-center m-1">
+                            <div class="d-flex align-items-center">
+                                <label class="d-flex align-items-center">Show
+                                    <select class="form-control mx-25" [(ngModel)]="selectedOption">
+                                        <option value="10">10</option>
+                                        <option value="25">25</option>
+                                        <option value="50">50</option>
+                                        <option value="100">100</option>
+                                    </select>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <ngx-datatable [rows]="rows" [rowHeight]="50" class="bootstrap core-bootstrap" [limit]="selectedOption"
+                    [columnMode]="ColumnMode.force" [headerHeight]="50" [footerHeight]="50" [scrollbarH]="true">
+
+                    <ngx-datatable-column name="DueDate" prop="dueDate"></ngx-datatable-column>
+                    <ngx-datatable-column name="principalDisbursed" prop="principalDisbursed"></ngx-datatable-column>
+                    <ngx-datatable-column name="principalLoanBalanceOutstanding" prop="principalLoanBalanceOutstanding">
+                    </ngx-datatable-column>
+                    <ngx-datatable-column name="complete" prop="complete"></ngx-datatable-column>
+
+
+                    <ngx-datatable-column name="Actions" [sortable]="false">
+                        <ng-template ngx-datatable-cell-template let-row="row">
+                            <div class="d-flex align-items-center col-actions">
+                                <a class="mr-1" routerLink="/loans/schedule" container="body" placement="top"
+                                    ngbTooltip="Preview Loan Details"><i size="18" data-feather="eye"></i></a>
+                            </div>
+                        </ng-template>
+                    </ngx-datatable-column>
+
+                </ngx-datatable>
+            </div>
+        </section>
+    </div>
+</div>

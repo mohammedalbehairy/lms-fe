@@ -56,7 +56,7 @@ export class DocumentUploadComponent implements OnInit {
       bankStatementFromTo: [null, Validators.required],
       ejariOrLeaseAgreement: [null, Validators.required],
       expiryDate: [null, Validators.required],
-      vatForm: [null, Validators.required],
+      vatForm: [null],
     });
   }
 

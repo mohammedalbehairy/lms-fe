@@ -59,7 +59,7 @@ export class PersonalDetailsIdentifcationPageComponent implements OnInit {
       yearsInUAE: [null, Validators.required],
       residencyStatus: ['resident', Validators.required],
       gender: ['male', Validators.required],
-      usCitizin: ['no', Validators.required],
+      usCitizin: ['false', Validators.required],
     });
   }
 

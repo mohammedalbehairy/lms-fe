@@ -23,10 +23,6 @@
         <input type="number" name="currentRating" id="currentRating" class="form-control input-form"
           formControlName='currentRating' [ngClass]="{ 'is-invalid': submitted && f.currentRating.errors }"
           placeholder="0" />
-
-        <div *ngIf="submitted && f.currentRating.errors" class="invalid-feedback">
-          <div *ngIf="f.currentRating.errors.required">This field is required</div>
-        </div>
       </div>
 
 

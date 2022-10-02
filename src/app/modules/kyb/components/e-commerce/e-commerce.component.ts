@@ -33,7 +33,7 @@ export class ECommerceComponent implements OnInit {
     // Reactive form initialization
     this.ecommerceForm = this.formBuilder.group({
       averageMonthlyValueOfInventoryHeld: [null, Validators.required],
-      currentRating: [null, Validators.required],
+      currentRating: [null],
     });
   }
 
@@ -62,7 +62,7 @@ export class ECommerceComponent implements OnInit {
 
   getCleanValue() {
     return {
-      financialInformation: {
+      ecommerceInformation: {
         ...this.ecommerceForm.value,
       },
     };

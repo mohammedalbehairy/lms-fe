@@ -34,7 +34,7 @@ export class OtherInfoComponent implements OnInit {
     this.infoForm = this.formBuilder.group({
       experienceCount: [null, Validators.required],
       employeesCount: [null, Validators.required],
-      websiteURL: ['', Validators.required],
+      websiteURL: [''],
       officeType: ['owned', Validators.required],
     });
   }
@@ -64,7 +64,7 @@ export class OtherInfoComponent implements OnInit {
 
   getCleanValue() {
     return {
-      financialInformation: {
+      otherBusinessInformation: {
         ...this.infoForm.value,
       },
     };

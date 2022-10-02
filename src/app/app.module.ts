@@ -64,6 +64,13 @@ const appRoutes: Routes = [
       ),
   },
   {
+    path: 'loans',
+    loadChildren: () =>
+      import('./modules/temp-loan/temp-loan.module').then(
+        (m) => m.TempLoanModule
+      ),
+  },
+  {
     path: 'loanbooking',
     loadChildren: () =>
       import('./modules/loan_booking/loan_booking.module').then(
@@ -71,11 +78,11 @@ const appRoutes: Routes = [
       ),
   },
   //TODO:remove other modules
-  {
-    path: 'loan',
-    loadChildren: () =>
-      import('./modules/loan/loan-pages.module').then((m) => m.LoanPagesModule),
-  },
+  // {
+  //   path: 'loan',
+  //   loadChildren: () =>
+  //     import('./modules/loan/loan-pages.module').then((m) => m.LoanPagesModule),
+  // },
   {
     path: 'createloan',
     loadChildren: () =>

@@ -35,10 +35,6 @@
         <input type="text" name="websiteURL" id="websiteURL" class="form-control input-form"
           formControlName='websiteURL' [ngClass]="{ 'is-invalid': submitted && f.websiteURL.errors }"
           placeholder="www" />
-
-        <div *ngIf="submitted && f.websiteURL.errors" class="invalid-feedback">
-          <div *ngIf="f.websiteURL.errors.required">This field is required</div>
-        </div>
       </div>
 
       <div class="form-group col-md-6">

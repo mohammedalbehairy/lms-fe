@@ -38,7 +38,7 @@ export class FinancialComponent implements OnInit {
       outstandingAmount: ['', Validators.required],
       loanReason: ['', Validators.required],
       currentPaymentCycle: [null, Validators.required],
-      outstandingLoans: ['no', Validators.required],
+      outstandingLoans: ['true', Validators.required],
     });
   }
 
