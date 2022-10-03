@@ -17,9 +17,9 @@
 
       <div class="form-group col-md-4">
         <label for="emiratesIDExpiryDate">Expiry Date of Emirates ID *</label>
-        <ng2-flatpickr formControlName='emiratesIDExpiryDate' [config]="emiratesIDExpiryDateOptions"
-          id="emiratesIDExpiryDate" name="emiratesIDExpiryDate" placeholder="MM/DD/YYYY"
-          [ngClass]="{ 'is-invalid': submitted && f.emiratesIDExpiryDate.errors }">
+        <ng2-flatpickr formControlName='emiratesIDExpiryDate' [setDate]="emirateExpDate"
+          [config]="emiratesIDExpiryDateOptions" id="emiratesIDExpiryDate" name="emiratesIDExpiryDate"
+          placeholder="MM/DD/YYYY" [ngClass]="{ 'is-invalid': submitted && f.emiratesIDExpiryDate.errors }">
         </ng2-flatpickr>
         <div *ngIf="submitted && f.emiratesIDExpiryDate.errors" class="invalid-feedback">
           <div *ngIf="f.emiratesIDExpiryDate.errors.required">This field is required</div>
@@ -56,8 +56,9 @@
 
       <div class="form-group col-md-4">
         <label for="dateOfBirth">Date of Birth *</label>
-        <ng2-flatpickr formControlName='dateOfBirth' [config]="dateOfBirthOptions" id="dateOfBirth" name="dateOfBirth"
-          placeholder="MM/DD/YYYY" [ngClass]="{ 'is-invalid': submitted && f.dateOfBirth.errors }">
+        <ng2-flatpickr formControlName='dateOfBirth' [setDate]="birthDate" [config]="dateOfBirthOptions"
+          id="dateOfBirth" name="dateOfBirth" placeholder="MM/DD/YYYY"
+          [ngClass]="{ 'is-invalid': submitted && f.dateOfBirth.errors }">
         </ng2-flatpickr>
         <div *ngIf="submitted && f.dateOfBirth.errors" class="invalid-feedback">
           <div *ngIf="f.dateOfBirth.errors.required">This field is required</div>
@@ -66,8 +67,9 @@
 
       <div class="form-group col-md-4">
         <label for="yearsInUAE">How long have you been in the UAE? *</label>
-        <ng2-flatpickr formControlName='yearsInUAE' [config]="yearsInUAEOptions" id="yearsInUAE" name="yearsInUAE"
-          placeholder="MM/DD/YYYY" [ngClass]="{ 'is-invalid': submitted && f.yearsInUAE.errors }">
+        <ng2-flatpickr formControlName='yearsInUAE' [setDate]="yearsInUAEDate" [config]="yearsInUAEOptions"
+          id="yearsInUAE" name="yearsInUAE" placeholder="MM/DD/YYYY"
+          [ngClass]="{ 'is-invalid': submitted && f.yearsInUAE.errors }">
         </ng2-flatpickr>
         <div *ngIf="submitted && f.yearsInUAE.errors" class="invalid-feedback">
           <div *ngIf="f.yearsInUAE.errors.required">This field is required</div>

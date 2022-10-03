@@ -5,7 +5,7 @@ import { environment } from 'environments/environment';
 @Injectable({
   providedIn: 'root',
 })
-export class KybService {
+export class UserStatusService {
   /**
    * Constructor
    *
@@ -16,20 +16,9 @@ export class KybService {
     headers: new HttpHeaders().set('Content-Type', 'application/json'),
   };
 
-  setData(body) {
-    return this._httpClient.post(`${environment.apiUrl}/api/v1/crm/kyb`, body);
-  }
-
-  loadMagnatiBD() {
+  getStepperStatus() {
     return this._httpClient.get(
-      `${environment.apiUrl}/api/v1/cba/magnati`,
-      this.options
-    );
-  }
-
-  loadTelrBD() {
-    return this._httpClient.get(
-      `${environment.apiUrl}/api/v1/cba/telr`,
+      `${environment.apiUrl}/api/v1/crm/kyb/steppers`,
       this.options
     );
   }

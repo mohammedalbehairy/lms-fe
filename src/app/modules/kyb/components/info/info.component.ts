@@ -1,10 +1,17 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import {
+  AfterContentChecked,
+  ChangeDetectorRef,
+  Component,
+  OnInit,
+  ViewEncapsulation,
+} from '@angular/core';
 import {
   UntypedFormBuilder,
   UntypedFormGroup,
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
+import { UserStatusService } from '@core/services/user-status/user-status.service';
 import moment from 'moment';
 import { KybService } from '../../services/kyb.service';
 
@@ -14,26 +21,35 @@ import { KybService } from '../../services/kyb.service';
   styleUrls: ['./info.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class InfoComponent implements OnInit {
+export class InfoComponent implements OnInit, AfterContentChecked {
   public incorporationDateOptions: any = {
     altInput: true,
-    defaultDate: ['2010-05-23'],
     altFormat: 'j/m/Y',
   };
+
+  public incDate = '2010-05-11';
 
   public businessInfoForm: UntypedFormGroup;
   public submitted = false;
   public loading = false;
 
+  public dataProviderCode = undefined;
+
   constructor(
     private _router: Router,
     private formBuilder: UntypedFormBuilder,
-    private _kybService: KybService
+    private _userStatusService: UserStatusService,
+    private _kybService: KybService,
+    private changeDetector: ChangeDetectorRef
   ) {}
   ngOnInit(): void {
     this.initForm();
 
-    this.loadTelrData();
+    this.loadDataFromProvider();
+  }
+
+  ngAfterContentChecked(): void {
+    this.changeDetector.detectChanges();
   }
 
   initForm() {
@@ -49,10 +65,31 @@ export class InfoComponent implements OnInit {
     });
   }
 
+  loadDataFromProvider() {
+    this._userStatusService.getStepperStatus().subscribe(
+      (res: any[]) => {
+        console.log('========res========', res);
+        let providerStep = res.find(
+          (s) =>
+            s.clientRegistrationStepper_cd_stepper_code == 66 ||
+            s.clientRegistrationStepper_cd_stepper_code == 65
+        );
+        providerStep.clientRegistrationStepper_cd_stepper_code == 65
+          ? this.loadMagnatiData()
+          : this.loadTelrData();
+      },
+      (err) => {
+        console.log('========err========', err);
+      }
+    );
+  }
+
   loadMagnatiData() {
+    console.log('============loadMagnatiData==============');
+
     this._kybService.loadMagnatiBD().subscribe(
       (res: any) => {
-        this.patchFormValues(res);
+        this.patchFormMagnatiValues(res);
       },
       (err) => {
         console.log(err);
@@ -61,9 +98,11 @@ export class InfoComponent implements OnInit {
   }
 
   loadTelrData() {
+    console.log('============loadTelrData==============');
+
     this._kybService.loadTelrBD().subscribe(
       (res: any) => {
-        this.patchFormValues(res);
+        this.patchFormTelrValues(res);
       },
       (err) => {
         console.log(err);
@@ -71,10 +110,17 @@ export class InfoComponent implements OnInit {
     );
   }
 
-  patchFormValues(data) {
+  patchFormTelrValues(data) {
+    // this.f.incorporationType.setValue(29);
+    this.incDate = data['incop-date'];
     this.f.businessName.setValue(data['b-name']);
-    this.f.incorporationType.setValue(29);
     this.f.tradeLicenseNumber.setValue(data['trade-ln']);
+  }
+
+  patchFormMagnatiValues(data) {
+    // viCategoryCode
+    this.f.businessName.setValue(data.merchantName);
+    this.incDate = data.openDate;
   }
 
   onSubmit() {

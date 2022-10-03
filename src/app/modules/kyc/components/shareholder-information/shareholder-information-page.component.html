@@ -98,8 +98,9 @@
 
       <div class="form-group col-md-4">
         <label for="dateOfBirth">Date of Birth *</label>
-        <ng2-flatpickr formControlName='dateOfBirth' [config]="dateOfBirthOptions" id="dateOfBirth" name="dateOfBirth"
-          placeholder="MM/DD/YYYY" [ngClass]="{ 'is-invalid': submitted && f.dateOfBirth.errors }">
+        <ng2-flatpickr formControlName='dateOfBirth' [setDate]="birthDate" [config]="dateOfBirthOptions"
+          id="dateOfBirth" name="dateOfBirth" placeholder="MM/DD/YYYY"
+          [ngClass]="{ 'is-invalid': submitted && f.dateOfBirth.errors }">
         </ng2-flatpickr>
         <div *ngIf="submitted && f.dateOfBirth.errors" class="invalid-feedback">
           <div *ngIf="f.dateOfBirth.errors.required">This field is required</div>

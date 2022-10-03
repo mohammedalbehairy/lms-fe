@@ -23,7 +23,7 @@
 
       <div class="form-group col-md-4">
         <label for="passportExpiryDate">Trade License Expiry date * </label>
-        <ng2-flatpickr formControlName='passportExpiryDate' [config]="passportExpiryDateOptions" id="passportExpiryDate"
+        <ng2-flatpickr formControlName='passportExpiryDate' [setDate]="passportExpDate" [config]="passportExpiryDateOptions" id="passportExpiryDate"
           name="passportExpiryDate" placeholder="MM/DD/YYYY"
           [ngClass]="{ 'is-invalid': submitted && f.passportExpiryDate.errors }">
         </ng2-flatpickr>
@@ -48,7 +48,7 @@
 
       <div class="form-group col-md-4">
         <label for="emiratesIdExpiryDate">Trade License Expiry date * </label>
-        <ng2-flatpickr formControlName='emiratesIdExpiryDate' [config]="emiratesIdExpiryDateOptions"
+        <ng2-flatpickr formControlName='emiratesIdExpiryDate' [setDate]="emiratesIdExpDate" [config]="emiratesIdExpiryDateOptions"
           id="emiratesIdExpiryDate" name="emiratesIdExpiryDate" placeholder="MM/DD/YYYY"
           [ngClass]="{ 'is-invalid': submitted && f.emiratesIdExpiryDate.errors }">
         </ng2-flatpickr>
@@ -73,7 +73,7 @@
 
       <div class="form-group col-md-4">
         <label for="residenceVisaExpiryDate">Trade License Expiry date * </label>
-        <ng2-flatpickr formControlName='residenceVisaExpiryDate' [config]="residenceVisaExpiryDateOptions"
+        <ng2-flatpickr formControlName='residenceVisaExpiryDate' [setDate]="visaExpDate" [config]="residenceVisaExpiryDateOptions"
           id="residenceVisaExpiryDate" name="residenceVisaExpiryDate" placeholder="MM/DD/YYYY"
           [ngClass]="{ 'is-invalid': submitted && f.residenceVisaExpiryDate.errors }">
         </ng2-flatpickr>

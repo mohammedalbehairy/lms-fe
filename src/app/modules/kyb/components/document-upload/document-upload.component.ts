@@ -4,6 +4,7 @@ import {
   OnInit,
   ViewEncapsulation,
   ChangeDetectorRef,
+  AfterContentChecked,
 } from '@angular/core';
 import {
   UntypedFormBuilder,
@@ -20,17 +21,18 @@ import { KybService } from '../../services/kyb.service';
   styleUrls: ['./document-upload.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class DocumentUploadComponent implements OnInit {
+export class DocumentUploadComponent implements OnInit, AfterContentChecked {
   public tradeLicenseExpiryDateOptions: any = {
     altInput: true,
-    defaultDate: ['2010-05-23'],
     altFormat: 'j/m/Y',
   };
   public expiryDate: any = {
     altInput: true,
-    defaultDate: ['2010-05-23'],
     altFormat: 'j/m/Y',
   };
+  public tradeLicenseExpDate = '2010-05-11';
+  public expDate = '2010-05-11';
+
   public docsForm: UntypedFormGroup;
   public submitted = false;
   public loading = false;
@@ -39,12 +41,17 @@ export class DocumentUploadComponent implements OnInit {
   constructor(
     private _router: Router,
     private formBuilder: UntypedFormBuilder,
-    private _kybService: KybService
+    private _kybService: KybService,
+    private changeDetector: ChangeDetectorRef
   ) {}
   ngOnInit(): void {
     this.initForm();
 
     this.loadData();
+  }
+
+  ngAfterContentChecked(): void {
+    this.changeDetector.detectChanges();
   }
 
   initForm() {

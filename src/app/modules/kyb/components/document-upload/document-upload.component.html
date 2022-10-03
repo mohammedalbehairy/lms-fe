@@ -23,9 +23,9 @@
 
       <div class="form-group col-md-4">
         <label for="tradeLicenseExpiryDate">Trade License Expiry date * </label>
-        <ng2-flatpickr formControlName='tradeLicenseExpiryDate' [config]="tradeLicenseExpiryDateOptions"
-          id="tradeLicenseExpiryDate" name="tradeLicenseExpiryDate" placeholder="MM/DD/YYYY"
-          [ngClass]="{ 'is-invalid': submitted && f.tradeLicenseExpiryDate.errors }">
+        <ng2-flatpickr formControlName='tradeLicenseExpiryDate' [setDate]="tradeLicenseExpDate"
+          [config]="tradeLicenseExpiryDateOptions" id="tradeLicenseExpiryDate" name="tradeLicenseExpiryDate"
+          placeholder="MM/DD/YYYY" [ngClass]="{ 'is-invalid': submitted && f.tradeLicenseExpiryDate.errors }">
         </ng2-flatpickr>
         <div *ngIf="submitted && f.tradeLicenseExpiryDate.errors" class="invalid-feedback">
           <div *ngIf="f.tradeLicenseExpiryDate.errors.required">This field is required</div>
@@ -79,8 +79,8 @@
 
       <div class="form-group col-md-4">
         <label for="expiryDate">Expiry date *</label>
-        <ng2-flatpickr formControlName='expiryDate' [config]="expiryDate" id="expiryDate" name="expiryDate"
-          placeholder="MM/DD/YYYY" [ngClass]="{ 'is-invalid': submitted && f.expiryDate.errors }">
+        <ng2-flatpickr formControlName='expiryDate' [setDate]="expDate" [config]="expiryDate" id="expiryDate"
+          name="expiryDate" placeholder="MM/DD/YYYY" [ngClass]="{ 'is-invalid': submitted && f.expiryDate.errors }">
         </ng2-flatpickr>
         <div *ngIf="submitted && f.expiryDate.errors" class="invalid-feedback">
           <div *ngIf="f.expiryDate.errors.required">This field is required</div>

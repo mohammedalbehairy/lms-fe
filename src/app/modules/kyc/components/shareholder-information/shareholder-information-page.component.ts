@@ -1,4 +1,11 @@
-import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import {
+  AfterContentChecked,
+  ChangeDetectorRef,
+  Component,
+  Input,
+  OnInit,
+  ViewEncapsulation,
+} from '@angular/core';
 import {
   UntypedFormBuilder,
   UntypedFormGroup,
@@ -14,12 +21,15 @@ import { KycService } from '../../services/kyc.service';
   styleUrls: ['./shareholder-information-page.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class ShareholderInformationPageComponent implements OnInit {
+export class ShareholderInformationPageComponent
+  implements OnInit, AfterContentChecked
+{
   public dateOfBirthOptions: any = {
     altInput: true,
-    defaultDate: ['2010-05-23'],
     altFormat: 'j/m/Y',
   };
+
+  public birthDate = '2010-05-11';
 
   public shareHolderForm: UntypedFormGroup;
   public submitted = false;
@@ -28,12 +38,17 @@ export class ShareholderInformationPageComponent implements OnInit {
   constructor(
     private _router: Router,
     private formBuilder: UntypedFormBuilder,
-    private _kycService: KycService
+    private _kycService: KycService,
+    private changeDetector: ChangeDetectorRef
   ) {}
   ngOnInit(): void {
     this.initForm();
 
     this.loadData();
+  }
+
+  ngAfterContentChecked(): void {
+    this.changeDetector.detectChanges();
   }
 
   initForm() {

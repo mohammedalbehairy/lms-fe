@@ -5,6 +5,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
+import { UserStatusService } from '@core/services/user-status/user-status.service';
 import { FlatpickrOptions } from 'ng2-flatpickr';
 import { KybService } from '../../services/kyb.service';
 
@@ -25,13 +26,14 @@ export class AddressComponent implements OnInit {
 
   constructor(
     private _router: Router,
+    private _userStatusService: UserStatusService,
     private formBuilder: UntypedFormBuilder,
     private _kybService: KybService
   ) {}
   ngOnInit(): void {
     this.initForm();
 
-    this.loadData();
+    this.loadDataFromProvider();
   }
 
   initForm() {
@@ -47,7 +49,67 @@ export class AddressComponent implements OnInit {
     });
   }
 
-  loadData() {}
+  loadDataFromProvider() {
+    this._userStatusService.getStepperStatus().subscribe(
+      (res: any[]) => {
+        console.log('========res========', res);
+        let providerStep = res.find(
+          (s) =>
+            s.clientRegistrationStepper_cd_stepper_code == 66 ||
+            s.clientRegistrationStepper_cd_stepper_code == 65
+        );
+        providerStep.clientRegistrationStepper_cd_stepper_code == 65
+          ? this.loadMagnatiData()
+          : this.loadTelrData();
+      },
+      (err) => {
+        console.log('========err========', err);
+      }
+    );
+  }
+
+  loadTelrData() {
+    this._kybService.loadTelrBD().subscribe(
+      (res: any) => {
+        this.patchFormTelrValues(res);
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+  }
+
+  patchFormTelrValues(data) {
+    //TODO: add city & country  and  check if phone number will be returned
+    // this.f.city.setValue(data['b-address']['city']);
+    // this.f.country.setValue(data['b-address']['country']);
+
+    this.f.addressLine1.setValue(data['b-address']['line1']);
+    this.f.addressLine2.setValue(data['b-address']['line2']);
+    this.f.postCode.setValue(data['b-address']['post-code']);
+  }
+
+  loadMagnatiData() {
+    this._kybService.loadMagnatiBD().subscribe(
+      (res: any) => {
+        this.patchFormMagnatiValues(res);
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+  }
+
+  patchFormMagnatiValues(data) {
+    //TODO: add city & country  and  check if phone number will be returned
+    // this.f.city.setValue(data['b-address']['city']);
+    // this.f.country.setValue(data['b-address']['country']);
+    
+    // viCategoryCode
+    this.f.addressLine1.setValue(data.addressLine1);
+    this.f.addressLine2.setValue(data.secondAddressLine4);
+    this.f.landLineNumber.setValue(data.phoneNo);
+  }
 
   onSubmit() {
     this.submitted = true;

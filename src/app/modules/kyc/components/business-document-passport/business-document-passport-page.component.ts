@@ -4,6 +4,7 @@ import {
   OnInit,
   ViewEncapsulation,
   ChangeDetectorRef,
+  AfterContentChecked,
 } from '@angular/core';
 import {
   UntypedFormBuilder,
@@ -20,24 +21,26 @@ import { KycService } from '../../services/kyc.service';
   styleUrls: ['./business-document-passport-page.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class BusinessDocumentPassportPageComponent implements OnInit {
+export class BusinessDocumentPassportPageComponent
+  implements OnInit, AfterContentChecked
+{
   public passportExpiryDateOptions: any = {
     altInput: true,
-    defaultDate: ['2010-05-23'],
     altFormat: 'j/m/Y',
   };
 
   public emiratesIdExpiryDateOptions: any = {
     altInput: true,
-    defaultDate: ['2010-05-23'],
     altFormat: 'j/m/Y',
   };
 
   public residenceVisaExpiryDateOptions: any = {
     altInput: true,
-    defaultDate: ['2010-05-23'],
     altFormat: 'j/m/Y',
   };
+  public passportExpDate = '2010-05-11';
+  public emiratesIdExpDate = '2010-05-11';
+  public visaExpDate = '2010-05-11';
 
   public docsForm: UntypedFormGroup;
   public submitted = false;
@@ -47,12 +50,17 @@ export class BusinessDocumentPassportPageComponent implements OnInit {
   constructor(
     private _router: Router,
     private formBuilder: UntypedFormBuilder,
-    private _kycService: KycService
+    private _kycService: KycService,
+    private changeDetector: ChangeDetectorRef
   ) {}
   ngOnInit(): void {
     this.initForm();
 
     this.loadData();
+  }
+
+  ngAfterContentChecked(): void {
+    this.changeDetector.detectChanges();
   }
 
   initForm() {

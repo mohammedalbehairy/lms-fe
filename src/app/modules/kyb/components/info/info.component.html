@@ -33,8 +33,8 @@
 
       <div class="form-group col-md-4">
         <label for="incorporationDate">Incorporation Date *</label>
-        <ng2-flatpickr formControlName='incorporationDate' [config]="incorporationDateOptions" id="incorporationDate"
-          name="incorporationDate" placeholder="MM/DD/YYYY"
+        <ng2-flatpickr formControlName='incorporationDate' [setDate]="incDate" [config]="incorporationDateOptions"
+          id="incorporationDate" name="incorporationDate" placeholder="MM/DD/YYYY"
           [ngClass]="{ 'is-invalid': submitted && f.incorporationDate.errors }">
         </ng2-flatpickr>
         <div *ngIf="submitted && f.incorporationDate.errors" class="invalid-feedback">
