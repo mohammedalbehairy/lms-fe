@@ -29,7 +29,7 @@ export class ShareholderInformationPageComponent
     altFormat: 'j/m/Y',
   };
 
-  public birthDate = '2010-05-11';
+  public birthDate = null;
 
   public shareHolderForm: UntypedFormGroup;
   public submitted = false;
@@ -56,7 +56,7 @@ export class ShareholderInformationPageComponent
     this.shareHolderForm = this.formBuilder.group({
       partnerShareholder: [false],
       type: ['company'],
-      percentageHoldings: [0, Validators.required],
+      percentageHoldings: [null, Validators.required],
       partnerName: [null, Validators.required],
       passportNumber: [null, Validators.required],
       phoneNumber: [null, Validators.required],

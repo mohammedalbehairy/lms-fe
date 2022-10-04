@@ -35,7 +35,7 @@
         <label class="form-label Fo-14" for="percentageHoldings">Percentage holdings (%) *</label>
         <input type="number" name="percentageHoldings" id="percentageHoldings" class="form-control input-form"
           formControlName='percentageHoldings' [ngClass]="{ 'is-invalid': submitted && f.percentageHoldings.errors }"
-          placeholder="Amount of total capital investment" />
+          placeholder="Amount of total capital investment   00%" />
 
         <div *ngIf="submitted && f.percentageHoldings.errors" class="invalid-feedback">
           <div *ngIf="f.percentageHoldings.errors.required">This field is required</div>

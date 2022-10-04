@@ -38,9 +38,9 @@ export class BusinessDocumentPassportPageComponent
     altInput: true,
     altFormat: 'j/m/Y',
   };
-  public passportExpDate = '2010-05-11';
-  public emiratesIdExpDate = '2010-05-11';
-  public visaExpDate = '2010-05-11';
+  public passportExpDate = null;
+  public emiratesIdExpDate = null;
+  public visaExpDate = null;
 
   public docsForm: UntypedFormGroup;
   public submitted = false;

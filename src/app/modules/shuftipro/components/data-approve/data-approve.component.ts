@@ -31,7 +31,7 @@ export class DataApproveComponent implements OnInit {
     this.initForm();
 
     this.checkRegData();
-    if (this.noData) this._router.navigate(['/shuftipro/main']);
+    //TODO: check the data before navigation
     this.getSavedData();
     this.setFormData();
   }

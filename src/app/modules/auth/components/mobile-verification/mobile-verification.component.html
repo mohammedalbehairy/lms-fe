@@ -14,7 +14,7 @@
             <label class="form-label Fo-16 LH-21 mb-0" for="verify-mobile">Mobile Number *</label>
             <input type="text" disabled formControlName="mobile" class="form-control Fo-16 LH-21 m12"
                 [ngClass]="{ 'is-invalid': submitted && m.mobile.errors }" placeholder="+201020253907"
-                aria-describedby="verify-mobile" autofocus="" tabindex="1" />
+                aria-describedby="verify-mobile" />
         </div>
 
         <div class="row">
@@ -32,7 +32,7 @@
     <p class='Fo-16 LH-21 m20 mb-0 m-m0'>Enter Verification Code *</p>
 
     <div class="code-inputs m10" [formGroup]="verificationForm">
-        <input formControlName='input1' type="text" pattern="\d*" maxlength="1">
+        <input formControlName='input1' type="text" pattern="\d*" maxlength="1" autofocus>
         <input formControlName='input2' type="text" pattern="\d*" maxlength="1">
         <input formControlName='input3' type="text" pattern="\d*" maxlength="1">
         <input formControlName='input4' type="text" pattern="\d*" maxlength="1">

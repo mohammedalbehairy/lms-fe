@@ -109,8 +109,6 @@ export class MobileVerificationComponent implements OnInit {
   }
 
   register() {
-    console.log('=============register=================');
-
     this.loading = true;
     this.verificationError = '';
 
@@ -126,7 +124,7 @@ export class MobileVerificationComponent implements OnInit {
           let res = {
             user: response.kycDetail,
             provider: response.kycProvider,
-            token: response.sss,
+            token: response.token,
           };
           this._authenticationService.login_temp(res);
           this.loading = false;
@@ -147,7 +145,6 @@ export class MobileVerificationComponent implements OnInit {
   }
 
   login() {
-    console.log('=============login=================');
     this.loading = true;
 
     this._authService
@@ -182,18 +179,13 @@ export class MobileVerificationComponent implements OnInit {
 
   verify() {
     if (this.mobileForm.invalid) {
-      console.log('---------mobileForm---------', this.mobileForm);
-
       return;
     }
 
     if (this.verificationForm.invalid) {
-      console.log('---------verificationForm---------', this.verificationForm);
       this.inputsError = true;
       return;
     }
-    console.log('-----------currentPage---------', this.currentPage);
-
     this.currentPage == 'login' ? this.login() : this.register();
   }
 
@@ -227,11 +219,6 @@ export class MobileVerificationComponent implements OnInit {
   //#region  -----------  helpers  ----------
 
   checkRegData() {
-    console.log(
-      '=====checkRegData======',
-      this._sharedDataService.registerData
-    );
-
     let hasMobile =
       this._sharedDataService.registerData.hasOwnProperty('mobile');
     if (!hasMobile) this._router.navigate(['/auth/home/register']);
@@ -256,7 +243,6 @@ export class MobileVerificationComponent implements OnInit {
       this._verificationService.sendOtp(this.m.mobile.value).subscribe(
         (res) => {
           this.sendSuccessToaster('👋 Hi, !', 'OTP Sent successfully');
-          console.log(res);
           this.loadingCode = false;
           this.resetVerificationForm();
         },
@@ -299,7 +285,6 @@ export class MobileVerificationComponent implements OnInit {
   controlRedirection() {
     this._redirectionService.getStepsStatus().subscribe(
       (res: any[]) => {
-        console.log('---controlRedirection---res------');
         //TODO: review again and complete
 
         if (this.checkSkip(res, 39)) {
