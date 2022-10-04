@@ -8,10 +8,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CoreConfigService } from '@core/services/config.service';
 import { AuthenticationService } from 'app/auth/service';
 import { Subject } from 'rxjs';
-import { first, takeUntil } from 'rxjs/operators';
+import { takeUntil } from 'rxjs/operators';
 import { environment } from 'environments/environment';
-import { AuthService } from '../../service/auth.service';
-import { VerificationService } from '../../service/verification.service';
 import { SharedDataService } from '@core/services/shared-data.service';
 
 @Component({
@@ -45,9 +43,7 @@ export class SignUpComponent implements OnInit {
     private _route: ActivatedRoute,
     private _router: Router,
     private _authenticationService: AuthenticationService,
-    private _authService: AuthService,
-    private _sharedDataService: SharedDataService,
-    private _verificationService: VerificationService
+    private _sharedDataService: SharedDataService
   ) {
     // redirect to home if already logged in
     if (this._authenticationService.currentUserValue) {
@@ -99,24 +95,11 @@ export class SignUpComponent implements OnInit {
       name: ['', [Validators.required]],
       mobile: ['', [Validators.required]],
     });
-
-    this.verificationForm = this._formBuilder.group({
-      input1: ['', [Validators.required]],
-      input2: ['', [Validators.required]],
-      input3: ['', [Validators.required]],
-      input4: ['', [Validators.required]],
-      input5: ['', [Validators.required]],
-      input6: ['', [Validators.required]],
-    });
   }
 
   // convenience getter for easy access to form fields
   get f() {
     return this.registerForm.controls;
-  }
-
-  get v() {
-    return this.verificationForm.controls;
   }
 
   onSubmit() {
@@ -129,7 +112,6 @@ export class SignUpComponent implements OnInit {
 
     this.nextStep = true;
 
-    // this.sendOtp(); //TODO:activate it again
     this._sharedDataService.registerData = this.registerForm.value;
     this._router.navigate(['/auth/home/verify']);
     return;
@@ -140,63 +122,6 @@ export class SignUpComponent implements OnInit {
    */
   signUpUAE_Pass() {
     window.location.href = `https://stg-id.uaepass.ae/idshub/authorize?redirect_uri=${environment.currentUrl}/auth/home/sign-up-uae-pass&client_id=sandbox_stage&response_type=code&state=ShNP22hyl1jUU2RGjTRkpg==&scope=urn:uae:digitalid:profile:general&acr_values=urn:safelayer:tws:policies:authentication:level:low&ui_locales=en`;
-  }
-
-  sendOtp() {
-    this._verificationService.sendOtp(this.f.mobile.value).subscribe(
-      (res) => {
-        console.log(res);
-      },
-      (err) => {
-        console.log(err);
-      }
-    );
-  }
-
-  register() {
-    this._authService
-      .register(
-        this.f.name.value,
-        this.f.mobile.value,
-        'MOBILE',
-        this.inputsValues
-      )
-      .subscribe(
-        (response: any) => {
-          let res = {
-            user: response.kycDetail,
-            provider: response.kycProvider,
-            token: response.sss,
-          };
-          this._authenticationService.login_temp(res);
-          this._router.navigate(['/auth/home/consent']); //TODO:chnage it to the home page
-        },
-        (error) => {
-          if (error == 'Token supplied is invalid ') {
-            this.verificationError =
-              'We can’t verify your verififcation code, please try again.';
-            // TODO: redirect to login
-          } else {
-            this.verificationError = error;
-          }
-        }
-      );
-  }
-
-  verifyRegister() {
-    if (this.verificationForm.invalid) {
-      return;
-    }
-
-    this.register();
-  }
-
-  changePhone() {
-    this.nextStep = false;
-  }
-
-  get inputsValues() {
-    return `${this.v.input1.value}${this.v.input2.value}${this.v.input3.value}${this.v.input4.value}${this.v.input5.value}${this.v.input6.value}`;
   }
 
   /**

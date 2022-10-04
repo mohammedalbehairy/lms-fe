@@ -8,9 +8,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CoreConfigService } from '@core/services/config.service';
 import { SharedDataService } from '@core/services/shared-data.service';
 import { AuthenticationService } from 'app/auth/service';
-import { GlobalConfig, ToastrService } from 'ngx-toastr';
+import { ToastrService } from 'ngx-toastr';
 import { Subject } from 'rxjs';
-import { first, takeUntil } from 'rxjs/operators';
+import { takeUntil } from 'rxjs/operators';
 import { AuthRouteService } from '../../service/auth.route.service';
 import { AuthService } from '../../service/auth.service';
 import { RedirectionService } from '../../service/redirection.service';
@@ -91,7 +91,9 @@ export class MobileVerificationComponent implements OnInit {
    * On init
    */
   ngOnInit(): void {
-    this.checkRegData();
+    if (!this.checkRegData()) {
+      return;
+    }
     this.getSavedData();
     this.initForms();
 
@@ -121,7 +123,7 @@ export class MobileVerificationComponent implements OnInit {
       )
       .subscribe(
         (response: any) => {
-          let res = {
+          const res = {
             user: response.kycDetail,
             provider: response.kycProvider,
             token: response.token,
@@ -219,9 +221,12 @@ export class MobileVerificationComponent implements OnInit {
   //#region  -----------  helpers  ----------
 
   checkRegData() {
-    let hasMobile =
+    const hasMobile =
       this._sharedDataService.registerData.hasOwnProperty('mobile');
-    if (!hasMobile) this._router.navigate(['/auth/home/register']);
+    if (!hasMobile) {
+      this._router.navigate(['/auth/home/register']);
+    }
+    return hasMobile;
   }
 
   getSavedData() {
@@ -239,7 +244,7 @@ export class MobileVerificationComponent implements OnInit {
     this.verificationError = '';
     this.loadingCode = true;
 
-    if (this.savedData.mobile)
+    if (this.savedData.mobile) {
       this._verificationService.sendOtp(this.m.mobile.value).subscribe(
         (res) => {
           this.sendSuccessToaster('👋 Hi, !', 'OTP Sent successfully');
@@ -251,24 +256,29 @@ export class MobileVerificationComponent implements OnInit {
           this.resetVerificationForm();
           this.sendErrorToaster(
             '👋 Sorry, !',
-            "We got an error, OTP wasn't sent successfully"
+            `We got an error, OTP wasn't sent successfully`
           );
           console.log(err);
         }
       );
+    }
   }
 
   sendSuccessToaster(title: string, msg: string) {
     this._toastrService.success(msg, title, {
+      positionClass: 'toast-top-center',
       toastClass: 'toast ngx-toastr',
       closeButton: true,
+      timeOut: 100000,
     });
   }
 
   sendErrorToaster(title: string, msg: string) {
     this._toastrService.error(msg, title, {
+      positionClass: 'toast-top-center',
       toastClass: 'toast ngx-toastr',
       closeButton: true,
+      timeOut: 100000,
     });
   }
   //#endregion  -----------  helpers  ----------
