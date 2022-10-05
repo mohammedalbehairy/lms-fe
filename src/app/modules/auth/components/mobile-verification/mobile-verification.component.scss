@@ -2,6 +2,35 @@
 @import '@core/scss/base/pages/page-auth.scss';
 @import '@core/scss/angular/libs/toastr.component.scss';
 
+.auth-login-form {
+  .options {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 36px;
+
+    .option {
+      &:hover {
+        cursor: pointer;
+        background: $primary !important;
+        padding: 5px;
+        border-radius: 7px;
+        color: white !important;
+        opacity: unset !important;
+      }
+
+      &:last-child {
+        font-weight: 800;
+        font-size: 16px;
+        line-height: 19px;
+
+        color: #000000;
+
+        opacity: 0.7;
+      }
+    }
+  }
+}
+
 .auth-help-icon {
   position: absolute;
   top: 10px;

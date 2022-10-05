@@ -39,6 +39,8 @@ export class MobileVerificationComponent implements OnInit {
   public savedData = undefined;
   public passwordTextType: boolean;
 
+  public btnDisabled = true;
+
   // Private
   private _unsubscribeAll: Subject<any>;
 
@@ -193,7 +195,10 @@ export class MobileVerificationComponent implements OnInit {
 
   initForms() {
     this.mobileForm = this._formBuilder.group({
-      mobile: [this.savedData.mobile, [Validators.required]],
+      mobile: [
+        { value: this.savedData.mobile, disabled: true },
+        [Validators.required],
+      ],
     });
 
     this.verificationForm = this._formBuilder.group({

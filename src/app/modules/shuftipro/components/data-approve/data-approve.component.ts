@@ -68,7 +68,9 @@ export class DataApproveComponent implements OnInit {
   }
 
   setFormData() {
-    if (this.noData) return;
+    if (this.noData) {
+      return;
+    }
     this.shuftiproForm.patchValue({
       first_name: this.savedData.verification_data.document.name.first_name,
       middle_name: this.savedData.verification_data.document.name.middle_name,
@@ -92,6 +94,10 @@ export class DataApproveComponent implements OnInit {
 
   get f() {
     return this.shuftiproForm.controls;
+  }
+
+  next() {
+    this._router.navigate(['/loans/list']);
   }
 
   back() {
