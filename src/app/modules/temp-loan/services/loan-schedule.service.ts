@@ -53,7 +53,7 @@ export class LoanScheduleService {
 
     return new Promise((resolve, reject) => {
       this._httpClient
-        .post(`${environment.apiUrl}/api/v1/cba/create-loan`, {}, this.options)
+        .post(`${environment.apiUrl}/api/v1/cba/create-loan/6`, {}, this.options)
         .subscribe((response: any) => {
           this.rows = response;
           this.onLoanScheduleChanged.next(this.rows);
