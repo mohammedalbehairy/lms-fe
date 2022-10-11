@@ -32,7 +32,7 @@ export class DataApproveComponent implements OnInit {
 
     this.checkRegData();
     //TODO: check the data before navigation
-    this.getSavedData();
+    // this.getSavedData();
     this.setFormData();
   }
 
@@ -101,6 +101,6 @@ export class DataApproveComponent implements OnInit {
   }
 
   back() {
-    this._router.navigate(['kyb/businessaddress']);
+    this._router.navigate(['shuftipro/main']);
   }
 }
