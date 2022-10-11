@@ -22,21 +22,20 @@
                 <ngx-datatable [rows]="rows" [rowHeight]="50" class="bootstrap core-bootstrap" [limit]="selectedOption"
                     [columnMode]="ColumnMode.force" [headerHeight]="50" [footerHeight]="50" [scrollbarH]="true">
 
-                    <ngx-datatable-column name="DueDate" prop="dueDate"></ngx-datatable-column>
-                    <ngx-datatable-column name="principalDisbursed" prop="principalDisbursed"></ngx-datatable-column>
-                    <ngx-datatable-column name="principalLoanBalanceOutstanding" prop="principalLoanBalanceOutstanding">
+                    <ngx-datatable-column name="Days" prop="daysInPeriod"></ngx-datatable-column>
+                    <ngx-datatable-column name="Date" prop="dueDate"></ngx-datatable-column>
+                    <ngx-datatable-column name="Paid Date" prop="obligationsMetOnDate"></ngx-datatable-column>
+                    <ngx-datatable-column name="Principal Due" prop="principalDue"></ngx-datatable-column>
+                    <ngx-datatable-column name="Balance Of Loan" prop="principalLoanBalanceOutstanding">
                     </ngx-datatable-column>
-                    <ngx-datatable-column name="complete" prop="complete"></ngx-datatable-column>
-
-
-                    <!-- <ngx-datatable-column name="Actions" [sortable]="false">
-                        <ng-template ngx-datatable-cell-template let-row="row">
-                            <div class="d-flex align-items-center col-actions">
-                                <a class="mr-1" routerLink="/loans/schedule" container="body" placement="top"
-                                    ngbTooltip="Preview Loan Details"><i size="18" data-feather="eye"></i></a>
-                            </div>
-                        </ng-template>
-                    </ngx-datatable-column> -->
+                    <ngx-datatable-column name="Interest" prop="interestOriginalDue"></ngx-datatable-column>
+                    <ngx-datatable-column name="Fees" prop="feeChargesDue"></ngx-datatable-column>
+                    <ngx-datatable-column name="Penalties" prop="penaltyChargesDue"></ngx-datatable-column>
+                    <ngx-datatable-column name="Due" prop="totalDueForPeriod"></ngx-datatable-column>
+                    <ngx-datatable-column name="Paid" prop="totalPaidForPeriod"></ngx-datatable-column>
+                    <ngx-datatable-column name="In Advance" prop="totalPaidInAdvanceForPeriod"></ngx-datatable-column>
+                    <ngx-datatable-column name="Late" prop="totalPaidLateForPeriod"></ngx-datatable-column>
+                    <ngx-datatable-column name="Outstanding" prop="totalOutstandingForPeriod"></ngx-datatable-column>
 
                 </ngx-datatable>
             </div>
