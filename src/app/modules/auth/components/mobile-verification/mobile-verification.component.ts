@@ -274,7 +274,7 @@ export class MobileVerificationComponent implements OnInit {
       positionClass: 'toast-top-center',
       toastClass: 'toast ngx-toastr',
       closeButton: true,
-      timeOut: 100000,
+      timeOut: 20000,
     });
   }
 
@@ -283,7 +283,7 @@ export class MobileVerificationComponent implements OnInit {
       positionClass: 'toast-top-center',
       toastClass: 'toast ngx-toastr',
       closeButton: true,
-      timeOut: 100000,
+      timeOut: 20000,
     });
   }
   //#endregion  -----------  helpers  ----------
