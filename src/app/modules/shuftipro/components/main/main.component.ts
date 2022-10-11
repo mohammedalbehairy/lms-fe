@@ -4,6 +4,7 @@ import { SharedDataService } from '@core/services/shared-data.service';
 import { WebcamImage } from 'ngx-webcam';
 import { Observable, Subject } from 'rxjs';
 import { ShuftiproService } from '../../services/shuftipro.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-main',
@@ -14,6 +15,7 @@ import { ShuftiproService } from '../../services/shuftipro.service';
 export class MainComponent implements OnInit {
   constructor(
     private _router: Router,
+    private modalService: NgbModal,
     private _shuftiproService: ShuftiproService,
     private _sharedDataService: SharedDataService
   ) {}
@@ -133,5 +135,13 @@ export class MainComponent implements OnInit {
       };
       reader.readAsDataURL(event.target.files[0]);
     }
+  }
+
+  // modal Open Guidance
+  modalOpenGuidance(modalGuidance) {
+    this.modalService.open(modalGuidance, {
+      centered: true,
+      windowClass: 'modal modal-guidance',
+    });
   }
 }

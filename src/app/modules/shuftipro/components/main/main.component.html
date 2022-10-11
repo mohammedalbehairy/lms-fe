@@ -23,6 +23,12 @@
 
 <div class="stepper-pages">
     <hr class="mb-2" />
+    <button type="button" (click)="modalOpenGuidance(modalGuidance)" class="btn btn-info btn-next pl-md-5 pr-md-5"
+        rippleEffect>
+        <i data-feather="eye" class="align-middle ml-sm-25 ml-0 mr-1"></i>
+        <span class="align-middle d-sm-inline-block ">Show Guidance</span>
+    </button>
+    <hr class="mb-2" />
     <div>
         <div class='row'>
             <div class="col-md-6">
@@ -132,3 +138,63 @@
         </div>
     </div>
 </div>
+
+
+<!-- Modal -->
+<ng-template #modalGuidance let-modal>
+    <div class="modal-header">
+        <h5 class="modal-title" id="myModalLabel160">Guidance Modal</h5>
+        <button type="button" class="close" (click)="modal.dismiss('Cross click')" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body" tabindex="0" ngbAutofocus>
+
+        <ul class="list-group">
+            <li class="list-group-item list-group-item-info d-flex">
+                <p class="float-left mb-0">
+                    <span [data-feather]="'check'" [size]="16" [class]="'mr-1'" style='color: red;'></span>
+                </p>
+                <span>Show entire document.</span>
+            </li>
+            <li class="list-group-item list-group-item-info d-flex">
+                <p class="float-left mb-0">
+                    <span [data-feather]="'check'" [size]="16" [class]="'mr-1'"></span>
+                </p>
+                <span>Don’t fold the document.</span>
+            </li>
+            <li class="list-group-item list-group-item-info d-flex">
+                <p class="float-left mb-0">
+                    <span [data-feather]="'check'" [size]="16" [class]="'mr-1'"></span>
+                </p>
+                <span>Avoid glare.</span>
+            </li>
+            <li class="list-group-item list-group-item-info d-flex">
+                <p class="float-left mb-0">
+                    <span [data-feather]="'check'" [size]="16" [class]="'mr-1'"></span>
+                </p>
+                <span>Please provide a valid document with all four corners being visible.</span>
+            </li>
+            <li class="list-group-item list-group-item-info d-flex">
+                <p class="float-left mb-0">
+                    <span [data-feather]="'check'" [size]="16" [class]="'mr-1'"></span>
+                </p>
+                <span>Do not take photo/video from another image or screen.</span>
+            </li>
+            <li class="list-group-item list-group-item-info d-flex">
+                <p class="float-left mb-0">
+                    <span [data-feather]="'check'" [size]="16" [class]="'mr-1'"></span>
+                </p>
+                <span>No paper-based documents.</span>
+            </li>
+            <li class="list-group-item list-group-item-info d-flex">
+                <p class="float-left mb-0">
+                    <span [data-feather]="'check'" [size]="16" [class]="'mr-1'"></span>
+                </p>
+                <span>No photocopy or grayscale document.</span>
+            </li>
+        </ul>
+    </div>
+
+</ng-template>
+<!-- / Modal -->
