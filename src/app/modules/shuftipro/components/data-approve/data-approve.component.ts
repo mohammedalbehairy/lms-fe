@@ -31,8 +31,8 @@ export class DataApproveComponent implements OnInit {
     this.initForm();
 
     this.checkRegData();
-    //TODO: check the data before navigation
-    // this.getSavedData();
+
+    this.getSavedData();
     this.setFormData();
   }
 
