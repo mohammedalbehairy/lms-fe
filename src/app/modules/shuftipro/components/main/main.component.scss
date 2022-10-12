@@ -16,4 +16,12 @@
 .list-group-item-info {
   color: #107f8f;
   background-color: #f1f1f1;
+
+  &:hover {
+    cursor: pointer;
+    span {
+      transform: scale(1.1);
+      margin: 10px;
+    }
+  }
 }
