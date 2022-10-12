@@ -79,7 +79,7 @@ export class AuthenticationService {
                 'You have successfully logged in as an ' +
                   user.role +
                   ' user to Vuexy. Now you can start to explore. Enjoy! 🎉',
-                '👋 Welcome, ' + user.firstName + '!',
+                '👋 Welcome,!',
                 { toastClass: 'toast ngx-toastr', closeButton: true }
               );
             }, 2500);
@@ -127,7 +127,7 @@ export class AuthenticationService {
       'You have successfully logged in as an ' +
         user.email +
         ' user to Lnddo. Now you can start to explore. Enjoy! 🎉',
-      '👋 Welcome, ' + user.firstName + '!',
+      '👋 Welcome,!',
       { toastClass: 'toast ngx-toastr', closeButton: true }
     );
     // }, 2500);
