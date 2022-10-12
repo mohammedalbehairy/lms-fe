@@ -28,54 +28,79 @@
         <div class="options">
             <span> Wrong number ? </span>
 
-            <span class='option' *ngIf="m.mobile.disabled" (click)='m.mobile.enable()'> Change </span>
-            <span class='option' *ngIf="m.mobile.enabled" (click)='m.mobile.valid ? m.mobile.disable():return'> Save
-            </span>
+            <button *ngIf="m.mobile.disabled" (click)='m.mobile.enable()' class="btn btn-primary" tabindex="4"
+                rippleEffect>Change
+            </button>
+            <button *ngIf="m.mobile.enabled" (click)='m.mobile.valid ? m.mobile.disable():return'
+                class="btn btn-primary" tabindex="4" rippleEffect>Save
+            </button>
         </div>
     </form>
 </div>
 
 <div class='verification m39'>
-    <p class='Fo-16 LH-21 m20 mb-0 m-m0'>Enter Verification Code *</p>
 
-    <div class="code-inputs m10" [formGroup]="verificationForm">
-        <input formControlName='input1' type="text" pattern="\d*" maxlength="1" autofocus>
-        <input formControlName='input2' type="text" pattern="\d*" maxlength="1">
-        <input formControlName='input3' type="text" pattern="\d*" maxlength="1">
-        <input formControlName='input4' type="text" pattern="\d*" maxlength="1">
-        <input formControlName='input5' type="text" pattern="\d*" maxlength="1">
-        <input formControlName='input6' type="text" pattern="\d*" maxlength="1">
+
+    <div
+        *ngIf="verificationError != 'User cannot be authenticated as User has not registered ';then actionsLogin;else actionsRegister;">
     </div>
+    <ng-template #actionsLogin>
+        <p class='Fo-16 LH-21 m20 mb-0 m-m0'>Enter Verification Code *</p>
 
-    <ngb-alert [dismissible]="false" *ngIf="inputsError" [hidden]="false" [type]="'danger'" class="m18 m-m8 mb-0">
-        <div class="alert-body">
-            <div>
-                <img width="16" height="18" class="info-icon" src="../../../../../assets/images/partners/info.svg"
-                    alt="info" />
-            </div>
-            <span class="bold-color Fo-12 LH-16 ">{{ 'Please check your verification inputs' }}.</span>
+        <div class="code-inputs m10" [formGroup]="verificationForm">
+            <input formControlName='input1' type="text" pattern="\d*" maxlength="1" autofocus>
+            <input formControlName='input2' type="text" pattern="\d*" maxlength="1">
+            <input formControlName='input3' type="text" pattern="\d*" maxlength="1">
+            <input formControlName='input4' type="text" pattern="\d*" maxlength="1">
+            <input formControlName='input5' type="text" pattern="\d*" maxlength="1">
+            <input formControlName='input6' type="text" pattern="\d*" maxlength="1">
         </div>
-    </ngb-alert>
 
-    <ngb-alert [dismissible]="false" *ngIf="verificationError" [hidden]="false" [type]="'danger'" class="m18 m-m8 mb-0">
-        <div class="alert-body">
-            <div>
-                <img width="16" height="18" class="info-icon" src="../../../../../assets/images/partners/info.svg"
-                    alt="info" />
+        <ngb-alert [dismissible]="false" *ngIf="inputsError" [hidden]="false" [type]="'danger'" class="m18 m-m8 mb-0">
+            <div class="alert-body">
+                <div>
+                    <img width="16" height="18" class="info-icon" src="../../../../../assets/images/partners/info.svg"
+                        alt="info" />
+                </div>
+                <span class="bold-color Fo-12 LH-16 ">{{ 'Please check your verification inputs' }}.</span>
             </div>
-            <span class="bold-color Fo-12 LH-16 ">{{ verificationError }}.</span>
-        </div>
-    </ngb-alert>
+        </ngb-alert>
 
-    <button [disabled]="loadingCode" (click)="sendOtp()"
-        class="btn btn-outline-dark btn-block bold-color Fo-16 LH-18 m24 m-m32 mobile-cus-btn" tabindex="4"
-        rippleEffect>
-        <span *ngIf="loadingCode" class="spinner-border spinner-border-sm mr-1"></span>Request a new
-        code
-    </button>
+        <ngb-alert [dismissible]="false" *ngIf="verificationError" [hidden]="false" [type]="'danger'"
+            class="m18 m-m8 mb-0">
+            <div class="alert-body">
+                <div>
+                    <img width="16" height="18" class="info-icon" src="../../../../../assets/images/partners/info.svg"
+                        alt="info" />
+                </div>
+                <span class="bold-color Fo-12 LH-16 ">{{ verificationError }}.</span>
+            </div>
+        </ngb-alert>
+        <button [disabled]="loadingCode" (click)="sendOtp()"
+            class="btn btn-outline-dark btn-block bold-color Fo-16 LH-18 m24 m-m32 mobile-cus-btn" tabindex="4"
+            rippleEffect>
+            <span *ngIf="loadingCode" class="spinner-border spinner-border-sm mr-1"></span>Request a new
+            code
+        </button>
 
-    <button [disabled]="loading" (click)="verify()" class="btn btn-primary btn-block Fo-16 LH-18 m24 m-m32 mb18"
-        tabindex="4" rippleEffect>
-        <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>Verify
-    </button>
+        <button [disabled]="loading" (click)="verify()" class="btn btn-primary btn-block Fo-16 LH-18 m24 m-m32 mb18"
+            tabindex="4" rippleEffect>
+            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>Verify
+        </button>
+    </ng-template>
+    <ng-template #actionsRegister>
+        <ngb-alert [dismissible]="false" *ngIf="verificationError" [hidden]="false" [type]="'danger'"
+            class="m18 m-m8 mb-0">
+            <div class="alert-body">
+                <div>
+                    <img width="16" height="18" class="info-icon" src="../../../../../assets/images/partners/info.svg"
+                        alt="info" />
+                </div>
+                <span class="bold-color Fo-12 LH-16 ">{{ verificationError }}.</span>
+            </div>
+        </ngb-alert>
+        <button routerLink="/auth/home/register" class="btn btn-primary btn-block Fo-16 LH-18 m24 m-m32 mb18"
+            tabindex="4" rippleEffect>Register
+        </button>
+    </ng-template>
 </div>
