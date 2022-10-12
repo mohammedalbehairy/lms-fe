@@ -31,7 +31,7 @@
             <button *ngIf="m.mobile.disabled" (click)='m.mobile.enable()' class="btn btn-primary" tabindex="4"
                 rippleEffect>Change
             </button>
-            <button *ngIf="m.mobile.enabled" (click)='m.mobile.valid ? m.mobile.disable():return'
+            <button *ngIf="m.mobile.enabled" (click)='saveUpdateMobile()'
                 class="btn btn-primary" tabindex="4" rippleEffect>Save
             </button>
         </div>

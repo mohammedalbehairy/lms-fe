@@ -352,4 +352,12 @@ export class MobileVerificationComponent implements OnInit {
         e.completed == false
     );
   }
+
+  saveUpdateMobile() {
+    if (this.m.mobile.valid) {
+      this.m.mobile.disable();
+    }
+    this.error = '';
+    this.verificationError = '';
+  }
 }
