@@ -41,6 +41,26 @@
                 </div>
             </div>
 
+
+            <div class="form-group col-md-4">
+                <label class="form-label Fo-14" for="outstandingLoans">Do your business have any outstanding loans?
+                    (Exclude credit
+                    card
+                    debt) *</label>
+                <div class="display-flex">
+                    <div class="custom-control custom-radio mr-md-1 mt-md-0 mt-1">
+                        <input formControlName="outstandingLoans" value="true" type="radio" id="true"
+                            name="outstandingLoans" class="custom-control-input" />
+                        <label class="custom-control-label" for="true">Yes</label>
+                    </div>
+                    <div class="custom-control custom-radio mr-md-1 mt-md-0 mt-1">
+                        <input formControlName="outstandingLoans" value="false" type="radio" id="false"
+                            name="outstandingLoans" class="custom-control-input" />
+                        <label class="custom-control-label" for="false">No</label>
+                    </div>
+                </div>
+            </div>
+
             <div class="form-group col-md-4">
                 <label class="form-label Fo-14" for="outstandingAmount">If Yes, then outstanding amount *</label>
                 <input type="number" name="outstandingAmount" id="outstandingAmount" class="form-control input-form"
@@ -65,9 +85,6 @@
             </div>
 
             <div class="form-group col-md-4">
-            </div>
-
-            <div class="form-group col-md-4">
                 <label for="currentPaymentCycle">Current payment settlement cycle with channel - i.e. How often do you
                     get
                     settlements? *</label>
@@ -83,24 +100,6 @@
                 </div>
             </div>
 
-            <div class="form-group col-md-4">
-                <label class="form-label Fo-14" for="outstandingLoans">Do your business have any outstanding loans?
-                    (Exclude credit
-                    card
-                    debt) *</label>
-                <div class="display-flex">
-                    <div class="custom-control custom-radio mr-md-1 mt-md-0 mt-1">
-                        <input formControlName="outstandingLoans" value="true" type="radio" id="true"
-                            name="outstandingLoans" class="custom-control-input" />
-                        <label class="custom-control-label" for="true">Yes</label>
-                    </div>
-                    <div class="custom-control custom-radio mr-md-1 mt-md-0 mt-1">
-                        <input formControlName="outstandingLoans" value="false" type="radio" id="false"
-                            name="outstandingLoans" class="custom-control-input" />
-                        <label class="custom-control-label" for="false">No</label>
-                    </div>
-                </div>
-            </div>
         </div>
 
         <hr class="mb-3 mt-2" />

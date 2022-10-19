@@ -34,7 +34,7 @@ export class InfoComponent implements OnInit, AfterContentChecked {
   public loading = false;
 
   public dataProviderCode = undefined;
-
+  public alertClose = false;
   constructor(
     private _router: Router,
     private formBuilder: UntypedFormBuilder,
