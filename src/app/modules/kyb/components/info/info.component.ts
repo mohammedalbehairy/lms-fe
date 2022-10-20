@@ -11,6 +11,8 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
+import { BusinessCategory } from '@core/data/businessCategory';
+import { IncorporationType } from '@core/data/incorporationType';
 import { UserStatusService } from '@core/services/user-status/user-status.service';
 import moment from 'moment';
 import { KybService } from '../../services/kyb.service';
@@ -26,6 +28,8 @@ export class InfoComponent implements OnInit, AfterContentChecked {
     altInput: true,
     altFormat: 'j/m/Y',
   };
+  public incorporationType = IncorporationType;
+  public businessCategory = BusinessCategory;
 
   public incDate = '2010-05-11';
 
@@ -56,9 +60,9 @@ export class InfoComponent implements OnInit, AfterContentChecked {
     // Reactive form initialization
     this.businessInfoForm = this.formBuilder.group({
       businessName: ['', Validators.required],
-      incorporationType: [null, Validators.required],
+      incorporationType: ['', Validators.required],
       incorporationDate: [null, Validators.required],
-      businessCategory: [null, Validators.required],
+      businessCategory: ['', Validators.required],
       tradingType: [null, Validators.required],
       retailOutletsCount: [null],
       tradeLicenseNumber: ['', Validators.required],

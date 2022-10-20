@@ -22,9 +22,7 @@
         <select id="incorporationType" formControlName="incorporationType" class="form-control"
           [ngClass]="{ 'is-invalid': submitted && f.incorporationType.errors }" placeholder='Select'>
           <option value="" [selected]="true" [disabled]="true">Select Type</option>
-          <option value="28">C Corporation</option>
-          <option value="29">S Corporation</option>
-          <option value="1078">Non-Profit Corporation</option>
+          <option value="{{item.id}}" *ngFor="let item of incorporationType">{{item.name}}</option>
         </select>
         <div *ngIf="submitted && f.incorporationType.errors" class="invalid-feedback">
           <div *ngIf="f.incorporationType.errors.required">Incorporation Type is required</div>
@@ -47,8 +45,7 @@
         <select id="businessCategory" formControlName="businessCategory" class="form-control"
           [ngClass]="{ 'is-invalid': submitted && f.businessCategory.errors }" placeholder='Select'>
           <option value="" [selected]="true" [disabled]="true">Select Category</option>
-          <option value="26">Classification One</option>
-          <option value="27">Classification Two</option>
+          <option value="{{item.id}}" *ngFor="let item of businessCategory">{{item.name}}</option>
         </select>
         <div *ngIf="submitted && f.businessCategory.errors" class="invalid-feedback">
           <div *ngIf="f.businessCategory.errors.required">Business Category is required</div>
