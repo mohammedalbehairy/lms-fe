@@ -57,7 +57,7 @@
       <div class="form-group col-md-4">
         <label for="dateOfBirth">Date of Birth *</label>
         <ng2-flatpickr formControlName='dateOfBirth' [setDate]="birthDate" [config]="dateOfBirthOptions"
-          id="dateOfBirth" name="dateOfBirth" placeholder="MM/DD/YYYY"
+          id="dateOfBirth" name="dateOfBirth" placeholder="MM-DD-YYYY"
           [ngClass]="{ 'is-invalid': submitted && f.dateOfBirth.errors }">
         </ng2-flatpickr>
         <div *ngIf="submitted && f.dateOfBirth.errors" class="invalid-feedback">
@@ -68,7 +68,7 @@
       <div class="form-group col-md-4">
         <label for="yearsInUAE">How long have you been in the UAE? *</label>
         <ng2-flatpickr formControlName='yearsInUAE' [setDate]="yearsInUAEDate" [config]="yearsInUAEOptions"
-          id="yearsInUAE" name="yearsInUAE" placeholder="MM/DD/YYYY"
+          id="yearsInUAE" name="yearsInUAE" placeholder="MM-DD-YYYY"
           [ngClass]="{ 'is-invalid': submitted && f.yearsInUAE.errors }">
         </ng2-flatpickr>
         <div *ngIf="submitted && f.yearsInUAE.errors" class="invalid-feedback">
