@@ -21,4 +21,12 @@ export class LoansService {
       `${environment.apiUrl}/api/v1/cba/loan-product`
     );
   }
+
+  applyLoan(id: number) {
+    return this._httpClient.post(
+      `${environment.apiUrl}/api/v1/cba/create-loan/${id}`,
+      {},
+      this.options
+    );
+  }
 }

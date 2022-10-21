@@ -64,7 +64,8 @@
                 </span>
             </div>
             <div class="col-md-3 mobile-view">
-                <button type="submit" rippleEffect class="btn btn-primary com-btn w-80 " (click)="next()">Submit for
+                <button type="button" rippleEffect class="btn btn-primary com-btn w-80 " (click)="submit()"><span
+                        *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>Submit for
                     Final Approval</button>
             </div>
         </div>
