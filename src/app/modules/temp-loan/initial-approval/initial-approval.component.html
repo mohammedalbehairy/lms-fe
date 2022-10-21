@@ -1,0 +1,73 @@
+<div>
+    <div class="card card-developer-meetup">
+        <div class="home-image rounded-top text-center">
+            <img src="assets/images/illustration/email.svg" alt="Meeting Pic" height="170" />
+        </div>
+        <div class="card-body">
+            <div class="meetup-header d-flex align-items-center">
+                <div class="meetup-day">
+                    <h6 class="mb-0">{{dayName}}</h6>
+                    <h3 class="mb-0 primary-color">{{dayNum}}</h3>
+                </div>
+                <div class="my-auto">
+                    <p class="card-title mb-25 primary-color">Congratulations!</p>
+                    <p class="card-text mb-0">Your Loan initially approved with the below details.</p>
+                </div>
+            </div>
+            <div class="group">
+                <div class="media">
+                    <div class="avatar primary-background-color rounded mr-1">
+                        <div class="avatar-content">
+                            <i data-feather="briefcase" class="avatar-icon font-medium-3"></i>
+                        </div>
+                    </div>
+                    <div class="media-body">
+                        <h6 class="mb-0 text-muted">Amount</h6>
+                        <h6 class="font-bold primary-color">$20,000</h6>
+                    </div>
+                </div>
+
+                <div class="media">
+                    <div class="avatar primary-background-color rounded mr-1">
+                        <div class="avatar-content">
+                            <i data-feather="briefcase" class="avatar-icon font-medium-3"></i>
+                        </div>
+                    </div>
+                    <div class="media-body">
+                        <h6 class="mb-0 text-muted">Interest Rate</h6>
+                        <h6 class="font-bold primary-color">26 %</h6>
+                    </div>
+                </div>
+                <div class="media">
+                    <div class="avatar primary-background-color rounded mr-1">
+                        <div class="avatar-content">
+                            <i data-feather="briefcase" class="avatar-icon font-medium-3"></i>
+                        </div>
+                    </div>
+                    <div class="media-body">
+                        <h6 class="mb-0 text-muted">Tenor</h6>
+                        <h6 class="font-bold primary-color">12 Months</h6>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-9">
+                <span class="text-center messages-dev">
+                    <div class="error-color">
+                        <em class="icon-error font-medium-4 " data-feather="info"></em>
+                    </div>
+                    The above in principal approval based on the input data subject to change upon our credit
+                    assessment.
+                </span>
+            </div>
+            <div class="col-md-3 mobile-view">
+                <button type="submit" rippleEffect class="btn btn-primary com-btn w-80 " (click)="next()">Submit for
+                    Final Approval</button>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -19,9 +19,11 @@ import { CsvModule } from '@ctrl/ngx-csv';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoanListService } from './services/loan-list.service';
 import { LoanScheduleService } from './services/loan-schedule.service';
+import { InitialApprovalComponent } from './initial-approval/initial-approval.component';
+import { LoanFinalComponent } from './loan-final/loan-final.component';
 
 @NgModule({
-  declarations: [LoansComponent, RepaymentScheduleComponent],
+  declarations: [LoansComponent, RepaymentScheduleComponent, InitialApprovalComponent, LoanFinalComponent],
   imports: [
     CommonModule,
     TempLoanRoutingModule,
