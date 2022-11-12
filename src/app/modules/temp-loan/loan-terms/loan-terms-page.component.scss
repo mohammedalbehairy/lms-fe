@@ -1,0 +1,38 @@
+@import '@core/scss/angular/libs/select.component.scss';
+@import '@core/scss/angular/libs/flatpickr.component.scss';
+@import '@core/scss/angular/libs/noui-slider.component.scss';
+
+.messages-dev {
+  display: inline-flex;
+  padding: 20px;
+  .error-color {
+    margin-right: 2px;
+    color: #fc6dab;
+  }
+}
+
+.primary-color {
+  color: #0a3677;
+}
+
+.primary-background-color {
+  background-color: #0a3677;
+}
+
+.info {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+@media only screen and (max-width: 600px) {
+  .display-flex {
+    display: block;
+  }
+
+  .cus-btn-resize {
+    margin-left: 30%;
+    margin-top: 10px;
+  }
+}

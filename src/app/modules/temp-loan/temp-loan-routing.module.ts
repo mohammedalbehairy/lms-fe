@@ -2,10 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { InitialApprovalComponent } from './initial-approval/initial-approval.component';
 import { LoanFinalComponent } from './loan-final/loan-final.component';
-import { LoansComponent } from './loans/loans.component';
-import { RepaymentScheduleComponent } from './repayment-schedule/repayment-schedule.component';
-import { LoanListService } from './services/loan-list.service';
-import { LoanScheduleService } from './services/loan-schedule.service';
+import { LoanTermsPageComponent } from './loan-terms/loan-terms-page.component';
 
 const routes: Routes = [
   // {
@@ -27,6 +24,11 @@ const routes: Routes = [
   {
     path: 'initial-approval',
     component: InitialApprovalComponent,
+    data: { animation: 'UserListComponent' },
+  },
+  {
+    path: 'term',
+    component: LoanTermsPageComponent,
     data: { animation: 'UserListComponent' },
   },
   {

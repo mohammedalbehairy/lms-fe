@@ -21,9 +21,16 @@ import { LoanListService } from './services/loan-list.service';
 import { LoanScheduleService } from './services/loan-schedule.service';
 import { InitialApprovalComponent } from './initial-approval/initial-approval.component';
 import { LoanFinalComponent } from './loan-final/loan-final.component';
+import { LoanTermsPageComponent } from './loan-terms/loan-terms-page.component';
 
 @NgModule({
-  declarations: [LoansComponent, RepaymentScheduleComponent, InitialApprovalComponent, LoanFinalComponent],
+  declarations: [
+    LoansComponent,
+    LoanTermsPageComponent,
+    RepaymentScheduleComponent,
+    InitialApprovalComponent,
+    LoanFinalComponent,
+  ],
   imports: [
     CommonModule,
     TempLoanRoutingModule,

@@ -1,0 +1,91 @@
+<div class="stepper-pages">
+
+  <hr class="mb-md-3 mt-md-1" />
+
+  <form #accountDetailsForm="ngForm">
+    <div class="row">
+
+
+      <h5 class="font-bold">Load Amount</h5>
+      <div class="form-group col-md-12">
+        <label class="form-label Fo-14" for="email">Choose your loan amount</label>
+        <input type="range" class="form-control-range" id="basic-range" />
+      </div>
+      <div class="col-md-6">
+        <label class="form-label Fo-14" for="email">min $5000</label>
+      </div>
+      <div class="col-md-6">
+        <label class="form-label Fo-14 btn-reverse primary-color" for="email">max $5000</label>
+      </div>
+
+
+      <div class="form-group col-md-12 mt-md-5">
+        <label class="form-label Fo-14" for="email">Loan Tenure (months)</label>
+        <input type="range" class="form-control-range" id="basic-range" />
+      </div>
+      <div class="col-md-3 col-3">
+        <label class="form-label Fo-14" for="email">3</label>
+      </div>
+      <div class="col-md-3 col-3">
+        <label class="form-label Fo-14" for="email">6</label>
+      </div>
+      <div class="col-md-3 col-3">
+        <label class="form-label Fo-14 btn-reverse" for="email">9</label>
+      </div>
+      <div class="col-md-3 col-3">
+        <label class="form-label Fo-14 btn-reverse" for="email">12</label>
+      </div>
+
+
+
+
+    </div>
+
+    <hr class="mb-3 mt-2" />
+
+    <div class="info">
+
+      <div class="media">
+        <div class="avatar primary-background-color rounded mr-1">
+          <div class="avatar-content">
+            <i data-feather="briefcase" class="avatar-icon font-medium-3"></i>
+          </div>
+        </div>
+        <div class="media-body">
+          <h6 class="mb-0 text-muted">Amount</h6>
+          <h6 class="font-bold primary-color">$21,500</h6>
+        </div>
+      </div>
+
+      <div>
+        <span class="text-center messages-dev">
+          <div class="error-color">
+            <em class="icon-error font-medium-4 " data-feather="info"></em>
+          </div>
+          The above in principal approval based on the input data subject to change upon our credit
+          assessment.
+        </span>
+      </div>
+    </div>
+
+
+    <hr class="mb-3 mt-2" />
+    <div class="row">
+      <div class="justify-content-between col-md-12">
+        <button (click)="submit()" type="submit"
+          class="btn btn-primary btn-next btn-reverse pl-md-5 pr-md-5 mobile-btn-p-next" rippleEffect>
+          <span class="align-middle d-sm-inline-block">Submit Final Approval</span><i data-feather="arrow-right"
+            class="align-middle ml-sm-25 ml-0"></i>
+        </button>
+
+        <button (click)="back()" class="btn btn-outline-secondary btn-prev cus-btn-resize mobile-btn-p-back"
+          rippleEffect>
+          <i data-feather="arrow-left" class="align-middle mr-sm-25 mr-0 "></i>
+          <span class="align-middle d-sm-inline-block">Go back</span>
+        </button>
+
+
+      </div>
+    </div>
+  </form>
+</div>
