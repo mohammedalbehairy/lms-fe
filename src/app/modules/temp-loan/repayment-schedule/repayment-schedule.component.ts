@@ -3,7 +3,6 @@ import { CoreConfigService } from '@core/services/config.service';
 import { ColumnMode, DatatableComponent } from '@swimlane/ngx-datatable';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { LoanListService } from '../services/loan-list.service';
 import { LoanScheduleService } from '../services/loan-schedule.service';
 
 @Component({

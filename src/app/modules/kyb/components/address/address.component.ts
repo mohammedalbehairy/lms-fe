@@ -5,8 +5,11 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
+import { CodesService } from '@core/services/codes.service';
 import { UserStatusService } from '@core/services/user-status/user-status.service';
 import { FlatpickrOptions } from 'ng2-flatpickr';
+import { forkJoin } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { KybService } from '../../services/kyb.service';
 
 @Component({
@@ -24,15 +27,20 @@ export class AddressComponent implements OnInit {
   public submitted = false;
   public loading = false;
 
+  public countries = [];
+  public cities = [];
+  public alertClose = false;
+
   constructor(
     private _router: Router,
     private _userStatusService: UserStatusService,
     private formBuilder: UntypedFormBuilder,
+    private _codesService: CodesService,
     private _kybService: KybService
   ) {}
   ngOnInit(): void {
     this.initForm();
-
+    this.getCodes();
     this.loadDataFromProvider();
   }
 
@@ -41,11 +49,13 @@ export class AddressComponent implements OnInit {
     this.businessAddressForm = this.formBuilder.group({
       addressLine1: ['', Validators.required],
       addressLine2: [null, Validators.required],
-      city: [null, Validators.required],
+      city: ["", Validators.required],
       postCode: [null],
-      country: [null, Validators.required],
+      countryId: ['', Validators.required],
       jurisdiction: ['mainland-ded'],
       landLineNumber: ['', Validators.required],
+      dataCorrect: ['true', Validators.required],
+      comment: [''],
     });
   }
 
@@ -104,11 +114,37 @@ export class AddressComponent implements OnInit {
     //TODO: add city & country  and  check if phone number will be returned
     // this.f.city.setValue(data['b-address']['city']);
     // this.f.country.setValue(data['b-address']['country']);
-    
+
     // viCategoryCode
     this.f.addressLine1.setValue(data.addressLine1);
     this.f.addressLine2.setValue(data.secondAddressLine4);
     this.f.landLineNumber.setValue(data.phoneNo);
+  }
+
+  getCodes() {
+    console.log('-------------getCodes----------------');
+
+    return forkJoin([
+      this._codesService.loadCode(28),
+      this._codesService.loadCode(287),
+    ])
+      .pipe(
+        map((res) => {
+          return {
+            countries: res[0],
+            cities: res[1],
+          };
+        })
+      )
+      .subscribe(
+        (res: any) => {
+          this.countries = res.countries;
+          this.cities = res.cities;
+        },
+        (err) => {
+          console.log(err);
+        }
+      );
   }
 
   onSubmit() {
@@ -142,6 +178,10 @@ export class AddressComponent implements OnInit {
 
   get f() {
     return this.businessAddressForm.controls;
+  }
+
+  get dataCorrect() {
+    return this.businessAddressForm.controls['dataCorrect'].value;
   }
 
   back() {

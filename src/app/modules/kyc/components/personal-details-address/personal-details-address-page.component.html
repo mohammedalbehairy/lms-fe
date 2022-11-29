@@ -45,25 +45,24 @@
       </div>
 
       <div class="form-group col-md-4">
-        <label class="form-label Fo-14" for="country">Country *</label>
-        <select id="country" formControlName="country" class="form-control"
-          [ngClass]="{ 'is-invalid': submitted && f.country.errors }" placeholder='Select'>
-          <option value="" [selected]="true" [disabled]="true">Select Country</option>
-          <option value="1">Country One</option>
-          <option value="2">Country Two</option>
+        <label class="form-label Fo-14" for="countryId">Country *</label>
+        <select id="countryId" formControlName="countryId" class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f.countryId.errors }" placeholder='Select'>
+            <option value="" [selected]="true" [disabled]="true">Select Country</option>
+            <option value="{{item.id}}" *ngFor="let item of countries">{{item.description}}</option>
         </select>
-        <div *ngIf="submitted && f.country.errors" class="invalid-feedback">
-          <div *ngIf="f.country.errors.required">Country is required</div>
+        <div *ngIf="submitted && f.countryId.errors" class="invalid-feedback">
+            <div *ngIf="f.country.errors.required">Country is required</div>
         </div>
-      </div>
+    </div>
 
       <div class="form-group col-md-4">
         <label class="form-label Fo-14" for="city">City *</label>
         <select id="city" formControlName="city" class="form-control"
           [ngClass]="{ 'is-invalid': submitted && f.city.errors }" placeholder='Select'>
           <option value="" [selected]="true" [disabled]="true">Select City</option>
-          <option value="1">City One</option>
-          <option value="2">City Two</option>
+          <option value="{{item.id}}" *ngFor="let item of cities">{{item.description}}</option>
+          
         </select>
         <div *ngIf="submitted && f.city.errors" class="invalid-feedback">
           <div *ngIf="f.city.errors.required">City is required</div>

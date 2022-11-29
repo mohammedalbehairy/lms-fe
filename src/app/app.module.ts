@@ -71,33 +71,6 @@ const appRoutes: Routes = [
       ),
   },
   {
-    path: 'loanbooking',
-    loadChildren: () =>
-      import('./modules/loan_booking/loan_booking.module').then(
-        (m) => m.LoanBookingModule
-      ),
-  },
-  //TODO:remove other modules
-  // {
-  //   path: 'loan',
-  //   loadChildren: () =>
-  //     import('./modules/loan/loan-pages.module').then((m) => m.LoanPagesModule),
-  // },
-  {
-    path: 'createloan',
-    loadChildren: () =>
-      import('./modules/createloan/createloan-pages.module').then(
-        (m) => m.LoanPagesModule
-      ),
-  },
-  {
-    path: 'user',
-    loadChildren: () =>
-      import('./modules/users/users-pages.module').then(
-        (m) => m.UserPagesModule
-      ),
-  },
-  {
     path: 'company',
     loadChildren: () =>
       import('./modules/company/company-pages.module').then(

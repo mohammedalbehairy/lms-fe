@@ -12,7 +12,10 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
+import { CodesService } from '@core/services/codes.service';
 import moment from 'moment';
+import { forkJoin } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { KycService } from '../../services/kyc.service';
 
 @Component({
@@ -35,10 +38,13 @@ export class ShareholderInformationPageComponent
   public submitted = false;
   public loading = false;
 
+  public countries = [];
+
   constructor(
     private _router: Router,
     private formBuilder: UntypedFormBuilder,
     private _kycService: KycService,
+    private _codesService: CodesService,
     private changeDetector: ChangeDetectorRef
   ) {}
   ngOnInit(): void {
@@ -61,12 +67,35 @@ export class ShareholderInformationPageComponent
       passportNumber: [null, Validators.required],
       phoneNumber: [null, Validators.required],
       gender: ['male'],
-      nationality: [null, Validators.required],
+      nationality: ['', Validators.required],
       dateOfBirth: [null, Validators.required],
     });
   }
 
-  loadData() {}
+  loadData() {
+    this.getCodes();
+  }
+
+  getCodes() {
+    console.log('-------------getCodes----------------');
+
+    return forkJoin([this._codesService.loadCode(28)])
+      .pipe(
+        map((res) => {
+          return {
+            countries: res[0],
+          };
+        })
+      )
+      .subscribe(
+        (res: any) => {
+          this.countries = res.countries;
+        },
+        (err) => {
+          console.log(err);
+        }
+      );
+  }
 
   onSubmit() {
     this.submitted = true;

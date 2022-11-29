@@ -17,7 +17,7 @@ export class AuthUaePassService {
       .set('client_secret', 'sandbox_stage');
 
     return this._http.post(
-      'https://hermes.lnddo.loan/api/unsecured/v1/registration/uae-pass',
+      'https://api.lnddo.dev/api/unsecured/v1/registration/uae-pass',
       {
         code,
         redirectUri: `${environment.currentUrl}/auth/home/sign-in-uae-pass`,

@@ -8,7 +8,7 @@ export const environment = {
   apiUrl: 'https://api.lnddo.dev',
   fineractUrl: 'https://lnddo.dev',
   currentUrl: 'http://localhost:4200'
-  // currentUrl: 'https://hermes.lnddo.loan:8443',
+  // currentUrl: 'https://api.lnddo.dev:8443',
 };
 
 /*

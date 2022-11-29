@@ -92,7 +92,7 @@ export class SignUpUaePassComponent implements OnInit {
 
     return this._http
       .post(
-        'https://hermes.lnddo.loan/api/unsecured/v1/registration/uae-pass',
+        'https://api.lnddo.dev/api/unsecured/v1/registration/uae-pass',
         {
           code: this.code,
           redirectUri: `${environment.currentUrl}/auth/home/sign-up-uae-pass`,
