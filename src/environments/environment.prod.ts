@@ -1,7 +1,7 @@
 export const environment = {
   production: true,
   hmr: false,
-  apiUrl: 'https://hermes.lnddo.loan',
-  fineractUrl: 'https://api.lnddo.loan',
-  currentUrl: 'https://hermes.lnddo.loan:8443',
+  apiUrl: 'https://api.lnddo.dev',
+  fineractUrl: 'https://lnddo.dev',
+  currentUrl: 'https://web.lnddo.dev:8443',
 };

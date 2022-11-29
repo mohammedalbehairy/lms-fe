@@ -5,8 +5,8 @@
 export const environment = {
   production: false,
   hmr: false,
-  apiUrl: 'https://hermes.lnddo.loan',
-  fineractUrl: 'https://api.lnddo.loan',
+  apiUrl: 'https://api.lnddo.dev',
+  fineractUrl: 'https://lnddo.dev',
   currentUrl: 'http://localhost:4200'
   // currentUrl: 'https://hermes.lnddo.loan:8443',
 };
