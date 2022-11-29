@@ -5,6 +5,9 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
+import { CodesService } from '@core/services/codes.service';
+import { forkJoin } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { KycService } from '../../services/kyc.service';
 
 @Component({
@@ -18,9 +21,13 @@ export class PersonalDetailsAddressPageComponent implements OnInit {
   public submitted = false;
   public loading = false;
 
+  public countries = [];
+  public cities = [];
+
   constructor(
     private _router: Router,
     private formBuilder: UntypedFormBuilder,
+    private _codesService: CodesService,
     private _kycService: KycService
   ) {}
   ngOnInit(): void {
@@ -35,13 +42,41 @@ export class PersonalDetailsAddressPageComponent implements OnInit {
       addressLine1: [null, Validators.required],
       addressLine2: [null, Validators.required],
       addressLine3: [null, Validators.required],
-      city: [null, Validators.required],
+      city: ["", Validators.required],
       postCode: [null],
-      country: [null, Validators.required],
+      countryId: ['', Validators.required],
     });
   }
 
-  loadData() {}
+  loadData() {
+    this.getCodes();
+  }
+
+  getCodes() {
+    console.log('-------------getCodes----------------');
+
+    return forkJoin([
+      this._codesService.loadCode(28),
+      this._codesService.loadCode(287),
+    ])
+      .pipe(
+        map((res) => {
+          return {
+            countries: res[0],
+            cities: res[1],
+          };
+        })
+      )
+      .subscribe(
+        (res: any) => {
+          this.countries = res.countries;
+          this.cities = res.cities;
+        },
+        (err) => {
+          console.log(err);
+        }
+      );
+  }
 
   onSubmit() {
     this.submitted = true;

@@ -57,12 +57,10 @@
         <select id="tradingType" formControlName="tradingType" class="form-control"
           [ngClass]="{ 'is-invalid': submitted && f.tradingType.errors }" placeholder='Select'>
           <option value="" [selected]="true" [disabled]="true">Select Type</option>
-          <option value="15">Retail</option>
-          <option value="16">Wholesale</option>
-          <option value="17">Manufacturing</option>
+          <option value="{{item.id}}" *ngFor="let item of tradingType">{{item.name}}</option>
         </select>
         <div *ngIf="submitted && f.tradingType.errors" class="invalid-feedback">
-          <div *ngIf="f.tradingType.errors.required">Incorporation Type is required</div>
+          <div *ngIf="f.tradingType.errors.required">Trading Type is required</div>
         </div>
       </div>
 
@@ -93,6 +91,32 @@
     </div>
 
     <hr class="mb-3 mt-2" />
+
+    <div class="form-group col-md-12">
+      <label class="form-label Fo-14" for="dataCorrect">The above data is correct ? *</label>
+      <div class="display-flex">
+        <div class="custom-control custom-radio mr-md-1 mt-md-0 mt-1">
+          <input formControlName="dataCorrect" value="true" type="radio" id="true" name="dataCorrect"
+            class="custom-control-input" />
+          <label class="custom-control-label" for="true">Yes</label>
+        </div>
+        <div class="custom-control custom-radio mr-md-1 mt-md-0 mt-1">
+          <input formControlName="dataCorrect" value="false" type="radio" id="false" name="dataCorrect"
+            class="custom-control-input" />
+          <label class="custom-control-label" for="false">No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group col-md-12" [hidden]="dataCorrect == 'true'">
+      <textarea type="text" name="comment" id="comment" class="form-control input-form" formControlName='comment'
+        [ngClass]="{ 'is-invalid': submitted && f.comment.errors }" placeholder="Comments here .........">
+      </textarea>
+
+      <div *ngIf="submitted && f.comment.errors" class="invalid-feedback">
+        <div *ngIf="f.comment.errors.required">Comment is required</div>
+      </div>
+    </div>
 
     <div *ngIf="!alertClose">
       <ngb-alert [type]="'primary'" (closed)="alertClose = !alertClose">

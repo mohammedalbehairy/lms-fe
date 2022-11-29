@@ -12,7 +12,10 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
+import { CodesService } from '@core/services/codes.service';
 import moment from 'moment';
+import { forkJoin } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { KycService } from '../../services/kyc.service';
 
 @Component({
@@ -46,10 +49,13 @@ export class PersonalDetailsIdentifcationPageComponent
   public submitted = false;
   public loading = false;
 
+  public nationalities = [];
+
   constructor(
     private _router: Router,
     private formBuilder: UntypedFormBuilder,
     private _kycService: KycService,
+    private _codesService: CodesService,
     private changeDetector: ChangeDetectorRef
   ) {}
   ngOnInit(): void {
@@ -68,7 +74,7 @@ export class PersonalDetailsIdentifcationPageComponent
       emiratesID: [null, Validators.required],
       emiratesIDExpiryDate: [null, Validators.required],
       fullName: [null, Validators.required],
-      nationality: [null, Validators.required],
+      nationality: ['', Validators.required],
       passportNumber: [null, Validators.required],
       dateOfBirth: [null, Validators.required],
       yearsInUAE: [null, Validators.required],
@@ -78,7 +84,30 @@ export class PersonalDetailsIdentifcationPageComponent
     });
   }
 
-  loadData() {}
+  loadData() {
+    this.getCodes();
+  }
+
+  getCodes() {
+    console.log('-------------getCodes----------------');
+
+    return forkJoin([this._codesService.loadCode(28)])
+      .pipe(
+        map((res) => {
+          return {
+            nationalities: res[0],
+          };
+        })
+      )
+      .subscribe(
+        (res: any) => {
+          this.nationalities = res.nationalities;
+        },
+        (err) => {
+          console.log(err);
+        }
+      );
+  }
 
   onSubmit() {
     this.submitted = true;

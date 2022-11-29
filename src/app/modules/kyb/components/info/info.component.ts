@@ -11,10 +11,12 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
-import { BusinessCategory } from '@core/data/businessCategory';
 import { IncorporationType } from '@core/data/incorporationType';
+import { CodesService } from '@core/services/codes.service';
 import { UserStatusService } from '@core/services/user-status/user-status.service';
 import moment from 'moment';
+import { forkJoin } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { KybService } from '../../services/kyb.service';
 
 @Component({
@@ -28,8 +30,9 @@ export class InfoComponent implements OnInit, AfterContentChecked {
     altInput: true,
     altFormat: 'j/m/Y',
   };
-  public incorporationType = IncorporationType;
-  public businessCategory = BusinessCategory;
+  public incorporationType;
+  public businessCategory;
+  public tradingType;
 
   public incDate = '2010-05-11';
 
@@ -44,11 +47,13 @@ export class InfoComponent implements OnInit, AfterContentChecked {
     private formBuilder: UntypedFormBuilder,
     private _userStatusService: UserStatusService,
     private _kybService: KybService,
+    private _codesService: CodesService,
     private changeDetector: ChangeDetectorRef
   ) {}
+
   ngOnInit(): void {
     this.initForm();
-
+    this.getCodes();
     this.loadDataFromProvider();
   }
 
@@ -63,10 +68,41 @@ export class InfoComponent implements OnInit, AfterContentChecked {
       incorporationType: ['', Validators.required],
       incorporationDate: [null, Validators.required],
       businessCategory: ['', Validators.required],
-      tradingType: [null, Validators.required],
+      tradingType: ['', Validators.required],
       retailOutletsCount: [null],
       tradeLicenseNumber: ['', Validators.required],
+      dataCorrect: ['true', Validators.required],
+      comment: [''],
     });
+  }
+
+  getCodes() {
+    console.log('-------------getCodes----------------');
+
+    return forkJoin([
+      this._codesService.loadCode(17),
+      this._codesService.loadCode(281),
+      this._codesService.loadCode(16),
+    ])
+      .pipe(
+        map((res) => {
+          return {
+            businessCategory: res[0],
+            tradingType: res[1],
+            incorporationType: res[2],
+          };
+        })
+      )
+      .subscribe(
+        (res) => {
+          this.businessCategory = res.businessCategory;
+          this.tradingType = res.tradingType;
+          this.incorporationType = res.incorporationType;
+        },
+        (err) => {
+          console.log(err);
+        }
+      );
   }
 
   loadDataFromProvider() {
@@ -161,6 +197,10 @@ export class InfoComponent implements OnInit, AfterContentChecked {
 
   get f() {
     return this.businessInfoForm.controls;
+  }
+
+  get dataCorrect() {
+    return this.businessInfoForm.controls['dataCorrect'].value;
   }
 
   next() {
