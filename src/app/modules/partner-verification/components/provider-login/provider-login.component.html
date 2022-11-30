@@ -5,14 +5,16 @@
 </div>
 <div class="form-details">
     <p class="text-align-center">Connect your revenue channel </p>
-    <h4 class="font-bold text-align-center">Let’s connect Telr</h4>
+    <h4 class="font-bold text-align-center">Let’s connect your provider</h4>
 
     <div class="row payment-selection">
         <div class="col-12">
-            <div class="card mb-1 div-payment" [ngClass]="{'div-payment-active': type=='Telr'}" (click)="type = 'Telr'">
-                <img class="image-payment m-1" src="assets/images/partners/Telr.svg" alt="Card image cap" />
+            <div class="card mb-1 div-payment" [ngClass]="{'div-payment-active': type=='telr'}" (click)="type = 'telr'">
+                <img class="image-payment m-1"
+                    src="{{selectedData == 'telr' ? 'assets/images/partners/Telr.svg':'assets/images/partners/magnati.svg'}}"
+                    alt="Card image cap" />
                 <div class="card-body">
-                    <h6 class="card-title">Telr</h6>
+                    <h6 class="card-title">{{selectedData == 'telr' ? 'telr' : 'Magnati'}}</h6>
                 </div>
             </div>
         </div>
@@ -24,11 +26,11 @@
                 <div class="card-body line-border-shadow">
                     <h6 class="text-muted"><i data-feather="lock"></i> We securely connect to your account.</h6>
 
-                    <h5 class='mt-1'>Your Telr registered email address</h5>
+                    <h5 class='mt-1'>Your registered email address</h5>
 
                     <form class="auth-login-form mt-2" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
                         <div class="form-group">
-                            <label class="form-label" for="login-email">Your Telr registered email address</label>
+                            <label class="form-label" for="login-email">Your registered email address</label>
                             <input type="text" formControlName="email" class="form-control"
                                 [ngClass]="{ 'is-invalid': submitted && f.email.errors }" placeholder="admin@demo.com"
                                 aria-describedby="login-email" autofocus="" tabindex="1" />
@@ -39,7 +41,7 @@
                         </div>
                         <div class="form-group">
                             <div class="d-flex justify-content-between">
-                                <label for="login-password">Telr account Password</label>
+                                <label for="login-password">account Password</label>
                             </div>
                             <div class="input-group input-group-merge form-password-toggle">
                                 <input [type]="passwordTextType ? 'text' : 'password'" formControlName="password"
@@ -64,7 +66,7 @@
                                 <div class="error-color">
                                     <em class="icon-error font-medium-4 " data-feather="info"></em>
                                 </div>
-                                Invalid or incorrect Partner account credential
+                                {{error}}
                             </div>
                         </ngb-alert>
 

@@ -4,13 +4,16 @@ import { FormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SharedDataService } from '@core/services/shared-data.service';
 import { TelrAuthenticationService } from '../../services/telr-authentication.service';
+import { MagnatiAuthenticationService } from '../../services/magnati-authentication.service';
+
 
 @Component({
-  selector: 'app-telr-login',
-  templateUrl: './telr-login.component.html',
-  styleUrls: ['./telr-login.component.scss'],
+  selector: 'app-provider-login',
+  templateUrl: './provider-login.component.html',
+  styleUrls: ['./provider-login.component.scss']
 })
-export class TelrLoginComponent implements OnInit {
+export class ProviderLoginComponent implements OnInit {
+
   type;
   public basicPwdShow = false;
 
@@ -27,6 +30,7 @@ export class TelrLoginComponent implements OnInit {
     private _router: Router,
     private _formBuilder: FormBuilder,
     private telrAuthenticationService: TelrAuthenticationService,
+    private magnatiAuthenticationService: MagnatiAuthenticationService,
     private _sharedDataService: SharedDataService,
     private _toastrService: ToastrService
   ) {}
@@ -92,9 +96,34 @@ export class TelrLoginComponent implements OnInit {
           }
         },
         (err) => {
-          this.error = err.status;
+          this.error = 'Invalid or incorrect Partner account credential';
           this.loading = false;
           console.log(err);
+        }
+      );
+  }
+
+  authMagnati() {
+    this.loading = true;
+    this.magnatiAuthenticationService
+      .authMagnati(this.loginForm.value.email, this.loginForm.value.password)
+      .subscribe(
+        (res: any) => {
+          this.loading = false;
+
+          if (res.code == 500 || res.code == 400) {
+            this.error = res.status;
+          } else {
+            this.sendSuccessToaster(
+              '👋 Hi, !',
+              'You successfully logged to you provider account'
+            );
+            this._router.navigate(['/partners/initial-approve']);
+          }
+        },
+        (err) => {
+          this.error = 'Invalid or incorrect Partner account credential';
+          this.loading = false;
         }
       );
   }
@@ -109,7 +138,4 @@ export class TelrLoginComponent implements OnInit {
   back() {
     this._router.navigate(['partners/revenue']);
   }
-  // next() {
-  //   this._router.navigate(['partners/initial-approve']);
-  // }
 }

@@ -15,14 +15,11 @@ export class TelrAuthenticationService {
 
   authTelr(username: string, password: string) {
     return this._httpClient.post(
-      `${environment.apiUrl}/api/v1/cba/telr/processor`,
+      `${environment.apiUrl}/api/v1/cba/dolos/telr`,
       {
         username,
         password,
-        data_provider: 'telr',
       }
     );
   }
-
-  getBusinessData() {}
 }

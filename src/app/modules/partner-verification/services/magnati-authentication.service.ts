@@ -13,14 +13,13 @@ export class MagnatiAuthenticationService {
    */
   constructor(private _httpClient: HttpClient) {}
 
-  authMagnati(token: string) {
+  authMagnati(username: string, password: string) {
     return this._httpClient.post(
-      `${environment.apiUrl}/api/v1/cba/magnati/processor`,
+      `${environment.apiUrl}/api/v1/cba/dolos/magnati`,
       {
-        token,
+        username,
+        password,
       }
     );
   }
-
-  getBusinessData() {}
 }

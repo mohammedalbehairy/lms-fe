@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TelrLoginComponent } from './telr-login.component';
+import { ProviderLoginComponent } from './provider-login.component';
 
-describe('TelrLoginComponent', () => {
-  let component: TelrLoginComponent;
-  let fixture: ComponentFixture<TelrLoginComponent>;
+describe('ProviderLoginComponent', () => {
+  let component: ProviderLoginComponent;
+  let fixture: ComponentFixture<ProviderLoginComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TelrLoginComponent ]
+      declarations: [ ProviderLoginComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(TelrLoginComponent);
+    fixture = TestBed.createComponent(ProviderLoginComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
