@@ -2,6 +2,6 @@ export const environment = {
   production: true,
   hmr: false,
   apiUrl: 'https://api.lnddo.dev',
-  fineractUrl: 'https://api.lnddo.dev',
-  currentUrl: 'https://api.lnddo.dev:8443',
+  fineractUrl: 'https://lnddo.dev',
+  currentUrl: 'https://web.lnddo.dev:8443',
 };
