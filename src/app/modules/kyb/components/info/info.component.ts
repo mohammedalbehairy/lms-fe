@@ -110,13 +110,9 @@ export class InfoComponent implements OnInit, AfterContentChecked {
       (res: any[]) => {
         console.log('========res========', res);
         let providerStep = res.find(
-          (s) =>
-            s.clientRegistrationStepper_cd_stepper_code == 66 ||
-            s.clientRegistrationStepper_cd_stepper_code == 65
+          (s) => s.clientRegistrationStepper_cd_stepper_code == 941
         );
-        providerStep.clientRegistrationStepper_cd_stepper_code == 65
-          ? this.loadMagnatiData()
-          : this.loadTelrData();
+        providerStep ? this.loadMagnatiData() : this.loadTelrData();
       },
       (err) => {
         console.log('========err========', err);
@@ -160,7 +156,7 @@ export class InfoComponent implements OnInit, AfterContentChecked {
   patchFormMagnatiValues(data) {
     // viCategoryCode
     this.f.businessName.setValue(data.merchantName);
-    this.incDate = data.openDate;
+    this.incDate = data.userDate4;
   }
 
   onSubmit() {

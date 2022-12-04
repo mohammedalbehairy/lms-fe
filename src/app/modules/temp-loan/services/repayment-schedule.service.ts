@@ -5,7 +5,7 @@ import { environment } from 'environments/environment';
 @Injectable({
   providedIn: 'root',
 })
-export class LoansService {
+export class RepaymentScheduleService {
   /**
    * Constructor
    *
@@ -16,18 +16,12 @@ export class LoansService {
     headers: new HttpHeaders().set('Content-Type', 'application/json'),
   };
 
-  getLoan() {
-    return this._httpClient.get(
-      `${environment.apiUrl}/api/v1/cba/loan-product`
-    );
-  }
-
-  applyLoan(parameters: any) {
+  loadRepaymentSchedule(parameters: any) {
     let params = new HttpParams();
     params = params.append('loanAmount', parameters.loanAmount);
     params = params.append('loanTerm', parameters.loanTerm);
     return this._httpClient.post(
-      `${environment.apiUrl}/api/v1/cba/apply-loan/1`,
+      `${environment.apiUrl}/api/v1/cba/repayment-schedule/1`,
       {},
       { ...this.options, params: params }
     );

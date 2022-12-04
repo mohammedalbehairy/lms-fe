@@ -6,15 +6,13 @@ import { SharedDataService } from '@core/services/shared-data.service';
 import { TelrAuthenticationService } from '../../services/telr-authentication.service';
 import { MagnatiAuthenticationService } from '../../services/magnati-authentication.service';
 
-
 @Component({
   selector: 'app-provider-login',
   templateUrl: './provider-login.component.html',
-  styleUrls: ['./provider-login.component.scss']
+  styleUrls: ['./provider-login.component.scss'],
 })
 export class ProviderLoginComponent implements OnInit {
 
-  type;
   public basicPwdShow = false;
 
   selectedData = undefined;
@@ -72,9 +70,14 @@ export class ProviderLoginComponent implements OnInit {
     if (this.loginForm.invalid) {
       return;
     }
+    console.log('--------', this.selectedData);
 
     // Login
-    this.authTelr();
+    this.selectedData == 'telr'
+      ? this.authTelr()
+      : this.selectedData == 'magnati'
+      ? this.authMagnati()
+      : undefined;
   }
 
   authTelr() {

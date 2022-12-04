@@ -97,7 +97,8 @@ export class DataApproveComponent implements OnInit {
   }
 
   next() {
-    this._router.navigate(['/loans/initial-approval']);
+    // this._router.navigate(['/loans/initial-approval']);
+    this._router.navigate(['/loans/term']);
   }
 
   back() {

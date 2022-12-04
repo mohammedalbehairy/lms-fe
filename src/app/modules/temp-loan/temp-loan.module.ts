@@ -22,6 +22,7 @@ import { LoanScheduleService } from './services/loan-schedule.service';
 import { InitialApprovalComponent } from './initial-approval/initial-approval.component';
 import { LoanFinalComponent } from './loan-final/loan-final.component';
 import { LoanTermsPageComponent } from './loan-terms/loan-terms-page.component';
+import { NouisliderModule } from 'ng2-nouislider';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { LoanTermsPageComponent } from './loan-terms/loan-terms-page.component';
     ContentHeaderModule,
     CardSnippetModule,
     CsvModule,
+    NouisliderModule
   ],
   providers: [LoanListService, LoanScheduleService],
 })

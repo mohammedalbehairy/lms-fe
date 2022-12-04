@@ -138,7 +138,6 @@ export class PersonalDetailsIdentifcationPageComponent
           this.f.emiratesIDExpiryDate.value[0]
         ).format('DD MMMM YYYY'),
         dateOfBirth: moment(this.f.dateOfBirth.value[0]).format('DD-MM-YYYY'), // TODO: farooq plaiming
-        yearsInUAE: moment(this.f.yearsInUAE.value[0]).format('DD-MMMM-YYYY'),
       },
     };
   }

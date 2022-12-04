@@ -49,7 +49,7 @@ export class AddressComponent implements OnInit {
     this.businessAddressForm = this.formBuilder.group({
       addressLine1: ['', Validators.required],
       addressLine2: [null, Validators.required],
-      city: ["", Validators.required],
+      city: ['', Validators.required],
       postCode: [null],
       countryId: ['', Validators.required],
       jurisdiction: ['mainland-ded'],
@@ -64,13 +64,9 @@ export class AddressComponent implements OnInit {
       (res: any[]) => {
         console.log('========res========', res);
         let providerStep = res.find(
-          (s) =>
-            s.clientRegistrationStepper_cd_stepper_code == 66 ||
-            s.clientRegistrationStepper_cd_stepper_code == 65
+          (s) => s.clientRegistrationStepper_cd_stepper_code == 941
         );
-        providerStep.clientRegistrationStepper_cd_stepper_code == 65
-          ? this.loadMagnatiData()
-          : this.loadTelrData();
+        providerStep ? this.loadMagnatiData() : this.loadTelrData();
       },
       (err) => {
         console.log('========err========', err);
