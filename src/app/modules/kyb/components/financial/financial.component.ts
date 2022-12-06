@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import {
+  FormControl,
   UntypedFormBuilder,
   UntypedFormGroup,
   Validators,
@@ -63,6 +64,17 @@ export class FinancialComponent implements OnInit {
         console.log(err);
       }
     );
+  }
+
+  outstandingLoansChange(event) {
+    if (event.target.value == 'true') {
+      this.businessFinancialForm.addControl(
+        'outstandingAmount',
+        new FormControl('', [Validators.required])
+      );
+    } else {
+      this.businessFinancialForm.removeControl('outstandingAmount');
+    }
   }
 
   getCleanValue() {
