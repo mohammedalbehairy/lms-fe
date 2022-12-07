@@ -62,10 +62,11 @@ export class LoanTermsPageComponent implements OnInit {
   loadScoring() {
     this._scoringService.loadScore().subscribe(
       (res: any) => {
-        this.maxLoanAmount = Math.ceil(res.maxLoanAmount);
+        this.maxLoanAmount =
+          Math.ceil(res.maxLoanAmount) < 100000
+            ? Math.ceil(res.maxLoanAmount)
+            : 100000;
         this.minTenure = res.minTenure;
-        console.log(res);
-
         this.loadRS();
       },
       (err) => {
