@@ -45,7 +45,7 @@
         <select id="businessCategory" formControlName="businessCategory" class="form-control"
           [ngClass]="{ 'is-invalid': submitted && f.businessCategory.errors }" placeholder='Select'>
           <option value="" [selected]="true" [disabled]="true">Select Category</option>
-          <option value="{{item.id}}" *ngFor="let item of businessCategory">{{item.name}}</option>
+          <option value="{{item.id}}" *ngFor="let item of businessCategory">{{item.description}}</option>
         </select>
         <div *ngIf="submitted && f.businessCategory.errors" class="invalid-feedback">
           <div *ngIf="f.businessCategory.errors.required">Business Category is required</div>
