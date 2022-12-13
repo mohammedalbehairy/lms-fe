@@ -16,6 +16,9 @@
             <label class="custom-file-label input-form">Please choose file</label>
           </div>
         </fieldset>
+        <span *ngIf="f.tradeLicenseFile.value">
+          <small class="form-text text-primary">Uploaded successfully</small>
+        </span>
         <span *ngIf="submitted && f.tradeLicenseFile.errors" class="invalid-form">
           <small class="form-text text-danger" *ngIf="f.tradeLicenseFile.errors.required">This field is required</small>
         </span>
@@ -41,6 +44,9 @@
             <label class="custom-file-label input-form">Please choose file</label>
           </div>
         </fieldset>
+        <span *ngIf="f.moa.value">
+          <small class="form-text text-primary">Uploaded successfully</small>
+        </span>
         <span *ngIf="submitted && f.moa.errors" class="invalid-form">
           <small class="form-text text-danger" *ngIf="f.moa.errors.required">This field is required</small>
         </span>
@@ -55,10 +61,9 @@
             <label class="custom-file-label input-form">Please choose file</label>
           </div>
         </fieldset>
-        <!-- <span *ngIf="submitted && f.bankStatementFromTo.errors" class="invalid-form">
-          <small class="form-text text-danger" *ngIf="f.bankStatementFromTo.errors.required">This field is
-            required</small>
-        </span> -->
+        <span *ngIf="f.bankStatementFromTo.value">
+          <small class="form-text text-primary">Uploaded successfully</small>
+        </span>
       </div>
 
       <div class="form-group col-md-4">
@@ -70,6 +75,9 @@
             <label class="custom-file-label input-form">Please choose file</label>
           </div>
         </fieldset>
+        <span *ngIf="f.ejariOrLeaseAgreement.value">
+          <small class="form-text text-primary">Uploaded successfully</small>
+        </span>
         <span *ngIf="submitted && f.ejariOrLeaseAgreement.errors" class="invalid-form">
           <small class="form-text text-danger" *ngIf="f.ejariOrLeaseAgreement.errors.required">This field is
             required</small>
@@ -96,6 +104,9 @@
             <label class="custom-file-label input-form">Please choose file</label>
           </div>
         </fieldset>
+        <span *ngIf="f.vatForm.value">
+          <small class="form-text text-primary">Uploaded successfully</small>
+        </span>
         <span *ngIf="submitted && f.vatForm.errors" class="invalid-form">
           <small class="form-text text-danger" *ngIf="f.vatForm.errors.required">This field is
             required</small>
