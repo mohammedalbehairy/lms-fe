@@ -63,4 +63,9 @@ export class RepaymentScheduleComponent implements OnInit {
       }
     );
   }
+
+  sum(cells: number[]): number {
+    const filteredCells = cells.filter((cell) => !!cell);
+    return Math.floor(filteredCells.reduce((sum, cell) => (sum += cell), 0));
+  }
 }
