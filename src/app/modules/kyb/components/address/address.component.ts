@@ -117,29 +117,52 @@ export class AddressComponent implements OnInit {
   }
 
   getCodes() {
-    console.log('-------------getCodes----------------');
-
-    return forkJoin([
-      this._codesService.loadCode(28),
-      this._codesService.loadCode(287),
-    ])
+    return forkJoin([this._codesService.loadCode(28)])
       .pipe(
         map((res) => {
           return {
-            countries: res[0],
-            cities: res[1],
+            countries: (res[0] as any[]).filter((c) => c.active == true),
           };
         })
       )
       .subscribe(
         (res: any) => {
           this.countries = res.countries;
+        },
+        (err) => {
+          console.log(err);
+        }
+      );
+  }
+
+  getCities(code: number) {
+    return this._codesService
+      .loadCode(code)
+      .pipe(
+        map((res) => {
+          return {
+            cities: res,
+          };
+        })
+      )
+      .subscribe(
+        (res: any) => {
           this.cities = res.cities;
         },
         (err) => {
           console.log(err);
         }
       );
+  }
+
+  onCountryChange(event) {
+    let val = event ? event.target.value : '';
+
+    val == 1561
+      ? this.getCities(288)
+      : val == 1725
+      ? this.getCities(287)
+      : (this.cities = []);
   }
 
   onSubmit() {

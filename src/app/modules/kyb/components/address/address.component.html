@@ -35,7 +35,7 @@
             <div class="form-group col-md-4">
                 <label class="form-label Fo-14" for="countryId">Country *</label>
                 <select id="countryId" formControlName="countryId" class="form-control"
-                    [ngClass]="{ 'is-invalid': submitted && f.countryId.errors }" placeholder='Select'>
+                    [ngClass]="{ 'is-invalid': submitted && f.countryId.errors }" placeholder='Select' (change)="onCountryChange($event)">
                     <option value="" [selected]="true" [disabled]="true">Select Country</option>
                     <option value="{{item.id}}" *ngFor="let item of countries">{{item.description}}</option>
                 </select>

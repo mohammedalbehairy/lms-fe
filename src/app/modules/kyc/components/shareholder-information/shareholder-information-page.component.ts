@@ -83,7 +83,7 @@ export class ShareholderInformationPageComponent
       .pipe(
         map((res) => {
           return {
-            countries: res[0],
+            countries: (res[0] as any[]).filter((c) => c.active == true),
           };
         })
       )
