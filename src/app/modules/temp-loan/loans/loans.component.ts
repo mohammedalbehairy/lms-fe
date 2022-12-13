@@ -4,7 +4,6 @@ import { ColumnMode, DatatableComponent } from '@swimlane/ngx-datatable';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { LoanListService } from '../services/loan-list.service';
-import { LoansService } from '../services/loans.service';
 
 @Component({
   selector: 'app-loans',

@@ -158,9 +158,7 @@ export class MobileVerificationComponent implements OnInit {
           this.loading = false;
           this._authenticationService.login_temp(response);
 
-          this._router.navigate(['/auth/home/consent']);
-
-          // this.controlRedirection();
+          this.controlRedirection();
         },
         (error) => {
           this.resetVerificationForm();
@@ -298,34 +296,47 @@ export class MobileVerificationComponent implements OnInit {
   }
 
   controlRedirection() {
-    this._redirectionService.getStepsStatus().subscribe(
+    this._redirectionService.getAppliedLoans().subscribe(
       (res: any[]) => {
-        //TODO: review again and complete
-
-        if (this.checkSkip(res, 39)) {
+        if (res.length > 0) {
+          this._router.navigate(['/loans/list']);
+        } else {
           this._router.navigate(['/auth/home/consent']);
-        } else if (this.gotoPartners(res)) {
-          this._router.navigate(['/partners/revenue']);
-        } else if (this.checkSkip(res, 18)) {
-          this._router.navigate(['/kyb/businessdetails']);
-        } else if (this.checkSkip(res, 19)) {
-          this._router.navigate(['/kyb/businessaddress']);
-        } else if (this.checkSkip(res, 36)) {
-          this._router.navigate(['/kyb/financialinfo']);
-        } else if (this.checkSkip(res, 21)) {
-          this._router.navigate(['/kyb/otherinfo']);
-        } else if (this.checkSkip(res, 35)) {
-          this._router.navigate(['/kyb/otherinfo2']);
-        } else if (this.checkSkip(res, 24)) {
-          this._router.navigate(['/kyb/uploaddocs']);
-        } else if (this.checkSkip(res, 24)) {
-          this._router.navigate(['/kyb/uploaddocs']);
         }
       },
       (err) => {
-        console.log('---controlRedirection---err------');
+        console.log(err);
       }
     );
+
+    // this._redirectionService.getStepsStatus().subscribe(
+    //   (res: any[]) => {
+    //     //TODO: review again and complete
+
+    //     if (this.checkSkip(res, 39)) {
+    //       this._router.navigate(['/auth/home/consent']);
+    //     } else if (this.gotoPartners(res)) {
+    //       this._router.navigate(['/partners/revenue']);
+    //     } else if (this.checkSkip(res, 18)) {
+    //       this._router.navigate(['/kyb/businessdetails']);
+    //     } else if (this.checkSkip(res, 19)) {
+    //       this._router.navigate(['/kyb/businessaddress']);
+    //     } else if (this.checkSkip(res, 36)) {
+    //       this._router.navigate(['/kyb/financialinfo']);
+    //     } else if (this.checkSkip(res, 21)) {
+    //       this._router.navigate(['/kyb/otherinfo']);
+    //     } else if (this.checkSkip(res, 35)) {
+    //       this._router.navigate(['/kyb/otherinfo2']);
+    //     } else if (this.checkSkip(res, 24)) {
+    //       this._router.navigate(['/kyb/uploaddocs']);
+    //     } else if (this.checkSkip(res, 24)) {
+    //       this._router.navigate(['/kyb/uploaddocs']);
+    //     }
+    //   },
+    //   (err) => {
+    //     console.log('---controlRedirection---err------');
+    //   }
+    // );
   }
 
   checkSkip(arr: any[], code: number) {
