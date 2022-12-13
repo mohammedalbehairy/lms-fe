@@ -48,12 +48,12 @@ export class AddressComponent implements OnInit {
     // Reactive form initialization
     this.businessAddressForm = this.formBuilder.group({
       addressLine1: ['', Validators.required],
-      addressLine2: [null, Validators.required],
+      addressLine2: [null],
       city: ['', Validators.required],
       postCode: [null],
       countryId: ['', Validators.required],
       jurisdiction: ['mainland-ded'],
-      landLineNumber: ['', Validators.required],
+      landLineNumber: [''],
       dataCorrect: ['true', Validators.required],
       comment: [''],
     });
@@ -62,7 +62,6 @@ export class AddressComponent implements OnInit {
   loadDataFromProvider() {
     this._userStatusService.getStepperStatus().subscribe(
       (res: any[]) => {
-        console.log('========res========', res);
         let providerStep = res.find(
           (s) => s.clientRegistrationStepper_cd_stepper_code == 941
         );

@@ -19,13 +19,10 @@
       </div>
 
       <div class="form-group col-md-4">
-        <label class="form-label Fo-14" for="addressLine2">Address Line 2 *</label>
+        <label class="form-label Fo-14" for="addressLine2">Address Line 2</label>
         <input formControlName='addressLine2' [ngClass]="{ 'is-invalid': submitted && f.addressLine2.errors }"
           type="text" name="addressLine2" id="addressLine2" class="form-control input-form"
           placeholder="Your Address in UAE" />
-        <span *ngIf="submitted && f.addressLine2.errors" class="invalid-form">
-          <small class="form-text text-danger" *ngIf="f.addressLine2.errors.required">This field is required</small>
-        </span>
       </div>
 
       <div class="form-group col-md-4">
@@ -37,14 +34,14 @@
       <div class="form-group col-md-4">
         <label class="form-label Fo-14" for="countryId">Country *</label>
         <select id="countryId" formControlName="countryId" class="form-control"
-            [ngClass]="{ 'is-invalid': submitted && f.countryId.errors }" placeholder='Select'>
-            <option value="" [selected]="true" [disabled]="true">Select Country</option>
-            <option value="{{item.id}}" *ngFor="let item of countries">{{item.description}}</option>
+          [ngClass]="{ 'is-invalid': submitted && f.countryId.errors }" placeholder='Select'>
+          <option value="" [selected]="true" [disabled]="true">Select Country</option>
+          <option value="{{item.id}}" *ngFor="let item of countries">{{item.description}}</option>
         </select>
         <div *ngIf="submitted && f.countryId.errors" class="invalid-feedback">
-            <div *ngIf="f.country.errors.required">Country is required</div>
+          <div *ngIf="f.country.errors.required">Country is required</div>
         </div>
-    </div>
+      </div>
 
       <div class="form-group col-md-4">
         <label class="form-label Fo-14" for="city">City *</label>
@@ -52,7 +49,7 @@
           [ngClass]="{ 'is-invalid': submitted && f.city.errors }" placeholder='Select'>
           <option value="" [selected]="true" [disabled]="true">Select City</option>
           <option value="{{item.id}}" *ngFor="let item of cities">{{item.description}}</option>
-          
+
         </select>
         <div *ngIf="submitted && f.city.errors" class="invalid-feedback">
           <div *ngIf="f.city.errors.required">City is required</div>

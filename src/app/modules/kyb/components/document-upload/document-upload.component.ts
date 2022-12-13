@@ -60,10 +60,10 @@ export class DocumentUploadComponent implements OnInit, AfterContentChecked {
       tradeLicenseFile: [null, Validators.required],
       tradeLicenseExpiryDate: [null, Validators.required],
       moa: [null, Validators.required],
-      bankStatementFromTo: [null, Validators.required],
+      bankStatementFromTo: [null],
       ejariOrLeaseAgreement: [null, Validators.required],
       expiryDate: [null, Validators.required],
-      vatForm: [null],
+      vatForm: [null, Validators.required],
     });
   }
 

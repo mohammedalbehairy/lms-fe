@@ -40,7 +40,7 @@ export class PersonalDetailsHomeAddressPageComponent implements OnInit {
     // Reactive form initialization
     this.infoForm = this.formBuilder.group({
       addressLine1: [null, Validators.required],
-      addressLine2: [null, Validators.required],
+      addressLine2: [null],
       city: ["", Validators.required],
       postCode: [null],
       countryId: ['', Validators.required],

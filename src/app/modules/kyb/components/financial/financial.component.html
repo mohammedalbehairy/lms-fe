@@ -44,9 +44,7 @@
 
             <div class="form-group col-md-4">
                 <label class="form-label Fo-14" for="outstandingLoans">Do your business have any outstanding loans?
-                    (Exclude credit
-                    card
-                    debt) *</label>
+                    (Exclude credit card debt) *</label>
                 <div class="display-flex">
                     <div class="custom-control custom-radio mr-md-1 mt-md-0 mt-1">
                         <input formControlName="outstandingLoans" value="true" type="radio" id="true"
@@ -88,8 +86,7 @@
 
             <div class="form-group col-md-4">
                 <label for="currentPaymentCycle">Current payment settlement cycle with channel - i.e. How often do you
-                    get
-                    settlements? *</label>
+                    get settlements? *</label>
                 <select id="currentPaymentCycle" formControlName="currentPaymentCycle" class="form-control"
                     [ngClass]="{ 'is-invalid': submitted && f.currentPaymentCycle.errors }" placeholder='Select'>
                     <option value="" [selected]="true" [disabled]="true">Select Type</option>
@@ -98,7 +95,7 @@
                     <option value="2">Monthly</option>
                 </select>
                 <div *ngIf="submitted && f.currentPaymentCycle.errors" class="invalid-feedback">
-                    <div *ngIf="f.currentPaymentCycle.errors.required">Incorporation Type is required</div>
+                    <div *ngIf="f.currentPaymentCycle.errors.required">This field is required</div>
                 </div>
             </div>
 

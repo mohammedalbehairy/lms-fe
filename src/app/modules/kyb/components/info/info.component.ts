@@ -70,7 +70,7 @@ export class InfoComponent implements OnInit, AfterContentChecked {
       businessCategory: ['', Validators.required],
       tradingType: ['', Validators.required],
       retailOutletsCount: [null],
-      tradeLicenseNumber: ['', Validators.required],
+      tradeLicenseNumber: [null, Validators.required],
       dataCorrect: ['true', Validators.required],
       comment: [''],
     });
@@ -108,7 +108,6 @@ export class InfoComponent implements OnInit, AfterContentChecked {
   loadDataFromProvider() {
     this._userStatusService.getStepperStatus().subscribe(
       (res: any[]) => {
-        console.log('========res========', res);
         let providerStep = res.find(
           (s) => s.clientRegistrationStepper_cd_stepper_code == 941
         );
@@ -121,8 +120,6 @@ export class InfoComponent implements OnInit, AfterContentChecked {
   }
 
   loadMagnatiData() {
-    console.log('============loadMagnatiData==============');
-
     this._kybService.loadMagnatiBD().subscribe(
       (res: any) => {
         this.patchFormMagnatiValues(res);

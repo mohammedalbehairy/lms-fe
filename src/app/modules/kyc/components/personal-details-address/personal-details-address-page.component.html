@@ -19,17 +19,14 @@
       </div>
 
       <div class="form-group col-md-4">
-        <label class="form-label Fo-14" for="addressLine2">Address Line 2 *</label>
+        <label class="form-label Fo-14" for="addressLine2">Address Line 2</label>
         <input formControlName='addressLine2' [ngClass]="{ 'is-invalid': submitted && f.addressLine2.errors }"
           type="text" name="addressLine2" id="addressLine2" class="form-control input-form"
           placeholder="Your Address in UAE" />
-        <span *ngIf="submitted && f.addressLine2.errors" class="invalid-form">
-          <small class="form-text text-danger" *ngIf="f.addressLine2.errors.required">This field is required</small>
-        </span>
       </div>
 
       <div class="form-group col-md-4">
-        <label class="form-label Fo-14" for="addressLine3">Address Line 3 *</label>
+        <label class="form-label Fo-14" for="addressLine3">Address Line 3</label>
         <input formControlName='addressLine3' [ngClass]="{ 'is-invalid': submitted && f.addressLine3.errors }"
           type="text" name="addressLine3" id="addressLine3" class="form-control input-form"
           placeholder="Your Address in UAE" />
@@ -39,10 +36,11 @@
       </div>
 
       <div class="form-group col-md-4">
-        <label class="form-label Fo-14" for="postCode">Potal Code</label>
-        <input formControlName='postCode' [ngClass]="{ 'is-invalid': submitted && f.postCode.errors }" type="text"
-          name="postCode" id="postCode" class="form-control input-form" placeholder="00000" />
-      </div>
+        <label class="form-label Fo-14" for="postCode">Postal Code</label>
+        <input type="number" name="postCode" id="postCode" class="form-control input-form"
+            formControlName='postCode' [ngClass]="{ 'is-invalid': submitted && f.postCode.errors }"
+            placeholder="Postal Code" />
+    </div>
 
       <div class="form-group col-md-4">
         <label class="form-label Fo-14" for="countryId">Country *</label>

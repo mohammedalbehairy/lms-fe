@@ -77,15 +77,14 @@
 
       <div class="form-group col-md-4">
         <label class="form-label Fo-14" for="tradeLicenseNumber">Trade License Number *</label>
-        <input type="text" name="tradeLicenseNumber" id="tradeLicenseNumber" class="form-control input-form"
+        <input type="number" name="tradeLicenseNumber" id="tradeLicenseNumber" class="form-control input-form"
           formControlName='tradeLicenseNumber' [ngClass]="{ 'is-invalid': submitted && f.tradeLicenseNumber.errors }"
-          placeholder="Licence number" />
+          placeholder="Postal Code" />
 
         <div *ngIf="submitted && f.tradeLicenseNumber.errors" class="invalid-feedback">
           <div *ngIf="f.tradeLicenseNumber.errors.required">Trade License Number is required</div>
         </div>
       </div>
-
 
 
     </div>

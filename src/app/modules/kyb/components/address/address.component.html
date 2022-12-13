@@ -18,21 +18,19 @@
             </div>
 
             <div class="form-group col-md-4">
-                <label class="form-label Fo-14" for="addressLine2">Address Line 2 *</label>
+                <label class="form-label Fo-14" for="addressLine2">Address Line 2</label>
                 <input formControlName='addressLine2' [ngClass]="{ 'is-invalid': submitted && f.addressLine2.errors }"
                     type="text" name="addressLine2" id="addressLine2" class="form-control input-form"
                     placeholder="Your second address" />
-                <span *ngIf="submitted && f.addressLine2.errors" class="invalid-form">
-                    <small class="form-text text-danger" *ngIf="f.addressLine2.errors.required">Address Line 2 is
-                        required!</small>
-                </span>
             </div>
 
             <div class="form-group col-md-4">
                 <label class="form-label Fo-14" for="postCode">Postal Code</label>
-                <input formControlName='postCode' type="text" name="postCode" id="postCode"
-                    class="form-control input-form" placeholder="12345" />
+                <input type="number" name="postCode" id="postCode" class="form-control input-form"
+                    formControlName='postCode' [ngClass]="{ 'is-invalid': submitted && f.postCode.errors }"
+                    placeholder="Number of outlets" />
             </div>
+
 
             <div class="form-group col-md-4">
                 <label class="form-label Fo-14" for="countryId">Country *</label>
@@ -52,7 +50,7 @@
                     [ngClass]="{ 'is-invalid': submitted && f.city.errors }" placeholder='Select'>
                     <option value="" [selected]="true" [disabled]="true">Select City</option>
                     <option value="{{item.id}}" *ngFor="let item of cities">{{item.description}}</option>
-                    
+
                 </select>
                 <div *ngIf="submitted && f.city.errors" class="invalid-feedback">
                     <div *ngIf="f.city.errors.required">City is required</div>
@@ -76,15 +74,15 @@
             </div>
 
             <div class="form-group col-md-4">
-                <label class="form-label Fo-14" for="landLineNumber">LandLine Number *</label>
+                <label class="form-label Fo-14" for="landLineNumber">LandLine Number</label>
                 <input formControlName="landLineNumber" type="text" name="landLineNumber" id="landLineNumber"
                     class="form-control input-form" placeholder="Phone or landline  05xxxxxxx"
                     [ngClass]="{ 'is-invalid': submitted && f.landLineNumber.errors }" type="text" name="landLineNumber"
                     id="landLineNumber" class="form-control input-form" />
-                <span *ngIf="submitted && f.landLineNumber.errors" class="invalid-form">
+                <!-- <span *ngIf="submitted && f.landLineNumber.errors" class="invalid-form">
                     <small class="form-text text-danger" *ngIf="f.landLineNumber.errors.required">LandLine Number is
                         required!</small>
-                </span>
+                </span> -->
             </div>
 
         </div>
@@ -108,9 +106,8 @@
         </div>
 
         <div class="form-group col-md-12" [hidden]="dataCorrect == 'true'">
-            <textarea type="text" name="comment" id="comment" class="form-control input-form"
-                formControlName='comment' [ngClass]="{ 'is-invalid': submitted && f.comment.errors }"
-                placeholder="Comments here .........">
+            <textarea type="text" name="comment" id="comment" class="form-control input-form" formControlName='comment'
+                [ngClass]="{ 'is-invalid': submitted && f.comment.errors }" placeholder="Comments here .........">
       </textarea>
 
             <div *ngIf="submitted && f.comment.errors" class="invalid-feedback">

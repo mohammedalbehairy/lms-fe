@@ -48,17 +48,17 @@
 
       <div class="form-group col-md-4">
         <fieldset>
-          <label for="bankStatementFromTo" class="Fo-14">Bank Statement from Month xx to Month xx *</label>
+          <label for="bankStatementFromTo" class="Fo-14">Bank Statement from Month xx to Month xx</label>
           <div class="custom-file">
             <input type="file" [ngClass]="{ 'is-invalid': submitted && f.bankStatementFromTo.errors }"
               class="custom-file-input input-form" id="bankStatementFromTo" (change)="uploadFile($event)" />
             <label class="custom-file-label input-form">Please choose file</label>
           </div>
         </fieldset>
-        <span *ngIf="submitted && f.bankStatementFromTo.errors" class="invalid-form">
+        <!-- <span *ngIf="submitted && f.bankStatementFromTo.errors" class="invalid-form">
           <small class="form-text text-danger" *ngIf="f.bankStatementFromTo.errors.required">This field is
             required</small>
-        </span>
+        </span> -->
       </div>
 
       <div class="form-group col-md-4">
@@ -89,13 +89,17 @@
 
       <div class="form-group col-md-4">
         <fieldset>
-          <label for="vatForm" class="Fo-14">VAT Form</label>
+          <label for="vatForm" class="Fo-14">VAT Form *</label>
           <div class="custom-file">
             <input type="file" [ngClass]="{ 'is-invalid': submitted && f.vatForm.errors }"
               class="custom-file-input input-form" id="vatForm" (change)="uploadFile($event)" />
             <label class="custom-file-label input-form">Please choose file</label>
           </div>
         </fieldset>
+        <span *ngIf="submitted && f.vatForm.errors" class="invalid-form">
+          <small class="form-text text-danger" *ngIf="f.vatForm.errors.required">This field is
+            required</small>
+        </span>
       </div>
     </div>
 
