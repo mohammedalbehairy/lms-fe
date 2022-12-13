@@ -77,13 +77,11 @@ export class ShareholderInformationPageComponent
   }
 
   getCodes() {
-    console.log('-------------getCodes----------------');
-
     return forkJoin([this._codesService.loadCode(28)])
       .pipe(
         map((res) => {
           return {
-            countries: (res[0] as any[]).filter((c) => c.active == true),
+            countries: res[0],
           };
         })
       )
