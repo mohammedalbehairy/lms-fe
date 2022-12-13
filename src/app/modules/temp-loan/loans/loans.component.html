@@ -22,22 +22,32 @@
                 <ngx-datatable [rows]="rows" [rowHeight]="50" class="bootstrap core-bootstrap" [limit]="selectedOption"
                     [columnMode]="ColumnMode.force" [headerHeight]="50" [footerHeight]="50" [scrollbarH]="true">
 
-                    <ngx-datatable-column name="Name" prop="name"></ngx-datatable-column>
-                    <ngx-datatable-column name="Description" prop="description"></ngx-datatable-column>
+                    <!-- <ngx-datatable-column name="Name" prop="name"></ngx-datatable-column>
+                    <ngx-datatable-column name="Description" prop="description"></ngx-datatable-column> -->
                     <!-- <ngx-datatable-column name="FundName" prop="fundName"></ngx-datatable-column> -->
-                    <ngx-datatable-column name="Min Principal" prop="minPrincipal"></ngx-datatable-column>
+                    <!-- <ngx-datatable-column name="Min Principal" prop="minPrincipal"></ngx-datatable-column>
                     <ngx-datatable-column name="Max Principal" prop="maxPrincipal"></ngx-datatable-column>
                     <ngx-datatable-column name="Max Number Of Repayments" prop="maxNumberOfRepayments">
                     </ngx-datatable-column>
                     <ngx-datatable-column name="Min Number Of Repayments" prop="minNumberOfRepayments">
                     </ngx-datatable-column>
                     <ngx-datatable-column name="Close Date" prop="closeDate"></ngx-datatable-column>
-                    <ngx-datatable-column name="Status" prop="status"></ngx-datatable-column>
+                    <ngx-datatable-column name="Status" prop="status"></ngx-datatable-column> -->
+
+                    <ngx-datatable-column name="Short Name" prop="shortProductName"></ngx-datatable-column>
+                    <ngx-datatable-column name="Product Name" prop="productName"></ngx-datatable-column>
+                    <ngx-datatable-column name="Status" prop="status.value"></ngx-datatable-column>
+
+                    <ngx-datatable-column name="Expected Disbursement Date" prop="timeline.expectedDisbursementDate">
+                    </ngx-datatable-column>
+                    <ngx-datatable-column name="Expected Maturity Date" prop="timeline.expectedMaturityDate">
+                    </ngx-datatable-column>
+                    <ngx-datatable-column name="In Arrears" prop="inArrears"></ngx-datatable-column>
 
                     <ngx-datatable-column name="Actions" [sortable]="false">
                         <ng-template ngx-datatable-cell-template let-row="row">
                             <div class="d-flex align-items-center col-actions">
-                                <a class="mr-1" routerLink="/loans/schedule" container="body" placement="top"
+                                <a class="mr-1" routerLink="/loans/{{row.id}}/schedule" container="body" placement="top"
                                     ngbTooltip="View Repayment Schedule"><i size="18" data-feather="eye"></i></a>
                             </div>
                         </ng-template>

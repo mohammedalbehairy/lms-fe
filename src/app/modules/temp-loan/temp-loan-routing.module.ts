@@ -3,24 +3,25 @@ import { RouterModule, Routes } from '@angular/router';
 import { InitialApprovalComponent } from './initial-approval/initial-approval.component';
 import { LoanFinalComponent } from './loan-final/loan-final.component';
 import { LoanTermsPageComponent } from './loan-terms/loan-terms-page.component';
+import { LoansComponent } from './loans/loans.component';
+import { RepaymentScheduleComponent } from './repayment-schedule/repayment-schedule.component';
+import { LoanListService } from './services/loan-list.service';
+import { LoanScheduleService } from './services/loan-schedule.service';
 
 const routes: Routes = [
-  // {
-  //   path: 'list',
-  //   component: LoansComponent,
-  //   resolve: {
-  //     lls: LoanListService,
-  //   },
-  //   data: { animation: 'UserListComponent' },
-  // },
-  // {
-  //   path: 'schedule',
-  //   component: RepaymentScheduleComponent,
-  //   resolve: {
-  //     lss: LoanScheduleService,
-  //   },
-  //   data: { animation: 'UserListComponent' },
-  // },
+  {
+    path: 'list',
+    component: LoansComponent,
+    resolve: {
+      lls: LoanListService,
+    },
+    data: { animation: 'UserListComponent' },
+  },
+  {
+    path: ':id/schedule',
+    component: RepaymentScheduleComponent,
+    data: { animation: 'UserListComponent' },
+  },
   {
     path: 'initial-approval',
     component: InitialApprovalComponent,

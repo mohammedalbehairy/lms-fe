@@ -53,9 +53,9 @@ export class LoanListService implements Resolve<any> {
 
     return new Promise((resolve, reject) => {
       this._httpClient
-        .get(`${environment.apiUrl}/api/v1/cba/loan-product`, this.options)
+        .get(`${environment.apiUrl}/api/v1/cba/loan`, this.options)
         .subscribe((response: any) => {
-          this.rows = [response];
+          this.rows = response;
           this.onLoanListChanged.next(this.rows);
           resolve(this.rows);
         }, reject);

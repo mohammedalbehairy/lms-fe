@@ -1,9 +1,7 @@
 import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
-import { CoreConfigService } from '@core/services/config.service';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ColumnMode, DatatableComponent } from '@swimlane/ngx-datatable';
-import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
-import { LoanScheduleService } from '../services/loan-schedule.service';
+import { RepaymentScheduleService } from '../services/repayment-schedule.service';
 
 @Component({
   selector: 'app-repayment-schedule',
@@ -22,10 +20,9 @@ export class RepaymentScheduleComponent implements OnInit {
 
   // private
   private tempData = [];
-  private _unsubscribeAll: Subject<any>;
+
   public rows;
-  public tempFilterData;
-  public previousStatusFilter = '';
+  public id;
 
   /**
    * Constructor
@@ -35,56 +32,35 @@ export class RepaymentScheduleComponent implements OnInit {
    * @param {LoanListService} _loanListService
    */
   constructor(
-    private _loanListService: LoanScheduleService,
-    private _coreConfigService: CoreConfigService
-  ) {
-    this._unsubscribeAll = new Subject();
+    private _route: ActivatedRoute,
+    private _router: Router,
+    private _repaymentScheduleService: RepaymentScheduleService
+  ) {}
+
+  // Lifecycle Hooks
+  // -----------------------------------------------------------------------------------------------------
+
+  ngOnInit(): void {
+    this.id = this._route.snapshot.paramMap.get('id');
+    if (!this.id) {
+      this._router.navigate([`/loans`]);
+    }
+    this.loadRS(this.id);
   }
 
   // Public Methods
   // -----------------------------------------------------------------------------------------------------
 
-  // Lifecycle Hooks
-  // -----------------------------------------------------------------------------------------------------
-  /**
-   * On init
-   */
-  ngOnInit(): void {
-    // Subscribe config change
-    this._coreConfigService.config
-      .pipe(takeUntil(this._unsubscribeAll))
-      .subscribe((config) => {
-        // If we have zoomIn route Transition then load datatable after 450ms(Transition will finish in 400ms)
-        if (config.layout.animation === 'zoomIn') {
-          setTimeout(() => {
-            this._loanListService.onLoanScheduleChanged
-              .pipe(takeUntil(this._unsubscribeAll))
-              .subscribe((response) => {
-                this.data = response.periods;
-                this.rows = this.data;
-                this.tempData = this.rows;
-              });
-          }, 450);
-        } else {
-          this._loanListService.onLoanScheduleChanged
-            .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe((response) => {
-              console.log('======response========', response);
-
-              this.data = response.periods;
-              this.rows = this.data;
-              this.tempData = this.rows;
-            });
-        }
-      });
-  }
-
-  /**
-   * On destroy
-   */
-  ngOnDestroy(): void {
-    // Unsubscribe from all subscriptions
-    this._unsubscribeAll.next();
-    this._unsubscribeAll.complete();
+  loadRS(id) {
+    this._repaymentScheduleService.getRepaymentSchedule(id).subscribe(
+      (res: any) => {
+        this.data = res.periods;
+        this.rows = this.data;
+        this.tempData = this.rows;
+      },
+      (err) => {
+        console.log('=========err=========');
+      }
+    );
   }
 }

@@ -26,4 +26,11 @@ export class RepaymentScheduleService {
       { ...this.options, params: params }
     );
   }
+
+  getRepaymentSchedule(id) {
+    return this._httpClient.get(
+      `${environment.apiUrl}/api/v1/cba/repayment-schedule/${id}`,
+      this.options
+    );
+  }
 }
