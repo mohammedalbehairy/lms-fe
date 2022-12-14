@@ -25,10 +25,12 @@ export class DocumentUploadComponent implements OnInit, AfterContentChecked {
   public tradeLicenseExpiryDateOptions: any = {
     altInput: true,
     altFormat: 'j/m/Y',
+    minDate: moment().add(1, 'days').format("YYYY-MM-DD"),
   };
   public expiryDate: any = {
     altInput: true,
     altFormat: 'j/m/Y',
+    minDate: moment().add(1, 'days').format("YYYY-MM-DD"),
   };
   public tradeLicenseExpDate = '2010-05-11';
   public expDate = '2010-05-11';

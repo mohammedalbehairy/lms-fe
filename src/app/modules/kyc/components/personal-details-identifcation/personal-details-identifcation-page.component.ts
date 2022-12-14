@@ -30,6 +30,7 @@ export class PersonalDetailsIdentifcationPageComponent
   public emiratesIDExpiryDateOptions: any = {
     altInput: true,
     altFormat: 'j/m/Y',
+    minDate: moment().add(1, 'days').format("YYYY-MM-DD"),
   };
   public dateOfBirthOptions: any = {
     altInput: true,
