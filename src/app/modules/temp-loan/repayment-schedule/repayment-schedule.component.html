@@ -23,22 +23,41 @@
                     [columnMode]="ColumnMode.force" [headerHeight]="50" [footerHeight]="50" [scrollbarH]="true"
                     [summaryRow]="true" [summaryHeight]="55" [summaryPosition]="'bottom'">
 
-                    <ngx-datatable-column name="Days" prop="daysInPeriod"></ngx-datatable-column>
+                    <ngx-datatable-column name="Days" prop="daysInPeriod" [summaryTemplate]="daysSummary">
+                    </ngx-datatable-column>
                     <ngx-datatable-column name="Date" prop="dueDate"></ngx-datatable-column>
                     <ngx-datatable-column name="Paid Date" prop="obligationsMetOnDate"></ngx-datatable-column>
-                    <ngx-datatable-column name="Principal Due" prop="principalDue" [summaryFunc]="sum"></ngx-datatable-column>
-                    <ngx-datatable-column name="Balance Of Loan" prop="principalLoanBalanceOutstanding" [summaryFunc]="sum">
+                    <ngx-datatable-column name="Principal Due" prop="principalDue" [summaryFunc]="sum">
                     </ngx-datatable-column>
-                    <ngx-datatable-column name="Interest" prop="interestOriginalDue" [summaryFunc]="sum"></ngx-datatable-column>
+                    <ngx-datatable-column name="Balance Of Loan" prop="principalLoanBalanceOutstanding"
+                        [summaryFunc]="sum">
+                    </ngx-datatable-column>
+                    <ngx-datatable-column name="Interest" prop="interestOriginalDue" [summaryFunc]="sum">
+                    </ngx-datatable-column>
                     <ngx-datatable-column name="Fees" prop="feeChargesDue" [summaryFunc]="sum"></ngx-datatable-column>
-                    <ngx-datatable-column name="Penalties" prop="penaltyChargesDue" [summaryFunc]="sum"></ngx-datatable-column>
-                    <ngx-datatable-column name="Due" prop="totalDueForPeriod" [summaryFunc]="sum"></ngx-datatable-column>
-                    <ngx-datatable-column name="Paid" prop="totalPaidForPeriod" [summaryFunc]="sum"></ngx-datatable-column>
-                    <ngx-datatable-column name="In Advance" prop="totalPaidInAdvanceForPeriod" [summaryFunc]="sum"></ngx-datatable-column>
-                    <ngx-datatable-column name="Late" prop="totalPaidLateForPeriod" [summaryFunc]="sum"></ngx-datatable-column>
-                    <ngx-datatable-column name="Outstanding" prop="totalOutstandingForPeriod" [summaryFunc]="sum"></ngx-datatable-column>
+                    <ngx-datatable-column name="Penalties" prop="penaltyChargesDue" [summaryFunc]="sum">
+                    </ngx-datatable-column>
+                    <ngx-datatable-column name="Due" prop="totalDueForPeriod" [summaryFunc]="sum">
+                    </ngx-datatable-column>
+                    <ngx-datatable-column name="Paid" prop="totalPaidForPeriod" [summaryFunc]="sum">
+                    </ngx-datatable-column>
+                    <ngx-datatable-column name="In Advance" prop="totalPaidInAdvanceForPeriod" [summaryFunc]="sum">
+                    </ngx-datatable-column>
+                    <ngx-datatable-column name="Late" prop="totalPaidLateForPeriod" [summaryFunc]="sum">
+                    </ngx-datatable-column>
+                    <ngx-datatable-column name="Outstanding" prop="totalOutstandingForPeriod" [summaryFunc]="sum">
+                    </ngx-datatable-column>
 
                 </ngx-datatable>
+
+                <ng-template #daysSummary>
+                    <div class="daysSummary-container">
+                        <div class="chip">
+                            <span class="chip-content" style='color:#0A3677;font-weight: bold;'>Total</span>
+                        </div>
+                    </div>
+                </ng-template>
+
             </div>
         </section>
     </div>

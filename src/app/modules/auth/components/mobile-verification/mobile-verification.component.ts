@@ -298,7 +298,7 @@ export class MobileVerificationComponent implements OnInit {
   controlRedirection() {
     this._redirectionService.getAppliedLoans().subscribe(
       (res: any[]) => {
-        if (res.length > 0) {
+        if (res) {
           this._router.navigate(['/loans/list']);
         } else {
           this._router.navigate(['/auth/home/consent']);

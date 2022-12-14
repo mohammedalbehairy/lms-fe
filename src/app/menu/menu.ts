@@ -18,39 +18,47 @@ export const menu: CoreMenu[] = [
         url: 'dash/welcome'
       },
       {
-        id: 'myprofile',
-        title: 'My profile',
-        translate: 'MENU.PAGES.PROFILE',
+        id: 'loans',
+        title: 'Loans',
+        translate: 'MENU.PAGES.loans',
         type: 'item',
-        icon: 'user',
-        // url: 'loan/home'
-        url: 'user/profile'
+        icon: 'list',
+        url: 'loans/list',
       },
-      {
-        id: 'companyprofile',
-        title: 'Company profile',
-        translate: 'MENU.PAGES.companyprofile',
-        type: 'item',
-        icon: 'codesandbox',
-        // url: 'createloan/home'
-        url: 'company/profile'
-      },
-      {
-        id: 'uploadeddocuments',
-        title: 'Uploaded documents',
-        translate: 'MENU.PAGES.uploadeddocuments',
-        type: 'item',
-        icon: 'file-text',
-        url: 'documents/view'
-      },
-      {
-        id: 'uploadadocument',
-        title: 'Upload a document',
-        translate: 'MENU.PAGES.uploadadocument',
-        type: 'item',
-        icon: 'upload',
-        url: 'documents/upload'
-      },
+      // {
+      //   id: 'myprofile',
+      //   title: 'My profile',
+      //   translate: 'MENU.PAGES.PROFILE',
+      //   type: 'item',
+      //   icon: 'user',
+      //   // url: 'loan/home'
+      //   url: 'user/profile'
+      // },
+      // {
+      //   id: 'companyprofile',
+      //   title: 'Company profile',
+      //   translate: 'MENU.PAGES.companyprofile',
+      //   type: 'item',
+      //   icon: 'codesandbox',
+      //   // url: 'createloan/home'
+      //   url: 'company/profile'
+      // },
+      // {
+      //   id: 'uploadeddocuments',
+      //   title: 'Uploaded documents',
+      //   translate: 'MENU.PAGES.uploadeddocuments',
+      //   type: 'item',
+      //   icon: 'file-text',
+      //   url: 'documents/view'
+      // },
+      // {
+      //   id: 'uploadadocument',
+      //   title: 'Upload a document',
+      //   translate: 'MENU.PAGES.uploadadocument',
+      //   type: 'item',
+      //   icon: 'upload',
+      //   url: 'documents/upload'
+      // },
 
 
 

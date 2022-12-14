@@ -37,6 +37,7 @@ export const locale = {
       },
       PAGES: {
         SECTION: 'Pages',
+        loans: "Loans",
         AUTH: {
           COLLAPSIBLE: 'Authentication',
           LOGIN1: 'Login V1',
