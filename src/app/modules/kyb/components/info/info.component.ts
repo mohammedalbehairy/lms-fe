@@ -77,11 +77,9 @@ export class InfoComponent implements OnInit, AfterContentChecked {
   }
 
   getCodes() {
-    console.log('-------------getCodes----------------');
-
     return forkJoin([
       this._codesService.loadCode(17),
-      this._codesService.loadCode(281),
+      this._codesService.loadCode(24),
       this._codesService.loadCode(16),
     ])
       .pipe(
