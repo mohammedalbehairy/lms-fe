@@ -94,11 +94,11 @@ export class PersonalDetailsAddressPageComponent implements OnInit {
   onCountryChange(event) {
     let val = event ? event.target.value : '';
 
-    val == 1561
-      ? this.getCities(288)
-      : val == 1725
-      ? this.getCities(287)
-      : (this.cities = []);
+    val == 531
+    ? this.getCities(50)
+    : val == 354
+    ? this.getCities(51)
+    : (this.cities = []);
   }
 
   onSubmit() {
