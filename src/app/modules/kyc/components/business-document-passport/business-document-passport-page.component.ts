@@ -27,17 +27,21 @@ export class BusinessDocumentPassportPageComponent
   public passportExpiryDateOptions: any = {
     altInput: true,
     altFormat: 'j/m/Y',
+    minDate: moment().add(1, 'days').format('YYYY-MM-DD'),
   };
 
   public emiratesIdExpiryDateOptions: any = {
     altInput: true,
     altFormat: 'j/m/Y',
+    minDate: moment().add(1, 'days').format('YYYY-MM-DD'),
   };
 
   public residenceVisaExpiryDateOptions: any = {
     altInput: true,
     altFormat: 'j/m/Y',
+    minDate: moment().add(1, 'days').format('YYYY-MM-DD'),
   };
+
   public passportExpDate = null;
   public emiratesIdExpDate = null;
   public visaExpDate = null;

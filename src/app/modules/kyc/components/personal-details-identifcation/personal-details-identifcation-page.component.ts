@@ -30,11 +30,12 @@ export class PersonalDetailsIdentifcationPageComponent
   public emiratesIDExpiryDateOptions: any = {
     altInput: true,
     altFormat: 'j/m/Y',
-    minDate: moment().add(1, 'days').format("YYYY-MM-DD"),
+    minDate: moment().add(1, 'days').format('YYYY-MM-DD'),
   };
   public dateOfBirthOptions: any = {
     altInput: true,
     altFormat: 'j/m/Y',
+    maxDate: moment().subtract(5, 'years').format('YYYY-MM-DD'),
   };
 
   public yearsInUAEOptions: any = {
@@ -42,9 +43,8 @@ export class PersonalDetailsIdentifcationPageComponent
     altFormat: 'j/m/Y',
   };
 
-  public emirateExpDate = '2010-05-11';
-  public birthDate = '2010-05-11';
-  public yearsInUAEDate = '2010-05-11';
+  public emirateExpDate = moment().add(1, 'years').format('YYYY-MM-DD');
+  public birthDate = moment().subtract(6, 'years').format('YYYY-MM-DD');
 
   public infoForm: UntypedFormGroup;
   public submitted = false;
