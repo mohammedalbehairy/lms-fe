@@ -5,7 +5,6 @@ services:
     image: user-web-app:latest
     networks:
       - custom_network
-
     container_name: user-web-app
     restart: always
     volumes:

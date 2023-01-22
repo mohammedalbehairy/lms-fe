@@ -16,7 +16,7 @@ RUN npm install --legacy-peer-deps
 #RUN npm audit fix
 
 COPY . .
-
+#RUN ng build:prod
 RUN ng build --configuration production
 
 FROM nginx:1.19.3
