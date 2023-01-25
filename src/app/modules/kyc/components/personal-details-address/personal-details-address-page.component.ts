@@ -94,12 +94,12 @@ export class PersonalDetailsAddressPageComponent implements OnInit {
   onCountryChange(event) {
     let val = event ? event.target.value : '';
 
-    // get egypt cities 351
-    // get UAE cities 528
+     // get egypt cities 348
+    // get UAE cities 525
 
-    val == 528
-      ? this.getCities(50)
-      : val == 351
+    val == 348
+      ? this.getCities(52)
+      : val == 525
       ? this.getCities(51)
       : (this.cities = []);
   }
