@@ -97,10 +97,10 @@ export class PersonalDetailsHomeAddressPageComponent implements OnInit {
     // get egypt cities 351
     // get UAE cities 528
 
-    val == 528
-      ? this.getCities(50)
-      : val == 351
+    val == 525
       ? this.getCities(51)
+      : val == 348
+      ? this.getCities(52)
       : (this.cities = []);
   }
 
